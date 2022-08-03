@@ -1,2 +1,2 @@
 # my-portfolio
- Developing my portfolio with nodejs, mongodb, react and others tools
+ Developing my fullstack portfolio with Node.js, React.js, MERN, Express and other tools.
