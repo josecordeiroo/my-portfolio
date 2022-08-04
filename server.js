@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-require('dotenv').config
+require('dotenv').config()
+require('../my-portfolio/backend/db/mongoConnection')
 
 const app = express()
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 
 const api = require('./backend/routes')
 app.use('/api', api)
+
 
 
 const PORT = process.env.PORT
