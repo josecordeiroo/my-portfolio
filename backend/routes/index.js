@@ -1,4 +1,7 @@
 const router = require('express').Router()
+require('../db/mongoConnection')
+
+const portfolio = require('./portfolio')
 
 router.get('/', (req, res) => {
     res.json({
@@ -6,8 +9,6 @@ router.get('/', (req, res) => {
         message: '/api is just for server'
     })
 })
-
-const portfolio = require('./portfolio')
 
 router.use('/portfolio', portfolio)
 

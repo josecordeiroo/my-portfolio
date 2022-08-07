@@ -1,5 +1,12 @@
 const mongoose = require('mongoose')
 
-mongoose.connect(process.env.MONGO_URL_CONNECT, () => {
-    console.log('MongoDB is connected')
-})
+mongoose.connect(
+    process.env.MONGO_URL_CONNECT,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    },
+    () => {
+        console.log('MongoDB is connected')
+    }
+)
