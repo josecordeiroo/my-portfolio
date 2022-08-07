@@ -1,10 +1,9 @@
 {
   "name": "my-portfolio",
   "version": "1.0.0",
-  "description": "Developing my fullstack portfolio with Node.js, React.js, MERN, Express and other tools.",
+  "description": "Developing my fullstack portfolio with Node.js, React.js, MongoDB, Express and other tools.",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "keywords": [

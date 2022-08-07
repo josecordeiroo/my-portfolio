@@ -15,10 +15,7 @@ app.get('/', (req, res) => {
 })
 
 const api = require('./backend/routes')
-
 app.use('/api', api)
-
-
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
