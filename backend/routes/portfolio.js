@@ -23,24 +23,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.get('/', async (req, res) => {
-
-    try {
-        const portfolio = await Portfolio.find()
-
-        res.json({
-            success: true,
-            data: portfolio
-        })
-    } catch (err) {
-        res.json({
-            success: false,
-            message: err
-        })
-    }
-})
-
-// Read
+// Read One
 router.get('/:slug', async (req, res) => {
 
     try {
@@ -62,11 +45,29 @@ router.get('/:slug', async (req, res) => {
     res.json()
 })
 
+// Read all
+router.get('/', async (req, res) => {
+
+    try {
+        const portfolio = await Portfolio.find()
+
+        res.json({
+            success: true,
+            data: portfolio
+        })
+    } catch (err) {
+        res.json({
+            success: false,
+            message: err
+        })
+    }
+})
+
 // Update
 router.patch('/:slug', async (req, res) => {
     try {
 
-        const updatedPortfolio = await Portfolio.findOneAndUpdate({
+        const updatedPortfolio = await Portfolio.updateOne({
             slug: req.params.slug
         },
             {
@@ -76,7 +77,7 @@ router.patch('/:slug', async (req, res) => {
 
         res.json({
             success: true,
-            data: updatedPortfolio
+            updated: updatedPortfolio.modifiedCount
         })
 
     } catch (err) {
@@ -90,13 +91,12 @@ router.patch('/:slug', async (req, res) => {
 // Delete
 router.delete('/:slug', async (req, res) => {
     try {
-        const deletedPortfolio = await Portfolio.findOneAndDelete({
-            slug: req.params.slug
-        })
+        const name = await Portfolio.findOne({ slug: req.params.slug })
+        await Portfolio.deleteOne({ slug: req.params.slug })
 
         res.json({
             success: true,
-            data: deletedPortfolio
+            message: `${name.title} foi deletado.`
         })
 
     } catch (err) {
