@@ -4,7 +4,7 @@
   "description": "Developing my fullstack portfolio with Node.js, React.js, MongoDB, Express and other tools.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server"
   },
   "keywords": [
     "MERN",
