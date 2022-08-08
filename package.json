@@ -4,7 +4,9 @@
   "description": "Developing my fullstack portfolio with Node.js, React.js, MongoDB, Express and other tools.",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "backend": "nodemon server.js",
+    "frontend": "cd frontend && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\" ",
     "start": "node server.JS"
   },
   "keywords": [
@@ -25,6 +27,7 @@
     "slug": "^5.3.0"
   },
   "devDependencies": {
+    "concurrently": "^7.3.0",
     "nodemon": "^2.0.19"
   }
 }
