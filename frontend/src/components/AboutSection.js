@@ -7,7 +7,7 @@ const AboutSection = () => {
             <Description>
             <h1>José Cordeiro</h1>
             <h2>Fullstack Developer</h2>
-            <p>A Full Stack Developer is someone who works with the Back End — or server side — of the application as well as the Front End, or client side. Full Stack Developers have to have some skills in a wide variety of coding niches, from databases to graphic design and UI/UX management in order to do their job well.</p>
+            <p>Living in São Paulo, Brazil, I'm a fullstack programmer used to developing with javascript, dealing with the day-to-day tools that are highly sought after, such as Node.js, React, MongoDB and others. I am currently studying Systems Analysis and Development at Unisa University and looking for an internship in a company that can help me to develop myself more and more as a good professional.</p>
             <button>Contact Me</button>
             </Description>
 

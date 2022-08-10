@@ -2,6 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { About, Description, Image } from "../styles";
 
+//Import Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  solid,
+  regular,
+  brands,
+} from "@fortawesome/fontawesome-svg-core/import.macro";
+
 const ServiceSection = () => {
   return (
     <Services>
@@ -16,38 +24,37 @@ const ServiceSection = () => {
         <h2>Things I do</h2>
 
         <Cards>
-            <Card>
+          <Card>
             <div className="icon">
-              Icone
+              <FontAwesomeIcon icon={solid("laptop-code")} size="4x" />
               <h3>Portfolio</h3>
             </div>
             <p>Check my work on my portfolio</p>
-            </Card>
+          </Card>
 
           <Card>
             <div className="icon">
-              Icone
-              <h3>Meus cursos</h3>
+              <FontAwesomeIcon icon={brands("square-github")} size="4x" />
+              <h3>Github</h3>
             </div>
-            <p>Check my work on my cursos</p>
-            </Card>
+            <p>Follow the way I usually develop</p>
+          </Card>
 
           <Card>
             <div className="icon">
-              Icone
-              <h3>Github</h3>
+              <FontAwesomeIcon icon={solid("graduation-cap")} size="4x" />
+              <h3>Courses</h3>
             </div>
-            <p>Check my work on my portfolio</p>
-            </Card>
+            <p>See what I'm learning now</p>
+          </Card>
 
-            <Card>
+          <Card>
             <div className="icon">
-              Icone
-              <h3>Github</h3>
+              <FontAwesomeIcon icon={solid("images")} size="4x" />
+              <h3>Hobbies</h3>
             </div>
-            <p>Check my work on my portfolio</p>
-            </Card>
-
+            <p>Things I like to do</p>
+          </Card>
         </Cards>
       </Description>
     </Services>
@@ -55,14 +62,14 @@ const ServiceSection = () => {
 };
 
 const Services = styled(About)`
-    h2 {
-        padding: 1rem;
-    }
-    p{
-        width: 70%;
-        padding: 2rem 0rem 4rem 0rem;
-    }
-`
+  h2 {
+    padding: 1rem;
+  }
+  p {
+    width: 70%;
+    padding: 2rem 0rem 4rem 0rem;
+  }
+`;
 
 const Cards = styled.div`
   display: flex;
@@ -71,18 +78,19 @@ const Cards = styled.div`
 `;
 
 const Card = styled.div`
-    padding: 0.5rem;
-    flex-basis: 20rem;
-    .icon {
-        display: flex;
-        align-items: center;
-    }
-    h3{
-        margin-left: 1rem;
-        background-color: white;
-        color: black;
-        padding: 1rem;
-    }
+  padding: 0.5rem;
+  flex-basis: 20rem;
+  .icon {
+    display: flex;
+    align-items: center;
+  }
+  h3 {
+    border-radius: 15px 0px 15px 0px;
+    margin-left: 1rem;
+    background-color: white;
+    color: black;
+    padding: 1rem;
+  }
 `;
 
 export default ServiceSection;
