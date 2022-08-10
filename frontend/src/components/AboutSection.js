@@ -1,26 +1,24 @@
 import React from "react";
-import AboutUs from "../pages/AboutUS";
-
-import styled from "styled-components"
+import { About, Description, Image } from "../styles";
 
 const AboutSection = () => {
     return (
-        <div>
-            <Title>
-            <h2>José Cordeiro</h2>
-            <h2>Software Engineer</h2>
-            </Title>
-            <p>O engenheiro de software é o profissional responsável por projetar e guiar o desenvolvimento de sistemas, aplicativos e programas. O software é o conjunto de instruções lógicas de um computador ou sistema de processamento de dados, que irá orientar o que uma máquina deve fazer.</p>
-
+        <About>
+            <Description>
+            <h1>José Cordeiro</h1>
+            <h2>Fullstack Developer</h2>
+            <p>A Full Stack Developer is someone who works with the Back End — or server side — of the application as well as the Front End, or client side. Full Stack Developers have to have some skills in a wide variety of coding niches, from databases to graphic design and UI/UX management in order to do their job well.</p>
             <button>Contact Me</button>
+            </Description>
 
-            <img src="https://pbs.twimg.com/profile_images/1521802864166899712/nc7rXY-m_400x400.jpg"/>
-        </div>
+
+            <Image>
+            <img src="https://uploaddeimagens.com.br/images/003/976/204/original/Zeca.png?1660161794"/>
+            </Image>
+
+            
+        </About>
     )
 }
-
-const Title =  styled.div`
-    background: red;
-`
 
 export default AboutSection
