@@ -10,7 +10,7 @@ export const About  = styled.div`
 `;
 
 export const Description = styled.div`
-    flex: 1;
+    flex: 2;
     padding-right: 5rem;
     z-index: 2;
     h2 {
@@ -25,7 +25,7 @@ export const Image = styled.div`
     overflow: hidden;
     text-align: center;
     img {
-        width: 65%;
+        width: 75%;
         height: 75;
         object-fit: cover;
         border-radius: 30px;

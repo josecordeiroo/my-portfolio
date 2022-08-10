@@ -13,7 +13,7 @@ const AboutSection = () => {
 
 
             <Image>
-            <img src="https://uploaddeimagens.com.br/images/003/976/204/original/Zeca.png?1660161794"/>
+            <img src="https://uploaddeimagens.com.br/images/003/976/204/original/Zeca.png?1660161794" alt="Uma foto de José Cordeiro"/>
             </Image>
 
             
