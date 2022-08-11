@@ -15,7 +15,7 @@ const Nav = () => {
 
   return (
     <StyledNav>
-      <h1><Link to="/">José Cordeiro</Link></h1>
+      <h1><Link className="home" to="/">José Cordeiro</Link></h1>
       <ul>
         <li><Link to="/">{menuOptions.about}</Link></li>
         <li><Link to="/portfolio">{menuOptions.portfolio}</Link></li>
@@ -49,6 +49,9 @@ const StyledNav = styled.nav`
     font-size: 30px;
     text-decoration: none;
     color: white;
+  }
+  .home{
+    font-size: 50px;
   }
 `;
 

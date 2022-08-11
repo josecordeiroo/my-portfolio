@@ -4,7 +4,7 @@ import React from "react";
 import GlobalStyle from "./components/GlobalStyle";
 
 //Routes
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 //Components
 import AboutUs from "./pages/AboutMe";
