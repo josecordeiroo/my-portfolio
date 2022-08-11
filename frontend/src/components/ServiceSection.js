@@ -6,7 +6,6 @@ import { About, Description, Image } from "../styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   solid,
-  regular,
   brands,
 } from "@fortawesome/fontawesome-svg-core/import.macro";
 

@@ -7,7 +7,7 @@ const AboutSection = () => {
             <Description>
             <h1>José Cordeiro</h1>
             <h2>Fullstack Developer</h2>
-            <p>Living in São Paulo, Brazil, I'm a fullstack programmer used to developing with javascript, dealing with the day-to-day tools that are highly sought after, such as Node.js, React, MongoDB and others. I am currently studying Systems Analysis and Development at Unisa University and looking for an internship in a company that can help me to develop myself more and more as a good professional.</p>
+            <p>Living in São Paulo, Brazil, I'm a fullstack programmer used to developing with Javascript, dealing with the day-to-day tools that are highly sought after, such as Node.js, React, MongoDB and others. I am currently studying Systems Analysis and Development at Unisa University and looking for an internship in a company that can help me to develop myself more and more as a good professional.</p>
             <button>Contact Me</button>
             </Description>
 
