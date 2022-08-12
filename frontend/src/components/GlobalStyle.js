@@ -15,13 +15,13 @@ const GlobalStyle = createGlobalStyle`
 
     button{
         border-radius: 5px;
-        color: #98ff98;
+        color: #23d997;
         font-weight: bold;
         font-size: 1.1rem;
         cursor: pointer;
         padding: 1rem 2rem;
         background: transparent;
-        border: 3px solid #ffffff;
+        border: 1px solid #ffffff;
         transition: all 0.5s ease;
         &:hover{
             background-color: #23d997;
