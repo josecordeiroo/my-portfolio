@@ -27,7 +27,7 @@ const ContactStyled = styled.div`
 `;
 const Title = styled.div`
   margin-bottom: 2rem;
-  margin-top: 12rem;
+  margin-top: 6rem;
   h2 {
     color: #23d997;
   }
