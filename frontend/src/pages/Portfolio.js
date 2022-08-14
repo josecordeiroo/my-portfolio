@@ -4,14 +4,18 @@ import styled from "styled-components";
 
 import Card from "../components/Card";
 
+import {useApi} from '../hooks/useApi'
+
 const Portfolio = () => {
+  const {data} = useApi('/portfolio')
+
   return (
     <PortfolioList>
-      <div id="cardlist">
         <CardList>
-          <Card/>
+          {data?.data?.data?.map(project => {
+            return ( <Card project={project}/> )
+          })}
         </CardList>
-      </div>
     </PortfolioList>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-const Card = () => {
+const Card = ({project}) => {
   return (
     <StyledCard>
       <Content>
@@ -11,9 +11,9 @@ const Card = () => {
           alt="Code"
         />
         <Info>
-          <h3>My Portfolio</h3>
-          <h4>2022</h4>
-          <p>Short Description</p>
+          <h3>{project.title}</h3>
+          <h4></h4>
+          <p></p>
         </Info>
       </Content>
     </StyledCard>
