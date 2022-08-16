@@ -2,6 +2,11 @@ import React from "react";
 
 import styled from "styled-components";
 
+const formatDate = (date) => {
+      let editDate = (new Date(date)).toLocaleDateString();
+  return editDate
+}
+
 const Card = ({project}) => {
   return (
     <StyledCard>
@@ -12,8 +17,8 @@ const Card = ({project}) => {
         />
         <Info>
           <h3>{project.title}</h3>
-          <h4></h4>
-          <p></p>
+          <h4>{project.description}</h4>
+          <p>{formatDate(project.createdAt)}</p>
         </Info>
       </Content>
     </StyledCard>
