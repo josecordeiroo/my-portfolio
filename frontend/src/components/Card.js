@@ -12,13 +12,13 @@ const Card = ({project}) => {
     <StyledCard>
       <Content>
         <Image
-          src="https://images.pexels.com/photos/10845119/pexels-photo-10845119.jpeg?cs=srgb&dl=pexels-abdul-kayum-10845119.jpg&fm=jpg"
+          src={project.imgUrl}
           alt="Code"
         />
         <Info>
           <h3>{project.title}</h3>
-          <h4>{project.description}</h4>
-          <p>{formatDate(project.createdAt)}</p>
+          <h4>{formatDate(project.createdAt)}</h4>
+          <p>{project.description}</p>
         </Info>
       </Content>
     </StyledCard>
@@ -40,12 +40,12 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
-  height: 100%;
+  height: 70vh;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: 70%;
 `;
 
 const Info = styled.div`

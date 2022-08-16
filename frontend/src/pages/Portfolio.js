@@ -12,12 +12,12 @@ const Portfolio = () => {
     <PortfolioList>
       <CardList>
         {data ? (
-          Object(data.data.data).map((project) => {
+          Object(data.data).map((project) => {
             console.log(project)
             return <Card project={project} />;
           })
         ) : (
-          <p>Loading....</p>
+          <p>Searching in database... <br/><br/>Please, wait...</p>
         )}
       </CardList>
     </PortfolioList>

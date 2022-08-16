@@ -6,7 +6,8 @@ router.post('/', async (req, res) => {
 
     const portfolio = new Portfolio({
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        imgUrl: req.body.imgUrl
     })
 
     try {
