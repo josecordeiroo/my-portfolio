@@ -11,17 +11,19 @@ import AboutUs from "./pages/AboutMe";
 import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
+import PortfolioDetail from "./components/PortfolioDetail";
 
 function App() {
   return (
     <div>
       <GlobalStyle />
-      <Nav/>
-        <Routes>
-          <Route path="/" element={<AboutUs />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<ContactMe />} />
-        </Routes>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<AboutUs />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:id" element={<PortfolioDetail />} />
+        <Route path="/contact" element={<ContactMe />} />
+      </Routes>
     </div>
   );
 }

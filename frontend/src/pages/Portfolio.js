@@ -14,7 +14,7 @@ const Portfolio = () => {
         {data ? (
           Object(data.data).map((project) => {
             console.log(project)
-            return <Card project={project} />;
+            return <Card key={project.slug} project={project} />;
           })
         ) : (
           <p>Searching in database... <br/><br/>Please, wait...</p>
