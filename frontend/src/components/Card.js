@@ -1,22 +1,22 @@
 import React from "react";
-import moment from "moment"
+import moment from "moment";
 
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Card = ({project}) => {
+const Card = ({ project }) => {
   return (
     <StyledCard>
-      <Content>
-        <Image
-          src={project.imgUrl}
-          alt="Code"
-        />
-        <Info>
-          <h3>{project.title}</h3>
-          <h4>{moment(project.createdAt).format('MMM YYYY')}</h4>
-          <p>{project.description}</p>
-        </Info>
-      </Content>
+      <Link style={{textDecoration: "none"}} to={`/portfolio/${project.slug}`}>
+        <Content>
+          <Image src={project.imgUrl} alt="Code" />
+          <Info>
+            <h3>{project.title}</h3>
+            <h4>{moment(project.createdAt).format("MMM YYYY")}</h4>
+            <p>{project.description}</p>
+          </Info>
+        </Content>
+      </Link>
     </StyledCard>
   );
 };
@@ -28,8 +28,8 @@ const StyledCard = styled.div`
   border-radius: 10px;
   cursor: pointer;
   overflow: hidden;
-  -webkit-box-shadow: 0px -1px 12px -1px rgba(87,255,222,0.65); 
-  box-shadow: 0px -1px 12px -1px rgba(87,255,222,0.65);
+  -webkit-box-shadow: 0px -1px 12px -1px rgba(87, 255, 222, 0.65);
+  box-shadow: 0px -1px 12px -1px rgba(87, 255, 222, 0.65);
 `;
 
 const Content = styled.div`
@@ -52,8 +52,11 @@ const Info = styled.div`
   justify-content: space-between;
   flex-direction: column;
   h3 {
+    font-size: 20px;
     padding-top: 2rem;
   }
 `;
+
+
 
 export default Card;
