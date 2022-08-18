@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Card = ({ project }) => {
   return (
     <StyledCard>
-      <Link style={{textDecoration: "none"}} to={`/project/${project.slug}`}>
+      <Link to={`/portfolio/${project.slug}`}>
         <Content>
           <Image src={project.imgUrl} alt="Code" />
           <Info>

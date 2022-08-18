@@ -11,13 +11,17 @@ const Portfolio = () => {
   return (
     <PortfolioList>
       <CardList>
-      {data ? (
-          Object(data.data).map((project) => {
-            console.log(project)
+        {data ? (
+          data.data.map((project) => {
+            console.log(project);
             return <Card key={project.slug} project={project} />;
           })
         ) : (
-          <p>Searching in database... <br/><br/>Please, wait...</p>
+          <p>
+            Searching in database... <br />
+            <br />
+            Please, wait...
+          </p>
         )}
       </CardList>
     </PortfolioList>
