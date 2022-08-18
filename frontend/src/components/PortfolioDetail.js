@@ -16,9 +16,9 @@ const PortfolioDetail = () => {
     <Detail>
       <Stats>
         <div>
-          <Title></Title>
+          <Title>{data && data.data.title}</Title>
           <DescriptionShort>
-            <p></p>
+            <p>{data && data.data.description}</p>
           </DescriptionShort>
         </div>
 
@@ -60,11 +60,11 @@ const PortfolioDetail = () => {
 
       <Description>
         <p>
-
+        {data && data.data.longDescription}
         </p>
       </Description>
 
-      <img src="https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?cs=srgb&dl=pexels-antonio-batini%C4%87-4164418.jpg&fm=jpg" alt="imagem ilustrativa"></img>
+      <img src={data && data.data.imgUrl} alt="imagem ilustrativa"></img>
     </Detail>
   );
 };

@@ -19,6 +19,9 @@ const portfolioSchema = new Schema({
         type: String,
         required: true
     },
+    longDescription: {
+        type: String
+    },
     imgUrl: {
         type: String,
         default: "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?cs=srgb&dl=pexels-antonio-batini%C4%87-4164418.jpg&fm=jpg"
