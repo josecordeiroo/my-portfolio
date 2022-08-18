@@ -20,8 +20,8 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<AboutUs />} />
-        <Route path="/portfolio" element={<Portfolio />} exactly/>
-        <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
+        <Route path="/portfolio" element={<Portfolio />}/>
+        <Route path="/project/:slug" element={<PortfolioDetail />} />
         <Route path="/contact" element={<ContactMe />} />
       </Routes>
     </div>

@@ -8,6 +8,7 @@ router.post("/", async (req, res) => {
     description: req.body.description,
     longDescription: req.body.longDescription,
     imgUrl: req.body.imgUrl,
+    technologies: req.body.technologies,
   });
 
   try {
