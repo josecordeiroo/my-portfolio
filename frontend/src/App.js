@@ -13,6 +13,13 @@ import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
 import PortfolioDetail from "./components/PortfolioDetail";
 
+//Icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faFacebook, faReact, faSquareGithub, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons"
+import { faGraduationCap, faImages, faLaptopCode } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faTwitter, faReact, faFacebook, faYoutube, faLaptopCode, faSquareGithub, faGraduationCap, faImages)
+
 function App() {
   return (
     <div>

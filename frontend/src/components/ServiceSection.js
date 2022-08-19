@@ -2,12 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { About, Description, Image } from "../styles";
 
-//Import Icons
+//Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  solid,
-  brands,
-} from "@fortawesome/fontawesome-svg-core/import.macro";
 
 const ServiceSection = () => {
   return (
@@ -25,7 +21,7 @@ const ServiceSection = () => {
         <Cards>
           <Card>
             <div className="icon">
-              <FontAwesomeIcon icon={solid("laptop-code")} size="4x" />
+              <FontAwesomeIcon icon={["solid", "laptop-code"]} size="4x" />
               <h3>Portfolio</h3>
             </div>
             <p>Check my work on my portfolio</p>
@@ -33,7 +29,7 @@ const ServiceSection = () => {
 
           <Card>
             <div className="icon">
-              <FontAwesomeIcon icon={brands("square-github")} size="4x" />
+              <FontAwesomeIcon icon={["brands", "square-github"]} size="4x" />
               <h3>Github</h3>
             </div>
             <p>Follow the way I usually develop</p>
@@ -41,7 +37,7 @@ const ServiceSection = () => {
 
           <Card>
             <div className="icon">
-              <FontAwesomeIcon icon={solid("graduation-cap")} size="4x" />
+              <FontAwesomeIcon icon={["solid", "graduation-cap"]} size="4x" />
               <h3>Courses</h3>
             </div>
             <p>See what I'm learning now</p>
@@ -49,7 +45,7 @@ const ServiceSection = () => {
 
           <Card>
             <div className="icon">
-              <FontAwesomeIcon icon={solid("images")} size="4x" />
+              <FontAwesomeIcon icon={["solid", "images"]} size="4x" />
               <h3>Hobbies</h3>
             </div>
             <p>Things I like to do</p>

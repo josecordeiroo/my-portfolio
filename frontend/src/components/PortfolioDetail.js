@@ -6,7 +6,6 @@ import useApi from "../hooks/useApi.js";
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { brands } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 const PortfolioDetail = () => {
   const { slug } = useParams();
@@ -18,7 +17,7 @@ const PortfolioDetail = () => {
         <div>
           <Title>{data && data.data.title}</Title>
           <DescriptionShort>
-            {/* <p>{data && data.data.description}</p> */}
+            <p>{data && data.data.description}</p>
           </DescriptionShort>
         </div>
 
@@ -26,36 +25,22 @@ const PortfolioDetail = () => {
           <h5>Technologies</h5>
 
           <Technologies>
-          {data &&
+            {data &&
               data.data.technologies.map((tech) => {
-                return (
-                  <Technology key={tech.label}>
-                    <FontAwesomeIcon
-                      icon={tech.iconType[tech.icon]}
-                      size="3x"
-                    />
+                  return <Technology key={tech.label}>
+                    <FontAwesomeIcon icon={[tech.iconType, tech.icon]} size="3x" />
                     {tech.label}
-
-
-                    {/* <FontAwesomeIcon
-                      icon={brands("facebook")}
-                      size="3x"
-                    />
-                    {tech.label} */}
-
-
-                  </Technology>
-                );
+                  </Technology>;
               })}
           </Technologies>
         </Info>
       </Stats>
 
       <Description>
-        {/* <p>{data && data.data.longDescription}</p> */}
+        <p>{data && data.data.longDescription}</p>
       </Description>
 
-      {/* <img src={data && data.data.imgUrl} alt="imagem ilustrativa"></img> */}
+      <img src={data && data.data.imgUrl} alt="imagem ilustrativa"></img>
     </Detail>
   );
 };
