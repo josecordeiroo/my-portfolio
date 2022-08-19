@@ -42,8 +42,6 @@ router.get("/:slug", async (req, res) => {
       message: err,
     });
   }
-
-  res.json();
 });
 
 // Read all
