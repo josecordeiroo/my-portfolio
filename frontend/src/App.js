@@ -14,10 +14,31 @@ import Nav from "./components/Nav";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faFacebook, faReact, faSquareGithub, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons"
-import { faGraduationCap, faImages, faLaptopCode } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faReact,
+  faSquareGithub,
+  faNode,
+  faJs,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faGraduationCap,
+  faImages,
+  faLaptopCode,
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faTwitter, faReact, faFacebook, faYoutube, faLaptopCode, faSquareGithub, faGraduationCap, faImages)
+library.add(
+  faReact,
+  faFacebook,
+  faLaptopCode,
+  faSquareGithub,
+  faGraduationCap,
+  faImages,
+  faNode,
+  faJs,
+  faGithub
+);
 
 function App() {
   return (
@@ -26,15 +47,8 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<AboutUs />} />
-
-
-        <Route path="/portfolio" element={<Portfolio />}/>
-        <Route path="/portfolio/:slug" element={<Portfolio/>}/>
-          
-        
-
-
-
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:slug" element={<Portfolio />} />
         <Route path="/contact" element={<ContactMe />} />
       </Routes>
     </div>
