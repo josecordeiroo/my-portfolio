@@ -55,7 +55,7 @@ const PortfolioDetail = () => {
           <p>{data && data.data.longDescription}</p>
         </Description>
 
-        <img src={data && data.data.imgUrl} alt="imagem ilustrativa"></img>
+        <img src={data && data.data.imgUrl} alt="illustrative"></img>
       </Detail>
     </CardShaddow>
   );
