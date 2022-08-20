@@ -11,7 +11,6 @@ import AboutUs from "./pages/AboutMe";
 import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
-import PortfolioDetail from "./components/PortfolioDetail";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -27,8 +26,15 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<AboutUs />} />
-        <Route exact path="/portfolio" element={<Portfolio />}/>
-        <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
+
+
+        <Route path="/portfolio" element={<Portfolio />}/>
+        <Route path="/portfolio/:slug" element={<Portfolio/>}/>
+          
+        
+
+
+
         <Route path="/contact" element={<ContactMe />} />
       </Routes>
     </div>
