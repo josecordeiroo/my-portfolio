@@ -1,19 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
+import moment from "moment";
 
 import styled from "styled-components";
 
+import { save } from "../services/Sheet";
+
 const ContactForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const contactMeHandler = (e) => {
+    e.preventDefault();
+
+    const data = {
+      Nome: name,
+      Email: email,
+      Mensagem: message,
+      Data: moment().format("DD-MM-YYYY"),
+      Hora: moment().format("HH:mm:ss"),
+    };
+
+    save(data);
+  };
+
   return (
-    <Form id="contact-form" method="post">
+    <Form onSubmit={contactMeHandler}>
       <Input>
         <label>Name:</label>
-        <input type="text" />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
       </Input>
       <Input>
-        <label>E-mail:</label> <input type="email" />
+        <label>E-mail:</label>{" "}
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
       </Input>
       <Input>
-        <label>Message:</label> <textarea rows="5" />
+        <label>Message:</label>{" "}
+        <textarea
+          rows="5"
+          value={message}
+          onChange={(e) => {
+            setMessage(e.target.value);
+          }}
+        />
       </Input>
       <button type="submit">Submit</button>
     </Form>
@@ -53,8 +94,6 @@ const Input = styled.div`
     font-size: 15px;
   }
 `;
-
-
 
 const Form = styled.form``;
 
