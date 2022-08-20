@@ -11,7 +11,6 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
 
   const contactMeHandler = (e) => {
-    e.preventDefault();
 
     const data = {
       Nome: name,
