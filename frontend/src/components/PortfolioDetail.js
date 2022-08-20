@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useApi from "../hooks/useApi.js";
 
 //Import Icons
@@ -10,38 +10,54 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const PortfolioDetail = () => {
   const { slug } = useParams();
   const { data } = useApi(`/portfolio/${slug}`);
+  const history = useNavigate();
+
+  const exitDetailHandler = (e) => {
+    const element = e.target
+    if (element.classList.contains('shaddow')) {
+      document.body.style.overflow = 'auto'
+      history('/portfolio')
+    }
+  }
 
   return (
-    <Detail>
-      <Stats>
-        <div>
-          <Title>{data && data.data.title}</Title>
-          <DescriptionShort>
-            <p>{data && data.data.description}</p>
-          </DescriptionShort>
-        </div>
+    <CardShaddow className="shaddow" onClick={exitDetailHandler}>
+      <Detail>
+        <Stats>
+          <div>
+            <Title>{data && data.data.title}</Title>
+            <DescriptionShort>
+              <p>{data && data.data.description}</p>
+            </DescriptionShort>
+          </div>
 
-        <Info>
-          <h5>Technologies</h5>
+          <Info>
+            <h5>Technologies</h5>
 
-          <Technologies>
-            {data &&
-              data.data.technologies.map((tech) => {
-                  return <Technology key={tech.label}>
-                    <FontAwesomeIcon icon={[tech.iconType, tech.icon]} size="3x" />
-                    {tech.label}
-                  </Technology>;
-              })}
-          </Technologies>
-        </Info>
-      </Stats>
+            <Technologies>
+              {data &&
+                data.data.technologies.map((tech) => {
+                  return (
+                    <Technology key={tech.label}>
+                      <FontAwesomeIcon
+                        icon={[tech.iconType, tech.icon]}
+                        size="3x"
+                      />
+                      {tech.label}
+                    </Technology>
+                  );
+                })}
+            </Technologies>
+          </Info>
+        </Stats>
 
-      <Description>
-        <p>{data && data.data.longDescription}</p>
-      </Description>
+        <Description>
+          <p>{data && data.data.longDescription}</p>
+        </Description>
 
-      <img src={data && data.data.imgUrl} alt="imagem ilustrativa"></img>
-    </Detail>
+        <img src={data && data.data.imgUrl} alt="imagem ilustrativa"></img>
+      </Detail>
+    </CardShaddow>
   );
 };
 
@@ -108,6 +124,27 @@ const Info = styled.div`
   h5 {
     color: gray;
     font-weight: lighter;
+  }
+`;
+
+const CardShaddow = styled.div`
+  width: 100%;
+  min-height: 100%;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: green;
+
+  }
+  &::-webkit-scrollbar-track {
+    background: white;
   }
 `;
 

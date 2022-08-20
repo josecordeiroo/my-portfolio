@@ -1,15 +1,23 @@
 import React from "react";
 
 import styled from "styled-components";
-
-import Card from "../components/Card";
-
+import { useLocation } from "react-router-dom";
 import useApi from "../hooks/useApi";
 
+import Card from "../components/Card";
+import PortfolioDetail from "../components/PortfolioDetail"
+
 const Portfolio = () => {
+
+  const location = useLocation()
+  const slug = location.pathname.split('/')[2]
   const { data } = useApi("/portfolio");
+
   return (
     <PortfolioList>
+
+    {slug && <PortfolioDetail/>}
+
       <CardList>
         {data ? (
           data.data.map((project) => {
