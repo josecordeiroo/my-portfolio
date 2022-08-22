@@ -9,8 +9,17 @@ const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
-  const contactMeHandler = (e) => {
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
+  const contactMeHandler = async (e) => {
+    e.preventDefault();
 
     const data = {
       Nome: name,
@@ -20,7 +29,13 @@ const ContactForm = () => {
       Hora: moment().format("HH:mm:ss"),
     };
 
-    save(data);
+    const result = await save(data);
+
+    console.log(result)
+
+    setSuccess(result);
+    setError(!result);
+    resetForm();
   };
 
   return (
@@ -56,6 +71,8 @@ const ContactForm = () => {
         />
       </Input>
       <button type="submit">Submit</button>
+      {success && <h4>Success: Message send.</h4>}
+      {error && <h4>Error: Please, try again.</h4>}
     </Form>
   );
 };
@@ -94,6 +111,13 @@ const Input = styled.div`
   }
 `;
 
-const Form = styled.form``;
+const Form = styled.form`
+  button {
+    margin-top: 1rem;
+  }
+  h4 {
+    margin-top: 1rem;
+  }
+`;
 
 export default ContactForm;
