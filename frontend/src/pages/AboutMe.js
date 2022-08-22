@@ -1,7 +1,7 @@
 import React from "react";
 import AboutSection from "../components/AboutSection";
 import ServiceSection from "../components/ServiceSection";
-import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 
 import { pageAnimation } from "../animation";
 

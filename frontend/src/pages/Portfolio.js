@@ -5,34 +5,43 @@ import { useLocation } from "react-router-dom";
 import useApi from "../hooks/useApi";
 
 import Card from "../components/Card";
-import PortfolioDetail from "../components/PortfolioDetail"
+import PortfolioDetail from "../components/PortfolioDetail";
+
+//Animations
+import { motion } from "framer-motion/dist/framer-motion";
+import { pageAnimation } from "../animation";
 
 const Portfolio = () => {
-
-  const location = useLocation()
-  const slug = location.pathname.split('/')[2]
+  const location = useLocation();
+  const slug = location.pathname.split("/")[2];
   const { data } = useApi("/portfolio");
 
   return (
-    <PortfolioList>
+    <motion.div
+      exit="exit"
+      initial="hidden"
+      animate="show"
+      variants={pageAnimation}
+    >
+      <PortfolioList>
+        {slug && <PortfolioDetail />}
 
-    {slug && <PortfolioDetail/>}
-
-      <CardList>
-        {data ? (
-          data.data.map((project) => {
-            console.log(project);
-            return <Card key={project.slug} project={project} />;
-          })
-        ) : (
-          <p>
-            Searching in database... <br />
-            <br />
-            Please, wait...
-          </p>
-        )}
-      </CardList>
-    </PortfolioList>
+        <CardList>
+          {data ? (
+            data.data.map((project) => {
+              console.log(project);
+              return <Card key={project.slug} project={project} />;
+            })
+          ) : (
+            <p>
+              Searching in database... <br />
+              <br />
+              Please, wait...
+            </p>
+          )}
+        </CardList>
+      </PortfolioList>
+    </motion.div>
   );
 };
 

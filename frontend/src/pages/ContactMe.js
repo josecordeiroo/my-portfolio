@@ -6,17 +6,28 @@ import styled from "styled-components";
 import SocialNetworkSection from "../components/SocialNetworkSection";
 import ContactForm from "../components/ContactForm";
 
+//Animations
+import { motion } from "framer-motion/dist/framer-motion";
+import { pageAnimation } from "../animation";
+
 const ContactMe = () => {
   return (
-    <ContactStyled>
-      <Title>
-        <h2>Get in touch</h2>
-      </Title>
-      <Areas>
-        <ContactForm />
-        <SocialNetworkSection />
-      </Areas>
-    </ContactStyled>
+    <motion.div
+      exit="exit"
+      initial="hidden"
+      animate="show"
+      variants={pageAnimation}
+    >
+      <ContactStyled>
+        <Title>
+          <h2>Get in touch</h2>
+        </Title>
+        <Areas>
+          <ContactForm />
+          <SocialNetworkSection />
+        </Areas>
+      </ContactStyled>
+    </motion.div>
   );
 };
 
