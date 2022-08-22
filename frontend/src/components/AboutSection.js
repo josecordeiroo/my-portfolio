@@ -3,11 +3,19 @@ import { About, Description, Image } from "../styles";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
-import { titleAnimation, fade, photoAnimation } from "../animation";
+import { titleAnimation, fade, photoAnimation, scrollReveal } from "../animation";
+import { useScroll } from "../hooks/useScroll";
 
 const AboutSection = () => {
+  const [element, controls] = useScroll()
+  
   return (
-    <About>
+    <About
+      variants={scrollReveal}
+      animate={controls}
+      initial='hidden'
+      ref={element}
+    >
       <Description>
         <motion.h1 variants={titleAnimation}>José Cordeiro</motion.h1>
         <motion.h2 variants={titleAnimation}>Fullstack Developer</motion.h2>

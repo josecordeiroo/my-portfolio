@@ -5,9 +5,19 @@ import { About, Description, Image } from "../styles";
 //Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { scrollReveal } from "../animation";
+import { useScroll } from "../hooks/useScroll";
+
 const ServiceSection = () => {
+  const [element, controls] = useScroll();
+
   return (
-    <Services>
+    <Services
+      variants={scrollReveal}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <Image>
         <img
           src="https://cdn2.iconfinder.com/data/icons/business-and-commercial-mixed-hexagone/128/4-512.png"
