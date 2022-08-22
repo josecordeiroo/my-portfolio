@@ -1,15 +1,21 @@
 import React from "react";
 import AboutSection from "../components/AboutSection";
 import ServiceSection from "../components/ServiceSection";
+import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
 
-const AboutUs = () => {
+import { pageAnimation } from "../animation";
 
+const AboutMe = () => {
   return (
-    <div>
+    <motion.div
+    exit='exit'
+    initial='hidden'
+    animate='show'
+    variants={pageAnimation}>
       <AboutSection />
       <ServiceSection />
-    </div>
+    </motion.div>
   );
 };
 
-export default AboutUs;
+export default AboutMe;

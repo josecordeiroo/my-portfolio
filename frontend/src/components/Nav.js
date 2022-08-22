@@ -36,6 +36,7 @@ const StyledNav = styled.nav`
   position: sticky;
   top: 0;
   color: white;
+  z-index: 10;
   ul {
     display: flex;
     list-style: none;
