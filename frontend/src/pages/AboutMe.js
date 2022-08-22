@@ -3,6 +3,7 @@ import AboutSection from "../components/AboutSection";
 import ServiceSection from "../components/ServiceSection";
 import { motion } from "framer-motion/dist/framer-motion";
 
+
 import { pageAnimation } from "../animation";
 
 const AboutMe = () => {
@@ -14,6 +15,7 @@ const AboutMe = () => {
     variants={pageAnimation}>
       <AboutSection />
       <ServiceSection />
+      
     </motion.div>
   );
 };

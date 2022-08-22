@@ -44,7 +44,7 @@ export const fade = {
   show: {
     opacity: 1,
     transition: {
-      duration: 0.75,
+      duration: 1.75,
       ease: "easeOut",
     },
   },

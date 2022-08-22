@@ -13,12 +13,12 @@ const PortfolioDetail = () => {
   const history = useNavigate();
 
   const exitDetailHandler = (e) => {
-    const element = e.target
-    if (element.classList.contains('shaddow')) {
-      document.body.style.overflow = 'auto'
-      history('/portfolio')
+    const element = e.target;
+    if (element.classList.contains("shaddow")) {
+      document.body.style.overflow = "auto";
+      history("/portfolio");
     }
-  }
+  };
 
   return (
     <CardShaddow className="shaddow" onClick={exitDetailHandler}>
@@ -141,7 +141,6 @@ const CardShaddow = styled.div`
   }
   &::-webkit-scrollbar-thumb {
     background-color: green;
-
   }
   &::-webkit-scrollbar-track {
     background: white;

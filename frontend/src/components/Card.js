@@ -4,8 +4,13 @@ import moment from "moment";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+//Animations
+import { motion } from "framer-motion/dist/framer-motion";
+import { titleAnimation, fade, photoAnimation, scrollReveal } from "../animation";
+
 const Card = ({ project }) => {
   return (
+    <motion.div variants={fade}>
     <StyledCard>
       <Link style={{textDecoration: "none"}} to={`/portfolio/${project.slug}`}>
         <Content>
@@ -18,6 +23,7 @@ const Card = ({ project }) => {
         </Content>
       </Link>
     </StyledCard>
+    </motion.div>
   );
 };
 
