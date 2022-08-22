@@ -8,7 +8,7 @@ import ContactForm from "../components/ContactForm";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
-import { pageAnimation } from "../animation";
+import { pageAnimation, titleAnimation } from "../animation";
 
 const ContactMe = () => {
   return (
@@ -20,7 +20,7 @@ const ContactMe = () => {
     >
       <ContactStyled>
         <Title>
-          <h2>Get in touch</h2>
+          <motion.h2 variants={titleAnimation}>Get in touch</motion.h2>
         </Title>
         <Areas>
           <ContactForm />
