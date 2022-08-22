@@ -18,7 +18,7 @@ const ContactForm = () => {
     setMessage("");
   };
 
-  const contactMeHandler = async (e) => {
+  const contactMeHandler = (e) => {
     e.preventDefault();
 
     const data = {
@@ -29,12 +29,14 @@ const ContactForm = () => {
       Hora: moment().format("HH:mm:ss"),
     };
 
-    const result = await save(data);
+    try {
+      save(data);
+      setSuccess(true);
+    } catch (err) {
+      setError(true);
+      console.log(err);
+    }
 
-    console.log(result)
-
-    setSuccess(result);
-    setError(!result);
     resetForm();
   };
 
@@ -117,6 +119,7 @@ const Form = styled.form`
   }
   h4 {
     margin-top: 1rem;
+    margin-left: 25rem;
   }
 `;
 
