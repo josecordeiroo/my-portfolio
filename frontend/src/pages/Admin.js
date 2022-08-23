@@ -1,13 +1,10 @@
 import React from "react";
 
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import Tabs from "react-bootstrap/Tabs";
-import Tab from "react-bootstrap/Tab";
+import {Modal, Tabs, Tab, Container } from "react-bootstrap"
 
 const Admin = () => {
   return (
-    <div>
+    <Container fluid>
       <Modal.Dialog>
         <Modal.Header>
           <Modal.Title>Admin Panel</Modal.Title>
@@ -15,15 +12,17 @@ const Admin = () => {
       </Modal.Dialog>
       <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
         <Tab eventKey={1} title="Home">
-          <h2>Welcome</h2>>
+          <h2>Bem-vindo</h2>
         </Tab>
         <Tab eventKey={2} title="Portfolio">
           <h2>Portfolio</h2>
         </Tab>
-        <Tab eventKey={3} title="Configuraçãoes (Em breve)" disabled></Tab>
+        <Tab eventKey={3} title="Tecnologias">
+        <h2>Tecnologias</h2>
+        </Tab>
       </Tabs>
       ;
-    </div>
+    </Container>
   );
 };
 
