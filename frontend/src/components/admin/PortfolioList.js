@@ -1,41 +1,49 @@
 import React from "react";
+import moment from "moment";
+import useApi from "../../hooks/useApi";
 
-import { Table } from "react-bootstrap";
+import { Table, Button, Image } from "react-bootstrap";
+import styled from "styled-components";
 
 const PortfolioList = () => {
+  const { data } = useApi("/portfolio");
+
   return (
     <div>
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Image</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>Imagem</th>
+            <th>Título</th>
+            <th>Data</th>
+            <th>Opções</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan={2}>Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {data &&
+            data.data.map((project) => {
+              return (
+                <tr key={project.slug}>
+                  <td>
+                    <Logo src={project.imgUrl} thumbnail />
+                  </td>
+                  <td>{project.title}</td>
+                  <td>{moment(project.createdAt).format("DD-MM-YYYY")}</td>
+                  <td>
+                    <Button variant="info">Editar</Button>{" "}
+                    <Button variant="danger">Excluir</Button>{" "}
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
       </Table>
     </div>
   );
 };
+
+const Logo = styled(Image)`
+  height: 150px;
+`;
 
 export default PortfolioList;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Modal, Tabs, Tab, Container } from "react-bootstrap"
+import {Tabs, Tab, Container } from "react-bootstrap"
 
 import PortfolioList from "../components/admin/PortfolioList";
 
