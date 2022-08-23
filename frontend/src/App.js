@@ -4,13 +4,14 @@ import React from "react";
 import GlobalStyle from "./components/GlobalStyle";
 
 //Routes
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 //Components
 import AboutUs from "./pages/AboutMe";
 import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
+import Admin from "./pages/Admin";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -41,15 +42,18 @@ library.add(
 );
 
 function App() {
+  const location = useLocation()
+
   return (
     <div>
       <GlobalStyle />
-      <Nav />
+      {location.pathname !== '/admin' && <Nav />}
       <Routes>
         <Route path="/" element={<AboutUs />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/:slug" element={<Portfolio />} />
         <Route path="/contact" element={<ContactMe />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </div>
   );

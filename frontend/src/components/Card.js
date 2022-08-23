@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
-import { titleAnimation, fade, photoAnimation, scrollReveal } from "../animation";
+import { fade } from "../animation";
 
 const Card = ({ project }) => {
   return (
