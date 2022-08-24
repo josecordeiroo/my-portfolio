@@ -13,7 +13,7 @@ const Admin = () => {
         <h2>Painel Administrador</h2>
         </NavBar>
       <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-        <Tab eventKey={1} title="Início">
+        <Tab eventKey={1} title="Inícionpm">
           <h2>Início</h2>
         </Tab>
         <Tab eventKey={2} title="Projetos">
