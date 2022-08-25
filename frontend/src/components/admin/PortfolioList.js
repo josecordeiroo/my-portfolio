@@ -2,12 +2,43 @@ import React, { useState } from "react";
 import moment from "moment";
 import useApi from "../../hooks/useApi";
 
-import { Table, Button, Image, Modal } from "react-bootstrap";
+import { Table, Button, Image } from "react-bootstrap";
 import styled from "styled-components";
 
+import Dialog from "../Dialog";
+
 const PortfolioList = () => {
-  const [show, setShow] = useState(false);
   const { data } = useApi("/portfolio");
+  const action = {
+    del: {
+      header: "Excluir ",
+      btnVariant: "danger",
+      btnLabel: "Confirmar",
+    },
+    edit: {
+      header: "Deseja editar ",
+      btnVariant: "primary",
+      btnLabel: "Editar",
+    },
+    add: {
+      header: "Add New Portfolio?",
+      btnVariant: "primary",
+      btnLabel: "Save",
+    },
+  };
+  const [currentAction, setCurrentAction] = useState({
+    header: " ",
+    btnVariant: " ",
+    btnLabel: " ",
+  });
+  const [title, setTitle] = useState();
+  const [show, setShow] = useState(false);
+
+  const handleShow = (title, actn) => {
+    setTitle(title);
+    setCurrentAction(actn);
+    setShow(true);
+  };
 
   return (
     <div>
@@ -31,10 +62,13 @@ const PortfolioList = () => {
                   <td>{project.title}</td>
                   <td>{moment(project.createdAt).format("DD-MM-YYYY")}</td>
                   <td>
-                    <Button variant="info">
-                      Editar
+                    <Button variant="info">Editar</Button>{" "}
+                    <Button
+                      variant="danger"
+                      onClick={() => handleShow(project.title, action.del)}
+                    >
+                      Excluir
                     </Button>{" "}
-                    <Button variant="danger" onClick={() => setShow(true)}>Excluir</Button>{" "}
                   </td>
                 </tr>
               );
@@ -42,20 +76,12 @@ const PortfolioList = () => {
         </tbody>
       </Table>
 
-      <Modal show={show} onHide={() => setShow(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirme a exclusão</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Tem certeza que deseja excluir o projeto?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShow(false)}>
-            Cancelar
-          </Button>
-          <Button variant="danger" onClick={() => setShow(false)}>
-            Confirmar
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <Dialog
+        show={show}
+        setShow={setShow}
+        currentAction={currentAction}
+        title={title}
+      />
     </div>
   );
 };
