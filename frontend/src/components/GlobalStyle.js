@@ -66,7 +66,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     label{
-        color: white;
+        color: black;
         font-weight: bold;
     }
 

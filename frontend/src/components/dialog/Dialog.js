@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Modal } from "react-bootstrap";
 
-const Dialog = ({ show, setShow, currentAction, title }) => {
+const Dialog = ({ show, setShow, currentAction, title, children }) => {
   return (
     <Modal
       show={show}
@@ -11,9 +11,9 @@ const Dialog = ({ show, setShow, currentAction, title }) => {
       keyboard={false}
     >
       <Modal.Header closeButton>
-        <Modal.Title>{`${currentAction.header} "${title}"?`}</Modal.Title>
+        <Modal.Title>{`${currentAction.header} ${title}:`}</Modal.Title>
       </Modal.Header>
-      <Modal.Body></Modal.Body>
+      <Modal.Body>{children}</Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={() => setShow(false)}>
           Cancelar
