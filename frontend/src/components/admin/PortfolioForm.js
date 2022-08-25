@@ -1,6 +1,9 @@
 import React from "react";
 
-import { Form, Container } from "react-bootstrap";
+import { Form, Container, Card, Col, Row, Button } from "react-bootstrap";
+
+//Import Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PortfolioForm = ({
   title,
@@ -50,6 +53,95 @@ const PortfolioForm = ({
           />
         </Form.Group>
       </Form>
+
+      <br />
+      <h3 style={{ color: "black", fontSize: "small" }}>
+        Tecnologias usadas:{" "}
+      </h3>
+      <Row xs="auto" md="auto" className="g-2">
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Text>
+                <FontAwesomeIcon icon={["brands", "github"]} size="4x" />
+                Github
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <Button variant="danger">Remover</Button>
+            </Card.Footer>
+          </Card>
+        </Col>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Text>
+                <FontAwesomeIcon icon={["brands", "github"]} size="4x" />
+                Github
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <Button variant="danger">Remover</Button>
+            </Card.Footer>
+          </Card>
+        </Col>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Text>
+                <FontAwesomeIcon icon={["brands", "github"]} size="4x" />
+                Github
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <Button variant="danger">Remover</Button>
+            </Card.Footer>
+          </Card>
+        </Col>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Text>
+                <FontAwesomeIcon icon={["brands", "github"]} size="4x" />
+                Github
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <Button variant="danger">Remover</Button>
+            </Card.Footer>
+          </Card>
+        </Col>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Text>
+                <FontAwesomeIcon icon={["brands", "github"]} size="4x" />
+                Github
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <Button variant="danger">Remover</Button>
+            </Card.Footer>
+          </Card>
+        </Col>
+      </Row>
+      <br />
+      
+      <Row xs="auto" md="auto" className="g-2">
+          <Col xs="auto">
+            <Form.Control type="text" placeholder="Type: fab, fas"/>
+          </Col>
+          <Col xs="auto">
+            <Form.Control type="text" placeholder="Icon: github, database"/>
+          </Col>
+          <Col xs="auto">
+            <Form.Control type="text" placeholder="Label: Github, MongoDB"/>
+          </Col>
+          <Col xs="auto">
+            <Button className="mb-2">Add</Button>
+          </Col>
+        </Row>
+      
     </Container>
   );
 };
