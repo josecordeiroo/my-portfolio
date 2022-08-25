@@ -17,13 +17,14 @@ const PortfolioList = () => {
   const [longDescription, setLongDescription] = useState();
   const [image, setImage] = useState();
   const [slug, setSlug] = useState();
+
   const action = {
     del: {
-      header: "Excluir ",
+      header: "Exclusão de ",
       btnVariant: "danger",
       btnLabel: "Confirmar",
       showBody: true,
-      body: "Essa ação não poderá ser desfeita.",
+      body: "Atenção! Essa ação não poderá ser desfeita. Tem certeza que deseja prosseguir?",
     },
     edit: {
       header: "Editando ",
@@ -32,7 +33,7 @@ const PortfolioList = () => {
       showBody: false,
     },
     add: {
-      header: " ",
+      header: "Novo Projeto:",
       btnVariant: "primary",
       btnLabel: "Save",
       showBody: false,
@@ -60,7 +61,7 @@ const PortfolioList = () => {
     <div>
       <Button
         variant="info"
-        onClick={() => handleShow("Criar novo projeto", action.add)}
+        onClick={() => handleShow(({ title: "Substitua o Título"}), action.add)}
       >
         Criar novo projeto
       </Button>

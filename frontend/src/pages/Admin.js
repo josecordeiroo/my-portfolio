@@ -3,7 +3,6 @@ import React from "react";
 import {Tabs, Tab, Container } from "react-bootstrap"
 
 import PortfolioList from "../components/admin/PortfolioList";
-import PortfolioForm from "../components/admin/PortfolioForm";
 
 import styled from "styled-components";
 
