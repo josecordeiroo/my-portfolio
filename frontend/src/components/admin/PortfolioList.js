@@ -5,27 +5,12 @@ import useApi from "../../hooks/useApi";
 import { Table, Button, Image } from "react-bootstrap";
 import styled from "styled-components";
 
-import Dialog from "../Dialog";
+import Dialog from "../modal/Dialog";
+import Actions from "../modal/Actions";
 
 const PortfolioList = () => {
   const { data } = useApi("/portfolio");
-  const action = {
-    del: {
-      header: "Excluir ",
-      btnVariant: "danger",
-      btnLabel: "Confirmar",
-    },
-    edit: {
-      header: "Deseja editar ",
-      btnVariant: "primary",
-      btnLabel: "Editar",
-    },
-    add: {
-      header: "Add New Portfolio?",
-      btnVariant: "primary",
-      btnLabel: "Save",
-    },
-  };
+  
   const [currentAction, setCurrentAction] = useState({
     header: " ",
     btnVariant: " ",
@@ -65,7 +50,7 @@ const PortfolioList = () => {
                     <Button variant="info">Editar</Button>{" "}
                     <Button
                       variant="danger"
-                      onClick={() => handleShow(project.title, action.del)}
+                      onClick={() => handleShow(project.title, Actions.del)}
                     >
                       Excluir
                     </Button>{" "}
