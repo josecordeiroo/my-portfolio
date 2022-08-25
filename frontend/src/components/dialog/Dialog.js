@@ -11,7 +11,7 @@ const Dialog = ({ show, setShow, currentAction, title, children }) => {
       keyboard={false}
     >
       <Modal.Header closeButton>
-        <Modal.Title>{`${currentAction.header} ${title}:`}</Modal.Title>
+        <Modal.Title>{` ${title}:`}</Modal.Title>
       </Modal.Header>
       <Modal.Body>{children}</Modal.Body>
       <Modal.Footer>

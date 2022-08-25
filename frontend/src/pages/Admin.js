@@ -23,9 +23,6 @@ const Admin = () => {
         <Tab eventKey={3} title="Tecnologias">
         <h2>Tecnologias</h2>
         </Tab>
-        <Tab eventKey={4} title="Criar projeto">
-        <PortfolioForm/>
-        </Tab>
       </Tabs>
     </Container>
   );

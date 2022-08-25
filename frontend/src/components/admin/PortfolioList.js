@@ -22,43 +22,20 @@ const PortfolioList = () => {
       header: "Excluir ",
       btnVariant: "danger",
       btnLabel: "Confirmar",
+      showBody: true,
       body: "Essa ação não poderá ser desfeita.",
     },
     edit: {
       header: "Editando ",
       btnVariant: "primary",
       btnLabel: "Editar",
-      body: (
-        <PortfolioForm
-          title={title}
-          setTitle={setTitle}
-          shortDescription={shortDescription}
-          setShortDescription={setShortDescription}
-          longDescription={longDescription}
-          setLongDescription={setLongDescription}
-          image={image}
-          setImage={setImage}
-          slug={slug}
-        />
-      ),
+      showBody: false,
     },
     add: {
       header: " ",
       btnVariant: "primary",
       btnLabel: "Save",
-      body: (
-        <PortfolioForm
-          title={title}
-          setTitle={setTitle}
-          shortDescription={shortDescription}
-          setShortDescription={setShortDescription}
-          longDescription={longDescription}
-          setLongDescription={setLongDescription}
-          image={image}
-          setImage={setImage}
-          slug={slug}
-        />
-      ),
+      showBody: false,
     },
   };
 
@@ -69,9 +46,12 @@ const PortfolioList = () => {
     body: " ",
   });
 
-  const handleShow = (title, actn) => {
-    console.log(title);
-    setTitle(title);
+  const handleShow = (project, actn) => {
+    setTitle(project.title);
+    setShortDescription(project.description);
+    setLongDescription(project.longDescription);
+    setImage(project.imgUrl);
+    setSlug(project.slug);
     setCurrentAction(actn);
     setShow(true);
   };
@@ -106,13 +86,13 @@ const PortfolioList = () => {
                   <td>
                     <Button
                       variant="info"
-                      onClick={() => handleShow(project.title, action.edit)}
+                      onClick={() => handleShow(project, action.edit)}
                     >
                       Editar
                     </Button>{" "}
                     <Button
                       variant="danger"
-                      onClick={() => handleShow(project.title, action.del)}
+                      onClick={() => handleShow(project, action.del)}
                     >
                       Excluir
                     </Button>{" "}
@@ -129,7 +109,20 @@ const PortfolioList = () => {
         currentAction={currentAction}
         title={title}
       >
-        {currentAction.body}
+        {currentAction.showBody && currentAction.body}
+        {!currentAction.showBody && (
+          <PortfolioForm
+            title={title}
+            setTitle={setTitle}
+            shortDescription={shortDescription}
+            setShortDescription={setShortDescription}
+            longDescription={longDescription}
+            setLongDescription={setLongDescription}
+            image={image}
+            setImage={setImage}
+            slug={slug}
+          />
+        )}
       </Dialog>
     </div>
   );
