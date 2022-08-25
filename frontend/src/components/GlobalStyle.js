@@ -65,6 +65,11 @@ const GlobalStyle = createGlobalStyle`
         line-height: 150%;
     }
 
+    label{
+        color: white;
+        font-weight: bold;
+    }
+
 `;
 
-export default GlobalStyle
+export default GlobalStyle;

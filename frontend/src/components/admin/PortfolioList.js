@@ -5,8 +5,8 @@ import useApi from "../../hooks/useApi";
 import { Table, Button, Image } from "react-bootstrap";
 import styled from "styled-components";
 
-import Dialog from "../modal/Dialog";
-import Actions from "../modal/Actions";
+import Dialog from "../dialog/Dialog";
+import Actions from "../dialog/Actions";
 
 const PortfolioList = () => {
   const { data } = useApi("/portfolio");
