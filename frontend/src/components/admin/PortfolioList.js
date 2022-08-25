@@ -24,18 +24,19 @@ const PortfolioList = () => {
       btnVariant: "danger",
       btnLabel: "Confirmar",
       showBody: true,
-      body: "Atenção! Essa ação não poderá ser desfeita. Tem certeza que deseja prosseguir?",
+      body:
+        "Atenção! Essa ação não poderá ser desfeita. Tem certeza que deseja prosseguir?",
     },
     edit: {
       header: "Editando ",
       btnVariant: "primary",
-      btnLabel: "Editar",
+      btnLabel: "Salvar",
       showBody: false,
     },
     add: {
       header: "Novo Projeto:",
       btnVariant: "primary",
-      btnLabel: "Save",
+      btnLabel: "Salvar",
       showBody: false,
     },
   };
@@ -59,12 +60,18 @@ const PortfolioList = () => {
 
   return (
     <div>
-      <Button
-        variant="info"
-        onClick={() => handleShow(({ title: "Substitua o Título"}), action.add)}
-      >
-        Criar novo projeto
-      </Button>
+      <div style={{display: "flex", justifyContent: 'space-between', padding: "10px" }}>
+        <h3>Lista de projetos:</h3>
+        <Button
+          variant="success"
+          size="lg"
+          onClick={() =>
+            handleShow({ title: "Substitua o Título" }, action.add)
+          }
+        >
+          Criar novo projeto
+        </Button>
+      </div>
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
