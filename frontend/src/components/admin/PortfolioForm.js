@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Form, Container, Card, Col, Row, Button } from "react-bootstrap";
 
@@ -18,9 +18,28 @@ const PortfolioForm = ({
   tech,
   setTech,
 }) => {
+  const [type, setType] = useState();
+  const [icon, setIcon] = useState();
+  const [label, setLabel] = useState();
+
   const handleRemoveItem = (id) => {
     const newTech = tech.filter((el) => el._id !== id);
-    setTech(newTech)
+    setTech(newTech);
+  };
+
+  const handleAddItem = (id) => {
+    if (type.lenght > 0 && lavel.lenght > 0 && icon.lenght > 0) {
+      const newId = Math.random()
+        .toString(36)
+        .substring(7);
+      const newTech = {
+        iconType: type,
+        icon,
+        label,
+        _id: newId,
+      };
+      setTech([...tech, newTech]);
+    }
   };
 
   return (
@@ -95,16 +114,33 @@ const PortfolioForm = ({
       <br />
       <Row xs="auto" md={4} className="g-2">
         <Col xs="auto">
-          <Form.Control type="text" placeholder="Type: fab, fas" />
+          <Form.Control
+            type="text"
+            placeholder="Type: fab, fas"
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+          />
         </Col>
         <Col xs="auto">
-          <Form.Control type="text" placeholder="Icon: github, database" />
+          <Form.Control
+            type="text"
+            placeholder="Icon: github, database"
+            value={icon}
+            onChange={(e) => setIcon(e.target.value)}
+          />
         </Col>
         <Col xs="auto">
-          <Form.Control type="text" placeholder="Label: Github, MongoDB" />
+          <Form.Control
+            type="text"
+            placeholder="Label: Github, MongoDB"
+            value={label}
+            onChange={(e) => setLabel(e.target.value)}
+          />
         </Col>
         <Col xs="auto">
-          <Button className="mb-2">Adicionar</Button>
+          <Button className="mb-2" onClick={handleAddItem}>
+            Adicionar
+          </Button>
         </Col>
       </Row>
     </Container>
