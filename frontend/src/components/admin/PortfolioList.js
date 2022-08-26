@@ -17,6 +17,7 @@ const PortfolioList = () => {
   const [longDescription, setLongDescription] = useState();
   const [image, setImage] = useState();
   const [slug, setSlug] = useState();
+  const [tech, setTech] = useState();
 
   const action = {
     del: {
@@ -54,13 +55,20 @@ const PortfolioList = () => {
     setLongDescription(project.longDescription);
     setImage(project.imgUrl);
     setSlug(project.slug);
+    setTech(project.technologies);
     setCurrentAction(actn);
     setShow(true);
   };
 
   return (
     <div>
-      <div style={{display: "flex", justifyContent: 'space-between', padding: "10px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "10px",
+        }}
+      >
         <h3>Lista de projetos:</h3>
         <Button
           variant="success"
@@ -129,6 +137,7 @@ const PortfolioList = () => {
             image={image}
             setImage={setImage}
             slug={slug}
+            tech={tech}
           />
         )}
       </Dialog>
