@@ -16,7 +16,13 @@ const PortfolioForm = ({
   setImage,
   slug,
   tech,
+  setTech,
 }) => {
+  const handleRemoveItem = (id) => {
+    const newTech = tech.filter((el) => el._id !== id);
+    setTech(newTech)
+  };
+
   return (
     <Container>
       <Form>
@@ -63,7 +69,7 @@ const PortfolioForm = ({
         {tech.map((tech) => {
           return (
             <Col key={tech.label}>
-              <Card>
+              <Card style={{ textAlign: "center" }}>
                 <Card.Body>
                   <Card.Text>
                     <FontAwesomeIcon
@@ -74,7 +80,12 @@ const PortfolioForm = ({
                   {tech.label}
                 </Card.Body>
                 <Card.Footer>
-                  <Button variant="danger">Remover</Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => handleRemoveItem(tech._id)}
+                  >
+                    Remover
+                  </Button>
                 </Card.Footer>
               </Card>
             </Col>
@@ -93,7 +104,7 @@ const PortfolioForm = ({
           <Form.Control type="text" placeholder="Label: Github, MongoDB" />
         </Col>
         <Col xs="auto">
-          <Button className="mb-2">Add</Button>
+          <Button className="mb-2">Adicionar</Button>
         </Col>
       </Row>
     </Container>

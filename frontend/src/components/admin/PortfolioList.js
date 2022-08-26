@@ -138,6 +138,7 @@ const PortfolioList = () => {
             setImage={setImage}
             slug={slug}
             tech={tech}
+            setTech={setTech}
           />
         )}
       </Dialog>
