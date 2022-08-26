@@ -18,24 +18,24 @@ const PortfolioForm = ({
   tech,
   setTech,
 }) => {
-  const [type, setType] = useState();
-  const [icon, setIcon] = useState();
-  const [label, setLabel] = useState();
+  const [type, setType] = useState("");
+  const [icon, setIcon] = useState("");
+  const [label, setLabel] = useState("");
 
   const handleRemoveItem = (id) => {
     const newTech = tech.filter((el) => el._id !== id);
     setTech(newTech);
   };
 
-  const handleAddItem = (id) => {
-    if (type.lenght > 0 && lavel.lenght > 0 && icon.lenght > 0) {
+  const handleAddItem = () => {
+    if (type.lenght > 0 && icon.lenght > 0 && label.lenght > 0) {
       const newId = Math.random()
         .toString(36)
         .substring(7);
       const newTech = {
         iconType: type,
-        icon,
-        label,
+        icon: icon,
+        label: label,
         _id: newId,
       };
       setTech([...tech, newTech]);
@@ -115,25 +115,22 @@ const PortfolioForm = ({
       <Row xs="auto" md={4} className="g-2">
         <Col xs="auto">
           <Form.Control
-            type="text"
-            placeholder="Type: fab, fas"
             value={type}
+            placeholder="Type: brands"
             onChange={(e) => setType(e.target.value)}
           />
         </Col>
         <Col xs="auto">
           <Form.Control
-            type="text"
-            placeholder="Icon: github, database"
             value={icon}
+            placeholder="Icon: fa-github"
             onChange={(e) => setIcon(e.target.value)}
           />
         </Col>
         <Col xs="auto">
           <Form.Control
-            type="text"
-            placeholder="Label: Github, MongoDB"
             value={label}
+            placeholder="Label: Github"
             onChange={(e) => setLabel(e.target.value)}
           />
         </Col>
