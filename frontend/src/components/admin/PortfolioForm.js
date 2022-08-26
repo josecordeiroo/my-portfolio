@@ -28,7 +28,7 @@ const PortfolioForm = ({
   };
 
   const handleAddItem = () => {
-    if (type.lenght > 0 && icon.lenght > 0 && label.lenght > 0) {
+    if (type.length > 0 && icon.length > 0 && label.length > 0) {
       const newId = Math.random()
         .toString(36)
         .substring(7);
