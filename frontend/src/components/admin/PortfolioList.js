@@ -77,16 +77,7 @@ const PortfolioList = () => {
             handleShow(
               {
                 title: "Substitua o Título",
-                technologies: [
-                  {
-                    label: "Javascript",
-                    icon: "fa-js",
-                    iconType: "brands",
-                    _id: Math.random()
-                      .toString(36)
-                      .substring(7),
-                  },
-                ],
+                technologies: [],
               },
               action.add
             )
