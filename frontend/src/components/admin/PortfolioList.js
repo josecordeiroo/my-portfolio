@@ -51,10 +51,10 @@ const PortfolioList = () => {
 
   const handleShow = (project, actn) => {
     setTitle(project.title);
-    setShortDescription(project.description);
-    setLongDescription(project.longDescription);
-    setImage(project.imgUrl);
-    setSlug(project.slug);
+    setShortDescription(project.description || " ");
+    setLongDescription(project.longDescription || " ");
+    setImage(project.imgUrl || " ");
+    setSlug(project.slug || " ");
     setTech(project.technologies);
     setCurrentAction(actn);
     setShow(true);
@@ -74,7 +74,22 @@ const PortfolioList = () => {
           variant="success"
           size="lg"
           onClick={() =>
-            handleShow({ title: "Substitua o Título" }, action.add)
+            handleShow(
+              {
+                title: "Substitua o Título",
+                technologies: [
+                  {
+                    label: "Javascript",
+                    icon: "fa-js",
+                    iconType: "brands",
+                    _id: Math.random()
+                      .toString(36)
+                      .substring(7),
+                  },
+                ],
+              },
+              action.add
+            )
           }
         >
           Criar novo projeto
