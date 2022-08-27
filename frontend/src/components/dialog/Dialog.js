@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Modal } from "react-bootstrap";
 
-const Dialog = ({ show, setShow, currentAction, title, children }) => {
+const Dialog = ({ show, setShow, currentAction, title, children, slug }) => {
   return (
     <Modal
       show={show}
@@ -16,6 +16,7 @@ const Dialog = ({ show, setShow, currentAction, title, children }) => {
           {currentAction.showTitle && currentAction.header}
           {!currentAction.showTitle && `${currentAction.header} ${title}`}
         </Modal.Title>
+        
       </Modal.Header>
       <Modal.Body>{children}</Modal.Body>
       <Modal.Footer>
@@ -24,7 +25,7 @@ const Dialog = ({ show, setShow, currentAction, title, children }) => {
         </Button>
         <Button
           variant={currentAction.btnVariant}
-          onClick={() => {currentAction.callback(); setShow(false)}}
+          onClick={() => {currentAction.callback(slug); setShow(false)}}
         >
           {currentAction.btnLabel}
         </Button>

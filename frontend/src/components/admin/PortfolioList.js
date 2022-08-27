@@ -11,15 +11,15 @@ import PortfolioForm from "../admin/PortfolioForm";
 const PortfolioList = () => {
   const { data } = useApi("/portfolio");
 
-  const handleDel = () => {
-    alert('Excluido com sucesso')
+  const handleDel = (slug) => {
+    alert(slug + ' excluido com sucesso')
   }
 
   const handleAdd = () => {
     alert('Adicionado com sucesso')
   }
 
-  const handleEdit = () => {
+  const handleEdit = (slug) => {
     alert('Editado com sucesso')
   }
 
@@ -148,6 +148,7 @@ const PortfolioList = () => {
         setShow={setShow}
         currentAction={currentAction}
         title={title}
+        slug={slug}
       >
         {currentAction.showBody && currentAction.body}
         {!currentAction.showBody && (
