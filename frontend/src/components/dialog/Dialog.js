@@ -12,7 +12,10 @@ const Dialog = ({ show, setShow, currentAction, title, children }) => {
       size="lg"
     >
       <Modal.Header closeButton>
-        <Modal.Title>{`${currentAction.header} ${title}`}</Modal.Title>
+        <Modal.Title>
+          {currentAction.showTitle && currentAction.header}
+          {!currentAction.showTitle && `${currentAction.header} ${title}`}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>{children}</Modal.Body>
       <Modal.Footer>
@@ -21,7 +24,7 @@ const Dialog = ({ show, setShow, currentAction, title, children }) => {
         </Button>
         <Button
           variant={currentAction.btnVariant}
-          onClick={() => setShow(false)}
+          onClick={() => {currentAction.callback(); setShow(false)}}
         >
           {currentAction.btnLabel}
         </Button>

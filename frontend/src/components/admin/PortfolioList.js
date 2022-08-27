@@ -11,6 +11,18 @@ import PortfolioForm from "../admin/PortfolioForm";
 const PortfolioList = () => {
   const { data } = useApi("/portfolio");
 
+  const handleDel = () => {
+    alert('Excluido com sucesso')
+  }
+
+  const handleAdd = () => {
+    alert('Adicionado com sucesso')
+  }
+
+  const handleEdit = () => {
+    alert('Editado com sucesso')
+  }
+
   const [show, setShow] = useState(false);
   const [title, setTitle] = useState();
   const [shortDescription, setShortDescription] = useState();
@@ -25,6 +37,8 @@ const PortfolioList = () => {
       btnVariant: "danger",
       btnLabel: "Confirmar",
       showBody: true,
+      showTitle: false,
+      callback: handleDel,
       body:
         "Atenção! Essa ação não poderá ser desfeita. Tem certeza que deseja prosseguir?",
     },
@@ -33,12 +47,16 @@ const PortfolioList = () => {
       btnVariant: "primary",
       btnLabel: "Salvar",
       showBody: false,
+      showTitle: false,
+      callback: handleEdit,
     },
     add: {
       header: "Novo Projeto:",
       btnVariant: "primary",
       btnLabel: "Salvar",
       showBody: false,
+      showTitle: true,
+      callback: handleAdd,
     },
   };
 
@@ -76,7 +94,7 @@ const PortfolioList = () => {
           onClick={() =>
             handleShow(
               {
-                title: "Substitua o Título",
+                title: "",
                 technologies: [],
               },
               action.add
