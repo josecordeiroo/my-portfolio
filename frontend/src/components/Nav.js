@@ -77,7 +77,7 @@ const StyledNav = styled.nav`
     font-size: 20px;
   }
   a {
-    font-size: 30px;
+    font-size: 20px;
     text-decoration: none;
     color: white;
   }
