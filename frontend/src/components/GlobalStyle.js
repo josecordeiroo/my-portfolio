@@ -49,9 +49,7 @@ const GlobalStyle = createGlobalStyle`
         color: lightgray;
     }
 
-    a{
-        font-size: 11.1rem;
-    }
+    
 
     span{
         font-weight: lighter;

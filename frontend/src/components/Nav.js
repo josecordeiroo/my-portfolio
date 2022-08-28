@@ -6,6 +6,11 @@ import styled from "styled-components";
 //Navigation
 import { Link } from "react-router-dom";
 
+import Userfront from "@userfront/react";
+import { LogoutButton } from "./auth/Authentication";
+
+Userfront.init("wn9qg5pn");
+
 const Nav = () => {
   const menuOptions = {
     about: "<AboutMe />",
@@ -15,11 +20,36 @@ const Nav = () => {
 
   return (
     <StyledNav>
-      <h1><Link className="home" to="/">José Cordeiro</Link></h1>
+      <h1>
+        <Link className="home" to="/">
+          José Cordeiro
+        </Link>
+      </h1>
       <ul>
-        <li><Link to="/">{menuOptions.about}</Link></li>
-        <li><Link to="/portfolio">{menuOptions.portfolio}</Link></li>
-        <li><Link to="/contact">{menuOptions.contact}</Link></li>
+        <li>
+          <Link to="/">{menuOptions.about}</Link>
+        </li>
+        <li>
+          <Link to="/portfolio">{menuOptions.portfolio}</Link>
+        </li>
+        <li>
+          <Link to="/contact">{menuOptions.contact}</Link>
+        </li>
+        {!Userfront.accessToken() && (
+          <>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/signup">SignUp</Link>
+            </li>
+          </>
+        )}
+        {Userfront.accessToken() && (
+          <li>
+            <LogoutButton/>
+          </li>
+        )}
       </ul>
     </StyledNav>
   );
@@ -44,14 +74,14 @@ const StyledNav = styled.nav`
   li {
     padding-right: 5rem;
     padding-top: 1rem;
-    font-size: 30px;
+    font-size: 20px;
   }
-  a{
+  a {
     font-size: 30px;
     text-decoration: none;
     color: white;
   }
-  .home{
+  .home {
     font-size: 50px;
   }
 `;

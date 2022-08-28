@@ -12,7 +12,7 @@ import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
 import Admin from "./pages/Admin";
-import { SignupForm } from "./components/auth/Authentication";
+import { LoginForm, PasswordResetForm, SignupForm } from "./components/auth/Authentication";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -48,14 +48,16 @@ function App() {
   return (
     <div>
       <GlobalStyle />
-      {location.pathname !== "/admin" && <Nav />}
+      {location.pathname !== ("/admin") && <Nav />}
       <Routes>
         <Route path="/" element={<AboutUs />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/:slug" element={<Portfolio />} />
         <Route path="/contact" element={<ContactMe />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/login" element={<SignupForm />} />
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/reset" element={<PasswordResetForm />} />
       </Routes>
     </div>
   );
