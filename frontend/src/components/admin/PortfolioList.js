@@ -7,21 +7,25 @@ import styled from "styled-components";
 
 import Dialog from "../dialog/Dialog";
 import PortfolioForm from "../admin/PortfolioForm";
+import { deleteItem, addItem, editItem } from "../../services/api";
 
 const PortfolioList = () => {
   const { data } = useApi("/portfolio");
 
   const handleDel = (slug) => {
-    alert(slug + ' excluido com sucesso')
-  }
+    deleteItem(slug);
+    window.location.reload(false);
+  };
 
-  const handleAdd = () => {
-    alert('Adicionado com sucesso')
-  }
+  const handleAdd = (slug, data) => {
+    addPortfolioItem(data);
+    window.location.reload(false);
+  };
 
-  const handleEdit = (slug) => {
-    alert('Editado com sucesso')
-  }
+  const handleEdit = (slug, data) => {
+    editPortfolioItem(slug, data);
+    window.location.reload(false);
+  };
 
   const [show, setShow] = useState(false);
   const [title, setTitle] = useState();
@@ -78,6 +82,37 @@ const PortfolioList = () => {
     setShow(true);
   };
 
+  const addPortfolioItem = (data) => {
+    const tech = data.tech.map((i) => {
+      delete i._id;
+      return i;
+    });
+    const newPortfolioItem = {
+      title: data.title,
+      description: data.shortDescription,
+      longDescription: data.longDescription,
+      imgUrl: data.image,
+      technologies: tech,
+    };
+    addItem(newPortfolioItem);
+  };
+
+  const editPortfolioItem = (slug, data) => {
+    const tech = data.tech.map((i) => {
+      delete i._id;
+      return i;
+    });
+
+    const newPortfolioItem = {
+      title: data.title,
+      description: data.shortDescription,
+      longDescription: data.longDescription,
+      imgUrl: data.image,
+      technologies: tech,
+    };
+    editItem(slug, newPortfolioItem);
+  };
+
   return (
     <div>
       <div
@@ -87,7 +122,7 @@ const PortfolioList = () => {
           padding: "10px",
         }}
       >
-        <h3>Lista de projetos:</h3>
+        <h3>Lista de projetos</h3>
         <Button
           variant="success"
           size="lg"

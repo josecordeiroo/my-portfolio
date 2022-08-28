@@ -87,7 +87,7 @@ const PortfolioForm = ({
       <Row xs="auto" md={3} className="g-2">
         {tech.map((tech) => {
           return (
-            <Col key={tech.label}>
+            <Col key={tech._id}>
               <Card style={{ textAlign: "center" }}>
                 <Card.Body>
                   <Card.Text>

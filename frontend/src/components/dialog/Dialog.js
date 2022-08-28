@@ -25,7 +25,7 @@ const Dialog = ({ show, setShow, currentAction, title, children, slug }) => {
         </Button>
         <Button
           variant={currentAction.btnVariant}
-          onClick={() => {currentAction.callback(slug); setShow(false)}}
+          onClick={() => {currentAction.callback(slug, children[1].props); setShow(false)}}
         >
           {currentAction.btnLabel}
         </Button>
