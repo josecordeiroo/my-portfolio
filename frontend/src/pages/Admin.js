@@ -33,9 +33,6 @@ const Admin = ({ location }) => {
 
   const accessData = jwt_decode(Userfront.accessToken())
   const userData = jwt_decode(Userfront.idToken())
-  console.log(accessData)
-  console.log(userData)
-  const user = JSON.stringify(accessData)
 
   return (
     <Container style={{ color: "white" }} fluid>
