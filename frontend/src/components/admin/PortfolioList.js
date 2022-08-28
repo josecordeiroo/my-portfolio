@@ -24,7 +24,7 @@ const PortfolioList = () => {
 
   const handleEdit = (slug, data) => {
     editPortfolioItem(slug, data);
-    
+    window.location.reload(false);
   };
 
   const [show, setShow] = useState(false);
