@@ -24,7 +24,7 @@ const PortfolioList = () => {
 
   const handleEdit = (slug, data) => {
     editPortfolioItem(slug, data);
-    window.location.reload(false);
+    
   };
 
   const [show, setShow] = useState(false);
@@ -102,7 +102,6 @@ const PortfolioList = () => {
       delete i._id;
       return i;
     });
-
     const newPortfolioItem = {
       title: data.title,
       description: data.shortDescription,
