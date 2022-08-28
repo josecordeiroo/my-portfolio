@@ -46,9 +46,14 @@ const Nav = () => {
           </>
         )}
         {Userfront.accessToken() && (
-          <li>
-            <LogoutButton/>
-          </li>
+          <>
+            <li>
+              <Link to="/admin">Admin</Link>
+            </li>
+            <li>
+              <LogoutButton />
+            </li>
+          </>
         )}
       </ul>
     </StyledNav>
