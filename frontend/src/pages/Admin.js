@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 //Navigation
 import { Link } from "react-router-dom";
@@ -12,7 +13,7 @@ import styled from "styled-components";
 
 import { Navigate } from "react-router-dom";
 
-import jwt_decode from "jwt-decode"
+import jwt_decode from "jwt-decode";
 
 import Userfront from "@userfront/react";
 import { LogoutButton } from "../components/auth/Authentication";
@@ -31,8 +32,8 @@ const Admin = ({ location }) => {
     );
   }
 
-  const accessData = jwt_decode(Userfront.accessToken())
-  const userData = jwt_decode(Userfront.idToken())
+  const accessData = jwt_decode(Userfront.accessToken());
+  const userData = jwt_decode(Userfront.idToken());
 
   return (
     <Container style={{ color: "white" }} fluid>
@@ -45,13 +46,26 @@ const Admin = ({ location }) => {
       </NavBar>
       <Tabs defaultActiveKey={1} id="tab-navigation">
         <Tab eventKey={1} title="Início">
-          <WelcomeTab />
+          <WelcomeTab name={userData.name} />
         </Tab>
         <Tab eventKey={2} title="Projetos">
           <PortfolioList />
         </Tab>
         <Tab eventKey={3} title="Dados do Usuário">
-          {user}
+          <User>
+            <Image src={userData.image} alt="User" />
+              <p>
+                Nome: {userData.name}
+                <br />
+                E-mail: {userData.email}
+                <br />
+                Telefone:{" "}
+                {userData.phoneNumber ? userData.phoneNumber : "Não informado"}
+                <br />
+                Usuário desde: {moment(userData.createdAt).format("DD-MM-YYYY")}
+                <br />
+              </p>
+          </User>
         </Tab>
       </Tabs>
     </Container>
@@ -68,6 +82,16 @@ const NavBar = styled.div`
   h2 {
     padding: 20px;
   }
+`;
+
+const Image = styled.img`
+  width: 200px;
+  height: 200px;
+`;
+
+const User = styled.div`
+  margin: 20px;
+  text-align: center;
 `;
 
 export default Admin;
