@@ -7,7 +7,7 @@ import GlobalStyle from "./components/GlobalStyle";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 //Components
-import AboutUs from "./pages/AboutMe";
+import AboutMe from "./pages/AboutMe";
 import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
@@ -48,9 +48,9 @@ function App() {
   return (
     <div>
       <GlobalStyle />
-      {location.pathname !== ("/admin") && <Nav />}
+       <Nav />
       <Routes>
-        <Route path="/" element={<AboutUs />} />
+        <Route path="/" element={<AboutMe />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/:slug" element={<Portfolio />} />
         <Route path="/contact" element={<ContactMe />} />
