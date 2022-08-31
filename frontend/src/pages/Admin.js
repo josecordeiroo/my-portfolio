@@ -34,11 +34,12 @@ const Admin = ({ location }) => {
 
   const accessData = jwt_decode(Userfront.accessToken());
   const userData = jwt_decode(Userfront.idToken());
+  const userName = userData.name.split((' '))[0]
 
   return (
     <Container style={{ color: "white" }} fluid>
       <NavBar>
-        <h2>Painel Administrativo de {userData.name}</h2>
+        <h2>Painel Administrativo de {userName}</h2>
         <div>
           <LogoutButton />
           <Link to="/">Tela Inicial</Link>
@@ -46,7 +47,8 @@ const Admin = ({ location }) => {
       </NavBar>
       <Tabs defaultActiveKey={1} id="tab-navigation">
         <Tab eventKey={1} title="Início">
-          <WelcomeTab name={userData.name} />
+          <WelcomeTab name={userName} />
+          {JSON.stringify(accessData)}
         </Tab>
         <Tab eventKey={2} title="Projetos">
           <PortfolioList />

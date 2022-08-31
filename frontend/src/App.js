@@ -54,7 +54,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/:slug" element={<Portfolio />} />
         <Route path="/contact" element={<ContactMe />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<Admin location={location} />} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/reset" element={<PasswordResetForm />} />

@@ -5,6 +5,9 @@ import { Form, Container, Card, Col, Row, Button } from "react-bootstrap";
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Userfront from "@userfront/react";
+Userfront.init("wn9qg5pn");
+
 const PortfolioForm = ({
   title,
   setTitle,
