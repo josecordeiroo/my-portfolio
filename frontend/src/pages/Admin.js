@@ -1,9 +1,6 @@
 import React from "react";
 import moment from "moment";
 
-//Navigation
-import { Link } from "react-router-dom";
-
 import { Tabs, Tab, Container, Button } from "react-bootstrap";
 
 import PortfolioList from "../components/admin/PortfolioList";
@@ -16,7 +13,6 @@ import { Navigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 import Userfront from "@userfront/react";
-import { LogoutButton } from "../components/auth/Authentication";
 
 Userfront.init("wn9qg5pn");
 
@@ -32,7 +28,6 @@ const Admin = ({ location }) => {
     );
   }
 
-  const accessData = jwt_decode(Userfront.accessToken());
   const userData = jwt_decode(Userfront.idToken());
   const userName = userData.name.split(" ")[0];
 

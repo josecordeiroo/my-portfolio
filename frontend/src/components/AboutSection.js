@@ -11,6 +11,7 @@ import {
   scrollReveal,
 } from "../animation";
 import { useScroll } from "../hooks/useScroll";
+import Wave from './Wave'
 
 const AboutSection = () => {
   const [element, controls] = useScroll();
@@ -48,6 +49,7 @@ const AboutSection = () => {
             alt="Uma foto de José Cordeiro"
           />
         </Image>
+        <Wave/>
       </About>
     </>
   );
