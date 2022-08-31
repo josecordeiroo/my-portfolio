@@ -50,9 +50,6 @@ const Nav = () => {
             <li>
               <Link to="/admin">Admin</Link>
             </li>
-            <li>
-              <LogoutButton />
-            </li>
           </>
         )}
       </ul>
