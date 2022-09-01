@@ -85,8 +85,8 @@ const StyledNav = styled.nav`
   }
   @media (max-width: 1300px) {
     flex-direction: column;
-    
-    padding: 2rem 1rem;    
+
+    padding: 2rem 1rem;
     ul {
       display: table;
       padding: 2rem;

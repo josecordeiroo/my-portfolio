@@ -22,6 +22,7 @@ const AboutSection = () => {
   };
 
   return (
+    
     <>
       <About
         variants={scrollReveal}
@@ -54,5 +55,6 @@ const AboutSection = () => {
     </>
   );
 };
+
 
 export default AboutSection;

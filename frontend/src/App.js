@@ -47,8 +47,9 @@ function App() {
 
   return (
     <div>
+      
+      <Nav/>
       <GlobalStyle />
-       <Nav />
       <Routes>
         <Route path="/" element={<AboutMe />} />
         <Route path="/portfolio" element={<Portfolio />} />

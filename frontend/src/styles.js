@@ -43,7 +43,3 @@ export const Image = styled.div`
     border-radius: 30px;
   }
 `;
-
-export const Hide = styled.div`
-  overflow: hidden;
-`
