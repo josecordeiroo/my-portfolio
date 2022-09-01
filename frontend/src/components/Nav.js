@@ -16,7 +16,7 @@ const Nav = () => {
     portfolio: "<Portfolio />",
     contact: "<Contact />",
     login: "<Login />",
-    signup: "<SignUp />",
+    signup: "<Register />",
     admin: "<Admin />",
   };
 

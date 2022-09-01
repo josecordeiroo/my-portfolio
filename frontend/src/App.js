@@ -12,7 +12,8 @@ import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
 import Admin from "./pages/Admin";
-import { LoginForm, PasswordResetForm, SignupForm } from "./components/auth/Authentication";
+
+import { LoginPage, SignupPage, ResetPage } from "./components/auth/Authentication";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -56,9 +57,9 @@ function App() {
         <Route path="/portfolio/:slug" element={<Portfolio />} />
         <Route path="/contact" element={<ContactMe />} />
         <Route path="/admin" element={<Admin location={location} />} />
-        <Route path="/signup" element={<SignupForm />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/reset" element={<PasswordResetForm />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/reset" element={<ResetPage />} />
       </Routes>
     </div>
   );
