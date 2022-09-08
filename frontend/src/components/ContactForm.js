@@ -111,6 +111,10 @@ const Input = styled.div`
     background-color: #d2ffd8;
     font-size: 15px;
   }
+
+  @media (max-width: 1200px) {
+    
+  }
 `;
 
 const Form = styled.form`
@@ -120,6 +124,10 @@ const Form = styled.form`
   h4 {
     margin-top: 1rem;
     margin-left: 25rem;
+  }
+
+  @media (max-width: 1200px) {
+    display: block;
   }
 `;
 

@@ -3,11 +3,6 @@ import React from "react";
 //Styled Components
 import styled from "styled-components";
 
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Container from 'react-bootstrap/Container';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 //Navigation
@@ -83,10 +78,11 @@ const NovoTeste = styled.div`
   display: none;
   @media (max-width: 1300px) {
     display: flex;
-    justify-content: right;
-    
+    justify-content: center;
   }
 `;
+
+const Container = styled.div``
 
 const StyledNav = styled.nav`
   min-height: 10vh;

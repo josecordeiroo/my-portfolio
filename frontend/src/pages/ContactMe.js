@@ -47,6 +47,9 @@ const Title = styled.div`
 const Areas = styled.div`
   display: flex;
   align-items: center;
+  @media (max-width: 1200px) {
+    display: block;
+  }
 `;
 
 export default ContactMe;

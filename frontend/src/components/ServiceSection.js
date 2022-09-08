@@ -12,57 +12,106 @@ const ServiceSection = () => {
   const [element, controls] = useScroll();
 
   return (
-    <Services
-      variants={scrollReveal}
-      animate={controls}
-      initial="hidden"
-      ref={element}
-    >
-      <Image>
-        <img
-          src="https://cdn2.iconfinder.com/data/icons/business-and-commercial-mixed-hexagone/128/4-512.png"
-          alt="Ilustração com desenho de uma ferramenta"
-        ></img>
-      </Image>
+    <>
+      <Services
+        variants={scrollReveal}
+        animate={controls}
+        initial="hidden"
+        ref={element}
+      >
+        <Image>
+          <img
+            src="https://cdn2.iconfinder.com/data/icons/business-and-commercial-mixed-hexagone/128/4-512.png"
+            alt="Ilustração com desenho de uma ferramenta"
+          ></img>
+        </Image>
 
-      <Description>
-        <h2>Things I do</h2>
+        <Description>
+          <h2>Things I do</h2>
 
-        <Cards>
-          <Card>
-            <div className="icon">
-              <FontAwesomeIcon icon={["solid", "laptop-code"]} size="4x" />
-              <h3>Portfolio</h3>
-            </div>
-            <p>Check my work on my portfolio</p>
-          </Card>
+          <Cards>
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["solid", "laptop-code"]} size="4x" />
+                <h3>Portfolio</h3>
+              </div>
+              <p>Check my work on my portfolio</p>
+            </Card>
 
-          <Card>
-            <div className="icon">
-              <FontAwesomeIcon icon={["brands", "square-github"]} size="4x" />
-              <h3>Github</h3>
-            </div>
-            <p>Follow the way I usually develop</p>
-          </Card>
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["brands", "square-github"]} size="4x" />
+                <h3>Github</h3>
+              </div>
+              <p>Follow the way I usually develop</p>
+            </Card>
 
-          <Card>
-            <div className="icon">
-              <FontAwesomeIcon icon={["solid", "graduation-cap"]} size="4x" />
-              <h3>Courses</h3>
-            </div>
-            <p>See what I'm learning now</p>
-          </Card>
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["solid", "graduation-cap"]} size="4x" />
+                <h3>Courses</h3>
+              </div>
+              <p>See what I'm learning now</p>
+            </Card>
 
-          <Card>
-            <div className="icon">
-              <FontAwesomeIcon icon={["solid", "images"]} size="4x" />
-              <h3>Hobbies</h3>
-            </div>
-            <p>Things I like to do</p>
-          </Card>
-        </Cards>
-      </Description>
-    </Services>
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["solid", "images"]} size="4x" />
+                <h3>Hobbies</h3>
+              </div>
+              <p>Things I like to do</p>
+            </Card>
+          </Cards>
+        </Description>
+      </Services>
+
+      <ServicesMobile>
+        <Image>
+          <img
+            src="https://cdn2.iconfinder.com/data/icons/business-and-commercial-mixed-hexagone/128/4-512.png"
+            alt="Ilustração com desenho de uma ferramenta"
+          ></img>
+        </Image>
+
+        <Description>
+          <h2>Things I do</h2>
+
+          <Cards>
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["solid", "laptop-code"]} size="4x" />
+                <h3>Portfolio</h3>
+              </div>
+              <p>Check my work on my portfolio</p>
+            </Card>
+
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["brands", "square-github"]} size="4x" />
+                <h3>Github</h3>
+              </div>
+              <p>Follow the way I usually develop</p>
+            </Card>
+
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["solid", "graduation-cap"]} size="4x" />
+                <h3>Courses</h3>
+              </div>
+              <p>See what I'm learning now</p>
+            </Card>
+
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["solid", "images"]} size="4x" />
+                <h3>Hobbies</h3>
+              </div>
+              <p>Things I like to do</p>
+            </Card>
+          </Cards>
+        </Description>
+      </ServicesMobile>
+    </>
   );
 };
 
@@ -74,12 +123,32 @@ const Services = styled(About)`
     width: 70%;
     padding: 2rem 0rem 4rem 0rem;
   }
+  @media (max-width: 1300px) {
+    display: none;
+  }
+`;
+
+const ServicesMobile = styled(About)`
+  display: none;
+  @media (max-width: 1300px) {
+    display: block;
+    padding: 1rem 1rem;
+    text-align: center;
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
 `;
 
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
+  @media (min-width: 1300px) {
+    display: flexbox;
+  }
+  
 `;
 
 const Card = styled.div`
@@ -95,6 +164,10 @@ const Card = styled.div`
     background-color: white;
     color: black;
     padding: 1rem;
+  }
+  @media (max-width: 1300px) {
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
