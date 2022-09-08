@@ -3,6 +3,13 @@ import React from "react";
 //Styled Components
 import styled from "styled-components";
 
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Container from 'react-bootstrap/Container';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 //Navigation
 import { Link } from "react-router-dom";
 
@@ -10,7 +17,7 @@ import Userfront from "@userfront/react";
 
 Userfront.init("wn9qg5pn");
 
-const Nav = () => {
+const NavOptions = () => {
   const menuOptions = {
     about: "<AboutMe />",
     portfolio: "<Portfolio />",
@@ -21,38 +28,65 @@ const Nav = () => {
   };
 
   return (
-    <StyledNav>
-      <ul>
-        <li>
-          <Link to="/">{menuOptions.about}</Link>
-        </li>
-        <li>
-          <Link to="/portfolio">{menuOptions.portfolio}</Link>
-        </li>
-        <li>
-          <Link to="/contact">{menuOptions.contact}</Link>
-        </li>
-        {!Userfront.accessToken() && (
-          <>
-            <li>
-              <Link to="/login">{menuOptions.login}</Link>
-            </li>
-            <li>
-              <Link to="/signup">{menuOptions.signup}</Link>
-            </li>
-          </>
-        )}
-        {Userfront.accessToken() && (
-          <>
-            <li>
-              <Link to="/admin">{menuOptions.admin}</Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </StyledNav>
+    <Container>
+      <StyledNav>
+        <ul>
+          <li>
+            <Link to="/">{menuOptions.about}</Link>
+          </li>
+          <li>
+            <Link to="/portfolio">{menuOptions.portfolio}</Link>
+          </li>
+          <li>
+            <Link to="/contact">{menuOptions.contact}</Link>
+          </li>
+          {!Userfront.accessToken() && (
+            <>
+              <li>
+                <Link to="/login">{menuOptions.login}</Link>
+              </li>
+              <li>
+                <Link to="/signup">{menuOptions.signup}</Link>
+              </li>
+            </>
+          )}
+          {Userfront.accessToken() && (
+            <>
+              <li>
+                <Link to="/admin">{menuOptions.admin}</Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </StyledNav>
+
+      <NovoTeste>
+      <Dropdown>
+      <Dropdown.Toggle variant="dark" id="dropdown-basic" size="lg">
+        Menu
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="/">{menuOptions.about}</Dropdown.Item>
+        <Dropdown.Item href="/portfolio">{menuOptions.portfolio}</Dropdown.Item>
+        <Dropdown.Item href="/contact">{menuOptions.contact}</Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item href="/login">Login/Register</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+      </NovoTeste>
+    </Container>
   );
 };
+
+const NovoTeste = styled.div`
+  display: none;
+  @media (max-width: 1300px) {
+    display: flex;
+    justify-content: right;
+    
+  }
+`;
 
 const StyledNav = styled.nav`
   min-height: 10vh;
@@ -84,19 +118,8 @@ const StyledNav = styled.nav`
     font-size: 50px;
   }
   @media (max-width: 1300px) {
-    flex-direction: column;
-
-    padding: 2rem 1rem;
-    ul {
-      display: table;
-      padding: 2rem;
-      justify-content: space-around;
-      width: 100%;
-      li {
-        padding: 0;
-      }
-    }
+    display: none;
   }
 `;
 
-export default Nav;
+export default NavOptions;

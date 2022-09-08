@@ -55,6 +55,12 @@ const CardList = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
+  @media (max-width: 1300px) {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 export default Portfolio;

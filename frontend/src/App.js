@@ -10,7 +10,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import AboutMe from "./pages/AboutMe";
 import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
-import Nav from "./components/Nav";
+import NavOptions from "./components/Nav";
 import Admin from "./pages/Admin";
 
 import { LoginPage, SignupPage, ResetPage } from "./components/auth/Authentication";
@@ -49,7 +49,7 @@ function App() {
   return (
     <div>
       
-      <Nav/>
+      <NavOptions/>
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<AboutMe />} />
