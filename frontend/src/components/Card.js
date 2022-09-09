@@ -34,8 +34,7 @@ const StyledCard = styled.div`
   border-radius: 10px;
   cursor: pointer;
   overflow: hidden;
-  -webkit-box-shadow: 0px -1px 12px -1px rgba(87, 255, 222, 0.65);
-  box-shadow: 0px -1px 12px -1px rgba(87, 255, 222, 0.65);
+  box-shadow: black 5px 5px 10px ;
 `;
 
 const Content = styled.div`

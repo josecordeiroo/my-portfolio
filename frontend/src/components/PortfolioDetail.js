@@ -32,7 +32,7 @@ const PortfolioDetail = () => {
           </div>
 
           <Info>
-            <h5>Technologies</h5>
+            <h5>Technologies Used</h5>
 
             <Technologies>
               {data &&
@@ -53,6 +53,7 @@ const PortfolioDetail = () => {
 
         <Description>
           <p>{data && data.data.longDescription}</p>
+          <p>See more in: <a href={`https://github.com/josecordeiroo/${data && data.data.slug}`} target="_blank">{`github.com/josecordeiroo/${data && data.data.slug}`}</a> </p>
         </Description>
 
         <img src={data && data.data.imgUrl} alt="illustrative"></img>
@@ -63,6 +64,10 @@ const PortfolioDetail = () => {
 
 const Title = styled.h2`
   color: #292929;
+  text-align: left;
+  @media (max-width: 1200px) {
+    text-align: center;
+  }
 `;
 
 const Detail = styled.div`
@@ -82,16 +87,35 @@ const Detail = styled.div`
   p {
     color: #292929;
   }
+  @media (max-width: 1200px) {
+    display: block;
+  }
 `;
 
 const Stats = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem 5rem;
+  @media (max-width: 1200px) {
+    display: block;
+    justify-content: center;
+    padding: 1px 1px;
+  }
 `;
 
 const Description = styled.div`
   padding: 2rem 5rem;
+  text-align: left;
+  
+  @media (max-width: 1200px) {
+    padding: 2px 2px;
+    text-align: left;
+    p {
+      font-size: 15px;
+      color: gray;
+      padding: 40px 5px 0px 5px;
+    }
+  }
 `;
 
 const DescriptionShort = styled.div`
@@ -101,12 +125,15 @@ const DescriptionShort = styled.div`
 
 const Technologies = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   padding-top: 0rem;
   svg {
     color: #139e08;
+  }
+
+  @media (max-width: 1200px) {
+    padding-top: 1rem;
   }
 `;
 
@@ -115,7 +142,6 @@ const Technology = styled.div`
   flex-direction: column;
   align-items: center;
   color: #139e08;
-  padding: 10px;
 `;
 
 const Info = styled.div`
@@ -124,6 +150,10 @@ const Info = styled.div`
   h5 {
     color: gray;
     font-weight: lighter;
+  }
+
+  @media (max-width: 1200px) {
+    justify-content: center;
   }
 `;
 
@@ -135,7 +165,7 @@ const CardShaddow = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 12;
   &::-webkit-scrollbar {
     width: 0.5rem;
   }
@@ -144,6 +174,10 @@ const CardShaddow = styled.div`
   }
   &::-webkit-scrollbar-track {
     background: white;
+  }
+
+  @media (max-width: 1200px) {
+    
   }
 `;
 
