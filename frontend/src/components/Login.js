@@ -7,9 +7,7 @@ const Login = () => {
   return (
     <Container>
       <LoginPage />
-      <span>
-      Or create an account below to check admin area
-      </span>
+      <h4>Or create an account below to check admin area</h4>
       <Bar />
       <SignupPage />
     </Container>
@@ -20,14 +18,16 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  span {
-    width: 20px;
-    font-size: 10px;
-    color: white;
+  h4 {
+    display: none;
   }
   @media (max-width: 1300px) {
     display: block;
-    
+    h4 {
+      display: block;
+      font-size: 10px;
+      color: white;
+    }
   }
 `;
 
@@ -36,12 +36,7 @@ const Bar = styled.div`
   border-right: 1px solid white;
   margin-top: 150px;
   @media (max-width: 1300px) {
-    height: 0;
-    width: 200px;
-    margin-top: 10px;
-    margin-left: 110px;
-    border: 1px solid white;
-  }
+    display: none;
 `;
 
 export default Login;

@@ -23,6 +23,8 @@ const Portfolio = () => {
       animate="show"
       variants={pageAnimation}
     >
+      <Title>My Projects</Title>
+
       <PortfolioList>
         {slug && <PortfolioDetail />}
 
@@ -45,10 +47,22 @@ const Portfolio = () => {
   );
 };
 
+const Title = styled.div`
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  padding-top: 20px;
+`;
+
 const PortfolioList = styled.div`
   min-height: 90vh;
   overflow: hidden;
-  padding: 5rem 10rem;
+  padding: 2rem 10rem;
+  text-align: center;
+
+  @media (max-width: 1300px) {
+    padding: 3rem 3rem;
+  }
 `;
 const CardList = styled.div`
   display: grid;
@@ -58,8 +72,6 @@ const CardList = styled.div`
   @media (max-width: 1300px) {
     display: flex;
     flex-direction: column;
-    padding: 0;
-    margin: 0;
   }
 `;
 
