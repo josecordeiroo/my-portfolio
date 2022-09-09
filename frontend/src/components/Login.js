@@ -7,7 +7,10 @@ const Login = () => {
   return (
     <Container>
       <LoginPage />
-      <Bar/>
+      <span>
+      Or create an account below to check admin area
+      </span>
+      <Bar />
       <SignupPage />
     </Container>
   );
@@ -16,8 +19,15 @@ const Login = () => {
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  text-align: center;
+  span {
+    width: 20px;
+    font-size: 10px;
+    color: white;
+  }
   @media (max-width: 1300px) {
     display: block;
+    
   }
 `;
 
@@ -28,8 +38,8 @@ const Bar = styled.div`
   @media (max-width: 1300px) {
     height: 0;
     width: 200px;
-    margin-top: 0;
-    margin-left: 100px;
+    margin-top: 10px;
+    margin-left: 110px;
     border: 1px solid white;
   }
 `;
