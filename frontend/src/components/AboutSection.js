@@ -13,6 +13,7 @@ import {
 } from "../animation";
 import { useScroll } from "../hooks/useScroll";
 import Wave from "./Wave";
+import SocialNetworkSection from "./SocialNetworkSection";
 
 const AboutSection = () => {
   const [element, controls] = useScroll();
@@ -55,6 +56,7 @@ const AboutSection = () => {
         </Image>
         <Wave />
       </About>
+    
     </>
   );
 };
@@ -114,7 +116,7 @@ const Description = styled.div`
   @media (max-width: 1200px) {
     padding: 0;
     button {
-      margin: 4rem 0rem 5rem 0rem;
+      display: none;
     }
   }
 `;

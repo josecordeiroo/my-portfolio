@@ -3,7 +3,7 @@ import React from "react";
 //Styled Components
 import styled from "styled-components";
 
-import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from "react-bootstrap/Dropdown";
 
 //Navigation
 import { Link } from "react-router-dom";
@@ -55,34 +55,37 @@ const NavOptions = () => {
         </ul>
       </StyledNav>
 
-      <NovoTeste>
-      <Dropdown>
-      <Dropdown.Toggle variant="dark" id="dropdown-basic" size="lg">
-        Menu
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="/">{menuOptions.about}</Dropdown.Item>
-        <Dropdown.Item href="/portfolio">{menuOptions.portfolio}</Dropdown.Item>
-        <Dropdown.Item href="/contact">{menuOptions.contact}</Dropdown.Item>
-        <Dropdown.Divider />
-        <Dropdown.Item href="/login">Login/Register</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-      </NovoTeste>
+      <NavMobile>
+        <StyledNavMob>
+          <ul>
+            <li>
+              <Link to="/">{menuOptions.about} </Link> <Dot/>
+            </li>
+            <li>
+              <Link to="/portfolio">{menuOptions.portfolio}</Link><Dot/>
+            </li>
+            {!Userfront.accessToken() && (
+              <>
+                <li>
+                  <Link to="/login">{menuOptions.login}</Link>
+                </li>
+              </>
+            )}
+            {Userfront.accessToken() && (
+              <>
+                <li>
+                  <Link to="/admin">{menuOptions.admin}</Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </StyledNavMob>
+      </NavMobile>
     </Container>
   );
 };
 
-const NovoTeste = styled.div`
-  display: none;
-  @media (max-width: 1300px) {
-    display: flex;
-    justify-content: center;
-  }
-`;
-
-const Container = styled.div``
+const Container = styled.div``;
 
 const StyledNav = styled.nav`
   min-height: 10vh;
@@ -116,6 +119,54 @@ const StyledNav = styled.nav`
   @media (max-width: 1300px) {
     display: none;
   }
+`;
+
+const NavMobile = styled.div`
+  display: none;
+  @media (max-width: 1300px) {
+    display: flex;
+  }
+`;
+
+const StyledNavMob = styled.nav`
+  min-height: 1vh;
+  border-radius: 10px;
+  display: flex;
+  margin: auto;
+  margin-top: 8px;
+  justify-content: center;
+  align-items: center;
+  background: #282828;
+  position: sticky;
+  top: 0;
+  color: white;
+  z-index: 10;
+  ul {
+    display: flex;
+    list-style: none;
+  }
+  li {
+    padding-right: 2rem;
+    padding-top: 1rem;
+  }
+  a {
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+  }
+  .home {
+    font-size: 50px;
+  }
+`;
+
+export const Dot = styled.div`
+  border-radius: 50%;
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border: 1px solid #000000;
+  background-color: white;
+  margin-left: 20px;
 `;
 
 export default NavOptions;
