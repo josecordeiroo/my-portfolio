@@ -25,8 +25,10 @@ import {
   faNode,
   faJs,
   faGithub,
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import {
+  faEnvelope,
   faGraduationCap,
   faImages,
   faLaptopCode,
@@ -41,7 +43,9 @@ library.add(
   faImages,
   faNode,
   faJs,
-  faGithub
+  faGithub,
+  faTwitter,
+  faEnvelope
 );
 
 function App() {

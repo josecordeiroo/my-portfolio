@@ -82,7 +82,7 @@ const ServiceSection = () => {
                 <FontAwesomeIcon icon={["solid", "laptop-code"]} size="4x" />
                 <h3>Portfolio</h3>
               </div>
-              <p>Portfolio developed by me accessible to everyone to check Admin Area </p>
+              <p>Portfolio developed by me, accessible to everyone check Admin Area </p>
             </Card>
 
             <Card>
