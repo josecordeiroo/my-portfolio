@@ -53,7 +53,7 @@ const PortfolioDetail = () => {
 
         <Description>
           <p>{data && data.data.longDescription}</p>
-          <p>See more in: <a href={`https://github.com/josecordeiroo/${data && data.data.slug}`} target="_blank">{`github.com/josecordeiroo/${data && data.data.slug}`}</a> </p>
+          <p>See more in: <a href={`https://github.com/josecordeiroo/${data && data.data.slug}`} target="_blank" rel="noopener noreferrer">{`github.com/josecordeiroo/${data && data.data.slug}`}</a> </p>
         </Description>
 
         <img src={data && data.data.imgUrl} alt="illustrative"></img>

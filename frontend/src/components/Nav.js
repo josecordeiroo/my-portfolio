@@ -3,8 +3,6 @@ import React from "react";
 //Styled Components
 import styled from "styled-components";
 
-import Dropdown from "react-bootstrap/Dropdown";
-
 //Navigation
 import { Link } from "react-router-dom";
 
@@ -39,9 +37,6 @@ const NavOptions = () => {
             <>
               <li>
                 <Link to="/login">{menuOptions.login}</Link>
-              </li>
-              <li>
-                <Link to="/signup">{menuOptions.signup}</Link>
               </li>
             </>
           )}
@@ -150,7 +145,7 @@ const StyledNavMob = styled.nav`
     padding-top: 1rem;
   }
   a {
-    font-size: 15px;
+    font-size: 12px;
     text-decoration: none;
     color: white;
   }

@@ -14,8 +14,6 @@ import NavOptions from "./components/Nav";
 import Admin from "./pages/Admin";
 import Login from "./components/Login";
 
-import { LoginPage, SignupPage, ResetPage } from "./components/auth/Authentication";
-
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -62,9 +60,7 @@ function App() {
         <Route path="/portfolio/:slug" element={<Portfolio />} />
         <Route path="/contact" element={<ContactMe />} />
         <Route path="/admin" element={<Admin location={location} />} />
-        <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/reset" element={<ResetPage />} />
       </Routes>
     </div>
   );

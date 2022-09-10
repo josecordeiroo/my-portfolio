@@ -48,7 +48,7 @@ const ContactMobile = () => {
         </Social>
       </Network>
 
-      <iframe src="https://giphy.com/embed/RbDKaczqWovIugyJmW" width="400" height="220" frameBorder="0" class="giphy-embed" allowFullScreen style={{marginBottom: "80px"}}></iframe>
+      <iframe src="https://giphy.com/embed/RbDKaczqWovIugyJmW" width="400" height="220" frameBorder="0" className="giphy-embed" allowFullScreen style={{marginBottom: "80px"}} title="animation"/>
 
       <footer>@zecaxcr 2022</footer>
     </Container>

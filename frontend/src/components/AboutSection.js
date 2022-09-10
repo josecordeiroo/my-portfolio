@@ -13,7 +13,6 @@ import {
 } from "../animation";
 import { useScroll } from "../hooks/useScroll";
 import Wave from "./Wave";
-import SocialNetworkSection from "./SocialNetworkSection";
 
 const AboutSection = () => {
   const [element, controls] = useScroll();
@@ -43,7 +42,7 @@ const AboutSection = () => {
             me to develop myself more and more as a good professional.
           </motion.p>
           <ImageMobile>
-          <img src="https://uploaddeimagens.com.br/images/003/976/204/original/Zeca.png?1660161794" />
+          <img src="https://uploaddeimagens.com.br/images/003/976/204/original/Zeca.png?1660161794" alt="Jose Cordeiro"/>
         </ImageMobile>
           <button onClick={redirectHandler}>Contact Me</button>
         </Description>
@@ -51,7 +50,7 @@ const AboutSection = () => {
           <motion.img
             variants={photoAnimation}
             src="https://uploaddeimagens.com.br/images/003/976/204/original/Zeca.png?1660161794"
-            alt="Uma foto de José Cordeiro"
+            alt="Jose Cordeiro"
           />
         </Image>
         <Wave />

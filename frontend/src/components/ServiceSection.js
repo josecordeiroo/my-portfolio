@@ -22,7 +22,7 @@ const ServiceSection = () => {
         <Image>
           <img
             src="https://cdn2.iconfinder.com/data/icons/business-and-commercial-mixed-hexagone/128/4-512.png"
-            alt="Ilustração com desenho de uma ferramenta"
+            alt="Illustration of a tool"
           ></img>
         </Image>
 
@@ -35,7 +35,23 @@ const ServiceSection = () => {
                 <FontAwesomeIcon icon={["solid", "laptop-code"]} size="4x" />
                 <h3>Portfolio</h3>
               </div>
-              <p>Check my work on my portfolio</p>
+              <p>Portfolio developed by me, accessible to everyone check Admin Area </p>
+            </Card>
+
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["solid", "graduation-cap"]} size="4x" />
+                <h3>Graduation</h3>
+              </div>
+              <p>Systems Analysis and Development (University of Santo Amaro)</p>
+            </Card>
+
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["brands", "fa-js"]} size="4x" />
+                <h3>Technologies</h3>
+              </div>
+              <p>Javascript, React.JS, Bootstrap, Node.JS, MongoDB, NPM, Express and others</p>
             </Card>
 
             <Card>
@@ -43,24 +59,9 @@ const ServiceSection = () => {
                 <FontAwesomeIcon icon={["brands", "square-github"]} size="4x" />
                 <h3>Github</h3>
               </div>
-              <p>Follow the way I usually develop</p>
+              <p>Github logging all my latest codes</p>
             </Card>
 
-            <Card>
-              <div className="icon">
-                <FontAwesomeIcon icon={["solid", "graduation-cap"]} size="4x" />
-                <h3>Courses</h3>
-              </div>
-              <p>See what I'm learning now</p>
-            </Card>
-
-            <Card>
-              <div className="icon">
-                <FontAwesomeIcon icon={["solid", "images"]} size="4x" />
-                <h3>Hobbies</h3>
-              </div>
-              <p>Things I like to do</p>
-            </Card>
           </Cards>
         </Description>
       </Services>
