@@ -1,6 +1,6 @@
 import React from "react";
 
-import styled from "styled-components";
+import { Container, Description, Image, Network, Social } from "./styles";
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -54,49 +54,5 @@ const ContactMobile = () => {
     </Container>
   );
 };
-
-const Container = styled.div`
-  text-align: center;
-  footer {
-    color: gray;
-  }
-  @media (min-width: 1200px) {
-    display: none;
-  }
-`;
-
-const Description = styled.div`
-  color: #23d997;
-`;
-
-const Image = styled.div`
-  img {
-    width: 90px;
-    height: 90px;
-  }
-`;
-
-const Network = styled.div`
-  padding: 1rem 1rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-bottom: 120px;
-  margin-top: 80px;
-`;
-
-const Social = styled.a`
-  font-size: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 15px 50px;
-  padding: 17px;
-  text-decoration: none;
-
-  h3 {
-    padding-left: 10px;
-  }
-`;
 
 export default ContactMobile;

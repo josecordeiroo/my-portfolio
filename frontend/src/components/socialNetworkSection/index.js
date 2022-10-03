@@ -1,6 +1,6 @@
 import React from "react";
 
-import styled from "styled-components";
+import { Network, Social } from "./styles";
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,29 +27,5 @@ const SocialNetworkSection = () => {
     </Network>
   );
 };
-
-const Network = styled.div`
-  padding: 1rem 5rem;
-`;
-
-const Social = styled.a`
-  font-size: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 15px 50px;
-  padding: 17px;
-  text-decoration: none;
-
-  &:hover {
-    background: #23d997;
-    transition: 0.5s;
-  }
-
-  h3 {
-    padding-left: 10px;
-  }
-`;
 
 export default SocialNetworkSection;

@@ -1,12 +1,12 @@
 import React from "react";
 import moment from "moment";
 
+import { NavBar, Image, User, ButtonLogOut } from "./styles";
+
 import { Tabs, Tab, Container, Button } from "react-bootstrap";
 
 import PortfolioList from "../portfolioList";
 import WelcomeTab from "../welcomeTab";
-
-import styled from "styled-components";
 
 import { Navigate } from "react-router-dom";
 
@@ -68,31 +68,5 @@ const Admin = ({ location }) => {
     </Container>
   );
 };
-
-const NavBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  background-color: gray;
-  border-radius: 5px;
-  margin-top: 10px;
-  margin: 20px 0px;
-  h2 {
-    padding: 20px;
-  }
-`;
-
-const Image = styled.img`
-  width: 200px;
-  height: 200px;
-`;
-
-const User = styled.div`
-  margin: 20px;
-  text-align: center;
-`;
-
-const ButtonLogOut = styled.div`
- padding: 30px;
-`
 
 export default Admin;
