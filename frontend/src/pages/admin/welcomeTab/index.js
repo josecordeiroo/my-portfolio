@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Card } from "react-bootstrap";
 
-import useApi from "../../hooks/useApi";
+import useApi from "../../../hooks/useApi";
 
 import Userfront from "@userfront/react";
 Userfront.init("wn9qg5pn");

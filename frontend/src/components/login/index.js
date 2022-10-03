@@ -1,7 +1,7 @@
 import React from "react";
 
 import styled from "styled-components";
-import { LoginPage, SignupPage } from "./auth/Authentication";
+import { LoginPage, SignupPage } from "../../services/auth/Authentication";
 
 const Login = () => {
   return (
@@ -37,6 +37,7 @@ const Bar = styled.div`
   margin-top: 150px;
   @media (max-width: 1300px) {
     display: none;
+  }
 `;
 
 export default Login;

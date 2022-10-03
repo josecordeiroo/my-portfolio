@@ -3,8 +3,8 @@ import moment from "moment";
 
 import { Tabs, Tab, Container, Button } from "react-bootstrap";
 
-import PortfolioList from "../components/admin/PortfolioList";
-import WelcomeTab from "../components/admin/WelcomeTab";
+import PortfolioList from "../portfolioList";
+import WelcomeTab from "../welcomeTab";
 
 import styled from "styled-components";
 

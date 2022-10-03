@@ -1,8 +1,8 @@
 import React from "react";
 
-import AboutSection from "../components/AboutSection";
-import ServiceSection from "../components/ServiceSection";
-import ContactMobile from "../components/ContactMobile";
+import AboutSection from "../components/aboutSection"
+import ServiceSection from "../components/serviceSection";
+import ContactMobile from "../components/contactMobile";
 
 const AboutMe = () => {
   return (

@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import useApi from "../hooks/useApi";
 
-import Card from "../components/Card";
-import PortfolioDetail from "../components/PortfolioDetail";
+import Card from "../components/card";
+import PortfolioDetail from "../components/portfolioDetail";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { useParams, useNavigate } from "react-router-dom";
-import useApi from "../hooks/useApi.js";
+import useApi from "../../hooks/useApi.js";
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

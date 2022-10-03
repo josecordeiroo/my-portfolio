@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import moment from "moment";
-import useApi from "../../hooks/useApi";
+import useApi from "../../../hooks/useApi";
 
 import { Table, Button, Image } from "react-bootstrap";
 import styled from "styled-components";
 
-import Dialog from "../dialog/Dialog";
-import PortfolioForm from "../admin/PortfolioForm";
-import { deleteItem, addItem, editItem } from "../../services/api";
+import Dialog from "../../../components/dialog";
+import PortfolioForm from "../portfolioForm";
+import { deleteItem, addItem, editItem } from "../../../services/api";
 
 import Userfront from "@userfront/react";
 Userfront.init("wn9qg5pn");

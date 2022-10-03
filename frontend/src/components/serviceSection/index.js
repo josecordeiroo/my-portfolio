@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { About, Description, Image } from "../styles";
+import { About, Description, Image } from "../../styles/styles";
 
 //Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { scrollReveal } from "../animation";
-import { useScroll } from "../hooks/useScroll";
+import { scrollReveal } from "../../animation";
+import { useScroll } from "../../hooks/useScroll";
 
 const ServiceSection = () => {
   const [element, controls] = useScroll();

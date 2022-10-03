@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 //Components
-import SocialNetworkSection from "../components/SocialNetworkSection";
-import ContactForm from "../components/ContactForm";
+import SocialNetworkSection from "../components/socialNetworkSection";
+import ContactForm from "../components/contactForm";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";

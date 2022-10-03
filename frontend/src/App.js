@@ -1,7 +1,7 @@
 import React from "react";
 
 //Global Style
-import GlobalStyle from "./components/GlobalStyle";
+import GlobalStyle from "./styles/GlobalStyle";
 
 //Routes
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -10,9 +10,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import AboutMe from "./pages/AboutMe";
 import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
-import NavOptions from "./components/Nav";
-import Admin from "./pages/Admin";
-import Login from "./components/Login";
+import NavOptions from "./components/nav";
+import Admin from "./pages/admin/homeAdmin";
+import Login from "./components/login";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";

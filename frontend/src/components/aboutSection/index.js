@@ -10,9 +10,9 @@ import {
   fade,
   photoAnimation,
   scrollReveal,
-} from "../animation";
-import { useScroll } from "../hooks/useScroll";
-import Wave from "./Wave";
+} from "../../animation";
+import { useScroll } from "../../hooks/useScroll";
+import Wave from "../wave";
 
 const AboutSection = () => {
   const [element, controls] = useScroll();
