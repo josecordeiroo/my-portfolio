@@ -19,8 +19,7 @@ const Portfolio = () => {
   const [projects, setProjects] = useState({});
 
   async function fetchProjects() {
-    const response = await ProjectsService.index();
-    setProjects(response);
+    setProjects(await ProjectsService.index());
   }
 
   const { data } = projects;

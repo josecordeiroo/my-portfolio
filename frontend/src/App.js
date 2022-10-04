@@ -12,7 +12,8 @@ import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import NavOptions from "./components/nav";
 import Admin from "./pages/admin/homeAdmin";
-import Login from "./components/login";
+import Login from "./pages/Auth/login";
+import Register from "./pages/Auth/register";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -59,8 +60,9 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/:slug" element={<Portfolio />} />
         <Route path="/contact" element={<ContactMe />} />
-        {/* <Route path="/admin" element={<Admin location={location} />} /> */}
-        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/admin" element={<Admin location={location} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register/>} />
       </Routes>
     </div>
   );

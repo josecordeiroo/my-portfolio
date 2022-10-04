@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+let userSchema = new Schema({
   name: String,
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -30,4 +30,4 @@ userSchema.methods.isCorrectPassword = function (password, callback) {
   });
 };
 
-// module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);

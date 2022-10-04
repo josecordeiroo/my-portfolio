@@ -1,0 +1,23 @@
+.auth {
+  background-color: green;
+  min-height: calc(100% - 70px); 
+  text-align: center; 
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.404) 1px 1px 10px 6px;
+    border-radius: 20px;
+}
+.cardContent {
+  display: block;
+  justify-content: center;
+}
+
+  .logoZk{
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    width: 150px;
+  }
