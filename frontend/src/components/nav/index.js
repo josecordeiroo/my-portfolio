@@ -5,10 +5,6 @@ import { Container, StyledNav, NavMobile, StyledNavMob, Dot } from "./styles";
 //Navigation
 import { Link } from "react-router-dom";
 
-import Userfront from "@userfront/react";
-
-Userfront.init("wn9qg5pn");
-
 const NavOptions = () => {
   const menuOptions = {
     about: "<AboutMe />",
@@ -32,14 +28,14 @@ const NavOptions = () => {
           <li>
             <Link to="/contact">{menuOptions.contact}</Link>
           </li>
-          {!Userfront.accessToken() && (
+          {!localStorage.getItem("user") && (
             <>
               <li>
                 <Link to="/login">{menuOptions.login}</Link>
               </li>
             </>
           )}
-          {Userfront.accessToken() && (
+          {localStorage.getItem("user") && (
             <>
               <li>
                 <Link to="/admin">{menuOptions.admin}</Link>
@@ -58,14 +54,14 @@ const NavOptions = () => {
             <li>
               <Link to="/portfolio">{menuOptions.portfolio}</Link><Dot/>
             </li>
-            {!Userfront.accessToken() && (
+            {!localStorage.getItem("user") && (
               <>
                 <li>
                   <Link to="/login">{menuOptions.login}</Link>
                 </li>
               </>
             )}
-            {Userfront.accessToken() && (
+            {localStorage.getItem("user") && (
               <>
                 <li>
                   <Link to="/admin">{menuOptions.admin}</Link>

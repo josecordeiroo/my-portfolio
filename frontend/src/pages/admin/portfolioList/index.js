@@ -13,10 +13,7 @@ const PortfolioList = () => {
   const [projects, setProjects] = useState([]);
 
   async function fetchProjects() {
-    const response = await ProjectsService.index();
-    if (response.data.length >= 0) {
-      setProjects(response.data.reverse());
-    }
+    setProjects(await ProjectsService.index());
   }
 
   const { data } = projects;

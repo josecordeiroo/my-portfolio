@@ -29,7 +29,7 @@ const Admin = ({ location }) => {
       <NavBar>
         <h2>Painel Administrativo</h2>
         <ButtonLogOut>
-          <Button variant="danger" onClick={() => UsersService.logout()}>
+          <Button variant="danger" onClick={() => {UsersService.logout(); window.location.reload(false);}}>
             Finalizar Sessão
           </Button>
         </ButtonLogOut>
