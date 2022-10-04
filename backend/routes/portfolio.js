@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const Portfolio = require("../models/Portfolio");
 
-const auth = require('../middlewares/auth')
+const withAuth = require("../middlewares/auth");
 
 // Create
-router.post("/", auth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   const portfolio = new Portfolio({
     title: req.body.title,
     description: req.body.description,
@@ -50,11 +50,7 @@ router.get("/:slug", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const portfolio = await Portfolio.find();
-
-    res.json({
-      success: true,
-      data: portfolio,
-    });
+    res.json(portfolio);
   } catch (err) {
     res.json({
       success: false,
@@ -64,7 +60,7 @@ router.get("/", async (req, res) => {
 });
 
 // Update
-router.patch("/:slug", auth, async (req, res) => {
+router.patch("/:slug", withAuth, async (req, res) => {
   try {
     const updatedPortfolio = await Portfolio.updateOne(
       {
@@ -91,7 +87,7 @@ router.patch("/:slug", auth, async (req, res) => {
 });
 
 // Delete
-router.delete("/:slug", auth, async (req, res) => {
+router.delete("/:slug", withAuth, async (req, res) => {
   try {
     const name = await Portfolio.findOne({ slug: req.params.slug });
     await Portfolio.deleteOne({ slug: req.params.slug });

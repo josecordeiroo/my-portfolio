@@ -1,28 +1,29 @@
+require("dotenv").config();
+const secret = process.env.JWT_TOKEN;
+
 const jwt = require("jsonwebtoken");
 
-const project_id = process.env.USERFRONT_PROJECT_ID;
-const secret_base64 = process.env.JWT_SECRET;
-const secret = Buffer.from(secret_base64, "base64");
+const User = require("../models/user");
 
-module.exports = (req, res, next) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader) {
-    return res.sendStatus(401);
-  }
-
-  const token = authHeader.split(" ")[1];
-
-  try {
-    const user = jwt.verify(token, secret);
-    console.log(user);
-    if (user.authorization[project_id].roles.includes("admin")) {
-      next();
-    } else {
-      res.sendStatus(401);
-    }
-  } catch (error) {
-    res.status(401).json({
-      error: new Error("Invalid request"),
+const WithAuth = (req, res, next) => {
+  const token = req.headers["x-access-token"];
+  if (!token)
+    res.status(401).json({ error: "Unauthorized: no token provided" });
+  else {
+    jwt.verify(token, secret, (err, decoded) => {
+      if (err)
+        res.status(401).json({ error: "Unauthorized: token invalid" });
+      else {
+        req.email = decoded.email;
+        User.findOne({ email: decoded.email }).then((user) => {
+          req.user = user;
+          next();
+        }).catch(err => {
+            res.status(401).json({error: err})
+        })
+      }
     });
   }
 };
+
+module.exports = WithAuth

@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
-import useApi from "../hooks/useApi";
 
 import Card from "../components/card";
 import PortfolioDetail from "../components/portfolioDetail";
@@ -11,10 +10,24 @@ import PortfolioDetail from "../components/portfolioDetail";
 import { motion } from "framer-motion/dist/framer-motion";
 import { pageAnimation } from "../animation";
 
+import ProjectsService from "../services/projects";
+
 const Portfolio = () => {
   const location = useLocation();
   const slug = location.pathname.split("/")[2];
-  const { data } = useApi("/portfolio");
+
+  const [projects, setProjects] = useState({});
+
+  async function fetchProjects() {
+    const response = await ProjectsService.index();
+    setProjects(response);
+  }
+
+  const { data } = projects;
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
 
   return (
     <motion.div
@@ -30,7 +43,7 @@ const Portfolio = () => {
 
         <CardList>
           {data ? (
-            data.data.map((project) => {
+            data.map((project) => {
               console.log(project);
               return <Card key={project.slug} project={project} />;
             })

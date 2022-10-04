@@ -33,7 +33,7 @@ const portfolioSchema = new Schema({
     {
       label: String,
       icon: String,
-      iconType: String
+      iconType: String,
     },
   ],
   createdAt: {

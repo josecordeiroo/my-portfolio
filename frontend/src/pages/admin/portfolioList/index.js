@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
-import useApi from "../../../hooks/useApi";
 
 import { Table, Button, Image } from "react-bootstrap";
 import styled from "styled-components";
 
 import Dialog from "../../../components/dialog";
 import PortfolioForm from "../portfolioForm";
-import { deleteItem, addItem, editItem } from "../../../services/api";
 
-import Userfront from "@userfront/react";
-Userfront.init("wn9qg5pn");
+import ProjectsService from "../../../services/projects";
 
 const PortfolioList = () => {
-  const { data } = useApi("/portfolio");
+  const [projects, setProjects] = useState([]);
+
+  async function fetchProjects() {
+    const response = await ProjectsService.index();
+    if (response.data.length >= 0) {
+      setProjects(response.data.reverse());
+    }
+  }
+
+  const { data } = projects;
 
   const handleDel = (slug) => {
-    deleteItem(slug);
+    ProjectsService.deleteItem(slug);
     window.location.reload(false);
   };
 
@@ -97,7 +103,7 @@ const PortfolioList = () => {
       imgUrl: data.image,
       technologies: tech,
     };
-    addItem(newPortfolioItem);
+    ProjectsService.addItem(newPortfolioItem);
   };
 
   const editPortfolioItem = (slug, data) => {
@@ -112,8 +118,12 @@ const PortfolioList = () => {
       imgUrl: data.image,
       technologies: tech,
     };
-    editItem(slug, newPortfolioItem);
+    ProjectsService.editItem(slug, newPortfolioItem);
   };
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
 
   return (
     <div>
@@ -152,7 +162,7 @@ const PortfolioList = () => {
         </thead>
         <tbody>
           {data &&
-            data.data.map((project) => {
+            data.map((project) => {
               return (
                 <tr key={project.slug}>
                   <td>
