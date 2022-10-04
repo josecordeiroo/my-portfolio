@@ -24,10 +24,13 @@ const Admin = ({ location }) => {
     );
   }
 
+  const name = localStorage.getItem("name")
+  const capitalized = name[0].toUpperCase() + name.substr(1);
+
   return (
     <Container style={{ color: "white" }} fluid>
       <NavBar>
-        <h2>Painel Administrativo</h2>
+        <h2>Painel Administrativo de {capitalized}</h2>
         <ButtonLogOut>
           <Button variant="danger" onClick={() => {UsersService.logout(); window.location.reload(false);}}>
             Finalizar Sessão
@@ -35,13 +38,10 @@ const Admin = ({ location }) => {
         </ButtonLogOut>
       </NavBar>
       <Tabs defaultActiveKey={1} id="tab-navigation">
-        <Tab eventKey={1} title="Início">
-          {/* <WelcomeTab name={userName} /> */}
+        <Tab eventKey={1} title="Lista de Projetos">
+        <PortfolioList />
         </Tab>
-        <Tab eventKey={2} title="Projetos">
-          <PortfolioList />
-        </Tab>
-        <Tab eventKey={3} title="Dados do Usuário">
+        <Tab eventKey={2} title="Dados do Usuário">
           {/* <User>
             <Image src={userData.image} alt="User" />
             <p>

@@ -25,6 +25,7 @@ router.post("/login", async (req, res) => {
 
   try {
     let user = await User.findOne({ email });
+    let name = user.name
 
     if (!user) {
       res.status(401).json({ error: "Incorrect email or password" });
@@ -34,7 +35,7 @@ router.post("/login", async (req, res) => {
           res.status(401).json({ error: "Incorrect email or password" });
         } else {
           const token = jwt.sign({ email }, secret, { expiresIn: "1d" });
-          res.json({ user: user, token: token });
+          res.json({ user: user, name: name, token: token });
         }
       });
     }
