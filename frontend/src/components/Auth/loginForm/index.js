@@ -45,7 +45,7 @@ const LoginForm = () => {
   return (
     <>
       <form onSubmit={HandleSubmit}>
-      <Label>E-mail:</Label>
+        <Label>E-mail:</Label>
         <Field>
           <Control iconRight>
             <Input
@@ -97,13 +97,12 @@ const LoginForm = () => {
         {error && (
           <Help color="danger">E-mail ou senha inválidos, tente novamente</Help>
         )}
-
         <Field kind="group" align="centered">
           <Control>
             <a href="/register">
               <Register>
-                Crie uma conta e veja como funciona a area administrativa do meu
-                portfolio
+                Clique aqui e crie uma conta para ver como funciona a área administrativa deste
+                portfólio!
               </Register>
             </a>
           </Control>
@@ -116,6 +115,10 @@ const LoginForm = () => {
 const Register = styled.p`
   color: green;
   text-decoration: none;
+  margin-top: 30px;
+  border: 1px green solid;
+  padding: 7px;
+  border-radius: 10px;
 `;
 
 export default LoginForm;
