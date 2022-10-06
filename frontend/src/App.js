@@ -14,6 +14,7 @@ import NavOptions from "./components/nav";
 import Admin from "./pages/admin/homeAdmin";
 import Login from "./pages/Auth/login";
 import Register from "./pages/Auth/register";
+import Terms from "./pages/Terms";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -63,6 +64,7 @@ function App() {
         <Route path="/admin" element={<Admin location={location} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/terms" element={<Terms/>} />
       </Routes>
     </div>
   );

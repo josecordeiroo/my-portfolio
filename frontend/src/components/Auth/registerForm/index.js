@@ -1,28 +1,24 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import UsersService from "../../../services/users";
-import styled from "styled-components";
+
+import { Modal } from "react-bootstrap";
+
+import { Help, Checkbox, Radio, Button, Container } from "rbx";
 
 import {
+  Title,
+  LoginText,
+  Input,
   Field,
   Label,
-  Control,
-  Help,
-  Select,
-  Textarea,
-  Icon,
-  Checkbox,
-  Radio,
-  Button,
-  Container,
-} from "rbx";
+  ShowPasswordText,
+  Terms,
+} from "./styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUser,
-  faCheck,
   faEnvelope,
-  faExclamationTriangle,
   faLock,
   faSignature,
 } from "@fortawesome/free-solid-svg-icons";
@@ -33,11 +29,12 @@ const RegisterForm = () => {
   const [password, setPassword] = useState("");
   const [redirectToLogin, setRedirectToLogin] = useState(false);
   const [error, setError] = useState(false);
+  const [show, setShow] = useState(false);
 
   const HandleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const user = await UsersService.register({
+      await UsersService.register({
         name: name,
         email: email,
         password: password,
@@ -48,6 +45,17 @@ const RegisterForm = () => {
     }
   };
 
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordText, setPasswordText] = useState("Mostrar Senha");
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+
+    passwordShown
+      ? setPasswordText("Mostrar Senha")
+      : setPasswordText("Esconder Senha");
+  };
+
   if (redirectToLogin) return <Navigate to={{ pathname: "/login" }} />;
 
   return (
@@ -55,99 +63,98 @@ const RegisterForm = () => {
       <Title>Criar uma nova conta:</Title>
       <form onSubmit={HandleSubmit}>
         <Field>
-        <FontAwesomeIcon icon={faSignature} />
+          <FontAwesomeIcon icon={faSignature} />
           <Label>Nome:</Label>
-          <Control iconLeft>
-            <Input
-              type="name"
-              placeholder="Digite seu nome"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </Control>
+          <Input
+            type="name"
+            placeholder="Digite seu nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </Field>
-        <br/>
+        <br />
         <Field>
-        <FontAwesomeIcon icon={faEnvelope} />
+          <FontAwesomeIcon icon={faEnvelope} />
           <Label>E-mail:</Label>
-          <Control iconLeft iconRight>
-            <Input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              defaultValue=""
-              placeholder="Digite seu e-mail"
-              type="email"
-            />
-          </Control>
+          <Input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            defaultValue=""
+            placeholder="Digite seu e-mail"
+            type="email"
+          />
         </Field>
-        <br/>
+        <br />
         <Field>
-        <FontAwesomeIcon icon={faLock} />
+          <FontAwesomeIcon icon={faLock} />
           <Label>Senha:</Label>
-          <Control iconLeft iconRight>
-            <Input
-              //   color="danger"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              defaultValue=""
-              placeholder="Digite sua senha"
-              type="text"
-            />
-          </Control>
+          <Input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            defaultValue=""
+            placeholder="Digite sua senha"
+            type={passwordShown ? "text" : "password"}
+          />
         </Field>
-        <br/>
+        <ShowPasswordText onClick={() => togglePassword()}>
+          {passwordText}
+        </ShowPasswordText>
+
         <Field kind="group" align="centered">
-          <Control>
-            <Label>
-              <Checkbox required /> Eu aceito os{" "}
-              <a href="/terms">termos de uso</a>.
-            </Label>
-          </Control>
+          <label>
+            <Checkbox required /> Eu aceito os
+            <Terms onClick={() => setShow(true)}> termos de uso</Terms>.
+          </label>
         </Field>
-        <br/>
-        <Field kind="group" align="centered">
-          <Control>
-            <Button color="link">Cadastrar</Button>
-          </Control>
-        </Field>
+        <Button color="link">Cadastrar</Button>
         {error && <Help color="danger">E-mail ou senha inválidos</Help>}
       </form>
-      <br />
-      <Field kind="group" align="centered">
-        <Control align="center">
-          <a href="/login">
-            <Register text>Deseja fazer login?</Register>
-          </a>
-        </Control>
-      </Field>
+      <a href="/login">
+        <LoginText>Deseja fazer login?</LoginText>
+      </a>
+
+      <Modal
+        show={show}
+        onHide={() => setShow(false)}
+        backdrop="static"
+        keyboard={false}
+        size="lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Termos de uso</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <ul>
+            <li>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book.
+            </li>
+            <li>
+              It has survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </li>
+            <li>
+              It was popularised in the 1960s with the release of Letraset
+              sheets containing Lorem Ipsum passages, and more recently with
+              desktop publishing software like Aldus PageMaker including
+              versions of Lorem Ipsum.
+            </li>
+          </ul>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShow(false)}>
+            Eu aceito
+          </Button>
+          <Button onClick={() => setShow(false)}></Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };
-
-const Register = styled.p`
-  color: green;
-  font-weight: lighter;
-  margin-top: 30px;
-  padding: 7px;
-  border-radius: 10px;
-`;
-
-const Title = styled.h1`
-  font-size: 15px;
-  padding-bottom: 20px;
-  font-weight: bold;
-`;
-
-const Input = styled.input`
-  border-radius: 7px;
-  width: 200px;
-  height: 30px;
-  padding: 10px;
-  margin-right: 10px;
-  border: none;
-`;
 
 export default RegisterForm;
