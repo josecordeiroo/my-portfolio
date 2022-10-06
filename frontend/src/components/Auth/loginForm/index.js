@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import UsersService from "../../../services/users";
 
-import { Field, Label, Control, Input, Help, Icon, Button } from "rbx";
+import { Field, Label, Control, Help, Icon, Button } from "rbx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
@@ -44,8 +44,9 @@ const LoginForm = () => {
 
   return (
     <>
+      <Title>Acessar área administrativa:</Title>
       <form onSubmit={HandleSubmit}>
-        <Label>E-mail:</Label>
+        <FontAwesomeIcon icon={faUser} /> <Label>E-mail:</Label>
         <Field>
           <Control iconRight>
             <Input
@@ -57,15 +58,11 @@ const LoginForm = () => {
               placeholder="Digite seu E-mail"
               type="email"
             />
-            <Icon size="small" align="right">
-              <FontAwesomeIcon icon={faUser} />
-            </Icon>
           </Control>
         </Field>
-
         <Field>
-          <Label>Senha:</Label>
-
+          <br/>
+          <FontAwesomeIcon icon={faLock} /> <Label> Senha:</Label>
           <Control iconLeft>
             <Input
               //   color="danger"
@@ -76,9 +73,6 @@ const LoginForm = () => {
               placeholder="Digite sua Senha"
               type={passwordShown ? "text" : "password"}
             />
-            <Icon size="small" align="left">
-              <FontAwesomeIcon icon={faLock} />
-            </Icon>
             <p
               style={{ cursor: "pointer", fontSize: "13px" }}
               onClick={() => togglePassword()}
@@ -87,13 +81,11 @@ const LoginForm = () => {
             </p>
           </Control>
         </Field>
-
         <Field kind="group" align="centered">
           <Control>
             <Button color="link">Entrar</Button>
           </Control>
         </Field>
-
         {error && (
           <Help color="danger">E-mail ou senha inválidos, tente novamente</Help>
         )}
@@ -101,8 +93,8 @@ const LoginForm = () => {
           <Control>
             <a href="/register">
               <Register>
-                Clique aqui e crie uma conta para ver como funciona a área administrativa deste
-                portfólio!
+                Clique aqui para criar uma conta e ver como funciona a área
+                administrativa deste portfólio.
               </Register>
             </a>
           </Control>
@@ -114,11 +106,30 @@ const LoginForm = () => {
 
 const Register = styled.p`
   color: green;
-  text-decoration: none;
+  font-weight: lighter;
   margin-top: 30px;
-  border: 1px green solid;
   padding: 7px;
   border-radius: 10px;
+  &:hover {
+    color: white;
+    background-color: #23d997;
+    transition-duration: 0.5s;
+  }
+`;
+
+const Title = styled.h1`
+  font-size: 15px;
+  padding-bottom: 20px;
+  font-weight: bold;
+`;
+
+const Input = styled.input`
+  border-radius: 7px;
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
 `;
 
 export default LoginForm;
