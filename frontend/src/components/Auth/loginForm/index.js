@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import UsersService from "../../../services/users";
 
-import { Field, Label, Control, Help, Icon, Button } from "rbx";
+import { Control, Help, Icon, Button } from "rbx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
@@ -46,8 +46,8 @@ const LoginForm = () => {
     <>
       <Title>Acessar área administrativa:</Title>
       <form onSubmit={HandleSubmit}>
-        <FontAwesomeIcon icon={faUser} /> <Label>E-mail:</Label>
         <Field>
+          <FontAwesomeIcon icon={faUser} /> <Label>E-mail:</Label>
           <Control iconRight>
             <Input
               //   color="success"
@@ -61,7 +61,7 @@ const LoginForm = () => {
           </Control>
         </Field>
         <Field>
-          <br/>
+          <br />
           <FontAwesomeIcon icon={faLock} /> <Label> Senha:</Label>
           <Control iconLeft>
             <Input
@@ -89,16 +89,15 @@ const LoginForm = () => {
         {error && (
           <Help color="danger">E-mail ou senha inválidos, tente novamente</Help>
         )}
-        <Field kind="group" align="centered">
-          <Control>
-            <a href="/register">
-              <Register>
-                Clique aqui para criar uma conta e ver como funciona a área
-                administrativa deste portfólio.
-              </Register>
-            </a>
-          </Control>
-        </Field>
+
+        <Control>
+          <a href="/register">
+            <Register>
+              Clique aqui para criar uma conta e ver como funciona a área
+              administrativa deste portfólio.
+            </Register>
+          </a>
+        </Control>
       </form>
     </>
   );
@@ -110,11 +109,6 @@ const Register = styled.p`
   margin-top: 30px;
   padding: 7px;
   border-radius: 10px;
-  &:hover {
-    color: white;
-    background-color: #23d997;
-    transition-duration: 0.5s;
-  }
 `;
 
 const Title = styled.h1`
@@ -130,6 +124,14 @@ const Input = styled.input`
   padding: 10px;
   margin-right: 10px;
   border: none;
+`;
+
+const Label = styled.label`
+  text-align: left;
+`;
+
+const Field = styled.div`
+  text-align: left;
 `;
 
 export default LoginForm;

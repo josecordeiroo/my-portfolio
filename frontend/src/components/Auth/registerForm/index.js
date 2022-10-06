@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import UsersService from "../../../services/users";
+import styled from "styled-components";
 
 import {
   Field,
   Label,
   Control,
-  Input,
   Help,
   Select,
   Textarea,
@@ -14,7 +14,7 @@ import {
   Checkbox,
   Radio,
   Button,
-  Container
+  Container,
 } from "rbx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -52,8 +52,10 @@ const RegisterForm = () => {
 
   return (
     <Container>
+      <Title>Criar uma nova conta:</Title>
       <form onSubmit={HandleSubmit}>
         <Field>
+        <FontAwesomeIcon icon={faSignature} />
           <Label>Nome:</Label>
           <Control iconLeft>
             <Input
@@ -63,17 +65,14 @@ const RegisterForm = () => {
               onChange={(e) => setName(e.target.value)}
               required
             />
-            <Icon size="small" align="left">
-              <FontAwesomeIcon icon={faSignature} />
-            </Icon>
           </Control>
         </Field>
-        
+        <br/>
         <Field>
+        <FontAwesomeIcon icon={faEnvelope} />
           <Label>E-mail:</Label>
           <Control iconLeft iconRight>
             <Input
-              //   color="danger"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -81,17 +80,11 @@ const RegisterForm = () => {
               placeholder="Digite seu e-mail"
               type="email"
             />
-            <Icon size="small" align="left">
-              <FontAwesomeIcon icon={faEnvelope} />
-            </Icon>
-            {/* <Icon size="small" align="right">
-              <FontAwesomeIcon icon={faExclamationTriangle} />
-            </Icon> */}
           </Control>
-          {/* <Help color="danger">This email is invalid</Help> */}
         </Field>
-
+        <br/>
         <Field>
+        <FontAwesomeIcon icon={faLock} />
           <Label>Senha:</Label>
           <Control iconLeft iconRight>
             <Input
@@ -103,53 +96,22 @@ const RegisterForm = () => {
               placeholder="Digite sua senha"
               type="text"
             />
-            <Icon size="small" align="left">
-              <FontAwesomeIcon icon={faLock} />
-            </Icon>
-            {/* <Icon size="small" align="right">
-              <FontAwesomeIcon icon={faExclamationTriangle} />
-            </Icon> */}
           </Control>
-          {/* <Help color="danger">This email is invalid</Help> */}
         </Field>
-
-        {/* <Field>
-          <Label>Gênero:</Label>
-          <Control>
-            <Select.Container fullwidth>
-              <Select>
-                <Select.Option value="dropdown">Masculino</Select.Option>
-                <Select.Option value="options">Feminino</Select.Option>
-              </Select>
-            </Select.Container>
-          </Control>
-        </Field> */}
-
+        <br/>
         <Field kind="group" align="centered">
           <Control>
             <Label>
-              <Checkbox required /> Eu aceito os <a href="/terms">termos de uso</a>.
+              <Checkbox required /> Eu aceito os{" "}
+              <a href="/terms">termos de uso</a>.
             </Label>
           </Control>
         </Field>
-
-        {/* <Field>
-          <Control>
-            {['Yes', 'No'].map(value => (
-              <Label key={value}>
-                <Radio name="question" value={value} /> {value}
-              </Label>
-            ))}
-          </Control>
-        </Field> */}
-
+        <br/>
         <Field kind="group" align="centered">
           <Control>
             <Button color="link">Cadastrar</Button>
           </Control>
-          {/* <Control>
-            <Button text>Cancelar</Button>
-          </Control> */}
         </Field>
         {error && <Help color="danger">E-mail ou senha inválidos</Help>}
       </form>
@@ -157,12 +119,35 @@ const RegisterForm = () => {
       <Field kind="group" align="centered">
         <Control align="center">
           <a href="/login">
-            <Button text>Deseja fazer login?</Button>
+            <Register text>Deseja fazer login?</Register>
           </a>
         </Control>
       </Field>
     </Container>
   );
 };
+
+const Register = styled.p`
+  color: green;
+  font-weight: lighter;
+  margin-top: 30px;
+  padding: 7px;
+  border-radius: 10px;
+`;
+
+const Title = styled.h1`
+  font-size: 15px;
+  padding-bottom: 20px;
+  font-weight: bold;
+`;
+
+const Input = styled.input`
+  border-radius: 7px;
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+`;
 
 export default RegisterForm;
