@@ -73,19 +73,18 @@ const LoginForm = () => {
               placeholder="Digite sua Senha"
               type={passwordShown ? "text" : "password"}
             />
-            <p
+          </Control>
+        </Field>
+        <p
               style={{ cursor: "pointer", fontSize: "13px" }}
               onClick={() => togglePassword()}
             >
               {passwordText}
             </p>
-          </Control>
-        </Field>
-        <Field kind="group" align="centered">
           <Control>
             <Button color="link">Entrar</Button>
           </Control>
-        </Field>
+        
         {error && (
           <Help color="danger">E-mail ou senha inválidos, tente novamente</Help>
         )}
@@ -128,6 +127,7 @@ const Input = styled.input`
 
 const Label = styled.label`
   text-align: left;
+  padding: 5px;
 `;
 
 const Field = styled.div`
