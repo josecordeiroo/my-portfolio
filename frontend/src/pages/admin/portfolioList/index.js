@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 
+import { Modal } from "react-bootstrap";
+
 import { Table, Button, Image } from "react-bootstrap";
 import styled from "styled-components";
 
@@ -18,19 +20,34 @@ const PortfolioList = () => {
 
   const { data } = projects;
 
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [test, setTest] = useState(false);
+
   const handleDel = (slug) => {
-    ProjectsService.deleteItem(slug);
-    window.location.reload(false);
+    if (user.rules === "Admin") {
+      ProjectsService.deleteItem(slug);
+      window.location.reload(false);
+    } else {
+      setTest(true);
+    }
   };
 
   const handleAdd = (slug, data) => {
-    addPortfolioItem(data);
-    // window.location.reload(false);
+    if (user.rules === "Admin") {
+      addPortfolioItem(data);
+      window.location.reload(false);
+    } else {
+      setTest(true);
+    }
   };
 
   const handleEdit = (slug, data) => {
-    editPortfolioItem(slug, data);
-    window.location.reload(false);
+    if (user.rules === "Admin") {
+      editPortfolioItem(slug, data);
+      window.location.reload(false);
+    } else {
+      setTest(true);
+    }
   };
 
   const [show, setShow] = useState(false);
@@ -132,6 +149,19 @@ const PortfolioList = () => {
         }}
       >
         <h3>Lista de projetos</h3>
+        <Modal
+          show={test}
+          onHide={() => setTest(false)}
+          backdrop="static"
+          keyboard={false}
+          size="lg"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Este usuário não possui permissão administrativa para realizar esta ação.
+            </Modal.Title>
+          </Modal.Header>
+        </Modal>
         <Button
           variant="success"
           size="lg"
