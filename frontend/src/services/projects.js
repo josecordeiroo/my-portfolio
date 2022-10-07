@@ -4,7 +4,7 @@ const ProjectsService = {
   index: () => Api.get("/portfolio"),
   addItem: ({ title, description, longDescription, imgUrl, technologies }) => {
     Api.post(
-      `/api/portfolio`,
+      `/portfolio`,
       {
         title,
         description,
@@ -28,7 +28,7 @@ const ProjectsService = {
     { title, description, longDescription, imgUrl, technologies }
   ) => {
     Api.patch(
-      `/api/portfolio/${slug}`,
+      `/portfolio/${slug}`,
       {
         title,
         description,
@@ -48,7 +48,7 @@ const ProjectsService = {
       });
   },
   deleteItem: (slug) => {
-    Api.delete(`/api/portfolio/${slug}`, {
+    Api.delete(`/portfolio/${slug}`, {
       headers: { "x-access-token": localStorage.getItem("token") },
     })
       .then((res) => {

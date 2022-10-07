@@ -25,7 +25,7 @@ const PortfolioList = () => {
 
   const handleAdd = (slug, data) => {
     addPortfolioItem(data);
-    window.location.reload(false);
+    // window.location.reload(false);
   };
 
   const handleEdit = (slug, data) => {
