@@ -56,7 +56,7 @@ export const Image = styled.div`
   overflow: hidden;
   text-align: center;
   img {
-    width: 75%;
+    width: 100%;
     height: 75;
     object-fit: cover;
     border-radius: 30px;
@@ -67,7 +67,6 @@ export const Image = styled.div`
 export const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 2fr);
-  flex-wrap: wrap;
   @media (max-width: 1300px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -99,3 +98,4 @@ export const Card = styled.div`
     font-size: 12px;
   }
 `;
+
