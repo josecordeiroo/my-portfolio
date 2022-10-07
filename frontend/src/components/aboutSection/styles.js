@@ -20,12 +20,13 @@ export const Image = styled.div`
   z-index: 2;
   flex: 1;
   overflow: hidden;
-  text-align: center;
+
   img {
     width: 75%;
     height: 75;
     object-fit: cover;
-    border-radius: 30px;
+    border-radius: 200px;
+    border: solid white 5px;
   }
 
   @media (max-width: 1200px) {

@@ -27,6 +27,12 @@ export const StyledNav = styled.nav`
     font-size: 20px;
     text-decoration: none;
     color: white;
+    transition: 1s;
+    
+  }
+  a:hover {
+    color: #23d997;
+    transition: 0.3s;
   }
   .home {
     font-size: 50px;

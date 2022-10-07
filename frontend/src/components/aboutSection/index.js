@@ -14,6 +14,8 @@ import {
 import { useScroll } from "../../hooks/useScroll";
 import Wave from "../wave";
 
+import myPicture from "../../assets/me2.png"
+
 const AboutSection = () => {
   const [element, controls] = useScroll();
   const history = useNavigate();
@@ -34,22 +36,17 @@ const AboutSection = () => {
           <motion.h1 variants={titleAnimation}>José Cordeiro</motion.h1>
           <motion.h2 variants={titleAnimation}>Fullstack Developer</motion.h2>
           <motion.p variants={fade}>
-            Living in São Paulo, Brazil, I'm a fullstack programmer used to
-            developing with Javascript, dealing with the day-to-day tools that
-            are highly sought after, such as Node.js, React, MongoDB and others.
-            I am currently studying Systems Analysis and Development at Unisa
-            University and looking for an internship in a company that can help
-            me to develop myself more and more as a good professional.
+          A definição de Desenvolvedor Full Stack pode ser resumida como "alguém capaz de trabalhar tanto no back-end quanto no front-end de sistemas". Isso significa que o profisional pode desenvolver plataformas completas (com bancos de dados, servidores e clientes) que não precisam de outros aplicativos para funcionar. A definição de Desenvolvedor Full Stack pode ser resumida como "alguém capaz de trabalhar tanto no back-end quanto no front-end de sistemas". Isso significa que o profisional pode desenvolver plataformas completas (com bancos de dados, servidores e clientes) que não precisam de outros aplicativos para funcionar. A definição de Desenvolvedor Full Stack pode ser resumida como "alguém capaz de trabalhar tanto no back-end quanto no front-end de sistemas". Isso significa que o profisional pode desenvolver plataformas completas (com bancos de dados, servidores e clientes) que não precisam de outros aplicativos para funcionar.
           </motion.p>
           <ImageMobile>
-          <img src="https://uploaddeimagens.com.br/images/003/976/204/original/Zeca.png?1660161794" alt="Jose Cordeiro"/>
+          <img src={myPicture} alt="Jose Cordeiro"/>
         </ImageMobile>
-          <button onClick={redirectHandler}>Contact Me</button>
+          <button onClick={redirectHandler}>Entre em contato</button>
         </Description>
         <Image>
           <motion.img
             variants={photoAnimation}
-            src="https://uploaddeimagens.com.br/images/003/976/204/original/Zeca.png?1660161794"
+            src={myPicture}
             alt="Jose Cordeiro"
           />
         </Image>

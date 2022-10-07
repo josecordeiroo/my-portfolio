@@ -7,11 +7,10 @@ import { Link } from "react-router-dom";
 
 const NavOptions = () => {
   const menuOptions = {
-    about: "<AboutMe />",
-    portfolio: "<Portfolio />",
-    contact: "<Contact />",
-    login: "<Login />",
-    signup: "<Register />",
+    about: "<SobreMim />",
+    portfolio: "<Projetos />",
+    contact: "<Contato />",
+    login: "<Entrar />",
     admin: "<Admin />",
   };
 
