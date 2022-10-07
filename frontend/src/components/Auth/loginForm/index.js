@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import UsersService from "../../../services/users";
 
-import { Control, Help, Icon, Button, Container } from "rbx";
+import { Help, Button, Container } from "rbx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
@@ -36,7 +36,7 @@ const LoginForm = () => {
   const HandleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const user = await UsersService.login({
+      await UsersService.login({
         email: email,
         password: password,
       });

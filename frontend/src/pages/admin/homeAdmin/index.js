@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import moment from "moment";
 
 import { NavBar, Image, User, ButtonLogOut } from "./styles";
@@ -11,7 +11,6 @@ import { Navigate } from "react-router-dom";
 
 import UsersService from "../../../services/users";
 
-import { useNavigate } from "react-router-dom";
 
 const Admin = ({ location }) => {
   if (!localStorage.getItem("user")) {
@@ -24,8 +23,6 @@ const Admin = ({ location }) => {
       />
     );
   }
-
-  const [test, setTest] = useState("");
 
   function redirectToLogin() {
     window.location.href = 'login'

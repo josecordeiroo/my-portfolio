@@ -4,7 +4,7 @@ import UsersService from "../../../services/users";
 
 import { Modal } from "react-bootstrap";
 
-import { Help, Checkbox, Radio, Button, Container } from "rbx";
+import { Help, Checkbox, Button, Container } from "rbx";
 
 import {
   Title,
