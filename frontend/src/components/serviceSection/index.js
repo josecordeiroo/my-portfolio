@@ -8,7 +8,8 @@ import {
   Cards,
   Card,
   Description,
-  MyCarousel
+  MyCarousel,
+  DescriptionCarousel
 } from "./styles";
 
 //Icons
@@ -93,27 +94,33 @@ const ServiceSection = () => {
         <MyCarousel>
           <h2>Alguns projetos</h2>
           <Carousel>
-            <Carousel.Item>
+            <Carousel.Item interval={1200}>
               <img
                 src="https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?cs=srgb&dl=pexels-pixabay-276452.jpg&fm=jpg"
                 alt="Image One"
               />
               <Carousel.Caption>
-                <h4>Projeto falando sobre isso e aquilo</h4>
+                <DescriptionCarousel>Projeto falando sobre isso e aquilo</DescriptionCarousel>
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item interval={1200}>
               <img
                 src="https://images.pexels.com/photos/1261427/pexels-photo-1261427.jpeg?cs=srgb&dl=pexels-hitesh-choudhary-1261427.jpg&fm=jpg"
                 alt="Image Two"
               />
+              <Carousel.Caption>
+                <DescriptionCarousel>Projeto falando sobre isso e aquilo</DescriptionCarousel>
+              </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item>
+            <Carousel.Item interval={1200}>
               <img
                 src="https://images.pexels.com/photos/4584830/pexels-photo-4584830.jpeg?cs=srgb&dl=pexels-markus-winkler-4584830.jpg&fm=jpg"
                 alt="Image Three"
               />
+              <Carousel.Caption>
+                <DescriptionCarousel>Projeto falando sobre isso e aquilo</DescriptionCarousel>
+              </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
           <br/>

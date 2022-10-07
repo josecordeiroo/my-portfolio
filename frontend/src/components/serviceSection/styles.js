@@ -55,6 +55,7 @@ export const MyCarousel = styled.div`
   flex: 1;
   overflow: hidden;
   text-align: center;
+  margin-bottom: 50px;
   img {
     width: 100%;
     height: 300px;
@@ -97,4 +98,12 @@ export const Card = styled.div`
   h3 {
     font-size: 12px;
   }
+`
+export const DescriptionCarousel = styled.div`
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  font-weight: bolder;
+  border-radius: 7px;
+  margin-bottom: 30px;
+  padding: 5px 10px 5px 10px;
 `
