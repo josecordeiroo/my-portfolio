@@ -36,7 +36,7 @@ const ServiceSection = () => {
         ref={element}
       >
         <Description>
-        <motion.h2 variants={titleAnimation}>Entre em contato</motion.h2>
+        <motion.h2 variants={titleAnimation}>O que eu posso te mostrar</motion.h2>
 
           <Cards>
             <Card>

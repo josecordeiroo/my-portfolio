@@ -4,7 +4,10 @@ import UsersService from "../../../services/users";
 
 import { Modal } from "react-bootstrap";
 
-import { Help, Checkbox, Button, Container } from "rbx";
+import { Help, Checkbox, Button } from "rbx";
+
+import { scrollReveal } from "../../../animation";
+import { useScroll } from "../../../hooks/useScroll";
 
 import {
   Title,
@@ -14,6 +17,7 @@ import {
   Label,
   ShowPasswordText,
   Terms,
+  Container,
 } from "./styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,6 +34,7 @@ const RegisterForm = () => {
   const [redirectToLogin, setRedirectToLogin] = useState(false);
   const [error, setError] = useState(false);
   const [show, setShow] = useState(false);
+  const [element, controls] = useScroll();
 
   const HandleSubmit = async (evt) => {
     evt.preventDefault();
@@ -59,7 +64,12 @@ const RegisterForm = () => {
   if (redirectToLogin) return <Navigate to={{ pathname: "/login" }} />;
 
   return (
-    <Container>
+    <Container
+      variants={scrollReveal}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <Title>Criar uma nova conta:</Title>
       <form onSubmit={HandleSubmit}>
         <Field>

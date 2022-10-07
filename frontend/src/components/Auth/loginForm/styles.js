@@ -1,5 +1,9 @@
-// import "./styles.css";
+import { motion } from "framer-motion/dist/framer-motion";
 import styled from "styled-components";
+
+export const Container = styled(motion.div)`
+  
+`;
 
 export const RegisterText = styled.p`
   color: green;

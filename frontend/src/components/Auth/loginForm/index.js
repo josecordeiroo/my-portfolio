@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import UsersService from "../../../services/users";
 
-import { Help, Button, Container } from "rbx";
+import { Help, Button } from "rbx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+
+import { scrollReveal } from "../../../animation";
+import { useScroll } from "../../../hooks/useScroll";
 
 import {
   Title,
@@ -14,6 +17,7 @@ import {
   Input,
   ShowPasswordText,
   RegisterText,
+  Container,
 } from "./styles";
 
 const LoginForm = () => {
@@ -46,10 +50,19 @@ const LoginForm = () => {
     }
   };
 
+  const [element, controls] = useScroll();
+
+  
+
   if (redirectToAdmin) return <Navigate to={{ pathname: "/admin" }} />;
 
   return (
-    <Container>
+    <Container
+      variants={scrollReveal}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <Title>Acessar área administrativa:</Title>
       <form onSubmit={HandleSubmit}>
         <Field>
@@ -86,7 +99,8 @@ const LoginForm = () => {
         <Button color="link">Entrar</Button>
         <a href="/register">
           <RegisterText>
-            Crie uma conta gratuitamente para checar a área administrativa deste portfólio.
+            Crie uma conta gratuitamente para checar a área administrativa deste
+            portfólio.
           </RegisterText>
         </a>
       </form>
