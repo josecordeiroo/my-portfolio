@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 
 import { NavBar, Image, User, ButtonLogOut } from "./styles";
@@ -6,11 +6,12 @@ import { NavBar, Image, User, ButtonLogOut } from "./styles";
 import { Tabs, Tab, Container, Button } from "react-bootstrap";
 
 import PortfolioList from "../portfolioList";
-import WelcomeTab from "../welcomeTab";
 
 import { Navigate } from "react-router-dom";
 
 import UsersService from "../../../services/users";
+
+import { useNavigate } from "react-router-dom";
 
 const Admin = ({ location }) => {
   if (!localStorage.getItem("user")) {
@@ -24,38 +25,49 @@ const Admin = ({ location }) => {
     );
   }
 
-  const name = localStorage.getItem("name")
-  const capitalized = name[0].toUpperCase() + name.substr(1);
+  const [test, setTest] = useState("");
+
+  function redirectToLogin() {
+    window.location.href = 'login'
+  }
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  const nameCap = user.name[0].toUpperCase() + user.name.substr(1);
 
   return (
     <Container style={{ color: "white" }} fluid>
       <NavBar>
-        <h2>Painel Administrativo de {capitalized}</h2>
+        <h2>Painel Administrativo de {nameCap}</h2>
         <ButtonLogOut>
-          <Button variant="danger" onClick={() => {UsersService.logout(); window.location.reload(false);}}>
+          <Button
+            variant="danger"
+            onClick={() => {
+              UsersService.logout(); redirectToLogin()
+            }}
+          >
             Finalizar Sessão
           </Button>
         </ButtonLogOut>
       </NavBar>
       <Tabs defaultActiveKey={1} id="tab-navigation">
         <Tab eventKey={1} title="Lista de Projetos">
-        <PortfolioList />
+          <PortfolioList />
         </Tab>
         <Tab eventKey={2} title="Dados do Usuário">
-          {/* <User>
-            <Image src={userData.image} alt="User" />
+          <User>
+            <Image
+              src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg"
+              alt="User"
+            />
             <p>
-              Nome: {userData.name}
+              Nome: {nameCap}
               <br />
-              E-mail: {userData.email}
+              E-mail: {user.email}
               <br />
-              Telefone:{" "}
-              {userData.phoneNumber ? userData.phoneNumber : "Não informado"}
-              <br />
-              Usuário desde: {moment(userData.createdAt).format("DD-MM-YYYY")}
+              Usuário desde: {moment(user.createdAt).format("DD-MM-YYYY")}
               <br />
             </p>
-          </User> */}
+          </User>
         </Tab>
       </Tabs>
     </Container>

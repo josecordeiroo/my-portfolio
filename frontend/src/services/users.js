@@ -1,8 +1,8 @@
 import Api from "./api";
 
 const UsersService = {
-  index: () =>
-    Api.get("/users", {
+  index: (params) =>
+    Api.get("/users", params, {
       headers: { "x-access-token": localStorage.getItem("token") },
     }),
   register: (params) => Api.post("/users/register", params),
@@ -10,7 +10,6 @@ const UsersService = {
     const response = await Api.post("/users/login", params);
     localStorage.setItem("user", response.data.user);
     localStorage.setItem("token", response.data.token);
-    localStorage.setItem("name", response.data.namecd );
   },
   logout: () => {
     localStorage.removeItem("user", null);

@@ -16,6 +16,7 @@ router.post("/register", async (req, res) => {
     await user.save();
     res.status(200).json(user);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: "Error registering new user" });
   }
 });
@@ -25,8 +26,6 @@ router.post("/login", async (req, res) => {
 
   try {
     let user = await User.findOne({ email });
-    let name = user.name
-
     if (!user) {
       res.status(401).json({ error: "Incorrect email or password" });
     } else {
@@ -35,7 +34,7 @@ router.post("/login", async (req, res) => {
           res.status(401).json({ error: "Incorrect email or password" });
         } else {
           const token = jwt.sign({ email }, secret, { expiresIn: "1d" });
-          res.json({ user: user, name: name, token: token });
+          res.json({user: JSON.stringify(user), token: token });
         }
       });
     }
@@ -76,7 +75,6 @@ router.put("/password/:id", withAuth, async (req, res) => {
 router.delete("/delete/:id", withAuth, async (req, res) => {
   try {
     await User.findOneAndRemove({ _id: req.params.id });
-    // await Note.deleteMany({ author: req.params.id });
     res
       .json({
         success: true,
@@ -89,7 +87,7 @@ router.delete("/delete/:id", withAuth, async (req, res) => {
 
 router.get("/", withAuth, async (req, res) => {
   try {
-    let user = await User.findById({ _id: req.user._id });
+    let user = await User.findById({ _id: req.params.id });
     res.json(user);
   } catch (error) {
     res.status(500).json({ error: "Problem to get user" });

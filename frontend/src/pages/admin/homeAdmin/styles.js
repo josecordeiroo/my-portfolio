@@ -13,8 +13,10 @@ export const NavBar = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
 `;
 
 export const User = styled.div`
