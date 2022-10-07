@@ -20,7 +20,7 @@ export const Services = styled(motion.div)`
   }
 `;
 
-export const ServicesMobile = styled(motion.div)`
+export const ServicesMobile = styled.div`
   display: none;
   @media (max-width: 1300px) {
     display: block;
@@ -50,14 +50,14 @@ export const Description = styled.div`
   }
 `;
 
-export const Image = styled.div`
+export const MyCarousel = styled.div`
   z-index: 2;
   flex: 1;
   overflow: hidden;
   text-align: center;
   img {
     width: 100%;
-    height: 75;
+    height: 300px;
     object-fit: cover;
     border-radius: 30px;
   }
@@ -97,5 +97,4 @@ export const Card = styled.div`
   h3 {
     font-size: 12px;
   }
-`;
-
+`

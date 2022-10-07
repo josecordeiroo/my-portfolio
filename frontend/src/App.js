@@ -14,6 +14,7 @@ import NavOptions from "./components/nav";
 import Admin from "./pages/admin/homeAdmin";
 import Login from "./pages/Auth/login";
 import Register from "./pages/Auth/register";
+import ServiceSection from "./components/serviceSection";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -57,6 +58,7 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<AboutMe />} />
+        <Route path="/dev" element={<ServiceSection />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/:slug" element={<Portfolio />} />
         <Route path="/contact" element={<ContactMe />} />

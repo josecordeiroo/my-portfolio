@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { useNavigate } from "react-router-dom";
 
 import {
   Services,
@@ -7,7 +8,7 @@ import {
   Cards,
   Card,
   Description,
-  Image,
+  MyCarousel
 } from "./styles";
 
 //Icons
@@ -15,9 +16,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { scrollReveal } from "../../animation";
 import { useScroll } from "../../hooks/useScroll";
+import { motion } from "framer-motion/dist/framer-motion";
+import { pageAnimation, titleAnimation } from "../../animation";
 
 const ServiceSection = () => {
   const [element, controls] = useScroll();
+  const history = useNavigate();
+
+  const redirectHandler = () => {
+    history("/portfolio");
+  };
 
   return (
     <>
@@ -28,7 +36,7 @@ const ServiceSection = () => {
         ref={element}
       >
         <Description>
-          <h2>O que posso te mostrar:</h2>
+        <motion.h2 variants={titleAnimation}>Entre em contato</motion.h2>
 
           <Cards>
             <Card>
@@ -40,7 +48,7 @@ const ServiceSection = () => {
                 Este portfólio foi desenvolvido do back ao front por mim e
                 possui uma área administrativa acessível à todos que queiram se
                 registrar e ver como funciona. Na galeria de projetos você
-                encontra detalhes sobre cada um.
+                encontra detalhes mais específicos de como eu realizo minhas idéias.
               </p>
             </Card>
 
@@ -74,7 +82,7 @@ const ServiceSection = () => {
                 <h3>Github</h3>
               </div>
               <p>
-                Em minha conta do GitHub você irá encontrar todos os registros
+                Em minha conta do GitHub você encontrará todos os registros
                 de projetos pessoais e estudos que venho realizando todos os
                 dias em busca de me aperfeiçoar profissionalmente cada vez mais.
               </p>
@@ -82,7 +90,7 @@ const ServiceSection = () => {
           </Cards>
         </Description>
 
-        <Image>
+        <MyCarousel>
           <h2>Alguns projetos</h2>
           <Carousel>
             <Carousel.Item>
@@ -90,26 +98,30 @@ const ServiceSection = () => {
                 src="https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?cs=srgb&dl=pexels-pixabay-276452.jpg&fm=jpg"
                 alt="Image One"
               />
+              <Carousel.Caption>
+                <h4>Projeto falando sobre isso e aquilo</h4>
+              </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
               <img
-                src="https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?cs=srgb&dl=pexels-pixabay-276452.jpg&fm=jpg"
+                src="https://images.pexels.com/photos/1261427/pexels-photo-1261427.jpeg?cs=srgb&dl=pexels-hitesh-choudhary-1261427.jpg&fm=jpg"
                 alt="Image Two"
               />
             </Carousel.Item>
+
+            <Carousel.Item>
+              <img
+                src="https://images.pexels.com/photos/4584830/pexels-photo-4584830.jpeg?cs=srgb&dl=pexels-markus-winkler-4584830.jpg&fm=jpg"
+                alt="Image Three"
+              />
+            </Carousel.Item>
           </Carousel>
-          <br/><br/>
-          <h7>Acessar galeria completa de projetos</h7>
-        </Image>
+          <br/>
+          <button onClick={redirectHandler}>Acessar galeria completa de projetos</button>
+        </MyCarousel>
       </Services>
 
       <ServicesMobile>
-        <Image>
-          <img
-            src="https://cdn2.iconfinder.com/data/icons/business-and-commercial-mixed-hexagone/128/4-512.png"
-            alt="Illustration of a tool"
-          ></img>
-        </Image>
 
         <Description>
           <h2>Things I do</h2>

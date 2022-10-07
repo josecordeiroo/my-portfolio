@@ -10,17 +10,22 @@ import ContactForm from "../components/contactForm";
 import { motion } from "framer-motion/dist/framer-motion";
 import { pageAnimation, titleAnimation } from "../animation";
 
+import { scrollReveal } from "../animation";
+import { useScroll } from "../hooks/useScroll";
+
+
 const ContactMe = () => {
+  const [element, controls] = useScroll();
   return (
     <motion.div
-      exit="exit"
+      variants={scrollReveal}
+      animate={controls}
       initial="hidden"
-      animate="show"
-      variants={pageAnimation}
+      ref={element}
     >
       <ContactStyled>
         <Title>
-          <motion.h2 variants={titleAnimation}>Get in touch</motion.h2>
+          <motion.h2 variants={titleAnimation}>Entre em contato</motion.h2>
         </Title>
         <Areas>
           <ContactForm />

@@ -35,7 +35,6 @@ const Portfolio = () => {
 
   return (
     <>
-    <ServiceSection/>
       <motion.div
         variants={scrollReveal}
         animate={controls}

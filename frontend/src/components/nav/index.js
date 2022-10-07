@@ -22,7 +22,7 @@ const NavOptions = () => {
             <Link to="/">{menuOptions.about}</Link>
           </li>
           <li>
-            <Link to="/portfolio">{menuOptions.portfolio}</Link>
+            <Link to="/dev">{menuOptions.portfolio}</Link>
           </li>
           <li>
             <Link to="/contact">{menuOptions.contact}</Link>
@@ -51,7 +51,7 @@ const NavOptions = () => {
               <Link to="/">{menuOptions.about} </Link> <Dot/>
             </li>
             <li>
-              <Link to="/portfolio">{menuOptions.portfolio}</Link><Dot/>
+              <Link to="/dev">{menuOptions.portfolio}</Link><Dot/>
             </li>
             {!localStorage.getItem("user") && (
               <>

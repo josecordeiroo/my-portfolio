@@ -21,7 +21,7 @@ const AboutSection = () => {
   const history = useNavigate();
 
   const redirectHandler = () => {
-    history("/portfolio");
+    history("/dev");
   };
 
   return (
