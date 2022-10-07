@@ -54,7 +54,6 @@ export const photoAnimation = {
     scale: 1.5,
     opacity: 0,
   },
-
   show: {
     scale: 1,
     opacity: 1,
@@ -62,6 +61,10 @@ export const photoAnimation = {
       duration: 0.75,
       ease: "easeOut",
     },
+  },
+  animate: {
+    rotate: [0, 200, 200, 0],
+    transition: {repeat: Infinity, duration: 1}
   },
 };
 

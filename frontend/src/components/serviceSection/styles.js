@@ -65,9 +65,9 @@ export const Image = styled.div`
 
 
 export const Cards = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
   flex-wrap: wrap;
-  padding: 1rem;
   @media (max-width: 1300px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

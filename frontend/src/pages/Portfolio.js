@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
@@ -8,9 +8,12 @@ import PortfolioDetail from "../components/portfolioDetail";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
-import { pageAnimation } from "../animation";
+import { scrollReveal } from "../animation";
+import { useScroll } from "../hooks/useScroll";
 
 import ProjectsService from "../services/projects";
+
+import ServiceSection from "../components/serviceSection";
 
 const Portfolio = () => {
   const location = useLocation();
@@ -24,38 +27,43 @@ const Portfolio = () => {
 
   const { data } = projects;
 
+  const [element, controls] = useScroll();
+
   useEffect(() => {
     fetchProjects();
   }, []);
 
   return (
-    <motion.div
-      exit="exit"
-      initial="hidden"
-      animate="show"
-      variants={pageAnimation}
-    >
-      <Title>My Projects</Title>
+    <>
+    <ServiceSection/>
+      <motion.div
+        variants={scrollReveal}
+        animate={controls}
+        initial="hidden"
+        ref={element}
+      >
+        <Title>My Projects</Title>
 
-      <PortfolioList>
-        {slug && <PortfolioDetail />}
+        <PortfolioList>
+          {slug && <PortfolioDetail />}
 
-        <CardList>
-          {data ? (
-            data.map((project) => {
-              console.log(project);
-              return <Card key={project.slug} project={project} />;
-            })
-          ) : (
-            <p>
-              Searching in database... <br />
-              <br />
-              Please, wait...
-            </p>
-          )}
-        </CardList>
-      </PortfolioList>
-    </motion.div>
+          <CardList>
+            {data ? (
+              data.map((project) => {
+                console.log(project);
+                return <Card key={project.slug} project={project} />;
+              })
+            ) : (
+              <p>
+                Procurando no banco de dados... <br />
+                <br />
+                Por favor, aguarde...
+              </p>
+            )}
+          </CardList>
+        </PortfolioList>
+      </motion.div>
+    </>
   );
 };
 

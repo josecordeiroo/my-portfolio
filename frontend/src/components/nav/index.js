@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const NavOptions = () => {
   const menuOptions = {
     about: "<SobreMim />",
-    portfolio: "<Projetos />",
+    portfolio: "<Dev />",
     contact: "<Contato />",
     login: "<Entrar />",
     admin: "<Admin />",

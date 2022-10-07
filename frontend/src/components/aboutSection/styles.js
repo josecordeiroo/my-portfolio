@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { motion } from "framer-motion/dist/framer-motion";
 
 export const About = styled(motion.div)`
-  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5rem 10rem;
   color: white;
+  margin-top: 50px;
   @media (max-width: 1300px) {
     display: block;
     padding: 1rem 1rem;
@@ -20,13 +20,14 @@ export const Image = styled.div`
   z-index: 2;
   flex: 1;
   overflow: hidden;
+  transform: translatey(0px);
+  animation: float 6s ease-in-out;
 
   img {
-    width: 75%;
-    height: 75;
-    object-fit: cover;
+    width: 90%;
     border-radius: 200px;
     border: solid white 5px;
+    
   }
 
   @media (max-width: 1200px) {
@@ -51,6 +52,7 @@ export const Description = styled.div`
   flex: 2;
   padding-right: 5rem;
   z-index: 2;
+
   h2 {
     font-weight: lighter;
     color: #23d997;

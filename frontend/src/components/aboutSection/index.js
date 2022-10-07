@@ -21,11 +21,10 @@ const AboutSection = () => {
   const history = useNavigate();
 
   const redirectHandler = () => {
-    history("/contact");
+    history("/portfolio");
   };
 
   return (
-    <>
       <About
         variants={scrollReveal}
         animate={controls}
@@ -35,13 +34,13 @@ const AboutSection = () => {
         <Description>
           <motion.h1 variants={titleAnimation}>José Cordeiro</motion.h1>
           <motion.h2 variants={titleAnimation}>Fullstack Developer</motion.h2>
-          <motion.p variants={fade}>
+          <motion.p variants={fade} style={{backgroundColor: "rgba(0, 0, 0, 0.3)", borderRadius: "10px", padding: "10px"}}>
           A definição de Desenvolvedor Full Stack pode ser resumida como "alguém capaz de trabalhar tanto no back-end quanto no front-end de sistemas". Isso significa que o profisional pode desenvolver plataformas completas (com bancos de dados, servidores e clientes) que não precisam de outros aplicativos para funcionar. A definição de Desenvolvedor Full Stack pode ser resumida como "alguém capaz de trabalhar tanto no back-end quanto no front-end de sistemas". Isso significa que o profisional pode desenvolver plataformas completas (com bancos de dados, servidores e clientes) que não precisam de outros aplicativos para funcionar. A definição de Desenvolvedor Full Stack pode ser resumida como "alguém capaz de trabalhar tanto no back-end quanto no front-end de sistemas". Isso significa que o profisional pode desenvolver plataformas completas (com bancos de dados, servidores e clientes) que não precisam de outros aplicativos para funcionar.
           </motion.p>
           <ImageMobile>
           <img src={myPicture} alt="Jose Cordeiro"/>
         </ImageMobile>
-          <button onClick={redirectHandler}>Entre em contato</button>
+          <button onClick={redirectHandler}>Veja o que sei fazer</button>
         </Description>
         <Image>
           <motion.img
@@ -52,8 +51,6 @@ const AboutSection = () => {
         </Image>
         <Wave />
       </About>
-    
-    </>
   );
 };
 
