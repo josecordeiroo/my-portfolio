@@ -12,6 +12,7 @@ const NavOptions = () => {
     contact: "<Contato />",
     login: "<Entrar />",
     admin: "<Admin />",
+    projects: "<Projetos />"
   };
 
   return (
@@ -23,6 +24,9 @@ const NavOptions = () => {
           </li>
           <li>
             <Link to="/dev">{menuOptions.portfolio}</Link>
+          </li>
+          <li>
+            <Link to="/Projetos">{menuOptions.projects}</Link>
           </li>
           <li>
             <Link to="/contact">{menuOptions.contact}</Link>
