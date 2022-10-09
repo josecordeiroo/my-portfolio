@@ -22,7 +22,7 @@
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
     "rbx": "^2.1.0",
-    "react": "^16.8.6",
+    "react": "^18.2.0", 
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.4.0",

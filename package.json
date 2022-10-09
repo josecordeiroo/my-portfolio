@@ -9,7 +9,7 @@
     "frontendDev": "cd frontend && npm start",
     "dev": "concurrently \"npm run backend\" \"npm run frontendDev\" ",
     "start": "node server.JS",
-    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend --legacy-peer-deps"
   },
   "keywords": [
     "MERN",
