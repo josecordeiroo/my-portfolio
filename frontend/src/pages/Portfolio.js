@@ -13,8 +13,6 @@ import { useScroll } from "../hooks/useScroll";
 
 import ProjectsService from "../services/projects";
 
-import ServiceSection from "../components/serviceSection";
-
 const Portfolio = () => {
   const location = useLocation();
   const slug = location.pathname.split("/")[2];
@@ -22,27 +20,33 @@ const Portfolio = () => {
   const [projects, setProjects] = useState({});
 
   async function fetchProjects() {
-    setProjects(await ProjectsService.index());
+    await ProjectsService.index().then((data) => {
+      setProjects(data);
+    });
   }
 
   const { data } = projects;
 
   const [element, controls] = useScroll();
 
+
   useEffect(() => {
-    fetchProjects();
+    setTimeout(() => {
+      fetchProjects();
+    }, 4000);
+    
   }, []);
 
   return (
     <>
+      <Title>Galeria de projetos e estudos</Title>
+        
       <motion.div
         variants={scrollReveal}
         animate={controls}
         initial="hidden"
         ref={element}
       >
-        <Title>My Projects</Title>
-
         <PortfolioList>
           {slug && <PortfolioDetail />}
 
@@ -53,11 +57,13 @@ const Portfolio = () => {
                 return <Card key={project.slug} project={project} />;
               })
             ) : (
+              <LoadingDiv>
+                <Loading/>
               <p>
-                Procurando no banco de dados... <br />
-                <br />
+                Pesquisando no banco de dados... <br />
                 Por favor, aguarde...
               </p>
+              </LoadingDiv>
             )}
           </CardList>
         </PortfolioList>
@@ -93,5 +99,30 @@ const CardList = styled.div`
     flex-direction: column;
   }
 `;
+
+const LoadingDiv = styled.div`
+  text-align: start;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  p {
+    margin-top: 3px;
+  }
+`
+
+const Loading = styled.div`
+  border: 16px solid #23d997;
+  border-radius: 50%;
+  border-top: 16px solid white;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+`
 
 export default Portfolio;

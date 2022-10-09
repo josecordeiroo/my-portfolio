@@ -56,7 +56,9 @@ const GlobalStyle = createGlobalStyle`
         color: lightgray;
     }
 
-    
+    p {
+        color: white;
+    }
 
     span{
         font-weight: lighter;

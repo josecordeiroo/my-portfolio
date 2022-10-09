@@ -26,7 +26,7 @@ const NavOptions = () => {
             <Link to="/dev">{menuOptions.portfolio}</Link>
           </li>
           <li>
-            <Link to="/Projetos">{menuOptions.projects}</Link>
+            <Link to="/portfolio">{menuOptions.projects}</Link>
           </li>
           <li>
             <Link to="/contact">{menuOptions.contact}</Link>
