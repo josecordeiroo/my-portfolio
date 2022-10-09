@@ -4,9 +4,10 @@ const bcrypt = require("bcrypt");
 const { Schema } = mongoose;
 
 let userSchema = new Schema({
-  name: String,
+  name: { type: String, required: true},
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  admin: {type: Boolean, default: false},
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },
 });

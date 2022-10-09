@@ -3,8 +3,6 @@ const secret = process.env.JWT_TOKEN;
 
 const jwt = require("jsonwebtoken");
 
-const User = require("../models/User");
-
 const WithAuth = (req, res, next) => {
   const token = req.headers["x-access-token"];
   if (!token)
@@ -13,8 +11,8 @@ const WithAuth = (req, res, next) => {
     jwt.verify(token, secret, (err, decoded) => {
       if (err) res.status(401).json({ error: "Unauthorized: token invalid" });
       else {
-        next()
-
+        req.email = decoded.email
+        next();
         // next();
         // req.email = decoded.email;
         // User.findOne({ email: decoded.email })

@@ -37,17 +37,13 @@ export const Title = styled.div`
   margin-bottom: 30px;
 `;
 
-export const Test = styled.div`
-  display: flex;
-  justify-content: right;
-`;
-
 export const User = styled.div`
   margin: 20px;
   text-align: left;
   border: solid 3px white;
   border-radius: 5px;
   padding: 15px;
+  max-height: 450px;
 `;
 
 export const Image = styled.img`
