@@ -33,7 +33,7 @@ const Portfolio = () => {
   useEffect(() => {
     setTimeout(() => {
       fetchProjects();
-    }, 4000);
+    }, 1500);
     
   }, []);
 
@@ -42,10 +42,10 @@ const Portfolio = () => {
       <Title>Galeria de projetos e estudos</Title>
         
       <motion.div
-        variants={scrollReveal}
-        animate={controls}
-        initial="hidden"
-        ref={element}
+        // variants={scrollReveal}
+        // animate={controls}
+        // initial="hidden"
+        // ref={element}
       >
         <PortfolioList>
           {slug && <PortfolioDetail />}

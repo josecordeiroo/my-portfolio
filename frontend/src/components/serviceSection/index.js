@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +9,7 @@ import {
   Card,
   Description,
   MyCarousel,
-  DescriptionCarousel
+  DescriptionCarousel,
 } from "./styles";
 
 //Icons
@@ -20,6 +20,8 @@ import { useScroll } from "../../hooks/useScroll";
 import { motion } from "framer-motion/dist/framer-motion";
 import { pageAnimation, titleAnimation } from "../../animation";
 
+import ProjectsService from "../../services/projects";
+
 const ServiceSection = () => {
   const [element, controls] = useScroll();
   const history = useNavigate();
@@ -27,6 +29,20 @@ const ServiceSection = () => {
   const redirectHandler = () => {
     history("/portfolio");
   };
+
+  const [projects, setProjects] = useState({});
+
+  async function fetchProjects() {
+    await ProjectsService.index().then((data) => {
+      setProjects(data);
+    });
+  }
+
+  const { data } = projects;
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
 
   return (
     <>
@@ -37,7 +53,9 @@ const ServiceSection = () => {
         ref={element}
       >
         <Description>
-        <motion.h2 variants={titleAnimation}>O que eu posso te mostrar</motion.h2>
+          <motion.h2 variants={titleAnimation}>
+            O que eu posso te mostrar
+          </motion.h2>
 
           <Cards>
             <Card>
@@ -49,7 +67,8 @@ const ServiceSection = () => {
                 Este portfólio foi desenvolvido do back ao front por mim e
                 possui uma área administrativa acessível à todos que queiram se
                 registrar e ver como funciona. Na galeria de projetos você
-                encontra detalhes mais específicos de como eu realizo minhas idéias.
+                encontra detalhes mais específicos de como eu realizo minhas
+                idéias.
               </p>
             </Card>
 
@@ -83,9 +102,9 @@ const ServiceSection = () => {
                 <h3>Github</h3>
               </div>
               <p>
-                Em minha conta do GitHub você encontrará todos os registros
-                de projetos pessoais e estudos que venho realizando todos os
-                dias em busca de me aperfeiçoar profissionalmente cada vez mais.
+                Em minha conta do GitHub você encontrará todos os registros de
+                projetos pessoais e estudos que venho realizando todos os dias
+                em busca de me aperfeiçoar profissionalmente cada vez mais.
               </p>
             </Card>
           </Cards>
@@ -94,42 +113,32 @@ const ServiceSection = () => {
         <MyCarousel>
           <h2>Alguns projetos</h2>
           <Carousel>
-            <Carousel.Item interval={1200}>
-              <img
-                src="https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?cs=srgb&dl=pexels-pixabay-276452.jpg&fm=jpg"
-                alt="Image One"
-              />
-              <Carousel.Caption>
-                <DescriptionCarousel>Projeto falando sobre isso e aquilo</DescriptionCarousel>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item interval={1200}>
-              <img
-                src="https://images.pexels.com/photos/1261427/pexels-photo-1261427.jpeg?cs=srgb&dl=pexels-hitesh-choudhary-1261427.jpg&fm=jpg"
-                alt="Image Two"
-              />
-              <Carousel.Caption>
-                <DescriptionCarousel>Projeto falando sobre isso e aquilo</DescriptionCarousel>
-              </Carousel.Caption>
-            </Carousel.Item>
-
-            <Carousel.Item interval={1200}>
-              <img
-                src="https://images.pexels.com/photos/4584830/pexels-photo-4584830.jpeg?cs=srgb&dl=pexels-markus-winkler-4584830.jpg&fm=jpg"
-                alt="Image Three"
-              />
-              <Carousel.Caption>
-                <DescriptionCarousel>Projeto falando sobre isso e aquilo</DescriptionCarousel>
-              </Carousel.Caption>
-            </Carousel.Item>
+            {data &&
+              data.map((project) => {
+                return (
+                  <Carousel.Item interval={1200}>
+                    <img
+                      src={project.imgUrl}
+                      alt="Image One"
+                    />
+                    <Carousel.Caption>
+                      <DescriptionCarousel>
+                        {project.description}
+                      </DescriptionCarousel>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                );
+              })}
+            
           </Carousel>
-          <br/>
-          <button onClick={redirectHandler}>Acessar galeria completa de projetos</button>
+          <br />
+          <button onClick={redirectHandler}>
+            Acessar galeria completa de projetos
+          </button>
         </MyCarousel>
       </Services>
 
       <ServicesMobile>
-
         <Description>
           <h2>Things I do</h2>
 
