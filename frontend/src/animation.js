@@ -51,20 +51,16 @@ export const fade = {
 
 export const photoAnimation = {
   hidden: {
-    scale: 1.5,
+    rotate: 80,
     opacity: 0,
   },
   show: {
-    scale: 1,
+    rotate: 0,
     opacity: 1,
     transition: {
       duration: 0.75,
       ease: "easeOut",
     },
-  },
-  animate: {
-    rotate: [0, 200, 200, 0],
-    transition: {repeat: Infinity, duration: 1}
   },
 };
 

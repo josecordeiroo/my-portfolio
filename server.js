@@ -21,7 +21,7 @@ app.use(cors())
 
 app.use('/api', api)
 
-//Frontend connection
+//Frontend connection (THIS IS FOR HEROKU)
 if ( process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'))
 
