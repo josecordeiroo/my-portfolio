@@ -8,7 +8,7 @@ export const About = styled(motion.div)`
   justify-content: space-between;
   padding: 5rem 10rem;
   color: white;
-  margin-top: 50px;
+  margin-top: 10px;
   @media (max-width: 1300px) {
     display: block;
     padding: 1rem 1rem;
@@ -27,7 +27,6 @@ export const Image = styled.div`
     width: 90%;
     border-radius: 200px;
     border: solid white 5px;
-    
   }
 
   @media (max-width: 1200px) {
@@ -63,4 +62,13 @@ export const Description = styled.div`
       display: none;
     }
   }
+`;
+
+export const MyDescription = styled(motion.p)`
+  background-color: rgba(64, 64, 64, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 35px;
+  border-style: dashed solid;
 `;

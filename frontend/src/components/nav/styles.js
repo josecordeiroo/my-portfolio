@@ -19,7 +19,7 @@ export const StyledNav = styled.nav`
     list-style: none;
   }
   li {
-    padding-right: 5rem;
+    padding-right: 3rem;
     padding-top: 1rem;
     font-size: 20px;
   }

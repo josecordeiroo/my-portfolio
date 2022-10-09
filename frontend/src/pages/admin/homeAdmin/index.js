@@ -10,6 +10,7 @@ import PortfolioList from "../portfolioList";
 import { Navigate } from "react-router-dom";
 
 import UsersService from "../../../services/users";
+import AboutMeEdit from "../../../components/aboutMeEdit";
 
 
 const Admin = ({ location }) => {
@@ -47,24 +48,14 @@ const Admin = ({ location }) => {
         </ButtonLogOut>
       </NavBar>
       <Tabs defaultActiveKey={1} id="tab-navigation">
-        <Tab eventKey={1} title="Lista de Projetos">
+      <Tab eventKey={1} title="Sobre mim">
+          <AboutMeEdit/>
+        </Tab>
+        <Tab eventKey={2} title="Lista de Projetos">
           <PortfolioList />
         </Tab>
-        <Tab eventKey={2} title="Dados do Usuário">
-          <User>
-            <Image
-              src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg"
-              alt="User"
-            />
-            <p>
-              Nome: {nameCap}
-              <br />
-              E-mail: {user.email}
-              <br />
-              Usuário desde: {moment(user.createdAt).format("DD-MM-YYYY")}
-              <br />
-            </p>
-          </User>
+        <Tab eventKey={3} title="Dados do Usuário">
+          
         </Tab>
       </Tabs>
     </Container>

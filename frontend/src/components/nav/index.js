@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const NavOptions = () => {
   const menuOptions = {
     about: "<SobreMim />",
-    portfolio: "<Dev />",
+    portfolio: "<Portfólio />",
     contact: "<Contato />",
     login: "<Entrar />",
     admin: "<Admin />",
@@ -24,9 +24,6 @@ const NavOptions = () => {
           </li>
           <li>
             <Link to="/dev">{menuOptions.portfolio}</Link>
-          </li>
-          <li>
-            <Link to="/portfolio">{menuOptions.projects}</Link>
           </li>
           <li>
             <Link to="/contact">{menuOptions.contact}</Link>
