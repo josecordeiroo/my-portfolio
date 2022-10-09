@@ -54,10 +54,32 @@ const ServiceSection = () => {
       >
         <Description>
           <motion.h2 variants={titleAnimation}>
-            O que eu posso te mostrar
+            O que você precisa saber sobre mim
           </motion.h2>
 
           <Cards>
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["solid", "graduation-cap"]} size="4x" />
+                <h3>Graduação</h3>
+              </div>
+              <p>
+                Atualmente cursando Análise e Desenvolvimento de Sistemas, pela
+                Universidade de Santo Amaro.
+              </p>
+            </Card>
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["brands", "fa-js"]} size="4x" />
+                <h3>Tecnologias</h3>
+              </div>
+              <p>
+                Trabalhando na maior parte do tempo com Javascript, tenho
+                conhecimento em diversas tecnologias atuais do mercado, como
+                Node.Js, TypeScript, React, React-Native, Bootstrap, MySQL e
+                MongoDB.
+              </p>
+            </Card>
             <Card>
               <div className="icon">
                 <FontAwesomeIcon icon={["solid", "laptop-code"]} size="4x" />
@@ -71,31 +93,6 @@ const ServiceSection = () => {
                 idéias.
               </p>
             </Card>
-
-            <Card>
-              <div className="icon">
-                <FontAwesomeIcon icon={["solid", "graduation-cap"]} size="4x" />
-                <h3>Graduação</h3>
-              </div>
-              <p>
-                Atualmente cursando Análise e Desenvolvimento de Sistemas, pela
-                Universidade de Santo Amaro.
-              </p>
-            </Card>
-
-            <Card>
-              <div className="icon">
-                <FontAwesomeIcon icon={["brands", "fa-js"]} size="4x" />
-                <h3>Tecnologias</h3>
-              </div>
-              <p>
-                Trabalhando na maior parte do tempo com Javascript, tenho
-                conhecimento em diversas tecnologias atuais do mercado, como
-                Node.Js, TypeScript, React, React-Native, Bootstrap, MySQL e
-                MongoDB.
-              </p>
-            </Card>
-
             <Card>
               <div className="icon">
                 <FontAwesomeIcon icon={["brands", "square-github"]} size="4x" />
@@ -117,10 +114,7 @@ const ServiceSection = () => {
               data.map((project) => {
                 return (
                   <Carousel.Item interval={1200}>
-                    <img
-                      src={project.imgUrl}
-                      alt="Image One"
-                    />
+                    <img src={project.imgUrl} alt="Image One" />
                     <Carousel.Caption>
                       <DescriptionCarousel>
                         {project.description}
@@ -129,7 +123,6 @@ const ServiceSection = () => {
                   </Carousel.Item>
                 );
               })}
-            
           </Carousel>
           <br />
           <button onClick={redirectHandler}>
