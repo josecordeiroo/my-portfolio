@@ -1,30 +1,12 @@
 const router = require("express").Router();
 const AboutMe = require("../models/AboutMe");
 
-const jwt = require("jsonwebtoken");
-
 const withAuth = require("../middlewares/auth");
 const isAdmin = require("../middlewares/isAdmin");
 
-require("dotenv").config();
-const secret = process.env.JWT_TOKEN;
-
-// router.post("/", async (req, res) => {
-//   const about = new AboutMe({
-//     name: req.body.name,
-//     description: req.body.description,
-//   });
-//   try {
-//     await about.save();
-//     res.status(200).json(about);
-//   } catch (err) {
-//     res.status(500).json({ error: "Error registering new informations" });
-//   }
-// });
-
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const about = await AboutMe.find();
+    const about = await AboutMe.findOne({ _id: req.params.id });
     res.json(about);
   } catch (err) {
     res.json({
@@ -36,7 +18,7 @@ router.get("/", async (req, res) => {
 
 router.patch("/:id", withAuth, isAdmin, async (req, res) => {
   try {
-    const updatedAbout = await AboutMe.updateOne(
+    await AboutMe.updateOne(
       {
         _id: req.params.id,
       },
@@ -55,5 +37,19 @@ router.patch("/:id", withAuth, isAdmin, async (req, res) => {
     });
   }
 });
+
+// no use anymore
+// router.post("/", async (req, res) => {
+//   const about = new AboutMe({
+//     name: req.body.name,
+//     description: req.body.description,
+//   });
+//   try {
+//     await about.save();
+//     res.status(200).json(about);
+//   } catch (err) {
+//     res.status(500).json({ error: "Error registering new informations" });
+//   }
+// });
 
 module.exports = router;
