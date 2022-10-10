@@ -15,6 +15,7 @@ import Admin from "./pages/admin/homeAdmin";
 import Login from "./pages/Auth/login";
 import Register from "./pages/Auth/register";
 import ServiceSection from "./components/serviceSection";
+import PortfolioDetail from "./components/portfolioDetail";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";

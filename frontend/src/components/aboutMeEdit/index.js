@@ -100,9 +100,9 @@ const AboutMeEdit = () => {
         />
         <h3>Painel administrativo de {nameCap}</h3>
         {user.admin ? (
-          <Title>Usuáro Administrador</Title>
+          <Title>Usuário Administrador</Title>
         ) : (
-          <Title>Usuário visitante</Title>
+          <Title>Usuário Visitante</Title>
         )}
         <p>
           E-mail: {user.email}

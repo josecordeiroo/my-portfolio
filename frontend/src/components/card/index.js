@@ -17,7 +17,7 @@ const Card = ({ project }) => {
           <Image src={project.imgUrl} alt="Code" />
           <Info>
             <h3>{project.title}</h3>
-            <h4>{moment(project.createdAt).format("MMM YYYY")}</h4>
+            <h4>{moment(project.createdAt).format("DD/MM/YYYY")}</h4>
             <p>{project.description}</p>
           </Info>
         </Content>
