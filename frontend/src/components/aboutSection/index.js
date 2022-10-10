@@ -39,8 +39,6 @@ const AboutSection = () => {
     setAboutMe(data.data)
   }
 
-  const { data } = aboutMe;
-
   useEffect(() => {
       fetchAboutMe();
   }, []);

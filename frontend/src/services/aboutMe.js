@@ -2,7 +2,7 @@ import Api from "./api";
 
 const AboutMeService = {
   index: () => Api.get("/admin/634336219a67e8a3192d8edb"),
-  update: ({ name, description }) => {
+  update: (name, description) => {
     Api.patch(
       `/admin/634336219a67e8a3192d8edb`,
       {
