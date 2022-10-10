@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
 export const NavBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  background-color: gray;
+  background-color: #004F04;
   border-radius: 5px;
   margin-top: 10px;
   margin: 20px 0px;
+  text-align: right;
   h2 {
-    padding: 20px;
+    font-size: 20px;
+    padding: 7px;
+    padding-right: 30px;
   }
 `;
 
 
 
 
-export const ButtonLogOut = styled.div`
- padding: 30px;
-`

@@ -25,27 +25,13 @@ const Admin = ({ location }) => {
     );
   }
 
-  function redirectToLogin() {
-    window.location.href = 'login'
-  }
-
-  const user = JSON.parse(localStorage.getItem("user"));
-  const nameCap = user.name[0].toUpperCase() + user.name.substr(1);
+ 
 
   return (
     <Container style={{ color: "white" }} fluid>
       <NavBar>
-        <h2>Painel Administrativo de {nameCap}</h2>
-        <ButtonLogOut>
-          <Button
-            variant="danger"
-            onClick={() => {
-              UsersService.logout(); redirectToLogin()
-            }}
-          >
-            Finalizar Sessão
-          </Button>
-        </ButtonLogOut>
+        <h2>Área Administrativa</h2>
+        
       </NavBar>
       <Tabs defaultActiveKey={1} id="tab-navigation" style={{fontSize: "15px"}}>
       <Tab eventKey={1} title="Sobre mim">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 
-import { Container, Title, User, Image } from "./styles";
+import { Container, Title, User, Image, ButtonLogOut } from "./styles";
 
 import { Modal, Button } from "react-bootstrap";
 
@@ -13,6 +13,12 @@ const AboutMeEdit = () => {
   const [description, setDescription] = useState({});
   const [showModal, setShowModal] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
+  const nameCap = user.name[0].toUpperCase() + user.name.substr(1);
+  const [noAdmin, setNoAdmin] = useState(false);
+
+  function redirectToLogin() {
+    window.location.href = "login";
+  }
 
   async function fetchAboutMe() {
     const data = await AboutMeService.index();
@@ -22,11 +28,11 @@ const AboutMeEdit = () => {
 
   const updateHandler = (e) => {
     e.preventDefault();
-    try {
+    if (user.admin) {
       AboutMeService.update(name, description);
       setShowModal(true);
-    } catch (err) {
-      console.log(err);
+    } else {
+      setNoAdmin(true);
     }
   };
 
@@ -36,6 +42,20 @@ const AboutMeEdit = () => {
 
   return (
     <Container>
+      <Modal
+        show={noAdmin}
+        onHide={() => {setNoAdmin(false); window.location.reload(false)}}
+        backdrop="static"
+        keyboard={false}
+        size="lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>
+            Este usuário não possui permissão administrativa para realizar esta
+            ação.
+          </Modal.Title>
+        </Modal.Header>
+      </Modal>
       <Modal show={showModal}>
         <Modal.Body>Perfil atualizado com sucesso</Modal.Body>
         <Button
@@ -74,29 +94,36 @@ const AboutMeEdit = () => {
       </form>
 
       <User>
+        <Image
+          src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg"
+          alt="User"
+        />
+        <h3>Painel administrativo de {nameCap}</h3>
         {user.admin ? (
           <Title>Usuáro Administrador</Title>
         ) : (
           <Title>Usuário visitante</Title>
         )}
-        <Image
-          src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg"
-          alt="User"
-        />
         <p>
-          Nome: {user.name}
-          <br />
           E-mail: {user.email}
           <br />
           Usuário desde: {moment(user.createdAt).format("DD-MM-YYYY")}
         </p>
         <button>Editar usuario</button>
+        <ButtonLogOut>
+          <Button
+            variant="danger"
+            onClick={() => {
+              UsersService.logout();
+              redirectToLogin();
+            }}
+          >
+            Finalizar Sessão
+          </Button>
+        </ButtonLogOut>
       </User>
     </Container>
   );
 };
 
 export default AboutMeEdit;
-
-//
-//               <br />

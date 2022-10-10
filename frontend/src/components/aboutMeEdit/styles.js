@@ -50,7 +50,7 @@ export const User = styled.div`
   border: solid 1px white;
   border-radius: 5px;
   padding: 15px;
-  max-height: 450px;
+  max-height: 550px;
   button {
     margin-top: 20px;
   }
@@ -62,3 +62,11 @@ export const Image = styled.img`
   border-radius: 50%;
   margin-bottom: 20px;
 `;
+
+export const ButtonLogOut = styled.div`
+  button {
+    width: 135px;
+    height: 45px;
+    margin-top: 10px;
+  }
+`

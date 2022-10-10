@@ -21,32 +21,32 @@ const PortfolioList = () => {
   const { data } = projects;
 
   const user = JSON.parse(localStorage.getItem("user"));
-  const [test, setTest] = useState(false);
+  const [noAdmin, setNoAdmin] = useState(false);
 
   const handleDel = (slug) => {
-    if (user.rules === "Admin") {
+    if (user.admin) {
       ProjectsService.deleteItem(slug);
       window.location.reload(false);
     } else {
-      setTest(true);
+      setNoAdmin(true);
     }
   };
 
   const handleAdd = (slug, data) => {
-    if (user.rules === "Admin") {
+    if (user.admin) {
       addPortfolioItem(data);
       window.location.reload(false);
     } else {
-      setTest(true);
+      setNoAdmin(true);
     }
   };
 
   const handleEdit = (slug, data) => {
-    if (user.rules === "Admin") {
+    if (user.admin) {
       editPortfolioItem(slug, data);
       window.location.reload(false);
     } else {
-      setTest(true);
+      setNoAdmin(true);
     }
   };
 
@@ -150,8 +150,8 @@ const PortfolioList = () => {
       >
         <h3>Lista de projetos</h3>
         <Modal
-          show={test}
-          onHide={() => setTest(false)}
+          show={noAdmin}
+          onHide={() => setNoAdmin(false)}
           backdrop="static"
           keyboard={false}
           size="lg"
