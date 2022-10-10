@@ -47,15 +47,12 @@ const Admin = ({ location }) => {
           </Button>
         </ButtonLogOut>
       </NavBar>
-      <Tabs defaultActiveKey={1} id="tab-navigation">
+      <Tabs defaultActiveKey={1} id="tab-navigation" style={{fontSize: "15px"}}>
       <Tab eventKey={1} title="Sobre mim">
           <AboutMeEdit/>
         </Tab>
         <Tab eventKey={2} title="Lista de Projetos">
           <PortfolioList />
-        </Tab>
-        <Tab eventKey={3} title="Dados do Usuário">
-          
         </Tab>
       </Tabs>
     </Container>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import moment from "moment";
 
 import { Container, Title, User, Image } from "./styles";
 
@@ -11,7 +12,7 @@ const AboutMeEdit = () => {
   const [name, setName] = useState({});
   const [description, setDescription] = useState({});
   const [showModal, setShowModal] = useState(false);
-  const [user, setUser] = useState({})
+  const user = JSON.parse(localStorage.getItem("user"));
 
   async function fetchAboutMe() {
     const data = await AboutMeService.index();
@@ -19,16 +20,11 @@ const AboutMeEdit = () => {
     setDescription(data.data.description);
   }
 
-  async function fetchUser() {
-    const data = await UsersService.index();
-    setUser(data.data.name);
-  }
-
   const updateHandler = (e) => {
     e.preventDefault();
     try {
       AboutMeService.update(name, description);
-      setShowModal(true)
+      setShowModal(true);
     } catch (err) {
       console.log(err);
     }
@@ -42,7 +38,14 @@ const AboutMeEdit = () => {
     <Container>
       <Modal show={showModal}>
         <Modal.Body>Perfil atualizado com sucesso</Modal.Body>
-        <Button onClick={() => {setShowModal(false); window.location.reload(false)}}>Fechar</Button>
+        <Button
+          onClick={() => {
+            setShowModal(false);
+            window.location.reload(false);
+          }}
+        >
+          Fechar
+        </Button>
       </Modal>
       <form onSubmit={updateHandler}>
         <Title>Sobre Mim</Title>
@@ -57,7 +60,7 @@ const AboutMeEdit = () => {
 
         <p>Sobre mim:</p>
         <textarea
-          rows="5"
+          rows="8"
           type="text"
           value={description}
           onChange={(e) => {
@@ -65,23 +68,27 @@ const AboutMeEdit = () => {
           }}
         ></textarea>
         <br />
-        <button type="submit">Atualizar Perfil</button>
+        <div>
+          <button type="submit">Atualizar Perfil</button>
+        </div>
       </form>
 
       <User>
-        <Title>Usuario visitante</Title>
+        {user.admin ? (
+          <Title>Usuáro Administrador</Title>
+        ) : (
+          <Title>Usuário visitante</Title>
+        )}
         <Image
           src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg"
           alt="User"
         />
         <p>
-          Nome: teste
+          Nome: {user.name}
           <br />
-          E-mail: teste
+          E-mail: {user.email}
           <br />
-          Usuário desde: teste
-          <br />
-          Usuario visitante
+          Usuário desde: {moment(user.createdAt).format("DD-MM-YYYY")}
         </p>
         <button>Editar usuario</button>
       </User>
@@ -91,5 +98,5 @@ const AboutMeEdit = () => {
 
 export default AboutMeEdit;
 
-// {moment(user.createdAt).format("DD-MM-YYYY")}
+//
 //               <br />

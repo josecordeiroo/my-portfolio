@@ -5,7 +5,7 @@ export const Container = styled.div`
   justify-content: space-between;
   color: white;
   font-size: 20px;
-  margin: 20px 100px 10px 100px;
+  margin: 0 100px 10px 100px;
   label {
     color: white;
   }
@@ -25,8 +25,15 @@ export const Container = styled.div`
     width: 100%;
   }
   form {
+    font-size: 15px;
     margin-top: 20px;
     width: 900px;
+    div {
+      text-align: center;
+    }
+    button {
+      margin-top: 20px;
+    }
   }
 `;
 
@@ -39,11 +46,14 @@ export const Title = styled.div`
 
 export const User = styled.div`
   margin: 20px;
-  text-align: left;
-  border: solid 3px white;
+  text-align: center;
+  border: solid 1px white;
   border-radius: 5px;
   padding: 15px;
   max-height: 450px;
+  button {
+    margin-top: 20px;
+  }
 `;
 
 export const Image = styled.img`
