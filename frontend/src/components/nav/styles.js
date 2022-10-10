@@ -9,11 +9,12 @@ export const StyledNav = styled.nav`
   justify-content: center;
   align-items: center;
   padding: 1rem 10rem;
-  background: #282828;
   position: sticky;
   top: 0;
   color: white;
   z-index: 10;
+  box-shadow: 5px 1px 20px 1px black;
+
   ul {
     display: flex;
     list-style: none;
