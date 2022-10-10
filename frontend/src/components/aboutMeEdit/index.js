@@ -5,6 +5,8 @@ import { Container, Title, User, Image, ButtonLogOut } from "./styles";
 
 import { Modal, Button } from "react-bootstrap";
 
+import UserEdit from "../userEdit";
+
 import AboutMeService from "../../services/aboutMe";
 import UsersService from "../../services/users";
 
@@ -15,6 +17,7 @@ const AboutMeEdit = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const nameCap = user.name[0].toUpperCase() + user.name.substr(1);
   const [noAdmin, setNoAdmin] = useState(false);
+  const [show, setShow] = useState(false);
 
   function redirectToLogin() {
     window.location.href = "login";
@@ -42,9 +45,13 @@ const AboutMeEdit = () => {
 
   return (
     <Container>
+      <UserEdit show={show} setShow={setShow} user={user} />
       <Modal
         show={noAdmin}
-        onHide={() => {setNoAdmin(false); window.location.reload(false)}}
+        onHide={() => {
+          setNoAdmin(false);
+          window.location.reload(false);
+        }}
         backdrop="static"
         keyboard={false}
         size="lg"
@@ -109,7 +116,7 @@ const AboutMeEdit = () => {
           <br />
           Usuário desde: {moment(user.createdAt).format("DD-MM-YYYY")}
         </p>
-        <button>Editar usuario</button>
+        <button onClick={() => setShow(true)}>Editar usuario</button>
         <ButtonLogOut>
           <Button
             variant="danger"
