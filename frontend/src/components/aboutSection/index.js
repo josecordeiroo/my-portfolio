@@ -53,13 +53,14 @@ const AboutSection = () => {
       <Description>
         <motion.h1 variants={titleAnimation}>{aboutMe.name}</motion.h1>
         <motion.h2 variants={titleAnimation}>Fullstack Developer</motion.h2>
+        <h4>Sobre mim</h4>
         <MyDescription variants={fade}>
           {aboutMe && aboutMe.description}
         </MyDescription>
         <ImageMobile>
           <img src={myPicture} alt="Jose Cordeiro" />
         </ImageMobile>
-        <button onClick={redirectHandler}>Veja o que sei fazer</button>
+        <button onClick={redirectHandler}>Quer saber mais?</button>
       </Description>
       <Image>
         <motion.img

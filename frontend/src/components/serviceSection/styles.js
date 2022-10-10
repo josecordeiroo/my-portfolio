@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion/dist/framer-motion";
 
 export const Services = styled(motion.div)`
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,7 +13,7 @@ export const Services = styled(motion.div)`
   }
   p {
     width: 70%;
-    padding: 2rem 0rem 4rem 0rem;
+    padding: 2rem 0rem 0rem 0rem;
   }
   @media (max-width: 1300px) {
     display: none;
@@ -55,7 +55,6 @@ export const MyCarousel = styled.div`
   flex: 1;
   overflow: hidden;
   text-align: center;
-  margin-bottom: 50px;
   img {
     width: 100%;
     height: 300px;
@@ -64,10 +63,9 @@ export const MyCarousel = styled.div`
   }
 `;
 
-
 export const Cards = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 2fr);
+  grid-template-columns: repeat(2, 1fr);
   @media (max-width: 1300px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -75,8 +73,8 @@ export const Cards = styled.div`
 `;
 
 export const Card = styled.div`
-  padding: 0.5rem;
   flex-basis: 20rem;
+  max-height: 75%;
   .icon {
     display: flex;
     align-items: center;
@@ -96,9 +94,10 @@ export const Card = styled.div`
   }
 
   h3 {
-    font-size: 12px;
+    font-size: 16px;
   }
-`
+`;
+
 export const DescriptionCarousel = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
   color: black;
@@ -106,4 +105,4 @@ export const DescriptionCarousel = styled.div`
   border-radius: 7px;
   margin-bottom: 30px;
   padding: 5px 10px 5px 10px;
-`
+`;

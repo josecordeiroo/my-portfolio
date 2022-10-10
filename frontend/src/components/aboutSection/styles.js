@@ -9,6 +9,11 @@ export const About = styled(motion.div)`
   padding: 5rem 10rem;
   color: white;
   margin-top: 10px;
+  h4 {
+    text-align: right;
+    margin-right: 30px;
+    font-size: 40px;
+  }
   @media (max-width: 1300px) {
     display: block;
     padding: 1rem 1rem;
@@ -51,7 +56,6 @@ export const Description = styled.div`
   flex: 2;
   padding-right: 5rem;
   z-index: 2;
-
   h2 {
     font-weight: lighter;
     color: #23d997;
@@ -69,6 +73,6 @@ export const MyDescription = styled(motion.p)`
   border-radius: 10px;
   padding: 10px;
   font-size: 16px;
-  margin: 35px;
+  
   border-style: dashed solid;
 `;

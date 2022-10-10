@@ -43,7 +43,7 @@ const ContactForm = () => {
   return (
     <Form onSubmit={contactMeHandler}>
       <Input>
-        <label>Name:</label>
+        <label>Nome:</label>
         <input
           type="text"
           value={name}
@@ -63,7 +63,7 @@ const ContactForm = () => {
         />
       </Input>
       <Input>
-        <label>Message:</label>{" "}
+        <label>Mensagem:</label>{" "}
         <textarea
           rows="5"
           value={message}
@@ -72,7 +72,7 @@ const ContactForm = () => {
           }}
         />
       </Input>
-      <button type="submit">Submit</button>
+      <button type="submit">Enviar</button>
       {success && <h4>Success: Message send.</h4>}
       {error && <h4>Error: Please, try again.</h4>}
     </Form>
