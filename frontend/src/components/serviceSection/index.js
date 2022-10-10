@@ -64,35 +64,11 @@ const ServiceSection = () => {
                 <h3>Graduação</h3>
               </div>
               <p>
-                Atualmente cursando Análise e Desenvolvimento de Sistemas, pela
-                Universidade de Santo Amaro.
+                Atualmente cursando o segundo semestre de Análise e Desenvolvimento de Sistemas, pela
+                Universidade de Santo Amaro. Também sou formado em Administração de Empresas pela Faculdades Metropolitanas Unidas.
               </p>
             </Card>
-            <Card>
-              <div className="icon">
-                <FontAwesomeIcon icon={["brands", "fa-js"]} size="4x" />
-                <h3>Tecnologias</h3>
-              </div>
-              <p>
-                Trabalhando na maior parte do tempo com Javascript, tenho
-                conhecimento em diversas tecnologias atuais do mercado, como
-                Node.Js, TypeScript, React, React-Native, Bootstrap, MySQL e
-                MongoDB.
-              </p>
-            </Card>
-            <Card>
-              <div className="icon">
-                <FontAwesomeIcon icon={["solid", "laptop-code"]} size="4x" />
-                <h3>Portfólio</h3>
-              </div>
-              <p>
-                Este portfólio foi desenvolvido do back ao front por mim e
-                possui uma área administrativa acessível à todos que queiram se
-                registrar e ver como funciona. Na galeria de projetos você
-                encontra detalhes mais específicos de como eu realizo minhas
-                idéias.
-              </p>
-            </Card>
+
             <Card>
               <div className="icon">
                 <FontAwesomeIcon icon={["brands", "square-github"]} size="4x" />
@@ -104,6 +80,31 @@ const ServiceSection = () => {
                 em busca de me aperfeiçoar profissionalmente cada vez mais.
               </p>
             </Card>
+
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["brands", "fa-js"]} size="4x" />
+                <h3>Tecnologias</h3>
+              </div>
+              <p>
+                Trabalho com Javascript e TypeScript. Uso React, Bootstrap e outras bibliotecas no front-end e o React-native para mobile. No back-end uso o Node.Js para criar meus servidores e manipular dados no MongoDB e MySQL, que são quem costumo usar para alimentar minhas aplicações.
+              </p>
+            </Card>
+
+            <Card>
+              <div className="icon">
+                <FontAwesomeIcon icon={["solid", "laptop-code"]} size="4x" />
+                <h3>Portfólio</h3>
+              </div>
+              <p>
+                Este portfólio foi desenvolvido do back ao front por mim e
+                possui uma área administrativa acessível à todos que queiram se
+                registrar e ver como funciona. Na galeria de projetos você
+                encontra detalhes mais específicos de como eu ponho em prática minhas
+                idéias.
+              </p>
+            </Card>
+            
           </Cards>
         </Description>
 
