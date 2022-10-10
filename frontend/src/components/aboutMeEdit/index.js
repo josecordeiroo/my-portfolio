@@ -116,7 +116,7 @@ const AboutMeEdit = () => {
           <br />
           Usuário desde: {moment(user.createdAt).format("DD-MM-YYYY")}
         </p>
-        <button onClick={() => setShow(true)}>Editar usuario</button>
+        <button onClick={() => setShow(true)}>Editar usuário</button>
         <ButtonLogOut>
           <Button
             variant="danger"

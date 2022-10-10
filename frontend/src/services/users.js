@@ -15,7 +15,7 @@ const UsersService = {
     localStorage.removeItem("user", null);
     localStorage.removeItem("token", null);
   },
-  put: (params) =>
+  updateUser: (params) =>
     Api.put(`/users`, params, {
       headers: { "x-access-token": localStorage.getItem("token") },
     }),
