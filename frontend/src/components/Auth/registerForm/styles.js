@@ -76,6 +76,6 @@ margin-top: 30px;
   .test {
     margin-bottom: 11px;
     margin-right: 5px;
-    margin-left: 20px;
+    margin-left: 15px;
   }
 `

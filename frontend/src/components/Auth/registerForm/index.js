@@ -147,7 +147,7 @@ const RegisterForm = () => {
           <input required className="test" type="checkbox" />
             <p>
               
-               {" "}Eu aceito os
+               {" "}Eu li e aceito os
               <Terms onClick={() => setShow(true)}> termos de uso</Terms>.
             </p>
           </DivTerms>
