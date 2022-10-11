@@ -69,9 +69,11 @@ router.put("/password/:id", withAuth, async (req, res) => {
       if (!same) {
         res.status(401).json({ error: "Incorrect password" });
       } else {
-        
         user.password = newPassword;
         user.save();
+        res.json({
+          message: "success"
+        })
       }
     });
   } catch (error) {

@@ -44,16 +44,6 @@ const ChangePassword = ({ id, modalPassword, setModalPassword }) => {
           console.log("erro eh" + error);
           cleanForm();
         });
-
-      //   try {
-      //     UsersService.updatePassword(id, passwordUpdateObject);
-      //     setSuccess(true);
-      //     cleanForm()
-      //   } catch (error) {
-      //     setFail(true);
-      //     console.log(error);
-      //     cleanForm()
-      //   }
     }
   };
 
