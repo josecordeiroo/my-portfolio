@@ -16,7 +16,7 @@ router.post("/register", async (req, res) => {
     await user.save();
     res.status(200).json(user);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).json({ error: "Error registering new user" });
   }
 });
@@ -34,7 +34,7 @@ router.post("/login", async (req, res) => {
           res.status(401).json({ error: "Incorrect email or password" });
         } else {
           const token = jwt.sign({ email }, secret, { expiresIn: "1d" });
-          res.json({user: JSON.stringify(user), token: token });
+          res.json({ user: JSON.stringify(user), token: token });
         }
       });
     }
@@ -49,8 +49,8 @@ router.put("/", withAuth, async (req, res) => {
   try {
     var user = await User.findOneAndUpdate(
       { _id },
-      {$set: { name: name, email: email }},
-      {upsert: true, 'new': true}
+      { $set: { name: name, email: email } },
+      { upsert: true, new: true }
     );
     res.json(user);
   } catch (error) {
@@ -59,16 +59,22 @@ router.put("/", withAuth, async (req, res) => {
 });
 
 router.put("/password/:id", withAuth, async (req, res) => {
-  const { password } = req.body;
-
+  const { password, newPassword } = req.body;
+  const id = req.params.id
   try {
-    var user = await User.findOne({ _id: req.params.id });
-    console.log(user)
-    user.password = password;
-    user.save();
-    res.json(user);
+    let user = await User.findOne({ id });
+    user.isCorrectPassword(password, function (err, same) {
+      if (!same) {
+        res.status(401).json({ error: "Incorrect password" });
+      } else {
+        console.log(user)
+        user.password = newPassword;
+        user.save();
+      }
+    });
   } catch (error) {
-    res.status(500).json({ error: "Problem to update user" });
+    res.status(401).json({ error: "Problem to update password" });
+    console.log(error);
   }
 });
 

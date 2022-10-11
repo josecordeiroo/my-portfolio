@@ -5,12 +5,14 @@ import { Buttons, Form } from "./styles";
 
 import UsersService from "../../services/users";
 
+import ChangePassword from "../changePassword";
+
 const UserEdit = ({ show, setShow, user }) => {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [modalPassword, setModalPassword] = useState(false);
   const id = user._id;
-  const test = JSON.parse(localStorage.getItem("user"));
+  const userLocal = JSON.parse(localStorage.getItem("user"));
 
   const handlerUpdate = (e) => {
     e.preventDefault();
@@ -22,9 +24,9 @@ const UserEdit = ({ show, setShow, user }) => {
     };
     try {
       UsersService.updateUser(updateUser);
-      test.name = name;
-      test.email = email;
-      localStorage.setItem("user", JSON.stringify(test));
+      userLocal.name = name;
+      userLocal.email = email;
+      localStorage.setItem("user", JSON.stringify(userLocal));
       setShow(false);
     } catch (error) {
       console.log(error);
@@ -81,26 +83,7 @@ const UserEdit = ({ show, setShow, user }) => {
           </Button>
         </Modal.Footer>
       </Form>
-
-      <Modal show={modalPassword}>
-        <Modal.Header>
-          <Modal.Title>Alteracao de senha</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <label>Digite a senha antiga: </label> <br />
-          <input /> <br />
-          <label>Digite a nova senha: </label>
-          <br />
-          <input /> <br />
-          <label>Repita a nova senha: </label>
-          <br />
-          <input /> <br />
-        </Modal.Body>
-        <Modal.Footer>
-        <Button variant="danger" onClick={() => setModalPassword(false)}>Cancelar</Button>
-          <Button variant="success">Salvar</Button>
-        </Modal.Footer>
-      </Modal>
+      <ChangePassword id={id} modalPassword={modalPassword} setModalPassword={setModalPassword}/>
     </Modal>
   );
 };
