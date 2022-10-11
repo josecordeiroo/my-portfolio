@@ -11,6 +11,7 @@ const UserEdit = ({ show, setShow, user }) => {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [modalPassword, setModalPassword] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false)
   const id = user._id;
   const userLocal = JSON.parse(localStorage.getItem("user"));
 
@@ -32,6 +33,7 @@ const UserEdit = ({ show, setShow, user }) => {
       console.log(error);
     }
   };
+
 
   return (
     <Modal
@@ -69,7 +71,7 @@ const UserEdit = ({ show, setShow, user }) => {
               Trocar senha
             </Button>
             <br />
-            <Button variant="danger" onClick={() => setShow(false)}>
+            <Button variant="danger" onClick={() => setDeleteModal(true)}>
               Excluir Usuário
             </Button>
           </Buttons>
@@ -84,6 +86,21 @@ const UserEdit = ({ show, setShow, user }) => {
         </Modal.Footer>
       </Form>
       <ChangePassword id={id} modalPassword={modalPassword} setModalPassword={setModalPassword}/>
+
+    <Modal show={deleteModal}>
+      <Modal.Header>
+        Tem certeza que deseja excluir o usuário?
+      </Modal.Header>
+      <Modal.Body>
+        Esta ação não poderá ser desfeita.
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={() => setDeleteModal(false)} variant="secondary">Cancelar</Button>
+        <Button variant="danger" onclick={() => UsersService.delete(id)}>Confirmar</Button>
+      </Modal.Footer>
+    </Modal>
+
+
     </Modal>
   );
 };
