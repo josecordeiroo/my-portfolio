@@ -61,13 +61,15 @@ router.put("/", withAuth, async (req, res) => {
 router.put("/password/:id", withAuth, async (req, res) => {
   const { password, newPassword } = req.body;
   const id = req.params.id
+  console.log(password)
   try {
-    let user = await User.findOne({ id });
+    let user = await User.findOne({ _id: id });
+    console.log(user)
     user.isCorrectPassword(password, function (err, same) {
       if (!same) {
         res.status(401).json({ error: "Incorrect password" });
       } else {
-        console.log(user)
+        
         user.password = newPassword;
         user.save();
       }

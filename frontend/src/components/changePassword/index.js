@@ -14,47 +14,67 @@ const ChangePassword = ({ id, modalPassword, setModalPassword }) => {
   const [short, setShort] = useState(false);
 
   const cleanForm = () => {
-    setNewPassword("")
-    setRepeatNewPassword("")
-    setPassword("")
-  }
+    setNewPassword("");
+    setRepeatNewPassword("");
+    setPassword("");
+  };
 
   const updatePassword = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (newPassword != repeatNewPassword) {
       setError(true);
-      cleanForm()
+      cleanForm();
     } else if (newPassword.length < 3) {
       setShort(true);
-      cleanForm()
+      cleanForm();
     } else {
       const passwordUpdateObject = {
         password: password,
         newPassword: newPassword,
       };
-      try {
-        UsersService.updatePassword(id, passwordUpdateObject);
-        setSuccess(true);
-        cleanForm()
-      } catch (error) {
-        setFail(true);
-        console.log(error);
-        cleanForm()
-      }
+
+      UsersService.updatePassword(id, passwordUpdateObject)
+        .then((msg) => {
+          setSuccess(true);
+          cleanForm();
+          console.log("msg eh" + msg);
+        })
+        .catch((error) => {
+          setFail(true);
+          console.log("erro eh" + error);
+          cleanForm();
+        });
+
+      //   try {
+      //     UsersService.updatePassword(id, passwordUpdateObject);
+      //     setSuccess(true);
+      //     cleanForm()
+      //   } catch (error) {
+      //     setFail(true);
+      //     console.log(error);
+      //     cleanForm()
+      //   }
     }
   };
 
   return (
-    
-      <Modal show={modalPassword}>
-        <Modal.Header>
-          <Modal.Title>Alteracao de senha</Modal.Title>
-          {success && (<p style={{color: "green"}}>Senha atualizada com sucesso.</p>)}
-          {fail && (<p style={{color: "red"}}>Senha antiga incorreta.</p>)}
-          {error && (<p style={{color: "red"}}>Confirmacao de senha nao bate.</p>)}
-          {short && (<p style={{color: "red"}}>Sua senha precisa ter mais que 3 caracteres.</p>)}
-        </Modal.Header>
-        <form onSubmit={updatePassword}>
+    <Modal show={modalPassword}>
+      <Modal.Header>
+        <Modal.Title>Alteracao de senha</Modal.Title>
+        {success && (
+          <p style={{ color: "green" }}>Senha atualizada com sucesso.</p>
+        )}
+        {fail && <p style={{ color: "red" }}>Senha antiga incorreta.</p>}
+        {error && (
+          <p style={{ color: "red" }}>Confirmacao de senha nao bate.</p>
+        )}
+        {short && (
+          <p style={{ color: "red" }}>
+            Sua senha precisa ter mais que 3 caracteres.
+          </p>
+        )}
+      </Modal.Header>
+      <form onSubmit={updatePassword}>
         <Modal.Body>
           <label>Digite a senha antiga: </label> <br />
           <input
@@ -85,8 +105,8 @@ const ChangePassword = ({ id, modalPassword, setModalPassword }) => {
             Salvar
           </Button>
         </Modal.Footer>
-        </form>
-      </Modal>
+      </form>
+    </Modal>
   );
 };
 
