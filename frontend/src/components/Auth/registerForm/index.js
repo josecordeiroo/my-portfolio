@@ -34,7 +34,7 @@ const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [redirectToLogin, setRedirectToLogin] = useState(false);
+  const [redirectToAdmin, setRedirectToAdmin] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [show, setShow] = useState(false);
@@ -52,7 +52,13 @@ const RegisterForm = () => {
           email: email,
           password: password,
         });
-        setRedirectToLogin(true);
+
+        await UsersService.login({
+          email: email,
+          password: password
+        })
+
+        setRedirectToAdmin(true);
       } catch (error) {
         setErrorMessage("E-mail ou senha inválidos.");
         setError(true);
@@ -71,7 +77,7 @@ const RegisterForm = () => {
       : setPasswordText("Esconder Senha");
   };
 
-  if (redirectToLogin) return <Navigate to={{ pathname: "/login" }} />;
+  if (redirectToAdmin) return <Navigate to={{ pathname: "/admin" }} />;
 
   return (
     <Container
