@@ -2,10 +2,13 @@ import { motion } from "framer-motion/dist/framer-motion";
 import styled from "styled-components";
 
 export const Container = styled(motion.div)`
-  
+  p {
+    color: black;
+    font-weight: bold;
+  }
 `;
 
-export const RegisterText = styled.p`
+export const RegisterText = styled.div`
   color: green;
   font-weight: lighter;
   margin-top: 10px;

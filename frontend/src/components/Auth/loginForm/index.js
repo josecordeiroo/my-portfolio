@@ -94,7 +94,7 @@ const LoginForm = () => {
           {passwordText}
         </ShowPasswordText>
         {error && (
-          <Help color="danger">E-mail ou senha inválidos, tente novamente</Help>
+          <p style={{color: "red"}}>E-mail ou senha inválidos, tente novamente</p>
         )}
         <Button color="link">Entrar</Button>
         <a href="/register">

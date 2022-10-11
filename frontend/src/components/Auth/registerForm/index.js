@@ -25,28 +25,37 @@ import {
   faEnvelope,
   faLock,
   faSignature,
+  faCheckDouble,
 } from "@fortawesome/free-solid-svg-icons";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
   const [redirectToLogin, setRedirectToLogin] = useState(false);
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [show, setShow] = useState(false);
   const [element, controls] = useScroll();
 
   const HandleSubmit = async (evt) => {
     evt.preventDefault();
-    try {
-      await UsersService.register({
-        name: name,
-        email: email,
-        password: password,
-      });
-      setRedirectToLogin(true);
-    } catch (error) {
+    if (password != repeatPassword) {
+      setErrorMessage("As senhas informadas não são iguais.");
       setError(true);
+    } else {
+      try {
+        await UsersService.register({
+          name: name,
+          email: email,
+          password: password,
+        });
+        setRedirectToLogin(true);
+      } catch (error) {
+        setErrorMessage("E-mail ou senha inválidos.");
+        setError(true);
+      }
     }
   };
 
@@ -109,6 +118,18 @@ const RegisterForm = () => {
             type={passwordShown ? "text" : "password"}
           />
         </Field>
+        <Field>
+          <FontAwesomeIcon icon={faCheckDouble} />
+          <Label>Confirme sua senha:</Label>
+          <Input
+            value={repeatPassword}
+            onChange={(e) => setRepeatPassword(e.target.value)}
+            required
+            defaultValue=""
+            placeholder="Digite novamente sua senha"
+            type={passwordShown ? "text" : "password"}
+          />
+        </Field>
         <ShowPasswordText onClick={() => togglePassword()}>
           {passwordText}
         </ShowPasswordText>
@@ -120,7 +141,7 @@ const RegisterForm = () => {
           </label>
         </Field>
         <Button color="link">Cadastrar</Button>
-        {error && <Help color="danger">E-mail ou senha inválidos</Help>}
+        {error && <Help color="danger">{errorMessage}</Help>}
       </form>
       <a href="/login">
         <LoginText>Deseja fazer login?</LoginText>
