@@ -18,6 +18,7 @@ import {
   ShowPasswordText,
   Terms,
   Container,
+  DivTerms,
 } from "./styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -118,6 +119,7 @@ const RegisterForm = () => {
             type={passwordShown ? "text" : "password"}
           />
         </Field>
+        <br />
         <Field>
           <FontAwesomeIcon icon={faCheckDouble} />
           <Label>Confirme sua senha:</Label>
@@ -134,14 +136,18 @@ const RegisterForm = () => {
           {passwordText}
         </ShowPasswordText>
 
-        <Field kind="group" align="centered">
-          <label>
-            <Checkbox required /> Eu aceito os
-            <Terms onClick={() => setShow(true)}> termos de uso</Terms>.
-          </label>
+        <Field>
+          <DivTerms>
+          <input required className="test" type="checkbox" />
+            <p>
+              
+               {" "}Eu aceito os
+              <Terms onClick={() => setShow(true)}> termos de uso</Terms>.
+            </p>
+          </DivTerms>
         </Field>
         <Button color="link">Cadastrar</Button>
-        {error && <Help color="danger">{errorMessage}</Help>}
+        {error && <p style={{color: "red"}}>{errorMessage}</p>}
       </form>
       <a href="/login">
         <LoginText>Deseja fazer login?</LoginText>

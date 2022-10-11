@@ -63,3 +63,19 @@ export const Terms = styled.span`
   cursor: pointer;
   font-weight: bold;
 `
+
+export const DivTerms = styled.div`
+text-align: center;
+display: flex;
+margin-top: 30px;
+  span {
+    
+  }
+  input {
+  }
+  .test {
+    margin-bottom: 11px;
+    margin-right: 5px;
+    margin-left: 20px;
+  }
+`
