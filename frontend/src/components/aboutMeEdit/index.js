@@ -14,10 +14,16 @@ const AboutMeEdit = () => {
   const [name, setName] = useState({});
   const [description, setDescription] = useState({});
   const [showModal, setShowModal] = useState(false);
-  const user = JSON.parse(localStorage.getItem("user"));
-  const nameCap = user.name[0].toUpperCase() + user.name.substr(1);
   const [noAdmin, setNoAdmin] = useState(false);
   const [show, setShow] = useState(false);
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userName = user.name
+  const nameCap = userName.split(" ");
+
+  for (let i = 0; i < nameCap.length; i++) {
+    nameCap[i] = nameCap[i][0].toUpperCase() + nameCap[i].substr(1);
+}
 
   function redirectToLogin() {
     window.location.href = "login";
@@ -105,7 +111,7 @@ const AboutMeEdit = () => {
           src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg"
           alt="User"
         />
-        <h3>{nameCap}</h3>
+        <h3>{nameCap.join(" ")}</h3>
         {user.admin ? (
           <Title>Usuário Administrador</Title>
         ) : (

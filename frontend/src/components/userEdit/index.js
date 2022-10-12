@@ -29,6 +29,18 @@ const UserEdit = ({ show, setShow, user }) => {
       userLocal.email = email;
       localStorage.setItem("user", JSON.stringify(userLocal));
       setShow(false);
+      window.location.reload(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteUser = () => {
+    try {
+      UsersService.delete(id)
+      localStorage.removeItem("user", null);
+      localStorage.removeItem("token", null);
+      window.location.reload(false);
     } catch (error) {
       console.log(error);
     }
@@ -96,7 +108,7 @@ const UserEdit = ({ show, setShow, user }) => {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={() => setDeleteModal(false)} variant="secondary">Cancelar</Button>
-        <Button variant="danger" onclick={() => UsersService.delete(id)}>Confirmar</Button>
+        <Button variant="danger" onClick={() => deleteUser()}>Confirmar</Button>
       </Modal.Footer>
     </Modal>
 
