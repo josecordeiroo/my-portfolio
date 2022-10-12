@@ -105,7 +105,7 @@ const AboutMeEdit = () => {
           src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-mohamed-abdelghaffar-771742.jpg&fm=jpg"
           alt="User"
         />
-        <h3>Painel administrativo de {nameCap}</h3>
+        <h3>{nameCap}</h3>
         {user.admin ? (
           <Title>Usuário Administrador</Title>
         ) : (

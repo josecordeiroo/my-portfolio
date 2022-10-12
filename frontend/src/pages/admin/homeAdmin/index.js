@@ -14,6 +14,11 @@ import AboutMeEdit from "../../../components/aboutMeEdit";
 
 
 const Admin = ({ location }) => {
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  const nameCap = user.name[0].toUpperCase() + user.name.substr(1);
+
+
   if (!localStorage.getItem("user")) {
     return (
       <Navigate
@@ -30,6 +35,7 @@ const Admin = ({ location }) => {
   return (
     <Container style={{ color: "white" }} fluid>
       <NavBar>
+        <h1>Seja bem vindo, {nameCap}</h1>
         <h2>Área Administrativa</h2>
         
       </NavBar>
