@@ -10,7 +10,7 @@ export const NavBar = styled.div`
   text-align: right;
   h2 {
     font-size: 20px;
-    padding: 7px;
+    padding: 10px;
     padding-right: 30px;
   }
   h1 {
