@@ -1,9 +1,8 @@
 import React from "react";
-import moment from "moment";
 
-import { NavBar, Image, User, ButtonLogOut } from "./styles";
+import { NavBar } from "./styles";
 
-import { Tabs, Tab, Container, Button } from "react-bootstrap";
+import { Tabs, Tab, Container} from "react-bootstrap";
 
 import PortfolioList from "../portfolioList";
 

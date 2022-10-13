@@ -8,7 +8,7 @@ import ContactForm from "../components/contactForm";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
-import { pageAnimation, titleAnimation } from "../animation";
+import { titleAnimation } from "../animation";
 
 import { scrollReveal } from "../animation";
 import { useScroll } from "../hooks/useScroll";

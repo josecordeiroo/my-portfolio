@@ -18,7 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { scrollReveal } from "../../animation";
 import { useScroll } from "../../hooks/useScroll";
 import { motion } from "framer-motion/dist/framer-motion";
-import { pageAnimation, titleAnimation } from "../../animation";
+import { titleAnimation } from "../../animation";
 
 import ProjectsService from "../../services/projects";
 
@@ -115,7 +115,7 @@ const ServiceSection = () => {
               data.map((project) => {
                 return (
                   <Carousel.Item interval={1200}>
-                    <img src={project.imgUrl} alt="Image One" />
+                    <img src={project.imgUrl} alt="" />
                     <Carousel.Caption>
                       <DescriptionCarousel>
                         {project.description}

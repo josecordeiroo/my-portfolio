@@ -23,7 +23,7 @@ const ChangePassword = ({ id, modalPassword, setModalPassword }) => {
 
   const updatePassword = (e) => {
     e.preventDefault();
-    if (newPassword != repeatNewPassword) {
+    if (newPassword !== repeatNewPassword) {
       setMessageAlert({
         color: "red",
         message: "A senha e a confirmação da senha não batem."

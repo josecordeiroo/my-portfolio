@@ -8,9 +8,6 @@ import PortfolioDetail from "../components/portfolioDetail";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
-import { scrollReveal } from "../animation";
-import { useScroll } from "../hooks/useScroll";
-
 import ProjectsService from "../services/projects";
 
 const Portfolio = () => {
@@ -26,9 +23,6 @@ const Portfolio = () => {
   }
 
   const { data } = projects;
-
-  const [element, controls] = useScroll();
-
 
   useEffect(() => {
     setTimeout(() => {

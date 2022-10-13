@@ -4,7 +4,7 @@ import UsersService from "../../../services/users";
 
 import { Modal } from "react-bootstrap";
 
-import { Help, Checkbox, Button } from "rbx";
+import { Button } from "rbx";
 
 import { scrollReveal } from "../../../animation";
 import { useScroll } from "../../../hooks/useScroll";
@@ -42,7 +42,7 @@ const RegisterForm = () => {
 
   const HandleSubmit = async (evt) => {
     evt.preventDefault();
-    if (password != repeatPassword) {
+    if (password !== repeatPassword) {
       setErrorMessage("As senhas informadas não são iguais.");
       setError(true);
     } else {
