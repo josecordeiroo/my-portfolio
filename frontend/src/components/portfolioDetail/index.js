@@ -1,6 +1,9 @@
 import React from "react";
 
 import {
+  Container,
+  MyCarousel,
+  DescriptionCarousel,
   Title,
   Detail,
   Stats,
@@ -11,6 +14,8 @@ import {
   Info,
   CardShaddow,
 } from "./styles.js";
+
+import Carousel from "react-bootstrap/Carousel";
 
 import { Modal } from "react-bootstrap";
 
@@ -38,15 +43,50 @@ const PortfolioDetail = () => {
   };
 
   return (
-    <Modal show={true} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>{data && data.data.title}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>{data && data.data.longDescription}</Modal.Body>
-      <Modal.Footer>
+    <Container>
+      <Modal size="lg" show={true} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{data && data.data.title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{data && data.data.longDescription}</Modal.Body>
+        <MyCarousel>
+          <h2>Alguns projetos</h2>
+          <Carousel>
+            {/* {data &&
+              data.map((project) => {
+                return (
+                  <Carousel.Item interval={1200}>
+                    <img src={project.imgUrl} alt="" />
+                    <Carousel.Caption>
+                      <DescriptionCarousel>
+                        {project.description}
+                      </DescriptionCarousel>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                );
+              })} */}
+
+            <Carousel.Item interval={1200}>
+              <img src={data && data.data.imgUrl} alt="" />
+              <Carousel.Caption>
+                <DescriptionCarousel>{data && data.data.description}</DescriptionCarousel>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item interval={1200}>
+              <img src={data && data.data.imgUrl} alt="" />
+              <Carousel.Caption>
+                <DescriptionCarousel>{data && data.data.description}</DescriptionCarousel>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+          <br />
+          <button>Acessar galeria completa de projetos</button>
+        </MyCarousel>
+        {/* <Modal.Footer>
         <img style={{widht:"150px", height:"150px"}} src={data && data.data.imgUrl} alt="illustrative"></img>
-      </Modal.Footer>
-    </Modal>
+      </Modal.Footer> */}
+      </Modal>
+    </Container>
   );
 };
 
