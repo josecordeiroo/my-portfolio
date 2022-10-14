@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
+import moment from "moment";
+import "moment/locale/pt-br";
+import Carousel from "react-bootstrap/Carousel";
 
 import {
   Container,
@@ -44,20 +47,26 @@ const PortfolioDetail = () => {
     setShowImageModal(false);
   };
 
+  moment.locale("pt-br");
+
   return (
-    <Modal size="lg" show={true} onHide={handleClose}>
+    <Modal
+      style={{ marginTop: "10px" }}
+      size="lg"
+      show={true}
+      onHide={handleClose}
+      centered
+    >
       <Container>
         <Header>
           <Titles>
             <h1>{data && data.data.title}</h1>
-            <p>
-              Este projeto foi criado com a finalidade de fazer isso, isso e
-              aquilo, fazendo com que isso aquilo e aquilo facam isso.
-            </p>
+
+            <p>{data && data.data.description}</p>
           </Titles>
 
           <Info>
-            <h5>Technologies Used</h5>
+            <h5>Tecnologias</h5>
 
             <Technologies>
               {data &&
@@ -66,7 +75,7 @@ const PortfolioDetail = () => {
                     <Technology key={tech.label}>
                       <FontAwesomeIcon
                         icon={[tech.iconType, tech.icon]}
-                        size="3x"
+                        size="2x"
                       />
                       {tech.label}
                     </Technology>
@@ -75,6 +84,16 @@ const PortfolioDetail = () => {
             </Technologies>
           </Info>
         </Header>
+
+        <FullDescription>
+          <h4>Descrição do projeto:</h4>
+          <p>
+            <strong>Inicio:</strong> {data && moment(data.data.createdAt).format("LL")}. <br />
+            <strong>Conclusao:</strong> 16 de outubro de 2022
+            <br />
+          </p>
+          <p>{data && data.data.longDescription}</p>
+        </FullDescription>
         <Pictures>
           <h5>Capturas de Tela</h5>
           <PicturesDiv>
@@ -104,32 +123,83 @@ const PortfolioDetail = () => {
                 onClick={() => setShowImageModal(true)}
                 src={data && data.data.imgUrl}
               />
-              <img
-                onClick={() => setShowImageModal(true)}
-                src={data && data.data.imgUrl}
-              />
-              <img
-                onClick={() => setShowImageModal(true)}
-                src={data && data.data.imgUrl}
-              />
             </PicturesSmall>
           </PicturesDiv>
         </Pictures>
 
-        <Modal size="lg" show={showImageModal} onHide={handleImgClose}>
-          <Modal.Header closeButton>Imagem 1</Modal.Header>
-          <img
-            style={{ width: "100%" }}
-            src="https://images.pexels.com/photos/7988087/pexels-photo-7988087.jpeg?cs=srgb&dl=pexels-mikhail-nilov-7988087.jpg&fm=jpg"
-          />
+        <Modal
+          id="testeModal"
+          style={{ marginTop: "30px" }}
+          size="xl"
+          show={showImageModal}
+          onHide={handleImgClose}
+          centered
+        >
+          <Carousel>
+            <Carousel.Item interval={999999}>
+              <img
+                style={{ width: "100%" }}
+                src={data && data.data.imgUrl}
+                alt=""
+              />
+            </Carousel.Item>
+            <Carousel.Item interval={999999}>
+              <img
+                style={{ width: "100%" }}
+                src={data && data.data.imgUrl}
+                alt=""
+              />
+            </Carousel.Item>
+            <Carousel.Item interval={999999}>
+              <img
+                style={{ width: "100%" }}
+                src={data && data.data.imgUrl}
+                alt=""
+              />
+            </Carousel.Item>
+            <Carousel.Item interval={999999}>
+              <img
+                style={{ width: "100%" }}
+                src={data && data.data.imgUrl}
+                alt=""
+              />
+            </Carousel.Item>
+            <Carousel.Item interval={999999}>
+              <img
+                style={{ width: "100%" }}
+                src={data && data.data.imgUrl}
+                alt=""
+              />
+            </Carousel.Item>
+          </Carousel>
         </Modal>
         <FullDescription>
-          <h4>Descrição do projeto:</h4>
-          <p>
-            Welcome to the MDN beginner's JavaScript course! In this article we
-            will look at JavaScript from a high level, answering questions such
-            as "What is it?" and "What can you do with it?", and making sure you
-            are comfortable with JavaScript's purpose.
+          <h4>Outras ferramentas utilizadas neste projeto:</h4>
+          <ul>
+            <li>objeto 1</li>
+            <li>objeto 2</li>
+            <li>objeto 1</li>
+            <li>objeto 2</li>
+            <li>objeto 1</li>
+            <li>objeto 2</li>
+            <li>objeto 1</li>
+            <li>objeto 2</li>
+            <li>objeto 1</li>
+            <li>objeto 2</li>
+            <li>objeto 1</li>
+            <li>objeto 2</li>
+          </ul>
+          <p className="git">
+            {" "}
+            <a
+              href={`https://github.com/josecordeiroo/${
+                data && data.data.slug
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Clique aqui e veja este código completo no GitHub.
+            </a>{" "}
           </p>
         </FullDescription>
       </Container>

@@ -6,10 +6,14 @@ export const MyCarousel = styled.div`
   overflow: hidden;
   text-align: center;
   img {
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    height: 480px;
     object-fit: cover;
-    border-radius: 30px;
+  }
+  .carousel {
+    .carousel-control-next, .carousel-control-prev {
+      display: none;
+    }
   }
 `;
 

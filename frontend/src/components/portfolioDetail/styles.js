@@ -2,12 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 30px;
+  #testeModal {
+    background-color: red;
+  }
 `;
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0 20px 30px 20px;
+  margin: 0 20px 0 20px;
 `;
 
 export const Titles = styled.div`
@@ -16,6 +19,7 @@ export const Titles = styled.div`
   h1 {
     font-size: 40px;
     margin-left: -10px;
+    font-weight: 600;
   }
   p {
     color: black;
@@ -58,22 +62,20 @@ export const Info = styled.div`
 
 export const Pictures = styled.div`
   text-align: center;
-  h5 {
-    margin-bottom: 30px;
-  }
-`
+  
+`;
 
 export const PicturesDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  
+  margin-left: 30px;
 `;
 
 export const PicturesSmall = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  width: 400px;
-  padding-left: 70px;
+  width: 150px;
+  padding-left: 20px;
   cursor: pointer;
   img {
     width: 90px;
@@ -84,13 +86,23 @@ export const FullDescription = styled.div`
   margin-top: 30px;
   h4 {
     color: black;
-    margin-bottom: 1px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
   }
   p {
     color: black;
-    padding: 15px;
+    padding: 0 15px 15px 15px;
   }
-`
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  .git {
+    text-align: right;
+    margin-top: 40px;
+  }
+`;
 
 export const Detail = styled.div`
   width: 80%;
