@@ -88,7 +88,7 @@ const PortfolioDetail = () => {
         <FullDescription>
           <h4>Descrição do projeto:</h4>
           <p>
-            <strong>Inicio:</strong> {data && moment(data.data.createdAt).format("LL")}. <br />
+            <strong>Inicio:</strong> {data && moment(data.data.createdAt).format("LL")} <br />
             <strong>Conclusao:</strong> 16 de outubro de 2022
             <br />
           </p>
