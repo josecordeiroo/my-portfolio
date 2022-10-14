@@ -1,23 +1,20 @@
 import React, { useState } from "react";
+import { Modal } from "react-bootstrap";
 
 import {
   Container,
-  MyCarousel,
-  DescriptionCarousel,
-  Title,
-  Detail,
-  Stats,
-  Description,
-  DescriptionShort,
+  Header,
   Technologies,
   Technology,
   Info,
-  CardShaddow,
+  Titles,
+  PicturesDiv,
+  PicturesSmall,
+  FullDescription,
+  Pictures,
 } from "./styles.js";
 
-import Carousel from "react-bootstrap/Carousel";
-
-import { Modal } from "react-bootstrap";
+import CarouselDetails from "../carouselDetails/index.js";
 
 import { useParams, useNavigate } from "react-router-dom";
 import useApi from "../../hooks/useApi.js";
@@ -29,6 +26,7 @@ const PortfolioDetail = () => {
   const { slug } = useParams();
   const { data } = useApi(`/portfolio/${slug}`);
   const history = useNavigate();
+  const [showImageModal, setShowImageModal] = useState(false);
 
   const exitDetailHandler = (e) => {
     const element = e.target;
@@ -46,99 +44,77 @@ const PortfolioDetail = () => {
     setShowImageModal(false);
   };
 
-  const [showImageModal, setShowImageModal] = useState(false);
-
   return (
     <Modal size="lg" show={true} onHide={handleClose}>
       <Container>
-        <h1>{data && data.data.title}</h1>
-        <h4>Tecnologias usadas:</h4>
-        <p>
-          Welcome to the MDN beginner's JavaScript course! In this article we
-          will look at JavaScript from a high level, answering questions such as
-          "What is it?" and "What can you do with it?", and making sure you are
-          comfortable with JavaScript's purpose.
-        </p>
-        <h4>Descrição do projeto:</h4>
-        <p>
-          Welcome to the MDN beginner's JavaScript course! In this article we
-          will look at JavaScript from a high level, answering questions such as
-          "What is it?" and "What can you do with it?", and making sure you are
-          comfortable with JavaScript's purpose. Welcome to the MDN beginner's
-          JavaScript course! In this article we will look at JavaScript from a
-          high level, answering questions such as "What is it?" and "What can
-          you do with it?", and making sure you are comfortable with
-          JavaScript's purpose. Welcome to the MDN beginner's JavaScript course!
-          In this article we will look at JavaScript from a high level,
-          answering questions such as "What is it?" and "What can you do with
-          it?", and making sure you are comfortable with JavaScript's purpose.
-          Welcome to the MDN beginner's JavaScript course! In this article we
-          will look at JavaScript from a high level, answering questions such as
-          "What is it?" and "What can you do with it?", and making sure you are
-          comfortable with JavaScript's purpose. Welcome to the MDN beginner's
-          JavaScript course! In this article we will look at JavaScript from a
-          high level, answering questions such as "What is it?" and "What can
-          you do with it?", and making sure you are comfortable with
-          JavaScript's purpose. Welcome to the MDN beginner's JavaScript course!
-          In this article we will look at JavaScript from a high level,
-          answering questions such as "What is it?" and "What can you do with
-          it?", and making sure you are comfortable with JavaScript's purpose.
-          Welcome to the MDN beginner's JavaScript course! In this article we
-          will look at JavaScript from a high level, answering questions such as
-          "What is it?" and "What can you do with it?", and making sure you are
-          comfortable with JavaScript's purpose. Welcome to the MDN beginner's
-          JavaScript course! In this article we will look at JavaScript from a
-          high level, answering questions such as "What is it?" and "What can
-          you do with it?", and making sure you are comfortable with
-          JavaScript's purpose.
-        </p>
-        <MyCarousel>
+        <Header>
+          <Titles>
+            <h1>{data && data.data.title}</h1>
+            <p>
+              Este projeto foi criado com a finalidade de fazer isso, isso e
+              aquilo, fazendo com que isso aquilo e aquilo facam isso.
+            </p>
+          </Titles>
+
+          <Info>
+            <h5>Technologies Used</h5>
+
+            <Technologies>
+              {data &&
+                data.data.technologies.map((tech) => {
+                  return (
+                    <Technology key={tech.label}>
+                      <FontAwesomeIcon
+                        icon={[tech.iconType, tech.icon]}
+                        size="3x"
+                      />
+                      {tech.label}
+                    </Technology>
+                  );
+                })}
+            </Technologies>
+          </Info>
+        </Header>
+        <Pictures>
           <h5>Capturas de Tela</h5>
-          <Carousel>
-            {/* {data &&
-              data.map((project) => {
-                return (
-                  <Carousel.Item interval={1200}>
-                    <img src={project.imgUrl} alt="" />
-                    <Carousel.Caption>
-                      <DescriptionCarousel>
-                        {project.description}
-                      </DescriptionCarousel>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                );
-              })} */}
-
-            <Carousel.Item
-              onClick={() => setShowImageModal(true)}
-              interval={1200}
-            >
-              <img src={data && data.data.imgUrl} alt="" />
-              <Carousel.Caption>
-                <DescriptionCarousel>
-                  {data && data.data.description}
-                </DescriptionCarousel>
-              </Carousel.Caption>
-            </Carousel.Item>
-
-            <Carousel.Item
-              onClick={() => setShowImageModal(true)}
-              interval={1200}
-            >
-              <img src={data && data.data.imgUrl} alt="" />
-              <Carousel.Caption>
-                <DescriptionCarousel>
-                  {data && data.data.description}
-                </DescriptionCarousel>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-          <br />
-          {/* <button>Acessar galeria completa de projetos</button> */}
-        </MyCarousel>
-        {/* <Modal.Footer>
-        <img style={{widht:"150px", height:"150px"}} src={data && data.data.imgUrl} alt="illustrative"></img>
-      </Modal.Footer> */}
+          <PicturesDiv>
+            <CarouselDetails data={data} />
+            <PicturesSmall>
+              <img
+                onClick={() => setShowImageModal(true)}
+                src={data && data.data.imgUrl}
+              />
+              <img
+                onClick={() => setShowImageModal(true)}
+                src={data && data.data.imgUrl}
+              />
+              <img
+                onClick={() => setShowImageModal(true)}
+                src={data && data.data.imgUrl}
+              />
+              <img
+                onClick={() => setShowImageModal(true)}
+                src={data && data.data.imgUrl}
+              />
+              <img
+                onClick={() => setShowImageModal(true)}
+                src={data && data.data.imgUrl}
+              />
+              <img
+                onClick={() => setShowImageModal(true)}
+                src={data && data.data.imgUrl}
+              />
+              <img
+                onClick={() => setShowImageModal(true)}
+                src={data && data.data.imgUrl}
+              />
+              <img
+                onClick={() => setShowImageModal(true)}
+                src={data && data.data.imgUrl}
+              />
+            </PicturesSmall>
+          </PicturesDiv>
+        </Pictures>
 
         <Modal size="lg" show={showImageModal} onHide={handleImgClose}>
           <Modal.Header closeButton>Imagem 1</Modal.Header>
@@ -147,6 +123,15 @@ const PortfolioDetail = () => {
             src="https://images.pexels.com/photos/7988087/pexels-photo-7988087.jpeg?cs=srgb&dl=pexels-mikhail-nilov-7988087.jpg&fm=jpg"
           />
         </Modal>
+        <FullDescription>
+          <h4>Descrição do projeto:</h4>
+          <p>
+            Welcome to the MDN beginner's JavaScript course! In this article we
+            will look at JavaScript from a high level, answering questions such
+            as "What is it?" and "What can you do with it?", and making sure you
+            are comfortable with JavaScript's purpose.
+          </p>
+        </FullDescription>
       </Container>
     </Modal>
   );

@@ -2,53 +2,95 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 30px;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px 30px 20px;
+`;
+
+export const Titles = styled.div`
+  width: 300px;
+  text-align: left;
   h1 {
-    text-align: center;
-  }
-  h4 {
-    font-size: 15px;
-    color: black;
+    font-size: 40px;
+    margin-left: -10px;
   }
   p {
     color: black;
-    padding: 10px;
   }
+`;
+
+export const Technologies = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 0rem;
+  svg {
+    color: #23d997;
+  }
+
+  @media (max-width: 1200px) {
+    padding-top: 1rem;
+  }
+`;
+
+export const Technology = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #23d997;
+`;
+
+export const Info = styled.div`
+  text-align: center;
+  min-width: 300px;
   h5 {
-    margin-bottom: 15px;
+    color: #23d997;
+    font-weight: lighter;
+  }
+
+  @media (max-width: 1200px) {
+    justify-content: center;
+  }
+`;
+
+export const Pictures = styled.div`
+  text-align: center;
+  h5 {
+    margin-bottom: 30px;
   }
 `
 
+export const PicturesDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  
+`;
 
-export const MyCarousel = styled.div`
-  z-index: 2;
-  flex: 1;
-  overflow: hidden;
-  text-align: center;
+export const PicturesSmall = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  width: 400px;
+  padding-left: 70px;
+  cursor: pointer;
   img {
-    width: 70%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 30px;
+    width: 90px;
   }
 `;
 
-export const DescriptionCarousel = styled.div`
-  background-color: rgba(255, 255, 255, 0.5);
-  color: black;
-  font-weight: bolder;
-  border-radius: 7px;
-  margin-bottom: 30px;
-  padding: 5px 10px 5px 10px;
-`;
-
-
-export const Title = styled.h2`
-  color: #292929;
-  text-align: left;
-  @media (max-width: 1200px) {
-    text-align: center;
+export const FullDescription = styled.div`
+  margin-top: 30px;
+  h4 {
+    color: black;
+    margin-bottom: 1px;
   }
-`;
+  p {
+    color: black;
+    padding: 15px;
+  }
+`
 
 export const Detail = styled.div`
   width: 80%;
@@ -101,40 +143,6 @@ export const Description = styled.div`
 export const DescriptionShort = styled.div`
   padding: 0;
   color: #696969;
-`;
-
-export const Technologies = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding-top: 0rem;
-  svg {
-    color: #139e08;
-  }
-
-  @media (max-width: 1200px) {
-    padding-top: 1rem;
-  }
-`;
-
-export const Technology = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #139e08;
-`;
-
-export const Info = styled.div`
-  text-align: center;
-  min-width: 300px;
-  h5 {
-    color: gray;
-    font-weight: lighter;
-  }
-
-  @media (max-width: 1200px) {
-    justify-content: center;
-  }
 `;
 
 export const CardShaddow = styled.div`
