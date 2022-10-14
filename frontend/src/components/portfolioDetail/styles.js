@@ -1,10 +1,23 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  .modal-content {
-    background-color: red;
+  padding: 30px;
+  h1 {
+    text-align: center;
   }
-`;
+  h4 {
+    font-size: 15px;
+    color: black;
+  }
+  p {
+    color: black;
+    padding: 10px;
+  }
+  h5 {
+    margin-bottom: 15px;
+  }
+`
+
 
 export const MyCarousel = styled.div`
   z-index: 2;
@@ -12,8 +25,8 @@ export const MyCarousel = styled.div`
   overflow: hidden;
   text-align: center;
   img {
-    width: 100%;
-    height: 300px;
+    width: 70%;
+    height: 250px;
     object-fit: cover;
     border-radius: 30px;
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Container,
@@ -42,15 +42,58 @@ const PortfolioDetail = () => {
     history("/portfolio");
   };
 
+  const handleImgClose = () => {
+    setShowImageModal(false);
+  };
+
+  const [showImageModal, setShowImageModal] = useState(false);
+
   return (
-    <Container>
-      <Modal size="lg" show={true} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{data && data.data.title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{data && data.data.longDescription}</Modal.Body>
+    <Modal size="lg" show={true} onHide={handleClose}>
+      <Container>
+        <h1>{data && data.data.title}</h1>
+        <h4>Tecnologias usadas:</h4>
+        <p>
+          Welcome to the MDN beginner's JavaScript course! In this article we
+          will look at JavaScript from a high level, answering questions such as
+          "What is it?" and "What can you do with it?", and making sure you are
+          comfortable with JavaScript's purpose.
+        </p>
+        <h4>Descrição do projeto:</h4>
+        <p>
+          Welcome to the MDN beginner's JavaScript course! In this article we
+          will look at JavaScript from a high level, answering questions such as
+          "What is it?" and "What can you do with it?", and making sure you are
+          comfortable with JavaScript's purpose. Welcome to the MDN beginner's
+          JavaScript course! In this article we will look at JavaScript from a
+          high level, answering questions such as "What is it?" and "What can
+          you do with it?", and making sure you are comfortable with
+          JavaScript's purpose. Welcome to the MDN beginner's JavaScript course!
+          In this article we will look at JavaScript from a high level,
+          answering questions such as "What is it?" and "What can you do with
+          it?", and making sure you are comfortable with JavaScript's purpose.
+          Welcome to the MDN beginner's JavaScript course! In this article we
+          will look at JavaScript from a high level, answering questions such as
+          "What is it?" and "What can you do with it?", and making sure you are
+          comfortable with JavaScript's purpose. Welcome to the MDN beginner's
+          JavaScript course! In this article we will look at JavaScript from a
+          high level, answering questions such as "What is it?" and "What can
+          you do with it?", and making sure you are comfortable with
+          JavaScript's purpose. Welcome to the MDN beginner's JavaScript course!
+          In this article we will look at JavaScript from a high level,
+          answering questions such as "What is it?" and "What can you do with
+          it?", and making sure you are comfortable with JavaScript's purpose.
+          Welcome to the MDN beginner's JavaScript course! In this article we
+          will look at JavaScript from a high level, answering questions such as
+          "What is it?" and "What can you do with it?", and making sure you are
+          comfortable with JavaScript's purpose. Welcome to the MDN beginner's
+          JavaScript course! In this article we will look at JavaScript from a
+          high level, answering questions such as "What is it?" and "What can
+          you do with it?", and making sure you are comfortable with
+          JavaScript's purpose.
+        </p>
         <MyCarousel>
-          <h2>Alguns projetos</h2>
+          <h5>Capturas de Tela</h5>
           <Carousel>
             {/* {data &&
               data.map((project) => {
@@ -66,27 +109,46 @@ const PortfolioDetail = () => {
                 );
               })} */}
 
-            <Carousel.Item interval={1200}>
+            <Carousel.Item
+              onClick={() => setShowImageModal(true)}
+              interval={1200}
+            >
               <img src={data && data.data.imgUrl} alt="" />
               <Carousel.Caption>
-                <DescriptionCarousel>{data && data.data.description}</DescriptionCarousel>
+                <DescriptionCarousel>
+                  {data && data.data.description}
+                </DescriptionCarousel>
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item interval={1200}>
+
+            <Carousel.Item
+              onClick={() => setShowImageModal(true)}
+              interval={1200}
+            >
               <img src={data && data.data.imgUrl} alt="" />
               <Carousel.Caption>
-                <DescriptionCarousel>{data && data.data.description}</DescriptionCarousel>
+                <DescriptionCarousel>
+                  {data && data.data.description}
+                </DescriptionCarousel>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
           <br />
-          <button>Acessar galeria completa de projetos</button>
+          {/* <button>Acessar galeria completa de projetos</button> */}
         </MyCarousel>
         {/* <Modal.Footer>
         <img style={{widht:"150px", height:"150px"}} src={data && data.data.imgUrl} alt="illustrative"></img>
       </Modal.Footer> */}
-      </Modal>
-    </Container>
+
+        <Modal size="lg" show={showImageModal} onHide={handleImgClose}>
+          <Modal.Header closeButton>Imagem 1</Modal.Header>
+          <img
+            style={{ width: "100%" }}
+            src="https://images.pexels.com/photos/7988087/pexels-photo-7988087.jpeg?cs=srgb&dl=pexels-mikhail-nilov-7988087.jpg&fm=jpg"
+          />
+        </Modal>
+      </Container>
+    </Modal>
   );
 };
 
