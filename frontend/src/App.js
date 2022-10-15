@@ -11,7 +11,7 @@ import AboutMe from "./pages/AboutMe";
 import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import NavOptions from "./components/nav";
-import Admin from "./pages/admin/homeAdmin";
+import Admin from "./pages/admin";
 import Login from "./pages/Auth/login";
 import Register from "./pages/Auth/register";
 import ServiceSection from "./components/serviceSection";

@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  margin: 0 50px 0 50px;
+  color: white;
+`
+
+export const HomeItens = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const NavBar = styled.div`
   display: flex;
   justify-content: space-between;
