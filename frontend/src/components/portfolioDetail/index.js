@@ -99,6 +99,14 @@ const PortfolioDetail = () => {
           <PicturesDiv>
             <CarouselDetails data={data} />
             <PicturesSmall>
+
+                {data && data.data.imgUrl.map((img) => {
+                  <img
+                  onClick={() => setShowImageModal(true)}
+                  src={img}
+                />
+                })}
+
               <img
                 onClick={() => setShowImageModal(true)}
                 src={data && data.data.imgUrl}

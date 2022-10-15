@@ -24,11 +24,11 @@ const portfolioSchema = new Schema({
   longDescription: {
     type: String,
   },
-  imgUrl: {
-    type: String,
-    default:
-      "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?cs=srgb&dl=pexels-antonio-batini%C4%87-4164418.jpg&fm=jpg",
-  },
+  img: [
+    {
+      url: String,
+    },
+  ],
   technologies: [
     {
       label: String,
@@ -36,6 +36,10 @@ const portfolioSchema = new Schema({
       iconType: String,
     },
   ],
+  isDone: {
+    type: Boolean,
+    default: false
+  }
   createdAt: {
     type: Date,
     default: Date.now(),
