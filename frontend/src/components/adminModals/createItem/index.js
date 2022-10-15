@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Modal } from "react-bootstrap";
 
-const Dialog = ({ show, setShow, currentAction, title, children, slug }) => {
+const CreateItem = ({ show, setShow, currentAction, title, children, slug }) => {
   return (
     <Modal
       show={show}
@@ -34,4 +34,4 @@ const Dialog = ({ show, setShow, currentAction, title, children, slug }) => {
   );
 };
 
-export default Dialog;
+export default CreateItem;
