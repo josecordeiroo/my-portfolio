@@ -37,6 +37,7 @@ const AboutSection = () => {
       initial="hidden"
       ref={element}
     >
+      
       <Description>
         <motion.h1 variants={titleAnimation}>José Cordeiro</motion.h1>
         <motion.h2 variants={titleAnimation}>Fullstack Developer</motion.h2>

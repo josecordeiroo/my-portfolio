@@ -17,18 +17,14 @@ const portfolioSchema = new Schema({
       return slug(this.title);
     },
   },
-  description: {
+  shortDescription: {
     type: String,
     required: true,
   },
   longDescription: {
     type: String,
   },
-  img: [
-    {
-      url: String,
-    },
-  ],
+  images: [{ type: String }],
   technologies: [
     {
       label: String,
@@ -36,10 +32,11 @@ const portfolioSchema = new Schema({
       iconType: String,
     },
   ],
+  allTools: [{ type: String }],
   isDone: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),
