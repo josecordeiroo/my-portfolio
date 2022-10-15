@@ -43,10 +43,10 @@ const Admin = ({ location }) => {
       </NavBar>
       <Tabs defaultActiveKey={1} id="tab-navigation" style={{fontSize: "15px"}}>
       <Tab eventKey={1} title="Sobre mim">
-          <AboutMeEdit/>
+          <PortfolioList />
         </Tab>
         <Tab eventKey={2} title="Lista de Projetos">
-          <PortfolioList />
+        <AboutMeEdit/>
         </Tab>
       </Tabs>
     </Container>

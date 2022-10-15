@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 
 import { Modal } from "react-bootstrap";
-import { Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 import ProjectsService from "../../../services/projects";
+
+import CreateItem from "../../../components/adminModals/createItem";
 
 const PortfolioList = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -12,12 +14,7 @@ const PortfolioList = () => {
   const { data } = projects;
   const [noAdmin, setNoAdmin] = useState(false); //to set "admin required" modal
 
-  const [title, setTitle] = useState();
-  const [shortDescription, setShortDescription] = useState();
-  const [longDescription, setLongDescription] = useState();
-  const [images, setImages] = useState();
-  const [slug, setSlug] = useState();
-  const [techs, setTechs] = useState();
+  const [showAdd, setShowAdd] = useState(false)
 
   async function fetchProjects() {
     setProjects(await ProjectsService.index());
@@ -34,50 +31,17 @@ const PortfolioList = () => {
 
   const handleEdit = (slug, data) => {
     if (user.admin) {
-      editPortfolioItem(slug, data);
+      ProjectsService.editItem(slug, {
+        title: data.title,
+        description: data.shortDescription,
+        longDescription: data.longDescription,
+        imgUrl: data.image,
+        technologies: data.techs,
+      });
       window.location.reload(false);
     } else {
       setNoAdmin(true);
     }
-  };
-
-  const handleAdd = (slug, data) => {
-    if (user.admin) {
-      addPortfolioItem(data);
-      window.location.reload(false);
-    } else {
-      setNoAdmin(true);
-    }
-  };
-
-  const addPortfolioItem = (data) => {
-    const tech = data.tech.map((i) => {
-      delete i._id;
-      return i;
-    });
-    const newPortfolioItem = {
-      title: data.title,
-      description: data.shortDescription,
-      longDescription: data.longDescription,
-      imgUrl: data.image,
-      technologies: tech,
-    };
-    ProjectsService.addItem(newPortfolioItem);
-  };
-
-  const editPortfolioItem = (slug, data) => {
-    const tech = data.tech.map((i) => {
-      delete i._id;
-      return i;
-    });
-    const newPortfolioItem = {
-      title: data.title,
-      description: data.shortDescription,
-      longDescription: data.longDescription,
-      imgUrl: data.image,
-      technologies: tech,
-    };
-    ProjectsService.editItem(slug, newPortfolioItem);
   };
 
   useEffect(() => {
@@ -86,6 +50,7 @@ const PortfolioList = () => {
 
   return (
     <div>
+      <CreateItem show={showAdd} setShow={setShowAdd} noAdmin={noAdmin} setNoAdmin={setNoAdmin}/>
       <div>
         <h3>Lista de projetos</h3>
         <Modal
@@ -102,7 +67,7 @@ const PortfolioList = () => {
             </Modal.Title>
           </Modal.Header>
         </Modal>
-        <Button variant="success" size="lg">
+        <Button variant="success" size="lg" onClick={() => setShowAdd(true)}>
           Criar novo projeto
         </Button>
       </div>
