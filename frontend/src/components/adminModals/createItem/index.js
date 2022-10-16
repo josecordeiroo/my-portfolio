@@ -70,7 +70,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
 
   return (
     <Modal
-      show={true}
+      show={show}
       onHide={() => setShow(false)}
       backdrop="static"
       keyboard={false}
@@ -85,12 +85,12 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
             <DescriptionArea>
               <div className="header">
                 <p>
-                  <label>Titulo:</label>
+                  <label>Título:</label>
                   <br />
-                  <input type="text" placeholder="Digite o titulo do projeto" />
+                  <input type="text" placeholder="Digite o título do projeto" />
                 </p>
                 <p>
-                  <label>Data de inicio:</label>
+                  <label>Data de criação:</label>
                   <br />
                   <input type="date" />
                 </p>
@@ -100,15 +100,15 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                   <label>Resumo:</label>
                   <textarea
                     className="short"
-                    placeholder="Descricao breve de ate 60 caracteres"
+                    placeholder="Descrição resumida de, no máximo, 60 caracteres"
                   />
                 </p>
 
                 <p>
-                  <label>Descricao completa:</label>
+                  <label>Descrição completa:</label>
                   <textarea
                     className="complete"
-                    placeholder="Descricao completa do projeto"
+                    placeholder="Descrição completa do projeto"
                   />
                 </p>
               </div>
