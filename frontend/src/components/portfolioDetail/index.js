@@ -4,6 +4,8 @@ import moment from "moment";
 import "moment/locale/pt-br";
 import Carousel from "react-bootstrap/Carousel";
 
+import { handleBrands } from "../../hooks/myIcons/index.js";
+
 import {
   Container,
   Header,
@@ -40,26 +42,6 @@ const PortfolioDetail = () => {
   };
 
   moment.locale("pt-br");
-
-  const handleBrands = (techs) => {
-    const newTech = [];
-    techs.map((tech) => {
-      if (tech === "React") {
-        newTech.push({
-          label: "Reactsss",
-          icon: "fa-react",
-        });
-      }
-
-      if (tech === "Node.JS") {
-        newTech.push({
-          label: "Node.jsss",
-          icon: "fa-node",
-        });
-      }
-    });
-    return newTech;
-  };
 
   return (
     <Modal

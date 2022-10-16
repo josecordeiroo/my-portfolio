@@ -4,6 +4,13 @@ import { Button, Modal } from "react-bootstrap";
 
 import ProjectsService from "../../../services/projects";
 
+import { handleBrands } from "../../../hooks/myIcons";
+
+import { Container, Technologies, Technology } from "./styles.js";
+
+//Import Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -30,6 +37,19 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
     }
   };
 
+  const techsAvailable = ["React.JS", "Node.JS", "Javascript", "GitHub"];
+  const [techsChoice, setTechsChoice] = useState([]);
+
+  const addArray = (tech) => {
+    if (techsChoice.includes(tech)) {
+      const newArray = techsChoice.filter((item) => item !== tech);
+      setTechsChoice(newArray);
+    } else {
+      const newArray = [...techsChoice, tech];
+      setTechsChoice(newArray);
+    }
+  };
+
   return (
     <Modal
       show={show}
@@ -44,14 +64,33 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
       <Modal.Body>
         <p>
           <label>Titulo:</label>
-          <br/>
+          <br />
           <input type="text" />
         </p>
         <p>
           <label>Resumo (80 caracteres):</label>
-          <br/>
+          <br />
           <textarea />
         </p>
+
+        <Technologies>
+          {handleBrands(techsAvailable).map((tech) => {
+            return (
+              <Technology
+                onClick={() => addArray(tech.label)}
+                style={{
+                  filter: techsChoice.includes(tech.label)
+                    ? " "
+                    : "grayscale(1)",
+                }}
+                key={tech.label}
+              >
+                <FontAwesomeIcon icon={["brands", tech.icon]} size="2x" />
+                {tech.label}
+              </Technology>
+            );
+          })}
+        </Technologies>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={() => setShow(false)}>
