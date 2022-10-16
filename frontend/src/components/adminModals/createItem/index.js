@@ -26,7 +26,6 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const [longDescription, setLongDescription] = useState();
   const [images, setImages] = useState();
   const [slug, setSlug] = useState();
-  const [techs, setTechs] = useState();
 
   const handleAdd = () => {
     if (user.admin) {
@@ -35,7 +34,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
         description: shortDescription,
         longDescription: longDescription,
         imgUrl: images,
-        technologies: techs,
+        technologies: techsChoice,
       });
       window.location.reload(false);
     } else {
