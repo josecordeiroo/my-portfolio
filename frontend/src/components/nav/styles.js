@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div``;
 
 export const StyledNav = styled.nav`
-  min-height: 10vh;
+  height: 50px;
   display: flex;
   margin: auto;
   justify-content: center;

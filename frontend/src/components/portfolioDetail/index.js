@@ -31,14 +31,6 @@ const PortfolioDetail = () => {
   const history = useNavigate();
   const [showImageModal, setShowImageModal] = useState(false);
 
-  const exitDetailHandler = (e) => {
-    const element = e.target;
-    if (element.classList.contains("shaddow")) {
-      document.body.style.overflow = "auto";
-      history("/portfolio");
-    }
-  };
-
   const handleClose = () => {
     history("/portfolio");
   };
@@ -48,6 +40,26 @@ const PortfolioDetail = () => {
   };
 
   moment.locale("pt-br");
+
+  const handleBrands = (techs) => {
+    const newTech = [];
+    techs.map((tech) => {
+      if (tech === "React") {
+        newTech.push({
+          label: "Reactsss",
+          icon: "fa-react",
+        });
+      }
+
+      if (tech === "Node.JS") {
+        newTech.push({
+          label: "Node.jsss",
+          icon: "fa-node",
+        });
+      }
+    });
+    return newTech;
+  };
 
   return (
     <Modal
@@ -69,18 +81,14 @@ const PortfolioDetail = () => {
             <h5>Tecnologias</h5>
 
             <Technologies>
-              {data &&
-                data.data.technologies.map((tech) => {
-                  return (
-                    <Technology key={tech.label}>
-                      <FontAwesomeIcon
-                        icon={[tech.iconType, tech.icon]}
-                        size="2x"
-                      />
-                      {tech.label}
-                    </Technology>
-                  );
-                })}
+              {handleBrands(["React", "Node.JS"]).map((tech) => {
+                return (
+                  <Technology key={tech.label}>
+                    <FontAwesomeIcon icon={["brands", tech.icon]} size="2x" />
+                    {tech.label}
+                  </Technology>
+                );
+              })}
             </Technologies>
           </Info>
         </Header>
@@ -88,7 +96,8 @@ const PortfolioDetail = () => {
         <FullDescription>
           <h4>Descrição do projeto:</h4>
           <p>
-            <strong>Inicio:</strong> {data && moment(data.data.createdAt).format("LL")} <br />
+            <strong>Inicio:</strong>{" "}
+            {data && moment(data.data.createdAt).format("LL")} <br />
             <strong>Conclusao:</strong> 16 de outubro de 2022
             <br />
           </p>
@@ -99,8 +108,7 @@ const PortfolioDetail = () => {
           <PicturesDiv>
             <CarouselDetails data={data} />
             <PicturesSmall>
-
-                {/* {data && data.data.imgUrl.map((img) => {
+              {/* {data && data.data.imgUrl.map((img) => {
                   <img
                   onClick={() => setShowImageModal(true)}
                   src={img}
