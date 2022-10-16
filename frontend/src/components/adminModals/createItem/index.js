@@ -6,7 +6,14 @@ import ProjectsService from "../../../services/projects";
 
 import { handleBrands } from "../../../hooks/myIcons";
 
-import { Container, Technologies, Technology, TechsDiv } from "./styles.js";
+import {
+  Container,
+  DescriptionArea,
+  Form,
+  Technologies,
+  Technology,
+  TechsDiv,
+} from "./styles.js";
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -69,52 +76,76 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
       keyboard={false}
       size="lg"
     >
-      <Modal.Header closeButton>
-        <Modal.Title>Criar novo projeto</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <p>
-          <label>Titulo:</label>
-          <br />
-          <input type="text" />
-        </p>
-        <p>
-          <label>Resumo (80 caracteres):</label>
-          <br />
-          <textarea />
-        </p>
-
-        <TechsDiv>
-          <h4>Selecione as tecnologias usadas neste projeto:</h4>
-          <Technologies>
-            {handleBrands(techsAvailable).map((tech) => {
-              return (
-                <Technology
-                  onClick={() => addArray(tech.label)}
-                  style={{
-                    filter: techsChoice.includes(tech.label)
-                      ? " "
-                      : "grayscale(1)",
-                  }}
-                  key={tech.label}
-                >
-                  <FontAwesomeIcon
-                    icon={[tech.iconType, tech.icon]}
-                    size="2x"
+      <Container>
+        <Modal.Header closeButton>
+          <Modal.Title>Criar novo projeto</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <DescriptionArea>
+              <div className="header">
+                <p>
+                  <label>Titulo:</label>
+                  <br />
+                  <input type="text" placeholder="Digite o titulo do projeto" />
+                </p>
+                <p>
+                  <label>Data de inicio:</label>
+                  <br />
+                  <input type="text" placeholder="01/01/2001" />
+                </p>
+              </div>
+              <div className="body">
+                <p>
+                  <label>Resumo:</label>
+                  <textarea
+                    className="short"
+                    placeholder="Descricao breve de ate 60 caracteres"
                   />
-                  {tech.label}
-                </Technology>
-              );
-            })}
-          </Technologies>
-        </TechsDiv>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={() => setShow(false)}>
-          Cancelar
-        </Button>
-        <Button variant="success">Botao</Button>
-      </Modal.Footer>
+                </p>
+
+                <p>
+                  <label>Descricao completa:</label>
+                  <textarea
+                    className="complete"
+                    placeholder="Descricao completa do projeto"
+                  />
+                </p>
+              </div>
+            </DescriptionArea>
+            <TechsDiv>
+              <h4>Selecione as tecnologias usadas neste projeto:</h4>
+              <Technologies>
+                {handleBrands(techsAvailable).map((tech) => {
+                  return (
+                    <Technology
+                      onClick={() => addArray(tech.label)}
+                      style={{
+                        filter: techsChoice.includes(tech.label)
+                          ? " "
+                          : "grayscale(1)",
+                      }}
+                      key={tech.label}
+                    >
+                      <FontAwesomeIcon
+                        icon={[tech.iconType, tech.icon]}
+                        size="2x"
+                      />
+                      {tech.label}
+                    </Technology>
+                  );
+                })}
+              </Technologies>
+            </TechsDiv>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={() => setShow(false)}>
+            Cancelar
+          </Button>
+          <Button variant="success">Criar projeto</Button>
+        </Modal.Footer>
+      </Container>
     </Modal>
   );
 };
