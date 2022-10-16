@@ -26,12 +26,17 @@ import {
   faJs,
   faGithub,
   faTwitter,
+  faBootstrap,
+  faFontAwesome,
+  faPython
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faEnvelope,
   faGraduationCap,
   faImages,
   faLaptopCode,
+  faDatabase,
+  faFont
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -45,7 +50,11 @@ library.add(
   faJs,
   faGithub,
   faTwitter,
-  faEnvelope
+  faEnvelope,
+  faBootstrap,
+  faDatabase,
+  faFontAwesome,
+  faPython
 );
 
 function App() {

@@ -6,7 +6,7 @@ import ProjectsService from "../../../services/projects";
 
 import { handleBrands } from "../../../hooks/myIcons";
 
-import { Container, Technologies, Technology } from "./styles.js";
+import { Container, Technologies, Technology, TechsDiv } from "./styles.js";
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,8 +36,19 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
       setNoAdmin(true);
     }
   };
-
-  const techsAvailable = ["React.JS", "Node.JS", "Javascript", "GitHub"];
+  const techsAvailable = [
+    "Javascript",
+    "Python",
+    "Node.JS",
+    "React",
+    "React Native",
+    "Bootstrap",
+    "GitHub",
+    "FontAwesome",
+    "MongoDB",
+    "MySql",
+    "Firebase",
+  ];
   const [techsChoice, setTechsChoice] = useState([]);
 
   const addArray = (tech) => {
@@ -52,7 +63,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
 
   return (
     <Modal
-      show={show}
+      show={true}
       onHide={() => setShow(false)}
       backdrop="static"
       keyboard={false}
@@ -73,24 +84,30 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
           <textarea />
         </p>
 
-        <Technologies>
-          {handleBrands(techsAvailable).map((tech) => {
-            return (
-              <Technology
-                onClick={() => addArray(tech.label)}
-                style={{
-                  filter: techsChoice.includes(tech.label)
-                    ? " "
-                    : "grayscale(1)",
-                }}
-                key={tech.label}
-              >
-                <FontAwesomeIcon icon={["brands", tech.icon]} size="2x" />
-                {tech.label}
-              </Technology>
-            );
-          })}
-        </Technologies>
+        <TechsDiv>
+          <h4>Selecione as tecnologias usadas neste projeto:</h4>
+          <Technologies>
+            {handleBrands(techsAvailable).map((tech) => {
+              return (
+                <Technology
+                  onClick={() => addArray(tech.label)}
+                  style={{
+                    filter: techsChoice.includes(tech.label)
+                      ? " "
+                      : "grayscale(1)",
+                  }}
+                  key={tech.label}
+                >
+                  <FontAwesomeIcon
+                    icon={[tech.iconType, tech.icon]}
+                    size="2x"
+                  />
+                  {tech.label}
+                </Technology>
+              );
+            })}
+          </Technologies>
+        </TechsDiv>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={() => setShow(false)}>
