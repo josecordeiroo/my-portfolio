@@ -92,7 +92,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 <p>
                   <label>Data de inicio:</label>
                   <br />
-                  <input type="text" placeholder="01/01/2001" />
+                  <input type="date" />
                 </p>
               </div>
               <div className="body">
