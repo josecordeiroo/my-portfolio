@@ -9,8 +9,9 @@ router.post("/", withAuth, async (req, res) => {
     title: req.body.title,
     shortDescription: req.body.shortDescription,
     longDescription: req.body.longDescription,
-    images: req.body.imgUrl,
+    images: req.body.images,
     technologies: req.body.technologies,
+    createdAt: req.body.date,
   });
 
   try {

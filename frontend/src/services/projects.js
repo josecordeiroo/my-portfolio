@@ -2,20 +2,10 @@ import Api from "./api";
 
 const ProjectsService = {
   index: () => Api.get("/portfolio"),
-  addItem: ({ title, description, longDescription, imgUrl, technologies }) => {
-    Api.post(
-      `/portfolio`,
-      {
-        title,
-        description,
-        longDescription,
-        imgUrl,
-        technologies,
-      },
-      {
-        headers: { "x-access-token": localStorage.getItem("token") },
-      }
-    )
+  addItem: (project) => {
+    Api.post(`/portfolio`, project, {
+      headers: { "x-access-token": localStorage.getItem("token") },
+    })
       .then((res) => {
         console.log("Resultado", res);
       })

@@ -24,10 +24,10 @@ import UploadAndDisplayImage from "../../uploadImages";
 const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const user = JSON.parse(localStorage.getItem("user"));
 
-  const [title, setTitle] = useState();
-  const [date, setDate] = useState()
-  const [shortDescription, setShortDescription] = useState();
-  const [longDescription, setLongDescription] = useState();
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("")
+  const [shortDescription, setShortDescription] = useState("");
+  const [longDescription, setLongDescription] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [images, setImages] = useState([
     "https://i.ibb.co/6Zsrcrv/def.png",
@@ -42,8 +42,9 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
         longDescription: longDescription,
         images: images,
         technologies: techsChoice,
+        date: date
       });
-      window.location.reload(false);
+      // window.location.reload(false);
     } else {
       setShow(false);
       setNoAdmin(true);
@@ -104,18 +105,19 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
 
   return (
     <Modal
-      show={true}
+      show={show}
       onHide={() => setShow(false)}
       backdrop="static"
       keyboard={false}
       size="lg"
     >
       <Container>
+      <Form onSubmit={handleAdd}>
         <Modal.Header closeButton>
           <Modal.Title>Criar novo projeto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          
             <DescriptionArea>
               <div className="header">
                 <p className="bigger">
@@ -229,14 +231,15 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 })}
               </div>
             </PicturesDiv>
-          </Form>
+          
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={() => setShow(false)}>
             Cancelar
           </Button>
-          <Button variant="success">Criar projeto</Button>
+          <Button variant="success" type="submit">Criar projeto</Button>
         </Modal.Footer>
+        </Form>
       </Container>
     </Modal>
   );
