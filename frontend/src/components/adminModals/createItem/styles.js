@@ -34,6 +34,12 @@ export const DescriptionArea = styled.div`
       color: black;
     }
   }
+  .bigger {
+    width: 420px;
+    input {
+      width: 100%;
+    }
+  }
 `;
 
 export const Technologies = styled.div`
@@ -64,6 +70,7 @@ export const TechsDiv = styled.div`
   border-radius: 10px;
   padding: 10px;
   text-align: center;
+  margin-bottom: 15px;
   h4 {
     margin-bottom: 10px;
     color: #383838;

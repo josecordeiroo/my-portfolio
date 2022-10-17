@@ -69,7 +69,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
 
   return (
     <Modal
-      show={show}
+      show={true}
       onHide={() => setShow(false)}
       backdrop="static"
       keyboard={false}
@@ -83,7 +83,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
           <Form>
             <DescriptionArea>
               <div className="header">
-                <p>
+                <p className="bigger">
                   <label>Título:</label>
                   <br />
                   <input type="text" placeholder="Digite o título do projeto" />
@@ -103,16 +103,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                   />
                 </p>
 
-                <p>
-                  <label>Descrição completa:</label>
-                  <textarea
-                    className="complete"
-                    placeholder="Descrição completa do projeto"
-                  />
-                </p>
-              </div>
-            </DescriptionArea>
-            <TechsDiv>
+                <TechsDiv>
               <h4>Selecione as tecnologias usadas neste projeto:</h4>
               <Technologies>
                 {handleBrands(techsAvailable).map((tech) => {
@@ -136,6 +127,17 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 })}
               </Technologies>
             </TechsDiv>
+
+                <p>
+                  <label>Descrição completa:</label>
+                  <textarea
+                    className="complete"
+                    placeholder="Descrição completa do projeto"
+                  />
+                </p>
+              </div>
+            </DescriptionArea>
+            
             <h2>Enviar fotos</h2>
           </Form>
         </Modal.Body>
