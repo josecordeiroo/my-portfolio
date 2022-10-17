@@ -89,6 +89,7 @@ export const PicturesDiv = styled.div`
     width: 60px;
     height: 40px;
     margin-top: 20px;
+    cursor: pointer;
   }
   label {
     padding: 6px;

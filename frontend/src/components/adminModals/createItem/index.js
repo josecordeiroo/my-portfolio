@@ -28,7 +28,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const [longDescription, setLongDescription] = useState();
   const [imgUrl, setImgUrl] = useState("");
   const [images, setImages] = useState([
-    "https://images.pexels.com/photos/4709289/pexels-photo-4709289.jpeg?cs=srgb&dl=pexels-cottonbro-4709289.jpg&fm=jpg",
+    "https://i.ibb.co/Gc0jkK8/NOIMAGES.jpg",
   ]);
   const [slug, setSlug] = useState();
 
@@ -71,23 +71,34 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   };
 
   const addImgUrl = () => {
-    if (images.length < 6) {
+    if (images.length === 6) {
+      setImgMsg("O projeto pode conter no máximo 6 imagens.");
+    } else if (images.includes("https://i.ibb.co/Gc0jkK8/NOIMAGES.jpg")) {
+      setImages([imgUrl]);
+      setImgUrl("");
+      setImgMsg("");
+    } else {
       const newArray = [...images, imgUrl];
       setImages(newArray);
       setImgUrl("");
-      setImgMsg(false);
-    } else {
-      setImgMsg(true);
+      setImgMsg("");
     }
   };
 
-  const [imgMsg, setImgMsg] = useState(false);
+  const [imgMsg, setImgMsg] = useState("");
 
   const deleteImgUrl = (img) => {
-    setImages(images.filter((item, index) => index !== images.indexOf(img)));
-    setImgMsg(false);
+    if (images.length === 1) {
+      setImgMsg("O projeto precisa ter pelo menos uma foto.");
+    } else {
+      setImages(images.filter((item, index) => index !== images.indexOf(img)));
+      setImgMsg("");
+      setBigImg(false);
+    }
   };
 
+  const [bigImage, setBigImg] = useState(false);
+  const [imgUrlBig, setImgUrlBig] = useState("");
   return (
     <Modal
       show={true}
@@ -160,10 +171,8 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
             </DescriptionArea>
 
             <PicturesDiv>
-              {imgMsg ? (
-                <p style={{ color: "red" }}>
-                  Você pode adicionar até 6 imagens por projeto.
-                </p>
+              {imgMsg.length > 2 ? (
+                <p style={{ color: "red" }}>{imgMsg}</p>
               ) : null}
               <label>Insira ate 6 imagens:</label>
               <br />
@@ -178,7 +187,30 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 {images.map((img) => {
                   return (
                     <div className="smallImgs">
-                      <img src={img} />
+                      <Modal show={bigImage} size="xl">
+                        <img src={imgUrlBig} />
+                        <Modal.Footer>
+                          <Button
+                            variant="secondary"
+                            onClick={() => setBigImg(false)}
+                          >
+                            Voltar
+                          </Button>
+                          <Button
+                            variant="danger"
+                            onClick={() => deleteImgUrl(imgUrlBig)}
+                          >
+                            Excluir
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
+                      <img
+                        src={img}
+                        onClick={() => {
+                          setImgUrlBig(img);
+                          setBigImg(true);
+                        }}
+                      />
                       <br />
                       <Button
                         className="secondButton"
