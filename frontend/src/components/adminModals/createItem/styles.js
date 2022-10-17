@@ -108,3 +108,7 @@ export const PicturesDiv = styled.div`
     margin-top: 5px;
   }
 `
+
+export const ModalImg = styled.img`
+  width: 100%;
+`

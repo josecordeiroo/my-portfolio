@@ -3,7 +3,6 @@ require('../db/mongoConnection')
 
 const portfolio = require('./portfolio')
 const user = require('./user')
-const aboutMe = require('./aboutMe')
 
 router.get('/', (req, res) => {
     res.json({
@@ -14,6 +13,5 @@ router.get('/', (req, res) => {
 
 router.use('/portfolio', portfolio)
 router.use('/users', user)
-router.use('/admin', aboutMe)
 
 module.exports = router

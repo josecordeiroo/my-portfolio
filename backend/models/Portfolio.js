@@ -25,18 +25,7 @@ const portfolioSchema = new Schema({
     type: String,
   },
   images: [{ type: String }],
-  technologies: [
-    {
-      label: String,
-      icon: String,
-      iconType: String,
-    },
-  ],
-  allTools: [{ type: String }],
-  isDone: {
-    type: Boolean,
-    default: false,
-  },
+  technologies: [{ type: String }],
   createdAt: {
     type: Date,
     default: Date.now(),

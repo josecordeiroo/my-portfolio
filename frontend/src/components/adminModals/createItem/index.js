@@ -10,6 +10,7 @@ import {
   Container,
   DescriptionArea,
   Form,
+  ModalImg,
   PicturesDiv,
   Technologies,
   Technology,
@@ -24,11 +25,12 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const [title, setTitle] = useState();
+  const [date, setDate] = useState()
   const [shortDescription, setShortDescription] = useState();
   const [longDescription, setLongDescription] = useState();
   const [imgUrl, setImgUrl] = useState("");
   const [images, setImages] = useState([
-    "https://i.ibb.co/Gc0jkK8/NOIMAGES.jpg",
+    "https://i.ibb.co/6Zsrcrv/def.png",
   ]);
   const [slug, setSlug] = useState();
 
@@ -36,9 +38,9 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
     if (user.admin) {
       ProjectsService.addItem({
         title: title,
-        description: shortDescription,
+        shortDescription: shortDescription,
         longDescription: longDescription,
-        imgUrl: images,
+        images: images,
         technologies: techsChoice,
       });
       window.location.reload(false);
@@ -73,7 +75,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const addImgUrl = () => {
     if (images.length === 6) {
       setImgMsg("O projeto pode conter no máximo 6 imagens.");
-    } else if (images.includes("https://i.ibb.co/Gc0jkK8/NOIMAGES.jpg")) {
+    } else if (images.includes("https://i.ibb.co/6Zsrcrv/def.png")) {
       setImages([imgUrl]);
       setImgUrl("");
       setImgMsg("");
@@ -89,7 +91,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
 
   const deleteImgUrl = (img) => {
     if (images.length === 1) {
-      setImgMsg("O projeto precisa ter pelo menos uma foto.");
+      setImgMsg("Não foi possível excluir a imagem, o projeto precisa ter pelo menos uma foto.");
     } else {
       setImages(images.filter((item, index) => index !== images.indexOf(img)));
       setImgMsg("");
@@ -97,8 +99,9 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
     }
   };
 
-  const [bigImage, setBigImg] = useState(false);
+  const [bigImg, setBigImg] = useState(false);
   const [imgUrlBig, setImgUrlBig] = useState("");
+
   return (
     <Modal
       show={true}
@@ -118,12 +121,12 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 <p className="bigger">
                   <label>Título:</label>
                   <br />
-                  <input type="text" placeholder="Digite o título do projeto" />
+                  <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" placeholder="Digite o título do projeto" />
                 </p>
                 <p>
                   <label>Data de criação:</label>
                   <br />
-                  <input type="date" />
+                  <input type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
                 </p>
               </div>
               <div className="body">
@@ -132,6 +135,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                   <textarea
                     className="short"
                     placeholder="Descrição resumida de, no máximo, 60 caracteres"
+                    value={shortDescription} onChange={(e) => setShortDescription(e.target.value)}
                   />
                 </p>
 
@@ -165,6 +169,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                   <textarea
                     className="complete"
                     placeholder="Descrição completa do projeto"
+                    value={longDescription} onChange={(e) => setLongDescription(e.target.value)}
                   />
                 </p>
               </div>
@@ -187,8 +192,8 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 {images.map((img) => {
                   return (
                     <div className="smallImgs">
-                      <Modal show={bigImage} size="xl">
-                        <img src={imgUrlBig} />
+                      <Modal show={bigImg} size="xl">
+                        <ModalImg src={imgUrlBig}/>
                         <Modal.Footer>
                           <Button
                             variant="secondary"
@@ -198,7 +203,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                           </Button>
                           <Button
                             variant="danger"
-                            onClick={() => deleteImgUrl(imgUrlBig)}
+                            onClick={() => {setBigImg(false); deleteImgUrl(imgUrlBig)}}
                           >
                             Excluir
                           </Button>
