@@ -77,3 +77,33 @@ export const TechsDiv = styled.div`
     font-weight: 400;
   }
 `;
+
+export const PicturesDiv = styled.div`
+  label{
+    margin-right: 7px;
+  }
+  input {
+    width: 88%;
+  }
+  img {
+    width: 60px;
+    height: 40px;
+    margin-top: 20px;
+  }
+  label {
+    padding: 6px;
+    margin-left: 5px;
+    color: gray;
+    cursor: pointer;
+  }
+  .smallImgsDiv {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .smallImgs {
+    text-align: center;
+  }
+  .secondButton {
+    margin-top: 5px;
+  }
+`

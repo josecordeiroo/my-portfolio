@@ -10,6 +10,7 @@ import {
   Container,
   DescriptionArea,
   Form,
+  PicturesDiv,
   Technologies,
   Technology,
   TechsDiv,
@@ -17,6 +18,7 @@ import {
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UploadAndDisplayImage from "../../uploadImages";
 
 const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -24,7 +26,10 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const [title, setTitle] = useState();
   const [shortDescription, setShortDescription] = useState();
   const [longDescription, setLongDescription] = useState();
-  const [images, setImages] = useState();
+  const [imgUrl, setImgUrl] = useState("");
+  const [images, setImages] = useState([
+    "https://images.pexels.com/photos/4709289/pexels-photo-4709289.jpeg?cs=srgb&dl=pexels-cottonbro-4709289.jpg&fm=jpg",
+  ]);
   const [slug, setSlug] = useState();
 
   const handleAdd = () => {
@@ -59,12 +64,28 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
 
   const addArray = (tech) => {
     if (techsChoice.includes(tech)) {
-      const newArray = techsChoice.filter((item) => item !== tech);
-      setTechsChoice(newArray);
+      setTechsChoice(techsChoice.filter((item) => item !== tech));
     } else {
-      const newArray = [...techsChoice, tech];
-      setTechsChoice(newArray);
+      setTechsChoice([...techsChoice, tech]);
     }
+  };
+
+  const addImgUrl = () => {
+    if (images.length < 6) {
+      const newArray = [...images, imgUrl];
+      setImages(newArray);
+      setImgUrl("");
+      setImgMsg(false);
+    } else {
+      setImgMsg(true);
+    }
+  };
+
+  const [imgMsg, setImgMsg] = useState(false);
+
+  const deleteImgUrl = (img) => {
+    setImages(images.filter((item, index) => index !== images.indexOf(img)));
+    setImgMsg(false);
   };
 
   return (
@@ -104,29 +125,29 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 </p>
 
                 <TechsDiv>
-              <h4>Selecione as tecnologias usadas neste projeto:</h4>
-              <Technologies>
-                {handleBrands(techsAvailable).map((tech) => {
-                  return (
-                    <Technology
-                      onClick={() => addArray(tech.label)}
-                      style={{
-                        filter: techsChoice.includes(tech.label)
-                          ? " "
-                          : "grayscale(1)",
-                      }}
-                      key={tech.label}
-                    >
-                      <FontAwesomeIcon
-                        icon={[tech.iconType, tech.icon]}
-                        size="2x"
-                      />
-                      {tech.label}
-                    </Technology>
-                  );
-                })}
-              </Technologies>
-            </TechsDiv>
+                  <h4>Selecione as tecnologias usadas neste projeto:</h4>
+                  <Technologies>
+                    {handleBrands(techsAvailable).map((tech) => {
+                      return (
+                        <Technology
+                          onClick={() => addArray(tech.label)}
+                          style={{
+                            filter: techsChoice.includes(tech.label)
+                              ? " "
+                              : "grayscale(1)",
+                          }}
+                          key={tech.label}
+                        >
+                          <FontAwesomeIcon
+                            icon={[tech.iconType, tech.icon]}
+                            size="2x"
+                          />
+                          {tech.label}
+                        </Technology>
+                      );
+                    })}
+                  </Technologies>
+                </TechsDiv>
 
                 <p>
                   <label>Descrição completa:</label>
@@ -137,8 +158,40 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 </p>
               </div>
             </DescriptionArea>
-            
-            <h2>Enviar fotos</h2>
+
+            <PicturesDiv>
+              {imgMsg ? (
+                <p style={{ color: "red" }}>
+                  Você pode adicionar até 6 imagens por projeto.
+                </p>
+              ) : null}
+              <label>Insira ate 6 imagens:</label>
+              <br />
+              <input
+                type="text"
+                value={imgUrl}
+                placeholder="Ex: https://images.pexels.com/photos/4709289"
+                onChange={(e) => setImgUrl(e.target.value)}
+              />
+              <label onClick={() => addImgUrl()}>Adicionar</label>
+              <div className="smallImgsDiv">
+                {images.map((img) => {
+                  return (
+                    <div className="smallImgs">
+                      <img src={img} />
+                      <br />
+                      <Button
+                        className="secondButton"
+                        variant="danger"
+                        onClick={() => deleteImgUrl(img)}
+                      >
+                        Excluir
+                      </Button>
+                    </div>
+                  );
+                })}
+              </div>
+            </PicturesDiv>
           </Form>
         </Modal.Body>
         <Modal.Footer>
