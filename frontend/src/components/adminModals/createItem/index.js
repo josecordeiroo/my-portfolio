@@ -136,6 +136,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 })}
               </Technologies>
             </TechsDiv>
+            <h2>Enviar fotos</h2>
           </Form>
         </Modal.Body>
         <Modal.Footer>

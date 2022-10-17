@@ -10,7 +10,7 @@ export const Form = styled.form`
     background: #f3f3f3;
     border-radius: 5px;
     font-size: 15px;
-    padding: 5px;
+    padding: 5px 5px 5px 10px;
   }
   .short {
     width: 100%;
