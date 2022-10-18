@@ -34,8 +34,7 @@ const PortfolioList = () => {
         shortDescription: shortDescription,
         longDescription: longDescription,
         images: images,
-        technologies: techsChoice,
-        date: date,
+        technologies: techsChoice
       });
       //window.location.reload(false);
     } else {
@@ -46,7 +45,7 @@ const PortfolioList = () => {
 
   const setProject = (project) => {
     setTitle(project.title);
-    setDate(project.date);
+    setDate(project.createdAt);
     setShortDescription(project.shortDescription);
     setLongDescription(project.longDescription);
     setImages(project.images);

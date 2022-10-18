@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import moment from "moment";
 
 import { Button, Modal } from "react-bootstrap";
-
-import ProjectsService from "../../../services/projects";
 
 import { handleBrands } from "../../../hooks/myIcons";
 
@@ -20,8 +19,23 @@ import {
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const UpdateItem = ({handleEdit, title, setTitle, date, setDate, shortDescription, setShortDescription, longDescription, setLongDescription, images, setImages, techsChoice, setTechsChoice, show, setShow}) => {
-
+const UpdateItem = ({
+  handleEdit,
+  title,
+  setTitle,
+  date,
+  setDate,
+  shortDescription,
+  setShortDescription,
+  longDescription,
+  setLongDescription,
+  images,
+  setImages,
+  techsChoice,
+  setTechsChoice,
+  show,
+  setShow,
+}) => {
   const [imgMsg, setImgMsg] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [bigImg, setBigImg] = useState(false);
@@ -66,7 +80,9 @@ const UpdateItem = ({handleEdit, title, setTitle, date, setDate, shortDescriptio
 
   const deleteImgUrl = (img) => {
     if (images.length === 1) {
-      setImgMsg("Não foi possível excluir a imagem, o projeto precisa ter pelo menos uma foto.");
+      setImgMsg(
+        "Não foi possível excluir a imagem, o projeto precisa ter pelo menos uma foto."
+      );
     } else {
       setImages(images.filter((item, index) => index !== images.indexOf(img)));
       setImgMsg("");
@@ -83,24 +99,24 @@ const UpdateItem = ({handleEdit, title, setTitle, date, setDate, shortDescriptio
       size="lg"
     >
       <Container>
-      <Form onSubmit={handleEdit}>
-        <Modal.Header closeButton>
-          <Modal.Title>Editar projeto {title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          
+        <Form onSubmit={handleEdit}>
+          <Modal.Header closeButton>
+            <Modal.Title>Editar projeto {title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
             <DescriptionArea>
               <div className="header">
                 <p className="bigger">
                   <label>Título:</label>
                   <br />
-                  <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" placeholder="Digite o título do projeto" />
+                  <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    type="text"
+                    placeholder="Digite o título do projeto"
+                  />
                 </p>
-                <p>
-                  <label>Data de criação:</label>
-                  <br />
-                  <input type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
-                </p>
+                <h5>Data de criação: {moment(date).format("DD/MM/YYYY")}</h5>
               </div>
               <div className="body">
                 <p>
@@ -108,7 +124,8 @@ const UpdateItem = ({handleEdit, title, setTitle, date, setDate, shortDescriptio
                   <textarea
                     className="short"
                     placeholder="Descrição resumida de, no máximo, 60 caracteres"
-                    value={shortDescription} onChange={(e) => setShortDescription(e.target.value)}
+                    value={shortDescription}
+                    onChange={(e) => setShortDescription(e.target.value)}
                   />
                 </p>
 
@@ -142,7 +159,8 @@ const UpdateItem = ({handleEdit, title, setTitle, date, setDate, shortDescriptio
                   <textarea
                     className="complete"
                     placeholder="Descrição completa do projeto"
-                    value={longDescription} onChange={(e) => setLongDescription(e.target.value)}
+                    value={longDescription}
+                    onChange={(e) => setLongDescription(e.target.value)}
                   />
                 </p>
               </div>
@@ -166,7 +184,7 @@ const UpdateItem = ({handleEdit, title, setTitle, date, setDate, shortDescriptio
                   return (
                     <div className="smallImgs">
                       <Modal show={bigImg} size="xl">
-                        <ModalImg src={imgUrlBig}/>
+                        <ModalImg src={imgUrlBig} />
                         <Modal.Footer>
                           <Button
                             variant="secondary"
@@ -176,7 +194,10 @@ const UpdateItem = ({handleEdit, title, setTitle, date, setDate, shortDescriptio
                           </Button>
                           <Button
                             variant="danger"
-                            onClick={() => {setBigImg(false); deleteImgUrl(imgUrlBig)}}
+                            onClick={() => {
+                              setBigImg(false);
+                              deleteImgUrl(imgUrlBig);
+                            }}
                           >
                             Excluir
                           </Button>
@@ -203,14 +224,15 @@ const UpdateItem = ({handleEdit, title, setTitle, date, setDate, shortDescriptio
                 })}
               </div>
             </PicturesDiv>
-          
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="danger" onClick={() => setShow(false)}>
-            Cancelar
-          </Button>
-          <Button variant="success" type="submit">Atualizar projeto</Button>
-        </Modal.Footer>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="danger" onClick={() => setShow(false)}>
+              Cancelar
+            </Button>
+            <Button variant="success" type="submit">
+              Atualizar projeto
+            </Button>
+          </Modal.Footer>
         </Form>
       </Container>
     </Modal>
