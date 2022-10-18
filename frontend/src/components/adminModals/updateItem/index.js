@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Button, Modal } from "react-bootstrap";
 
@@ -20,21 +20,26 @@ import {
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
+const UpdateItem = ({ slug, show, setShow, noAdmin, setNoAdmin }) => {
   const user = JSON.parse(localStorage.getItem("user"));
+
+  const [project, setProject] = useState({}); //catch projects in db
 
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("")
   const [shortDescription, setShortDescription] = useState("");
   const [longDescription, setLongDescription] = useState("");
   const [imgUrl, setImgUrl] = useState("");
-  const [images, setImages] = useState([
-    "https://i.ibb.co/6Zsrcrv/def.png",
-  ]);
+  const [images, setImages] = useState([]);
 
-  const handleAdd = () => {
+  const fetchProject = async () => {
+    setProject(await ProjectsService.findOne(slug))
+    setTitle(project.title)
+  }
+
+  const handleEdit = (slug, data) => {
     if (user.admin) {
-      ProjectsService.addItem({
+      ProjectsService.editItem(slug, {
         title: title,
         shortDescription: shortDescription,
         longDescription: longDescription,
@@ -42,12 +47,13 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
         technologies: techsChoice,
         date: date
       });
-      // window.location.reload(false);
+      //window.location.reload(false);
     } else {
       setShow(false);
       setNoAdmin(true);
     }
   };
+
   const techsAvailable = [
     "Javascript",
     "Python",
@@ -101,6 +107,11 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const [bigImg, setBigImg] = useState(false);
   const [imgUrlBig, setImgUrlBig] = useState("");
 
+  useEffect(() => {
+    fetchProject();
+  }, []);
+
+
   return (
     <Modal
       show={show}
@@ -110,9 +121,9 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
       size="lg"
     >
       <Container>
-      <Form onSubmit={handleAdd}>
+      <Form onSubmit={handleEdit}>
         <Modal.Header closeButton>
-          <Modal.Title>Criar novo projeto</Modal.Title>
+          <Modal.Title>Editar projeto {title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           
@@ -191,7 +202,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
               <div className="smallImgsDiv">
                 {images.map((img) => {
                   return (
-                    <div key={img} className="smallImgs">
+                    <div className="smallImgs">
                       <Modal show={bigImg} size="xl">
                         <ModalImg src={imgUrlBig}/>
                         <Modal.Footer>
@@ -244,4 +255,4 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   );
 };
 
-export default CreateItem;
+export default UpdateItem;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import moment from "moment";
 
 import { Title, User, Image, ButtonLogOut } from "./styles";

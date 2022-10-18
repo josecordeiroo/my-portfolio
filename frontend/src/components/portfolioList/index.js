@@ -8,42 +8,30 @@ import { Container, Nav, ProjectsDiv, Project, Buttons } from "./styles";
 import ProjectsService from "../../services/projects";
 
 import CreateItem from "../adminModals/createItem";
+import UpdateItem from "../adminModals/updateItem";
 
 const PortfolioList = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  // const user = JSON.parse(localStorage.getItem("user"));
   const [projects, setProjects] = useState([]); //catch projects in db
   const { data } = projects;
   const [noAdmin, setNoAdmin] = useState(false); //to set "admin required" modal
 
   const [showAdd, setShowAdd] = useState(false);
+  const [showUp, setShowUp] = useState(false);
+  const [slug, setSlug] = useState("");
 
   async function fetchProjects() {
     setProjects(await ProjectsService.index());
   }
 
-  const handleDel = (slug) => {
-    if (user.admin) {
-      ProjectsService.deleteItem(slug);
-      window.location.reload(false);
-    } else {
-      setNoAdmin(true);
-    }
-  };
-
-  const handleEdit = (slug, data) => {
-    if (user.admin) {
-      ProjectsService.editItem(slug, {
-        title: data.title,
-        description: data.shortDescription,
-        longDescription: data.longDescription,
-        imgUrl: data.image,
-        technologies: data.techs,
-      });
-      window.location.reload(false);
-    } else {
-      setNoAdmin(true);
-    }
-  };
+  // const handleDel = (slug) => {
+  //   if (user.admin) {
+  //     ProjectsService.deleteItem(slug);
+  //     window.location.reload(false);
+  //   } else {
+  //     setNoAdmin(true);
+  //   }
+  // };
 
   useEffect(() => {
     fetchProjects();
@@ -59,6 +47,13 @@ const PortfolioList = () => {
           noAdmin={noAdmin}
           setNoAdmin={setNoAdmin}
         />
+        <UpdateItem
+          slug={slug}
+          show={showUp}
+          setShow={setShowUp}
+          noAdmin={noAdmin}
+          setNoAdmin={setNoAdmin}
+        />
 
         <Button variant="success" size="lg" onClick={() => setShowAdd(true)}>
           Criar novo projeto
@@ -70,11 +65,22 @@ const PortfolioList = () => {
           data.map((project) => {
             return (
               <Project key={project.slug}>
-                {project.title}<br/>
-                {moment(project.createdAt).format("DD-MM-YYYY")}<br/>
-                {project.description}<br/>
+                {project.title}
+                <br />
+                {moment(project.createdAt).format("DD-MM-YYYY")}
+                <br />
+                {project.description}
+                <br />
                 <Buttons>
-                  <Button variant="info">Editar</Button>{" "}
+                  <Button
+                    variant="info"
+                    onClick={() => {
+                      setSlug(project.slug);
+                      setShowUp(true);
+                    }}
+                  >
+                    Editar
+                  </Button>{" "}
                   <Button variant="danger">Excluir</Button>{" "}
                 </Buttons>
               </Project>

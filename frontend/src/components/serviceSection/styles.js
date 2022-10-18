@@ -9,7 +9,7 @@ export const Services = styled(motion.div)`
   padding: 5rem 10rem;
   color: white;
   h2 {
-    padding: 1rem;
+    padding-bottom: 1rem;
   }
   p {
     width: 70%;

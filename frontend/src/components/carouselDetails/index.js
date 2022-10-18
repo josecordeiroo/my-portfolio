@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { MyCarousel, DescriptionCarousel } from "./styles.js";
+import { MyCarousel } from "./styles.js";
 
 import Carousel from "react-bootstrap/Carousel";
 

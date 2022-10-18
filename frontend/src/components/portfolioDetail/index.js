@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import moment from "moment";
 import "moment/locale/pt-br";
-import Carousel from "react-bootstrap/Carousel";
 
 import { handleBrands } from "../../hooks/myIcons/index.js";
 
@@ -26,7 +25,6 @@ import useApi from "../../hooks/useApi.js";
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ProjectsService from "../../services/projects.js";
 
 const PortfolioDetail = () => {
   const { slug } = useParams();
@@ -64,7 +62,7 @@ const PortfolioDetail = () => {
           </Titles>
 
           <Info>
-            <h5>Tecnologias</h5>
+            <h5>Tecnologias usadas</h5>
 
             {data &&
               data.data.technologies.map((tech) => {
@@ -91,26 +89,23 @@ const PortfolioDetail = () => {
         <FullDescription>
           <h4>Descrição do projeto:</h4>
           <p>
-            <strong>Inicio:</strong>{" "}
+            <strong>Data:</strong>{" "}
             {data && moment(data.data.createdAt).format("LL")} <br />
-            <strong>Conclusao:</strong> 16 de outubro de 2022
-            <br />
           </p>
           <p>{data && data.data.longDescription}</p>
-          <FullDescription>
-            <p className="git">
-              {" "}
-              <a
-                href={`https://github.com/josecordeiroo/${
-                  data && data.data.slug
-                }`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Clique aqui e veja este código completo no GitHub.
-              </a>{" "}
-            </p>
-          </FullDescription>
+
+          <p className="git">
+            {" "}
+            <a
+              href={`https://github.com/josecordeiroo/${
+                data && data.data.slug
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Clique aqui e veja este código completo no GitHub.
+            </a>{" "}
+          </p>
         </FullDescription>
         <Pictures>
           <h5>Capturas de Tela</h5>
@@ -121,6 +116,7 @@ const PortfolioDetail = () => {
                 data.data.images.map((img) => {
                   return (
                     <img
+                      alt=""
                       onClick={() => {
                         setBigImg(img);
                         setShowImageModal(true);

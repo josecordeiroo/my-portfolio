@@ -1,5 +1,4 @@
 import React from "react";
-import moment from "moment";
 
 import { StyledCard, Content, Image, Info } from "./styles";
 import { Link } from "react-router-dom";
@@ -24,8 +23,6 @@ const Card = ({ project }) => {
             <Info>
               <div>
                 <h3>{project.title}</h3>
-                <h4>{moment(project.createdAt).format("DD/MM/YYYY")}</h4>
-                <p>{project.shortDescription}</p>
               </div>
             </Info>
             <Image src={project.images[0]} alt="Code" />

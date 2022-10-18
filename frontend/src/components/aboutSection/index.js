@@ -48,7 +48,8 @@ const AboutSection = () => {
         <ImageMobile>
           <img src={myPicture} alt="Jose Cordeiro" />
         </ImageMobile>
-        <button onClick={redirectHandler}>Quer saber mais?</button>
+        <button onClick={redirectHandler}>Quer saber mais?</button>{" "}
+        <button onClick={redirectHandler}> Baixar meu currículo em PDF</button>
       </Description>
       <Image>
         <motion.img

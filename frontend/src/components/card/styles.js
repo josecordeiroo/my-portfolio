@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StyledCard = styled.div`
   background: rgba(255, 255, 255, 0.07);
   min-height: 30vh;
-  text-align: center;
   border-radius: 10px;
   cursor: pointer;
   overflow: hidden;
@@ -17,7 +16,6 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
   .icons {
-    text-align: center;
     padding-top: 5px;
   }
   .iconsTech {
@@ -35,10 +33,9 @@ export const Image = styled.img`
 `;
 
 export const Info = styled.div`
-  text-align: center;
-  padding-top: 5px;
-
+  margin: 5px 0 5px 0;
   h3 {
     font-size: 20px;
+    font-weight: 100;
   }
 `;

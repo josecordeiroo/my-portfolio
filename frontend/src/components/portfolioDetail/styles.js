@@ -152,26 +152,3 @@ export const DescriptionShort = styled.div`
   padding: 0;
   color: #696969;
 `;
-
-export const CardShaddow = styled.div`
-  width: 100%;
-  min-height: 100%;
-  overflow-y: scroll;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 12;
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: green;
-  }
-  &::-webkit-scrollbar-track {
-    background: white;
-  }
-
-  @media (max-width: 1200px) {
-  }
-`;

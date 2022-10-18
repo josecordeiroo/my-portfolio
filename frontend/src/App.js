@@ -36,7 +36,6 @@ import {
   faImages,
   faLaptopCode,
   faDatabase,
-  faFont
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
