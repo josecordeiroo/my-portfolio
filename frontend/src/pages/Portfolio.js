@@ -14,15 +14,13 @@ const Portfolio = () => {
   const location = useLocation();
   const slug = location.pathname.split("/")[2];
 
-  const [projects, setProjects] = useState({});
+  const [projects, setProjects] = useState([]);
 
   async function fetchProjects() {
-    await ProjectsService.index().then((data) => {
-      setProjects(data);
+    const response = await ProjectsService.index().then((data) => {
+      setProjects(data.data.reverse());
     });
   }
-
-  const { data } = projects;
 
   useEffect(() => {
     setTimeout(() => {
@@ -45,8 +43,8 @@ const Portfolio = () => {
           {slug && <PortfolioDetail />}
 
           <CardList>
-            {data ? (
-              data.map((project) => {
+            {projects ? (
+              projects.map((project) => {
                 console.log(project);
                 return <Card key={project.slug} project={project} />;
               })

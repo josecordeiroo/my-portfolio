@@ -96,7 +96,7 @@ export const FullDescription = styled.div`
   }
   .git {
     text-align: right;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
   }
 `;
 

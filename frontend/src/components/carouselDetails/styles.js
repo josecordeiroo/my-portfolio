@@ -7,7 +7,7 @@ export const MyCarousel = styled.div`
   text-align: center;
   img {
     width: 100%;
-    height: 360px;
+    height: 260px;
     object-fit: cover;
   }
   .carousel {

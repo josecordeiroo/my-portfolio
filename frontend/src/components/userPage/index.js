@@ -50,7 +50,7 @@ const UserPage = () => {
         ) : (
           <Title>Usuário Visitante</Title>
         )}
-        <p>
+        <p className="email">
           E-mail: {user.email}
           <br />
           Usuário desde: {moment(user.createdAt).format("DD-MM-YYYY")}

@@ -29,7 +29,7 @@ export const Content = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: 180px;
 `;
 
 export const Info = styled.div`

@@ -47,7 +47,7 @@ const PortfolioDetail = () => {
 
   return (
     <Modal
-      style={{ marginTop: "10px" }}
+      style={{ marginTop: "-30px" }}
       size="lg"
       show={true}
       onHide={handleClose}
@@ -130,7 +130,7 @@ const PortfolioDetail = () => {
         </Pictures>
 
         <Modal
-          style={{ marginTop: "30px" }}
+          style={{ marginTop: "-59px" }}
           size="xl"
           show={showImageModal}
           onHide={handleImgClose}

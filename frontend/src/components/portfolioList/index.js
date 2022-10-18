@@ -13,7 +13,6 @@ import UpdateItem from "../adminModals/updateItem";
 const PortfolioList = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [projects, setProjects] = useState([]); //catch projects in db
-  const { data } = projects;
   const [noAdmin, setNoAdmin] = useState(false); //to set "admin required" modal
 
   const [showAdd, setShowAdd] = useState(false);
@@ -54,7 +53,9 @@ const PortfolioList = () => {
   };
 
   async function fetchProjects() {
-    setProjects(await ProjectsService.index());
+    const response = await ProjectsService.index().then((data) => {
+      setProjects(data.data.reverse());
+    });
   }
 
   const handleDel = (slug) => {
@@ -120,16 +121,19 @@ const PortfolioList = () => {
       </Nav>
 
       <ProjectsDiv>
-        {data &&
-          data.map((project) => {
+        {projects &&
+          projects.map((project) => {
             return (
               <Project key={project.slug}>
+                <div className="divLeft">
+                <img style={{width: "150px"}} src={project.images[0]}/>
                 {project.title}
                 <br />
                 {moment(project.createdAt).format("DD-MM-YYYY")}
                 <br />
-                {project.description}
+                {project.shortDescription}
                 <br />
+                </div>
                 <Buttons>
                   <Button
                     variant="info"
@@ -150,7 +154,7 @@ const PortfolioList = () => {
                   >
                     Excluir
                   </Button>{" "}
-                </Buttons>
+                </Buttons>                
               </Project>
             );
           })}

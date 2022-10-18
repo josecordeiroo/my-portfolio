@@ -10,12 +10,15 @@ export const Title = styled.div`
 export const User = styled.div`
   margin: 20px;
   text-align: center;
-  border: solid 1px white;
+  background-color: #232323;
   border-radius: 5px;
   padding: 15px;
-  max-height: 550px;
+  height: 550px;
   button {
-    margin-top: 20px;
+    margin-top: 50px;
+  }
+  .email {
+    margin-top: 50px;
   }
 `;
 
