@@ -14,23 +14,10 @@ const ProjectsService = {
         console.log(err);
       });
   },
-  editItem: (
-    slug,
-    { title, description, longDescription, imgUrl, technologies }
-  ) => {
-    Api.patch(
-      `/portfolio/${slug}`,
-      {
-        title,
-        description,
-        longDescription,
-        imgUrl,
-        technologies,
-      },
-      {
-        headers: { "x-access-token": localStorage.getItem("token") },
-      }
-    )
+  editItem: (slug, project) => {
+    Api.patch(`/portfolio/${slug}`, project, {
+      headers: { "x-access-token": localStorage.getItem("token") },
+    })
       .then((res) => {
         console.log("Resultado", res);
       })

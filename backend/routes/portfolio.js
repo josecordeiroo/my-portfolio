@@ -69,9 +69,10 @@ router.patch("/:slug", withAuth, async (req, res) => {
       },
       {
         title: req.body.title,
-        description: req.body.description,
+        shortDescription: req.body.shortDescription,
         longDescription: req.body.longDescription,
-        imgUrl: req.body.imgUrl,
+        images: req.body.images,
+        technologies: req.body.technologies
       }
     );
 

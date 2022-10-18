@@ -20,39 +20,12 @@ import {
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const UpdateItem = ({ slug, show, setShow, noAdmin, setNoAdmin }) => {
-  const user = JSON.parse(localStorage.getItem("user"));
+const UpdateItem = ({handleEdit, title, setTitle, date, setDate, shortDescription, setShortDescription, longDescription, setLongDescription, images, setImages, techsChoice, setTechsChoice, show, setShow}) => {
 
-  const [project, setProject] = useState({}); //catch projects in db
-
-  const [title, setTitle] = useState("");
-  const [date, setDate] = useState("")
-  const [shortDescription, setShortDescription] = useState("");
-  const [longDescription, setLongDescription] = useState("");
+  const [imgMsg, setImgMsg] = useState("");
   const [imgUrl, setImgUrl] = useState("");
-  const [images, setImages] = useState([]);
-
-  const fetchProject = async () => {
-    setProject(await ProjectsService.findOne(slug))
-    setTitle(project.title)
-  }
-
-  const handleEdit = (slug, data) => {
-    if (user.admin) {
-      ProjectsService.editItem(slug, {
-        title: title,
-        shortDescription: shortDescription,
-        longDescription: longDescription,
-        images: images,
-        technologies: techsChoice,
-        date: date
-      });
-      //window.location.reload(false);
-    } else {
-      setShow(false);
-      setNoAdmin(true);
-    }
-  };
+  const [bigImg, setBigImg] = useState(false);
+  const [imgUrlBig, setImgUrlBig] = useState("");
 
   const techsAvailable = [
     "Javascript",
@@ -67,7 +40,6 @@ const UpdateItem = ({ slug, show, setShow, noAdmin, setNoAdmin }) => {
     "MySql",
     "Firebase",
   ];
-  const [techsChoice, setTechsChoice] = useState([]);
 
   const addArray = (tech) => {
     if (techsChoice.includes(tech)) {
@@ -92,8 +64,6 @@ const UpdateItem = ({ slug, show, setShow, noAdmin, setNoAdmin }) => {
     }
   };
 
-  const [imgMsg, setImgMsg] = useState("");
-
   const deleteImgUrl = (img) => {
     if (images.length === 1) {
       setImgMsg("Não foi possível excluir a imagem, o projeto precisa ter pelo menos uma foto.");
@@ -103,14 +73,6 @@ const UpdateItem = ({ slug, show, setShow, noAdmin, setNoAdmin }) => {
       setBigImg(false);
     }
   };
-
-  const [bigImg, setBigImg] = useState(false);
-  const [imgUrlBig, setImgUrlBig] = useState("");
-
-  useEffect(() => {
-    fetchProject();
-  }, []);
-
 
   return (
     <Modal
@@ -247,7 +209,7 @@ const UpdateItem = ({ slug, show, setShow, noAdmin, setNoAdmin }) => {
           <Button variant="danger" onClick={() => setShow(false)}>
             Cancelar
           </Button>
-          <Button variant="success" type="submit">Criar projeto</Button>
+          <Button variant="success" type="submit">Atualizar projeto</Button>
         </Modal.Footer>
         </Form>
       </Container>

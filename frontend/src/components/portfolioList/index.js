@@ -11,14 +11,48 @@ import CreateItem from "../adminModals/createItem";
 import UpdateItem from "../adminModals/updateItem";
 
 const PortfolioList = () => {
-  // const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user"));
   const [projects, setProjects] = useState([]); //catch projects in db
   const { data } = projects;
   const [noAdmin, setNoAdmin] = useState(false); //to set "admin required" modal
 
   const [showAdd, setShowAdd] = useState(false);
   const [showUp, setShowUp] = useState(false);
-  const [slug, setSlug] = useState("");
+
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [shortDescription, setShortDescription] = useState("");
+  const [longDescription, setLongDescription] = useState("");
+  const [images, setImages] = useState([]);
+  const [techsChoice, setTechsChoice] = useState([]);
+  const [slug, setSlug] = useState("")
+
+  const handleEdit = () => {
+    if (user.admin) {
+      ProjectsService.editItem(slug, {
+        title: title,
+        shortDescription: shortDescription,
+        longDescription: longDescription,
+        images: images,
+        technologies: techsChoice,
+        date: date,
+      });
+      //window.location.reload(false);
+    } else {
+      setShowUp(false);
+      setNoAdmin(true);
+    }
+  };
+
+  const setProject = (project) => {
+    setTitle(project.title);
+    setDate(project.date);
+    setShortDescription(project.shortDescription);
+    setLongDescription(project.longDescription);
+    setImages(project.images);
+    setTechsChoice(project.technologies);
+    setSlug(project.slug)
+  };
 
   async function fetchProjects() {
     setProjects(await ProjectsService.index());
@@ -48,7 +82,19 @@ const PortfolioList = () => {
           setNoAdmin={setNoAdmin}
         />
         <UpdateItem
-          slug={slug}
+          handleEdit={handleEdit}
+          title={title}
+          setTitle={setTitle}
+          date={date}
+          setDate={setDate}
+          shortDescription={shortDescription}
+          setShortDescription={setShortDescription}
+          longDescription={longDescription}
+          setLongDescription={setLongDescription}
+          images={images}
+          setImages={setImages}
+          techsChoice={techsChoice}
+          setTechsChoice={setTechsChoice}
           show={showUp}
           setShow={setShowUp}
           noAdmin={noAdmin}
@@ -75,7 +121,7 @@ const PortfolioList = () => {
                   <Button
                     variant="info"
                     onClick={() => {
-                      setSlug(project.slug);
+                      setProject(project);
                       setShowUp(true);
                     }}
                   >
