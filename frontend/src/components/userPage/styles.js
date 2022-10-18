@@ -8,7 +8,7 @@ export const Title = styled.div`
 `;
 
 export const User = styled.div`
-  margin: 20px;
+  margin-right: 20px;
   text-align: center;
   background-color: #232323;
   border-radius: 5px;

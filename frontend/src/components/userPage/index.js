@@ -46,14 +46,14 @@ const UserPage = () => {
         />
         <h3>{nameCap.join(" ")}</h3>
         {user.admin ? (
-          <Title>Usuário Administrador</Title>
+          <Title>Administrador</Title>
         ) : (
-          <Title>Usuário Visitante</Title>
+          <Title>Visitante</Title>
         )}
         <p className="email">
           E-mail: {user.email}
           <br />
-          Usuário desde: {moment(user.createdAt).format("DD-MM-YYYY")}
+          Criado em: {moment(user.created_at).format("DD-MM-YYYY")}
         </p>
         <button onClick={() => setShow(true)}>Editar usuário</button>
         <ButtonLogOut>

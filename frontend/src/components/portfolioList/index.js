@@ -106,7 +106,7 @@ const PortfolioList = () => {
           <Modal.Header>
             <Modal.Title>Tem certeza que deseja excluir "{title}"?</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Esta acao nao podera ser desfeita.</Modal.Body>
+          <Modal.Body>Esta ação nao poderá ser desfeita.</Modal.Body>
           <Modal.Footer>
             <Button onClick={() => setDelShow(false)}>Cancelar</Button>
             <Button onClick={() => handleDel(slug)} variant="danger">

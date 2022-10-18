@@ -32,13 +32,12 @@ const Admin = ({ location }) => {
 
   return (
     <Container>
-      <NavBar>
-        <h1>Seja bem vindo, {nameCap.join(" ")}</h1>
-        <h2>Área Administrativa</h2>
+      <NavBar>        
+        <h1>Painel Administrativo</h1>
       </NavBar>
       <HomeItens>
-        <PortfolioList />
         <UserPage />
+        <PortfolioList />
       </HomeItens>
     </Container>
   );
