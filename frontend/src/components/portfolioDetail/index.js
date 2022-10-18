@@ -26,12 +26,14 @@ import useApi from "../../hooks/useApi.js";
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ProjectsService from "../../services/projects.js";
 
 const PortfolioDetail = () => {
   const { slug } = useParams();
   const { data } = useApi(`/portfolio/${slug}`);
   const history = useNavigate();
   const [showImageModal, setShowImageModal] = useState(false);
+  const techIcons = [];
 
   const handleClose = () => {
     history("/portfolio");
@@ -40,6 +42,8 @@ const PortfolioDetail = () => {
   const handleImgClose = () => {
     setShowImageModal(false);
   };
+
+  const [bigImg, setBigImg] = useState("");
 
   moment.locale("pt-br");
 
@@ -54,19 +58,28 @@ const PortfolioDetail = () => {
       <Container>
         <Header>
           <Titles>
-            <h1>{data && data.data.title}</h1>
+            <h1>{data && data.data.title} </h1>
 
-            <p>{data && data.data.description}</p>
+            <p>{data && data.data.shortDescription}</p>
           </Titles>
 
           <Info>
             <h5>Tecnologias</h5>
 
+            {data &&
+              data.data.technologies.map((tech) => {
+                techIcons.push(tech);
+                return <p />;
+              })}
+
             <Technologies>
-              {handleBrands(["React", "Node.JS"]).map((tech) => {
+              {handleBrands(techIcons).map((tech) => {
                 return (
                   <Technology key={tech.label}>
-                    <FontAwesomeIcon icon={["brands", tech.icon]} size="2x" />
+                    <FontAwesomeIcon
+                      icon={[tech.iconType, tech.icon]}
+                      size="2x"
+                    />
                     {tech.label}
                   </Technology>
                 );
@@ -84,122 +97,51 @@ const PortfolioDetail = () => {
             <br />
           </p>
           <p>{data && data.data.longDescription}</p>
+          <FullDescription>
+            <p className="git">
+              {" "}
+              <a
+                href={`https://github.com/josecordeiroo/${
+                  data && data.data.slug
+                }`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Clique aqui e veja este código completo no GitHub.
+              </a>{" "}
+            </p>
+          </FullDescription>
         </FullDescription>
         <Pictures>
           <h5>Capturas de Tela</h5>
           <PicturesDiv>
             <CarouselDetails data={data} />
             <PicturesSmall>
-              {/* {data && data.data.imgUrl.map((img) => {
-                  <img
-                  onClick={() => setShowImageModal(true)}
-                  src={img}
-                />
-                })} */}
-
-              <img
-                onClick={() => setShowImageModal(true)}
-                src={data && data.data.imgUrl}
-              />
-              <img
-                onClick={() => setShowImageModal(true)}
-                src={data && data.data.imgUrl}
-              />
-              <img
-                onClick={() => setShowImageModal(true)}
-                src={data && data.data.imgUrl}
-              />
-              <img
-                onClick={() => setShowImageModal(true)}
-                src={data && data.data.imgUrl}
-              />
-              <img
-                onClick={() => setShowImageModal(true)}
-                src={data && data.data.imgUrl}
-              />
-              <img
-                onClick={() => setShowImageModal(true)}
-                src={data && data.data.imgUrl}
-              />
+              {data &&
+                data.data.images.map((img) => {
+                  return (
+                    <img
+                      onClick={() => {
+                        setBigImg(img);
+                        setShowImageModal(true);
+                      }}
+                      src={img}
+                    />
+                  );
+                })}
             </PicturesSmall>
           </PicturesDiv>
         </Pictures>
 
         <Modal
-          id="testeModal"
           style={{ marginTop: "30px" }}
           size="xl"
           show={showImageModal}
           onHide={handleImgClose}
           centered
         >
-          <Carousel>
-            <Carousel.Item interval={999999}>
-              <img
-                style={{ width: "100%" }}
-                src={data && data.data.imgUrl}
-                alt=""
-              />
-            </Carousel.Item>
-            <Carousel.Item interval={999999}>
-              <img
-                style={{ width: "100%" }}
-                src={data && data.data.imgUrl}
-                alt=""
-              />
-            </Carousel.Item>
-            <Carousel.Item interval={999999}>
-              <img
-                style={{ width: "100%" }}
-                src={data && data.data.imgUrl}
-                alt=""
-              />
-            </Carousel.Item>
-            <Carousel.Item interval={999999}>
-              <img
-                style={{ width: "100%" }}
-                src={data && data.data.imgUrl}
-                alt=""
-              />
-            </Carousel.Item>
-            <Carousel.Item interval={999999}>
-              <img
-                style={{ width: "100%" }}
-                src={data && data.data.imgUrl}
-                alt=""
-              />
-            </Carousel.Item>
-          </Carousel>
+          <img style={{ width: "100%" }} src={bigImg} alt="" />
         </Modal>
-        <FullDescription>
-          <h4>Outras ferramentas utilizadas neste projeto:</h4>
-          <ul>
-            <li>objeto 1</li>
-            <li>objeto 2</li>
-            <li>objeto 1</li>
-            <li>objeto 2</li>
-            <li>objeto 1</li>
-            <li>objeto 2</li>
-            <li>objeto 1</li>
-            <li>objeto 2</li>
-            <li>objeto 1</li>
-            <li>objeto 2</li>
-            <li>objeto 1</li>
-            <li>objeto 2</li>
-          </ul>
-          <p className="git">
-            {" "}
-            <a
-              href={`https://github.com/josecordeiroo/${
-                data && data.data.slug
-              }`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Clique aqui e veja este código completo no GitHub.
-            </a>{" "}
-          </p>
-        </FullDescription>
       </Container>
     </Modal>
   );

@@ -28,11 +28,10 @@ export const Titles = styled.div`
 
 export const Technologies = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding-top: 0rem;
+  display: flex;
+  justify-content: center;
   svg {
-    color: #23d997;
+    color: gray;
   }
 
   @media (max-width: 1200px) {
@@ -44,14 +43,15 @@ export const Technology = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #23d997;
+  color: gray;
+  padding: 7px;
 `;
 
 export const Info = styled.div`
   text-align: center;
   min-width: 300px;
   h5 {
-    color: #23d997;
+    color: gray;
     font-weight: lighter;
   }
 
@@ -92,15 +92,11 @@ export const FullDescription = styled.div`
   }
   p {
     color: black;
-    padding: 0 15px 15px 15px;
-  }
-  ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    padding: 0 15px 0 15px;
   }
   .git {
     text-align: right;
-    margin-top: 40px;
+    margin-bottom: 5px;
   }
 `;
 

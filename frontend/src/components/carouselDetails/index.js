@@ -9,34 +9,16 @@ const CarouselDetails = ({ data }) => {
     <>
       <MyCarousel>
         <Carousel>
-          {/* {data &&
-            data.map((project) => {
+          {data &&
+            data.data.images.map((img) => {
               return (
                 <Carousel.Item interval={1200}>
-                  <img src={project.imgUrl} alt="" />
-                  <Carousel.Caption>
-                    <DescriptionCarousel>
-                      {project.description}
-                    </DescriptionCarousel>
-                  </Carousel.Caption>
+                  <img src={img} alt="" />
                 </Carousel.Item>
               );
-            })} */}
-
-          <Carousel.Item interval={1200}>
-            <img src={data && data.data.imgUrl} alt="" />
-          </Carousel.Item>
-
-          <Carousel.Item interval={1200}>
-            <img src={data && data.data.imgUrl} alt="" />
-          </Carousel.Item>
-        </Carousel>
-        <br />
-        {/* <button>Acessar galeria completa de projetos</button> */}
+            })}
+            </Carousel>
       </MyCarousel>
-      {/* <Modal.Footer>
-      <img style={{widht:"150px", height:"150px"}} src={data && data.data.imgUrl} alt="illustrative"></img>
-    </Modal.Footer> */}
     </>
   );
 };

@@ -115,10 +115,10 @@ const ServiceSection = () => {
               data.map((project) => {
                 return (
                   <Carousel.Item interval={1200}>
-                    <img src={project.imgUrl} alt="" />
+                    <img src={project.images[0]} alt="" />
                     <Carousel.Caption>
                       <DescriptionCarousel>
-                        {project.description}
+                        {project.shortDescription}
                       </DescriptionCarousel>
                     </Carousel.Caption>
                   </Carousel.Item>
