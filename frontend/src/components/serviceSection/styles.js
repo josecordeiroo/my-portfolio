@@ -59,7 +59,6 @@ export const MyCarousel = styled.div`
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-radius: 30px;
   }
 `;
 

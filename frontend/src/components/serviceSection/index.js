@@ -114,7 +114,7 @@ const ServiceSection = () => {
             {data &&
               data.map((project) => {
                 return (
-                  <Carousel.Item interval={1200}>
+                  <Carousel.Item key={project.images} interval={1200}>
                     <img src={project.images[0]} alt="" />
                     <Carousel.Caption>
                       <DescriptionCarousel>

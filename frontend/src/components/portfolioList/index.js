@@ -25,7 +25,7 @@ const PortfolioList = () => {
   const [longDescription, setLongDescription] = useState("");
   const [images, setImages] = useState([]);
   const [techsChoice, setTechsChoice] = useState([]);
-  const [slug, setSlug] = useState("")
+  const [slug, setSlug] = useState("");
 
   const handleEdit = () => {
     if (user.admin) {
@@ -34,7 +34,7 @@ const PortfolioList = () => {
         shortDescription: shortDescription,
         longDescription: longDescription,
         images: images,
-        technologies: techsChoice
+        technologies: techsChoice,
       });
       //window.location.reload(false);
     } else {
@@ -50,21 +50,23 @@ const PortfolioList = () => {
     setLongDescription(project.longDescription);
     setImages(project.images);
     setTechsChoice(project.technologies);
-    setSlug(project.slug)
+    setSlug(project.slug);
   };
 
   async function fetchProjects() {
     setProjects(await ProjectsService.index());
   }
 
-  // const handleDel = (slug) => {
-  //   if (user.admin) {
-  //     ProjectsService.deleteItem(slug);
-  //     window.location.reload(false);
-  //   } else {
-  //     setNoAdmin(true);
-  //   }
-  // };
+  const handleDel = (slug) => {
+    if (user.admin) {
+      ProjectsService.deleteItem(slug);
+      window.location.reload(false);
+    } else {
+      setNoAdmin(true);
+    }
+  };
+
+  const [delShow, setDelShow] = useState(false);
 
   useEffect(() => {
     fetchProjects();
@@ -99,6 +101,18 @@ const PortfolioList = () => {
           noAdmin={noAdmin}
           setNoAdmin={setNoAdmin}
         />
+        <Modal show={delShow}>
+          <Modal.Header>
+            <Modal.Title>Tem certeza que deseja excluir "{title}"?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Esta acao nao podera ser desfeita.</Modal.Body>
+          <Modal.Footer>
+            <Button onClick={() => setDelShow(false)}>Cancelar</Button>
+            <Button onClick={() => handleDel(slug)} variant="danger">
+              Excluir
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
         <Button variant="success" size="lg" onClick={() => setShowAdd(true)}>
           Criar novo projeto
@@ -126,7 +140,16 @@ const PortfolioList = () => {
                   >
                     Editar
                   </Button>{" "}
-                  <Button variant="danger">Excluir</Button>{" "}
+                  <Button
+                    onClick={() => {
+                      setSlug(project.slug);
+                      setTitle(project.title);
+                      setDelShow(true);
+                    }}
+                    variant="danger"
+                  >
+                    Excluir
+                  </Button>{" "}
                 </Buttons>
               </Project>
             );

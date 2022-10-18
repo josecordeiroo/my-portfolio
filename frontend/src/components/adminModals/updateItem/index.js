@@ -182,7 +182,7 @@ const UpdateItem = ({
               <div className="smallImgsDiv">
                 {images.map((img) => {
                   return (
-                    <div className="smallImgs">
+                    <div key={img} className="smallImgs">
                       <Modal show={bigImg} size="xl">
                         <ModalImg src={imgUrlBig} />
                         <Modal.Footer>
