@@ -52,11 +52,13 @@ export const fade = {
 export const photoAnimation = {
   hidden: {
     opacity: 0,
+    scale: 0.5,
   },
   show: {
+    scale: 1,
     opacity: 1,
     transition: {
-      duration: 3,
+      duration: 1,
       ease: "easeOut",
     },
   },

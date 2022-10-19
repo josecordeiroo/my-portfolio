@@ -13,7 +13,7 @@ export const User = styled.div`
   background-color: #232323;
   border-radius: 5px;
   padding: 15px;
-  height: 550px;
+  height: 750px;
   button {
     margin-top: 50px;
   }
@@ -29,10 +29,24 @@ export const Image = styled.img`
   margin-bottom: 20px;
 `;
 
-export const ButtonLogOut = styled.div`
-  button {
-    width: 135px;
-    height: 45px;
+export const Buttons = styled.div`
+  margin-top: 280px;
+  font-size: 15px;
+  .edit {
+    background-color: #0dcaf0;
+    color: black;
+    width: 150px;
+    height: 25px;
     margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .logout {
+    background-color: #dc3545;
+    width: 150px;
+    height: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
   }
 `

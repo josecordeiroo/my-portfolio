@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+ position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #1b1b1b;
+`;
 
 export const StyledNav = styled.nav`
   height: 50px;
@@ -11,8 +17,8 @@ export const StyledNav = styled.nav`
   padding: 1rem 10rem;
   position: sticky;
   top: 0;
+  left: 0;
   color: white;
-  z-index: 10;
   box-shadow: 5px 1px 20px 1px black;
 
   ul {
@@ -29,7 +35,6 @@ export const StyledNav = styled.nav`
     text-decoration: none;
     color: white;
     transition: 1s;
-    
   }
   a:hover {
     color: #23d997;

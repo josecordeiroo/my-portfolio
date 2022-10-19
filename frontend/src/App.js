@@ -15,6 +15,7 @@ import Admin from "./pages/admin";
 import Login from "./pages/Auth/login";
 import Register from "./pages/Auth/register";
 import ServiceSection from "./components/serviceSection";
+import Footer from "./components/footer";
 
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -74,6 +75,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>} />
       </Routes>
+      <Footer/>
     </div>
   );
 }

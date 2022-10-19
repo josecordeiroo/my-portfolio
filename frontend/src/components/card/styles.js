@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const StyledCard = styled.div`
   background: rgba(255, 255, 255, 0.07);
-  min-height: 30vh;
   border-radius: 10px;
   cursor: pointer;
   overflow: hidden;
   box-shadow: black 5px 5px 10px;
+  width: 490px;
+  height: 550px;
+  margin: 20px;
 `;
 
 export const Content = styled.div`
@@ -29,7 +31,7 @@ export const Content = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 180px;
+  height: 330px;
 `;
 
 export const Info = styled.div`

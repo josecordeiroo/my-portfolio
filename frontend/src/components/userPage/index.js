@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import moment from "moment";
 
-import { Title, User, Image, ButtonLogOut } from "./styles";
+import { Title, User, Image, Buttons } from "./styles";
 
 import { Modal, Button } from "react-bootstrap";
 
@@ -55,18 +55,18 @@ const UserPage = () => {
           <br />
           Criado em: {moment(user.created_at).format("DD-MM-YYYY")}
         </p>
-        <button onClick={() => setShow(true)}>Editar usuário</button>
-        <ButtonLogOut>
-          <Button
-            variant="danger"
+        
+        <Buttons>
+        <div className="edit" onClick={() => setShow(true)}>Editar usuário</div>
+          <div className="logout"
             onClick={() => {
               UsersService.logout();
               redirectToLogin();
             }}
           >
-            Finalizar Sessão
-          </Button>
-        </ButtonLogOut>
+            Sair
+          </div>
+        </Buttons>
       </User>
     </>
   );

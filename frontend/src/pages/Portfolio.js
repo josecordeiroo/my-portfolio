@@ -26,18 +26,17 @@ const Portfolio = () => {
     setTimeout(() => {
       fetchProjects();
     }, 1500);
-    
   }, []);
 
   return (
     <>
       <Title>Galeria de projetos e estudos</Title>
-        
+
       <motion.div
-        // variants={scrollReveal}
-        // animate={controls}
-        // initial="hidden"
-        // ref={element}
+      // variants={scrollReveal}
+      // animate={controls}
+      // initial="hidden"
+      // ref={element}
       >
         <PortfolioList>
           {slug && <PortfolioDetail />}
@@ -50,11 +49,11 @@ const Portfolio = () => {
               })
             ) : (
               <LoadingDiv>
-                <Loading/>
-              <p>
-                Pesquisando no banco de dados... <br />
-                Por favor, aguarde...
-              </p>
+                <Loading />
+                <p>
+                  Pesquisando no banco de dados... <br />
+                  Por favor, aguarde...
+                </p>
               </LoadingDiv>
             )}
           </CardList>
@@ -82,10 +81,27 @@ const PortfolioList = styled.div`
   }
 `;
 const CardList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-column-gap: 3rem;
-  grid-row-gap: 5rem;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  width: 100%;
+  height: 620px;
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #444;
+    box-shadow: 0 0 1px 1px #111, inset 0 0 4px rgba(0, 0, 0, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #23d997;
+    box-shadow: inset 0 0 1px 1px #646464;
+  }
+
   @media (max-width: 1300px) {
     display: flex;
     flex-direction: column;
@@ -100,7 +116,7 @@ const LoadingDiv = styled.div`
   p {
     margin-top: 3px;
   }
-`
+`;
 
 const Loading = styled.div`
   border: 16px solid #23d997;
@@ -112,9 +128,13 @@ const Loading = styled.div`
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
   @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-`
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
 
 export default Portfolio;

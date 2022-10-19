@@ -8,7 +8,8 @@ export const About = styled(motion.div)`
   justify-content: space-between;
   padding: 5rem 10rem;
   color: white;
-  margin-top: 10px;
+  margin-top: 80px;
+  
   h4 {
     text-align: right;
     margin-right: 30px;
