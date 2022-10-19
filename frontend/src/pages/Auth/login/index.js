@@ -26,12 +26,14 @@ const LoginDiv = styled.div`
   text-align: center;
   border-radius: 30px;
   padding: 40px;
+  z-index: 1;
 `;
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 40px;
+  z-index: 1;
 `;
 
 export default Login;

@@ -1,7 +1,5 @@
 import React from "react";
 
-import styled from "styled-components";
-
 import AboutSection from "../components/aboutSection";
 import Portfolio from "./Portfolio";
 import ServiceSection from "../components/serviceSection";

@@ -14,6 +14,7 @@ export const User = styled.div`
   border-radius: 5px;
   padding: 15px;
   height: 650px;
+  z-index: 1;
   button {
     margin-top: 50px;
   }

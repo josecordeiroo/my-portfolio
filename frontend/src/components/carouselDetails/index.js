@@ -4,13 +4,12 @@ import { MyCarousel } from "./styles.js";
 
 import Carousel from "react-bootstrap/Carousel";
 
-const CarouselDetails = ({ data }) => {
+const CarouselDetails = ({ project }) => {
   return (
     <>
       <MyCarousel>
         <Carousel>
-          {data &&
-            data.data.images.map((img) => {
+          {project.images.map((img) => {
               return (
                 <Carousel.Item interval={1200}>
                   <img src={img} alt="" />

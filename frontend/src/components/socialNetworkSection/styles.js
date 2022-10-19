@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Network = styled.div`
   padding: 1rem 5rem;
+  z-index: 1;
 `;
 
 export const Social = styled.a`

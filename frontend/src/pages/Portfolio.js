@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
 
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
 
 import Card from "../components/card";
-import PortfolioDetail from "../components/portfolioDetail";
+
+import ProjectsService from "../services/projects";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
-import ProjectsService from "../services/projects";
+import {
+  titleAnimation,
+  fade,
+  photoAnimation,
+  scrollReveal,
+} from "../animation";
+import { useScroll } from "../hooks/useScroll";
 
 const Portfolio = () => {
-  const location = useLocation();
-  const slug = location.pathname.split("/")[2];
-
   const [projects, setProjects] = useState([]);
 
+  const [element, controls] = useScroll();
+
   async function fetchProjects() {
-    const response = await ProjectsService.index().then((data) => {
+    await ProjectsService.index().then((data) => {
       setProjects(data.data.reverse());
     });
   }
@@ -29,45 +34,45 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <>
+    <Container
+      variants={scrollReveal}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <Title>Galeria de projetos e estudos</Title>
-
-      <motion.div
-      // variants={scrollReveal}
-      // animate={controls}
-      // initial="hidden"
-      // ref={element}
-      >
-        <PortfolioList>
-          {slug && <PortfolioDetail />}
-
-          <CardList>
-            {projects ? (
-              projects.map((project) => {
-                console.log(project);
-                return <Card key={project.slug} project={project} />;
-              })
-            ) : (
-              <LoadingDiv>
-                <Loading />
-                <p>
-                  Pesquisando no banco de dados... <br />
-                  Por favor, aguarde...
-                </p>
-              </LoadingDiv>
-            )}
-          </CardList>
-        </PortfolioList>
-      </motion.div>
-    </>
+      <PortfolioList>
+        <CardList>
+          {projects ? (
+            projects.map((project) => {
+              console.log(project);
+              return <Card key={project.slug} project={project} />;
+            })
+          ) : (
+            <LoadingDiv>
+              <Loading />
+              <p>
+                Pesquisando no banco de dados... <br />
+                Por favor, aguarde...
+              </p>
+            </LoadingDiv>
+          )}
+        </CardList>
+      </PortfolioList>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  z-index: 1;
+`;
 
 const Title = styled.div`
   text-align: center;
   font-size: 30px;
   color: white;
   padding-top: 20px;
+  z-index: 1;
 `;
 
 const PortfolioList = styled.div`
@@ -75,12 +80,14 @@ const PortfolioList = styled.div`
   overflow: hidden;
   padding: 2rem 10rem;
   text-align: center;
-
+  z-index: 1;
   @media (max-width: 1300px) {
     padding: 3rem 3rem;
   }
 `;
 const CardList = styled.div`
+  position: absolute;
+  z-index: 1;
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
@@ -113,12 +120,14 @@ const LoadingDiv = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 150px;
+  z-index: 1;
   p {
     margin-top: 3px;
   }
 `;
 
 const Loading = styled.div`
+  z-index: 1;
   border: 16px solid #23d997;
   border-radius: 50%;
   border-top: 16px solid white;

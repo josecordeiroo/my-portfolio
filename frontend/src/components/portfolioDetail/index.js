@@ -26,22 +26,13 @@ import useApi from "../../hooks/useApi.js";
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const PortfolioDetail = () => {
-  const { slug } = useParams();
-  const { data } = useApi(`/portfolio/${slug}`);
-  const history = useNavigate();
+const PortfolioDetail = ({project, setShow, show}) => {
   const [showImageModal, setShowImageModal] = useState(false);
-  const techIcons = [];
-
-  const handleClose = () => {
-    history("/portfolio");
-  };
+  const [bigImg, setBigImg] = useState("");
 
   const handleImgClose = () => {
     setShowImageModal(false);
   };
-
-  const [bigImg, setBigImg] = useState("");
 
   moment.locale("pt-br");
 
@@ -50,28 +41,22 @@ const PortfolioDetail = () => {
       style={{ marginTop: "-30px" }}
       size="lg"
       show={true}
-      onHide={handleClose}
+      onHide={handleImgClose}
       centered
     >
       <Container>
         <Header>
           <Titles>
-            <h1>{data && data.data.title} </h1>
+            <h1>{project.title} </h1>
 
-            <p>{data && data.data.shortDescription}</p>
+            <p>{project.shortDescription}</p>
           </Titles>
 
           <Info>
             <h5>Tecnologias usadas</h5>
 
-            {data &&
-              data.data.technologies.map((tech) => {
-                techIcons.push(tech);
-                return <p />;
-              })}
-
             <Technologies>
-              {handleBrands(techIcons).map((tech) => {
+              {handleBrands(project.technologies).map((tech) => {
                 return (
                   <Technology key={tech.label}>
                     <FontAwesomeIcon
@@ -90,15 +75,15 @@ const PortfolioDetail = () => {
           <h4>Descrição do projeto:</h4>
           <p>
             <strong>Data:</strong>{" "}
-            {data && moment(data.data.createdAt).format("LL")} <br />
+            {moment(project.createdAt).format("LL")} <br />
           </p>
-          <p>{data && data.data.longDescription}</p>
+          <p>{project.longDescription}</p>
 
           <p className="git">
             {" "}
             <a
               href={`https://github.com/josecordeiroo/${
-                data && data.data.slug
+                project.slug
               }`}
               target="_blank"
               rel="noopener noreferrer"
@@ -110,10 +95,9 @@ const PortfolioDetail = () => {
         <Pictures>
           <h5>Capturas de Tela</h5>
           <PicturesDiv>
-            <CarouselDetails data={data} />
+            <CarouselDetails project={project} />
             <PicturesSmall>
-              {data &&
-                data.data.images.map((img) => {
+              {project.images.map((img) => {
                   return (
                     <img
                       alt=""

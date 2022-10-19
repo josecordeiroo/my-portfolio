@@ -6,6 +6,7 @@ export const Container = styled.div`
   background-color: #232323;
   border-radius: 5px;
   color: white;
+  z-index: 1;
 `;
 export const Nav = styled.div`
   display: flex;

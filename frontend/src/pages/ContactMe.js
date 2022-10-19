@@ -40,12 +40,15 @@ const ContactStyled = styled.div`
   padding: 1rem 10rem;
   color: #353535;
   min-height: 90vh;
+  z-index: 1;
 `;
 const Title = styled.div`
   margin-bottom: 2rem;
   margin-top: 6rem;
+  z-index: 1;
   h2 {
     color: #23d997;
+    z-index: 1;
   }
 `;
 

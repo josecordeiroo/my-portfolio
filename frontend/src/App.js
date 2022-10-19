@@ -64,6 +64,7 @@ function App() {
 
   return (
     <div>
+      <ParticlesBackground />
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<AboutMe />} />
@@ -75,8 +76,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
-      
-      <ParticlesBackground />
     </div>
   );
 }

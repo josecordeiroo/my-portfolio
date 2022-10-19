@@ -28,6 +28,8 @@ const GlobalStyle = createGlobalStyle`
             font-size: 75%;
         }
     }
+
+    
     
     body{
        background-color: #1b1b1b ;
@@ -36,6 +38,7 @@ const GlobalStyle = createGlobalStyle`
        /* background-image: linear-gradient(rgba(28, 28, 28, 0.9), rgba(28, 28, 28, 0.9)), url("https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?cs=srgb&dl=pexels-markus-spiske-1089438.jpg&fm=jpg") ; */
        
     }
+
 
     button{
         border-radius: 5px;

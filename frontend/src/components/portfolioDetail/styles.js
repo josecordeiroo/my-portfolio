@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 30px;
+  z-index: 1;
   #testeModal {
     background-color: red;
   }

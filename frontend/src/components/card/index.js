@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 
 import { StyledCard, Content, Image, Info } from "./styles";
 import { Link } from "react-router-dom";
+
+import { Modal } from "react-bootstrap";
+
+import PortfolioDetail from "../portfolioDetail";
 
 import { handleBrands } from "../../hooks/myIcons/index";
 
@@ -12,8 +16,12 @@ import { fade } from "../../animation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Card = ({ project }) => {
+  const [show, setShow] = useState(false)
   return (
     <motion.div variants={fade}>
+      <Modal>
+        <PortfolioDetail project={project} setShow={setShow} show={show} />
+      </Modal>
       <StyledCard>
         <Link
           style={{ textDecoration: "none" }}

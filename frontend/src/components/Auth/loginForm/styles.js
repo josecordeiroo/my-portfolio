@@ -2,6 +2,7 @@ import { motion } from "framer-motion/dist/framer-motion";
 import styled from "styled-components";
 
 export const Container = styled(motion.div)`
+  z-index: 10;
   p {
     color: black;
     font-weight: bold;

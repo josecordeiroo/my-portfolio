@@ -17,7 +17,7 @@ const ParticlesBackground = () => {
     await console.log(container);
   }, []);
 
-  return <Particles  id="tsparticles"
+  return <Particles id="tsparticles"
   init={particlesInit}
   loaded={particlesLoaded}
   options={{

@@ -39,6 +39,7 @@ export const Input = styled.div`
 `;
 
 export const Form = styled.form`
+z-index: 1;
   button {
     margin-top: 1rem;
   }
