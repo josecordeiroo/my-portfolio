@@ -6,6 +6,8 @@ import Card from "../components/card";
 
 import ProjectsService from "../services/projects";
 
+import { Modal } from "react-bootstrap";
+
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
 import {
@@ -15,11 +17,17 @@ import {
   scrollReveal,
 } from "../animation";
 import { useScroll } from "../hooks/useScroll";
+import PortfolioDetail from "../components/portfolioDetail";
 
 const Portfolio = () => {
   const [projects, setProjects] = useState([]);
+  const [project, setProject] = useState({});
 
   const [element, controls] = useScroll();
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
 
   async function fetchProjects() {
     await ProjectsService.index().then((data) => {
@@ -40,13 +48,22 @@ const Portfolio = () => {
       initial="hidden"
       ref={element}
     >
+      <Modal
+        style={{ marginTop: "50px" }}
+        size="lg"
+        show={show}
+        onHide={handleClose}
+      >
+        <PortfolioDetail project={project} />
+      </Modal>
       <Title>Galeria de projetos e estudos</Title>
       <PortfolioList>
         <CardList>
           {projects ? (
             projects.map((project) => {
-              console.log(project);
-              return <Card key={project.slug} project={project} />;
+              return (
+                <Card key={project.slug} setShow={setShow} setProject={setProject} project={project} />
+              );
             })
           ) : (
             <LoadingDiv>
@@ -91,7 +108,7 @@ const CardList = styled.div`
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  width: 100%;
+  width: 85%;
   height: 620px;
   ::-webkit-scrollbar {
     width: 10px;

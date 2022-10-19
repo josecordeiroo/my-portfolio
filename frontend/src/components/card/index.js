@@ -15,18 +15,10 @@ import { fade } from "../../animation";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Card = ({ project }) => {
-  const [show, setShow] = useState(false)
+const Card = ({ project, setShow, setProject }) => {
   return (
     <motion.div variants={fade}>
-      <Modal>
-        <PortfolioDetail project={project} setShow={setShow} show={show} />
-      </Modal>
-      <StyledCard>
-        <Link
-          style={{ textDecoration: "none" }}
-          to={`/portfolio/${project.slug}`}
-        >
+      <StyledCard  onClick={() => {setProject(project); setShow(true)}}>
           <Content>
             <Info>
               <div>
@@ -47,7 +39,6 @@ const Card = ({ project }) => {
               </div>
             </div>
           </Content>
-        </Link>
       </StyledCard>
     </motion.div>
   );

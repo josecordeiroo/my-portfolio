@@ -26,7 +26,7 @@ import useApi from "../../hooks/useApi.js";
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const PortfolioDetail = ({project, setShow, show}) => {
+const PortfolioDetail = ({project}) => {
   const [showImageModal, setShowImageModal] = useState(false);
   const [bigImg, setBigImg] = useState("");
 
@@ -37,13 +37,6 @@ const PortfolioDetail = ({project, setShow, show}) => {
   moment.locale("pt-br");
 
   return (
-    <Modal
-      style={{ marginTop: "-30px" }}
-      size="lg"
-      show={true}
-      onHide={handleImgClose}
-      centered
-    >
       <Container>
         <Header>
           <Titles>
@@ -123,7 +116,6 @@ const PortfolioDetail = ({project, setShow, show}) => {
           <img style={{ width: "100%" }} src={bigImg} alt="" />
         </Modal>
       </Container>
-    </Modal>
   );
 };
 
