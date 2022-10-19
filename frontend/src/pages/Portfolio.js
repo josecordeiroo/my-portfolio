@@ -42,7 +42,7 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <Container
+    <Container id="portfolio"
       variants={scrollReveal}
       animate={controls}
       initial="hidden"
@@ -82,13 +82,14 @@ const Portfolio = () => {
 
 const Container = styled.div`
   z-index: 1;
+  margin-top: 50px;
 `;
 
 const Title = styled.div`
   text-align: center;
   font-size: 30px;
   color: white;
-  padding-top: 20px;
+  padding-top: 80px;
   z-index: 1;
 `;
 
@@ -109,7 +110,7 @@ const CardList = styled.div`
   overflow-y: hidden;
   overflow-x: scroll;
   width: 85%;
-  height: 620px;
+  height: 520px;
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;

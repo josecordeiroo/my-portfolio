@@ -3,15 +3,16 @@ import styled from "styled-components";
 import { motion } from "framer-motion/dist/framer-motion";
 
 export const Container = styled.div`
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
   #moreInfo{
-    position: absolute;
-    right: 300px;
     font-size: 25px;
     color: #23d997;
     cursor: pointer;
     z-index: 1;
-    padding-bottom: 5px;
-    border-bottom: white 1px dashed;
+    margin-top: 40px;
   }
 `
 
@@ -21,7 +22,6 @@ export const About = styled(motion.div)`
   justify-content: space-between;
   padding: 5rem 10rem;
   color: white;
-  margin-top: 80px;
   
   h4 {
     text-align: right;

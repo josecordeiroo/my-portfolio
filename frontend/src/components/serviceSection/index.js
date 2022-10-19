@@ -64,8 +64,10 @@ const ServiceSection = () => {
                 <h3>Graduação</h3>
               </div>
               <p>
-                Atualmente cursando o segundo semestre de Análise e Desenvolvimento de Sistemas, pela
-                Universidade de Santo Amaro. Também sou formado em Administração de Empresas pela Faculdades Metropolitanas Unidas.
+                Atualmente cursando o segundo semestre de Análise e
+                Desenvolvimento de Sistemas, pela Universidade de Santo Amaro.
+                Também sou formado em Administração de Empresas pela Faculdades
+                Metropolitanas Unidas.
               </p>
             </Card>
 
@@ -87,7 +89,11 @@ const ServiceSection = () => {
                 <h3>Tecnologias</h3>
               </div>
               <p>
-                Trabalho com Javascript e TypeScript. Uso React, Bootstrap e outras bibliotecas no front-end e o React-native para mobile. No back-end uso o Node.Js para criar meus servidores e manipular dados no MongoDB e MySQL, que são quem costumo usar para alimentar minhas aplicações.
+                Trabalho com Javascript e TypeScript. Uso React, Bootstrap e
+                outras bibliotecas no front-end e o React-native para mobile. No
+                back-end uso o Node.Js para criar meus servidores e manipular
+                dados no MongoDB e MySQL, que são quem costumo usar para
+                alimentar minhas aplicações.
               </p>
             </Card>
 
@@ -100,11 +106,10 @@ const ServiceSection = () => {
                 Este portfólio foi desenvolvido do back ao front por mim e
                 possui uma área administrativa acessível à todos que queiram se
                 registrar e ver como funciona. Na galeria de projetos você
-                encontra detalhes mais específicos de como eu ponho em prática minhas
-                idéias.
+                encontra detalhes mais específicos de como eu ponho em prática
+                minhas idéias.
               </p>
             </Card>
-            
           </Cards>
         </Description>
 
@@ -126,9 +131,9 @@ const ServiceSection = () => {
               })}
           </Carousel>
           <br />
-          <button onClick={redirectHandler}>
-            Acessar galeria completa de projetos
-          </button>
+          <a href="#portfolio">
+            <button>Acessar galeria completa de projetos</button>
+          </a>
         </MyCarousel>
       </Services>
 

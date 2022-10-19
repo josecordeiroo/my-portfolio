@@ -8,6 +8,7 @@ export const Services = styled(motion.div)`
   justify-content: space-between;
   padding: 5rem 10rem;
   color: white;
+  padding-top: 80px;
   h2 {
     padding-bottom: 1rem;
   }

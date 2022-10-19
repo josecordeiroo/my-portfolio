@@ -6,16 +6,16 @@ export const StyledCard = styled.div`
   cursor: pointer;
   overflow: hidden;
   box-shadow: black 5px 5px 10px;
-  width: 490px;
-  height: 550px;
+  width: 390px;
+  height: 450px;
   transition: 0.2s;
   z-index: 1;
   margin: 20px;
   :hover{
     transition: 0.2s;
     background-color: #23d997;
-    width: 520px;
-    height: 580px;
+    width: 420px;
+    height: 480px;
   }
 `;
 

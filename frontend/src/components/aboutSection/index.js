@@ -62,10 +62,17 @@ const AboutSection = () => {
           <ImageMobile>
             <img src={myPicture} alt="Jose Cordeiro" />
           </ImageMobile>
+          <div className="buttons">
           <a href={curriculo} download="JoseCordeiroFullStack">
             <button> Baixar meu currículo em PDF</button>
           </a>
+          <a href="#services">
+            {" "}
+            <p id="moreInfo">Quer me conhecer um pouco mais?😃</p>
+          </a>
+          </div>
         </Description>
+
         <Image>
           <motion.img
             variants={photoAnimation}
@@ -75,10 +82,6 @@ const AboutSection = () => {
         </Image>
         <Wave />
       </About>
-      <a href="#services">
-        {" "}
-        <p id="moreInfo">Quer me conhecer um pouco mais?😃</p>
-      </a>
     </Container>
   );
 };
