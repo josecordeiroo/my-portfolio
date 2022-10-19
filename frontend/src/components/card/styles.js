@@ -9,6 +9,14 @@ export const StyledCard = styled.div`
   width: 490px;
   height: 550px;
   margin: 20px;
+  transition: 0.2s;
+  :hover{
+    transition: 0.2s;
+    background-color: #00B410;
+    width: 530px;
+    height: 590px;
+    margin: 10px
+  }
 `;
 
 export const Content = styled.div`

@@ -17,6 +17,8 @@ import Register from "./pages/Auth/register";
 import ServiceSection from "./components/serviceSection";
 import Footer from "./components/footer";
 
+import ParticlesBackground from "./components/particles";
+
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -73,6 +75,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      
+      <ParticlesBackground />
     </div>
   );
 }
