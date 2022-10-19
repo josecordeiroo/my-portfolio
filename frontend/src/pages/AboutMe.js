@@ -5,6 +5,7 @@ import Portfolio from "./Portfolio";
 import ServiceSection from "../components/serviceSection";
 import ContactMe from "./ContactMe";
 import NavBar from "../components/nav";
+import Footer from "../components/footer"
 
 const AboutMe = () => {
   return (
@@ -14,6 +15,7 @@ const AboutMe = () => {
       <ServiceSection />
       <Portfolio />
       <ContactMe />
+      <Footer/>
     </>
   );
 };

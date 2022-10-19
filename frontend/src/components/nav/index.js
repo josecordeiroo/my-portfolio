@@ -20,6 +20,7 @@ const NavBar = () => {
 
   return (
     <Container>
+      
       <StyledNav>
         <ul>
           <li>

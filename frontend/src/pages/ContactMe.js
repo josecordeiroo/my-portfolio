@@ -13,6 +13,7 @@ import { titleAnimation } from "../animation";
 import { scrollReveal } from "../animation";
 import { useScroll } from "../hooks/useScroll";
 
+import devs from "../assets/devs.webp";
 
 const ContactMe = () => {
   const [element, controls] = useScroll();
@@ -28,7 +29,9 @@ const ContactMe = () => {
           <motion.h2 variants={titleAnimation}>Entre em contato</motion.h2>
         </Title>
         <Areas>
+          
           <ContactForm />
+          <img src={devs} />
           <SocialNetworkSection />
         </Areas>
       </ContactStyled>
@@ -44,7 +47,7 @@ const ContactStyled = styled.div`
 `;
 const Title = styled.div`
   margin-bottom: 2rem;
-  margin-top: 6rem;
+  margin-top: 2rem;
   z-index: 1;
   h2 {
     color: #23d997;
@@ -54,7 +57,13 @@ const Title = styled.div`
 
 const Areas = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: space-evenly;
+  img {
+    width: 400px;
+    height: 350px;
+    margin-left: 100px;
+    margin-right: -150px;
+  }
   @media (max-width: 1200px) {
     display: block;
   }
