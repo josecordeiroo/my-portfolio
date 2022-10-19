@@ -2,6 +2,9 @@ import React from "react";
 
 import { Container, StyledNav, NavMobile, StyledNavMob, Dot } from "./styles";
 
+import br from "../../assets/br.png"
+import eua from "../../assets/eua.png"
+
 //Navigation
 import { Link } from "react-router-dom";
 
@@ -43,6 +46,13 @@ const NavBar = () => {
             </>
           )}
         </ul>
+
+        <div className="countrys">
+          <a href=""><div className="pt"><img src={br}/>Português</div></a>
+          <a href=""><div className="us"><img src={eua}/>English</div></a>
+          
+          
+        </div>
       </StyledNav>
 
       <NavMobile>

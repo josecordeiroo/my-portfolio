@@ -21,6 +21,24 @@ export const StyledNav = styled.nav`
   color: white;
   box-shadow: 5px 1px 20px 1px black;
 
+  .countrys{
+    display: flex;
+    position: absolute;
+    right: 50px;
+    img{
+      width: 15px;
+      margin-right: 5px;
+      padding-bottom: 3px;
+    }
+    .pt{
+      margin-right: 15px;
+      font-size: 12px;
+    }
+    .us{
+      font-size: 12px;
+    }
+  }
+
   ul {
     display: flex;
     list-style: none;

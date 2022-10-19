@@ -2,6 +2,19 @@ import styled from "styled-components";
 
 import { motion } from "framer-motion/dist/framer-motion";
 
+export const Container = styled.div`
+  #moreInfo{
+    position: absolute;
+    right: 300px;
+    font-size: 25px;
+    color: #23d997;
+    cursor: pointer;
+    z-index: 1;
+    padding-bottom: 5px;
+    border-bottom: white 1px dashed;
+  }
+`
+
 export const About = styled(motion.div)`
   display: flex;
   align-items: center;
