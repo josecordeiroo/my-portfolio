@@ -5,12 +5,17 @@ import styled from "styled-components";
 
 import RegisterForm from "../../../components/Auth/registerForm";
 
+import NavAdmin from "../../../components/navAdmin";
+
 const Register = () => (
-  <Container>
-    <LoginDiv>
-      <RegisterForm />
-    </LoginDiv>
-  </Container>
+  <>
+    <NavAdmin />
+    <Container>
+      <LoginDiv>
+        <RegisterForm />
+      </LoginDiv>
+    </Container>
+  </>
 );
 
 const LoginDiv = styled.div`
@@ -23,9 +28,9 @@ const LoginDiv = styled.div`
 `;
 
 const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    padding: 40px;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
 `;
 
 export default Register;

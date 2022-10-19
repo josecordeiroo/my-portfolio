@@ -5,7 +5,7 @@ import { Container, StyledNav, NavMobile, StyledNavMob, Dot } from "./styles";
 //Navigation
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavAdmin = () => {
   const menuOptions = {
     about: "<SobreMim />",
     portfolio: "<Portfólio />",
@@ -20,13 +20,13 @@ const NavBar = () => {
       <StyledNav>
         <ul>
           <li>
-            <a href="#">{menuOptions.about}</a>
+            <a href="/">{menuOptions.about}</a>
           </li>
           <li>
-            <a href="#services">{menuOptions.portfolio}</a>
+            <a href="/#services">{menuOptions.portfolio}</a>
           </li>
           <li>
-            <a href="#contact">{menuOptions.contact}</a>
+            <a href="/#contact">{menuOptions.contact}</a>
           </li>
           {!localStorage.getItem("user") && (
             <>
@@ -75,4 +75,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavAdmin;

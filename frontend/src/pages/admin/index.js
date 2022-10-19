@@ -10,6 +10,8 @@ import { Navigate } from "react-router-dom";
 
 import UserPage from "../../components/userPage";
 
+import NavAdmin from "../../components/navAdmin";
+
 const Admin = ({ location }) => {
   if (!localStorage.getItem("user")) {
     return (
@@ -31,15 +33,18 @@ const Admin = ({ location }) => {
   }
 
   return (
-    <Container>
-      <NavBar>        
-        <h1>Painel Administrativo</h1>
-      </NavBar>
-      <HomeItens>
-        <UserPage />
-        <PortfolioList />
-      </HomeItens>
-    </Container>
+    <>
+      <NavAdmin />
+      <Container>
+        <NavBar>
+          <h1>Painel Administrativo</h1>
+        </NavBar>
+        <HomeItens>
+          <UserPage />
+          <PortfolioList />
+        </HomeItens>
+      </Container>
+    </>
   );
 };
 

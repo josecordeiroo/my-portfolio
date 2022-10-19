@@ -29,7 +29,7 @@ import {
   faTwitter,
   faBootstrap,
   faFontAwesome,
-  faPython
+  faPython,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faEnvelope,
@@ -62,22 +62,30 @@ function App() {
 
   return (
     <div>
-      
-      <NavOptions/>
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<AboutMe />} />
-        <Route path="/dev" element={<ServiceSection />} />
+        {/* <Route path="/dev" element={<ServiceSection />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/:slug" element={<Portfolio />} />
-        <Route path="/contact" element={<ContactMe />} />
+        <Route path="/contact" element={<ContactMe />} /> */}
         <Route path="/admin" element={<Admin location={location} />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register/>} />
+        <Route path="/register" element={<Register />} />
       </Routes>
-      <Footer/>
     </div>
   );
 }
 
 export default App;
+
+// <Routes>
+//         <Route path="/" element={<AboutMe />} />
+//         <Route path="/dev" element={<ServiceSection />} />
+//         <Route path="/portfolio" element={<Portfolio />} />
+//         <Route path="/portfolio/:slug" element={<Portfolio />} />
+//         <Route path="/contact" element={<ContactMe />} />
+//         <Route path="/admin" element={<Admin location={location} />} />
+//         <Route path="/login" element={<Login />} />
+//         <Route path="/register" element={<Register/>} />
+//       </Routes>

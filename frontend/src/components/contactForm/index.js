@@ -41,7 +41,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={contactMeHandler}>
+    <Form id="contact" onSubmit={contactMeHandler}>
       <Input>
         <label>Nome:</label>
         <input

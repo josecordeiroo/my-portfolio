@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 835px;
-  height: 750px;
+  height: 650px;
   background-color: #232323;
   border-radius: 5px;
   color: white;
@@ -19,7 +19,7 @@ export const ProjectsDiv = styled.div`
   margin: 10px;
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 650px;
+  height: 550px;
   ::-webkit-scrollbar {
     display: none;
   }

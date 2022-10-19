@@ -6,20 +6,18 @@ import AboutSection from "../components/aboutSection";
 import Portfolio from "./Portfolio";
 import ServiceSection from "../components/serviceSection";
 import ContactMe from "./ContactMe";
+import NavBar from "../components/nav";
 
 const AboutMe = () => {
   return (
-    <DivP>
+    <>
+      <NavBar />
       <AboutSection />
       <ServiceSection />
       <Portfolio />
       <ContactMe />
-    </DivP>
+    </>
   );
 };
-
-const DivP = styled.div`
-  margin: 0 100px 0 100px;
-`;
 
 export default AboutMe;

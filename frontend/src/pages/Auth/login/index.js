@@ -1,16 +1,22 @@
 import React from "react";
+import { Nav } from "react-bootstrap";
 
 // import { Column, Section, Title, Container, Card } from "rbx";
 import styled from "styled-components";
 
 import LoginForm from "../../../components/Auth/loginForm";
 
+import NavAdmin from "../../../components/navAdmin";
+
 const Login = () => (
-  <Container>
-    <LoginDiv>
-      <LoginForm />
-    </LoginDiv>
-  </Container>
+  <>
+    <NavAdmin />
+    <Container>
+      <LoginDiv>
+        <LoginForm />
+      </LoginDiv>
+    </Container>
+  </>
 );
 
 const LoginDiv = styled.div`
@@ -23,9 +29,9 @@ const LoginDiv = styled.div`
 `;
 
 const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    padding: 40px;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
 `;
 
 export default Login;

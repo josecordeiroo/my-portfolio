@@ -13,7 +13,7 @@ export const User = styled.div`
   background-color: #232323;
   border-radius: 5px;
   padding: 15px;
-  height: 750px;
+  height: 650px;
   button {
     margin-top: 50px;
   }
@@ -30,7 +30,7 @@ export const Image = styled.img`
 `;
 
 export const Buttons = styled.div`
-  margin-top: 280px;
+  margin-top: 180px;
   font-size: 15px;
   .edit {
     background-color: #0dcaf0;

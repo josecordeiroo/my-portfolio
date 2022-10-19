@@ -10,6 +10,8 @@ import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { scrollReveal } from "../../../animation";
 import { useScroll } from "../../../hooks/useScroll";
 
+import NavAdmin from "../../navAdmin";
+
 import {
   Title,
   Field,
@@ -52,59 +54,60 @@ const LoginForm = () => {
 
   const [element, controls] = useScroll();
 
-  
-
   if (redirectToAdmin) return <Navigate to={{ pathname: "/admin" }} />;
 
   return (
-    <Container
-      variants={scrollReveal}
-      animate={controls}
-      initial="hidden"
-      ref={element}
-    >
-      <Title>Acessar área administrativa:</Title>
-      <form onSubmit={HandleSubmit}>
-        <Field>
-          <FontAwesomeIcon icon={faUser} /> <Label>E-mail:</Label>
-          <Input
-            //   color="success"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            defaultValue=""
-            placeholder="Digite seu e-mail"
-            type="email"
-          />
-        </Field>
-        <Field>
-          <br />
-          <FontAwesomeIcon icon={faLock} /> <Label> Senha:</Label>
-          <Input
-            //   color="danger"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            defaultValue=""
-            placeholder="Digite sua Senha"
-            type={passwordShown ? "text" : "password"}
-          />
-        </Field>
-        <ShowPasswordText onClick={() => togglePassword()}>
-          {passwordText}
-        </ShowPasswordText>
-        {error && (
-          <p style={{color: "red"}}>E-mail ou senha inválidos, tente novamente</p>
-        )}
-        <Button color="link">Entrar</Button>
-        <a href="/register">
-          <RegisterText>
-            Crie uma conta gratuitamente para checar a área administrativa deste
-            portfólio.
-          </RegisterText>
-        </a>
-      </form>
-    </Container>
+      <Container
+        variants={scrollReveal}
+        animate={controls}
+        initial="hidden"
+        ref={element}
+      >
+        <Title>Acessar área administrativa:</Title>
+        <form onSubmit={HandleSubmit}>
+          <Field>
+            <FontAwesomeIcon icon={faUser} /> <Label>E-mail:</Label>
+            <Input
+              //   color="success"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              defaultValue=""
+              placeholder="Digite seu e-mail"
+              type="email"
+            />
+          </Field>
+          <Field>
+            <br />
+            <FontAwesomeIcon icon={faLock} /> <Label> Senha:</Label>
+            <Input
+              //   color="danger"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              defaultValue=""
+              placeholder="Digite sua Senha"
+              type={passwordShown ? "text" : "password"}
+            />
+          </Field>
+          <ShowPasswordText onClick={() => togglePassword()}>
+            {passwordText}
+          </ShowPasswordText>
+          {error && (
+            <p style={{ color: "red" }}>
+              E-mail ou senha inválidos, tente novamente
+            </p>
+          )}
+          <Button color="link">Entrar</Button>
+          <a href="/register">
+            <RegisterText>
+              Crie uma conta gratuitamente para checar a área administrativa
+              deste portfólio.
+            </RegisterText>
+          </a>
+        </form>
+        
+      </Container>
   );
 };
 

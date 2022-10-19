@@ -45,7 +45,7 @@ const ServiceSection = () => {
   }, []);
 
   return (
-    <>
+    <div id="services">
       <Services
         variants={scrollReveal}
         animate={controls}
@@ -179,7 +179,7 @@ const ServiceSection = () => {
           </Cards>
         </Description>
       </ServicesMobile>
-    </>
+    </div>
   );
 };
 
