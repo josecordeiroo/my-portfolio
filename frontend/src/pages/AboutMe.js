@@ -7,14 +7,14 @@ import ContactMe from "./ContactMe";
 import NavBar from "../components/nav";
 import Footer from "../components/footer"
 
-const AboutMe = () => {
+const AboutMe = ({language, setLanguage}) => {
   return (
     <>
-      <NavBar />
-      <AboutSection />
-      <ServiceSection />
-      <Portfolio />
-      <ContactMe />
+      <NavBar language={language} setLanguage={setLanguage} />
+      <AboutSection language={language} />
+      <ServiceSection language={language}/>
+      <Portfolio language={language}/>
+      <ContactMe language={language}/>
       <Footer/>
     </>
   );

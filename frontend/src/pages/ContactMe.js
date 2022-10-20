@@ -29,10 +29,9 @@ const ContactMe = () => {
           <motion.h2 variants={titleAnimation}>Entre em contato</motion.h2>
         </Title>
         <Areas>
-          
           <ContactForm />
-          <img src={devs} />
           <SocialNetworkSection />
+          <img src={devs} />
         </Areas>
       </ContactStyled>
     </motion.div>
@@ -61,8 +60,7 @@ const Areas = styled.div`
   img {
     width: 400px;
     height: 350px;
-    margin-left: 100px;
-    margin-right: -150px;
+    margin-left: -150px;
   }
   @media (max-width: 1200px) {
     display: block;

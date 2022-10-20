@@ -8,15 +8,7 @@ import eua from "../../assets/eua.png"
 //Navigation
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
-  const menuOptions = {
-    about: "<SobreMim />",
-    portfolio: "<Portfólio />",
-    contact: "<Contato />",
-    login: "<Entrar />",
-    admin: "<Admin />",
-    projects: "<Projetos />"
-  };
+const NavBar = ({language, setLanguage}) => {
 
   return (
     <Container>
@@ -24,33 +16,33 @@ const NavBar = () => {
       <StyledNav>
         <ul>
           <li>
-            <a href="#">{menuOptions.about}</a>
+            <a href="#">{language ? "<SobreMim />" : "<AboutMe />"}</a>
           </li>
           <li>
-            <a href="#services">{menuOptions.portfolio}</a>
+            <a href="#services">{language ? "<Portfólio />" : "<Portfolio />"}</a>
           </li>
           <li>
-            <a href="#contact">{menuOptions.contact}</a>
+            <a href="#contact">{language ? "<Contato />" : "<Contact />"}</a>
           </li>
           {!localStorage.getItem("user") && (
             <>
               <li>
-                <a href="/login">{menuOptions.login}</a>
+                <a href="/login">{language ? "<Entrar />" : "<LogIn />"}</a>
               </li>
             </>
           )}
           {localStorage.getItem("user") && (
             <>
               <li>
-                <a href="/admin">{menuOptions.admin}</a>
+                <a href="/admin">{"<Admin />"}</a>
               </li>
             </>
           )}
         </ul>
 
         <div className="countrys">
-          <a href=""><div className="pt"><img src={br}/>Português</div></a>
-          <a href=""><div className="us"><img src={eua}/>English</div></a>
+          <div onClick={() => setLanguage(true)} className="pt"><img src={br}/>Português</div>
+          <div onClick={() => setLanguage(false)} className="us"><img src={eua}/>English</div>
           
           
         </div>
@@ -60,22 +52,22 @@ const NavBar = () => {
         <StyledNavMob>
           <ul>
             <li>
-              <Link to="/">{menuOptions.about} </Link> <Dot/>
+              <Link to="/">{language ? "<SobreMim />" : "<AboutMe />"} </Link> <Dot/>
             </li>
             <li>
-              <Link to="/dev">{menuOptions.portfolio}</Link><Dot/>
+              <Link to="/dev">{language ? "<SobreMim />" : "<AboutMe />"}</Link><Dot/>
             </li>
             {!localStorage.getItem("user") && (
               <>
                 <li>
-                  <Link to="/login">{menuOptions.login}</Link>
+                  <Link to="/login">{language ? "<SobreMim />" : "<AboutMe />"}</Link>
                 </li>
               </>
             )}
             {localStorage.getItem("user") && (
               <>
                 <li>
-                  <Link to="/admin">{menuOptions.admin}</Link>
+                  <Link to="/admin">{language ? "<SobreMim />" : "<AboutMe />"}}</Link>
                 </li>
               </>
             )}

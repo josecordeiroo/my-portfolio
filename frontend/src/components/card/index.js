@@ -27,7 +27,7 @@ const Card = ({ project, setShow, setProject }) => {
             </Info>
             <Image src={project.images[0]} alt="Code" />
             <div className="icons">
-              <p>Tecnologias usadas</p>
+              <p>Tecnologias</p>
               <div className="iconsTech">
                 {handleBrands(project.technologies).map((tech) => {
                   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 //Global Style
 import GlobalStyle from "./styles/GlobalStyle";
@@ -62,12 +62,14 @@ library.add(
 function App() {
   const location = useLocation();
 
+  const [language, setLanguage] = useState(true)
+
   return (
     <div>
       <ParticlesBackground />
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<AboutMe />} />
+        <Route path="/" element={<AboutMe language={language} setLanguage={setLanguage} />} />
         {/* <Route path="/dev" element={<ServiceSection />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/:slug" element={<Portfolio />} />

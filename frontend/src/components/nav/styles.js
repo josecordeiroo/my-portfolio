@@ -33,9 +33,11 @@ export const StyledNav = styled.nav`
     .pt{
       margin-right: 15px;
       font-size: 12px;
+      cursor: pointer;
     }
     .us{
       font-size: 12px;
+      cursor: pointer;
     }
   }
 
