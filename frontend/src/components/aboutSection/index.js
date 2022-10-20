@@ -40,7 +40,7 @@ const AboutSection = ({ language }) => {
         <Description>
           <motion.h1 variants={titleAnimation}>José Cordeiro</motion.h1>
           <motion.h2 variants={titleAnimation}>{language ? "Desenvolvedor FullStack" : "Fullstack Developer"}</motion.h2>
-          {language ? <h4>Sobre mim</h4> : <h4>About Me</h4>}
+          {language ? <h4>Sobre mim</h4> : <h4 style={{marginTop: "50px"}}>About Me</h4>}
 
           {language ? (
             <MyDescription variants={fade}>

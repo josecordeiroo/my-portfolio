@@ -12,7 +12,7 @@ import UserPage from "../../components/userPage";
 
 import NavAdmin from "../../components/navAdmin";
 
-const Admin = ({ location }) => {
+const Admin = ({ location, language }) => {
   if (!localStorage.getItem("user")) {
     return (
       <Navigate
@@ -37,7 +37,7 @@ const Admin = ({ location }) => {
       <NavAdmin />
       <Container>
         <NavBar>
-          <h1>Painel Administrativo</h1>
+          <h1>{language? "Painel Administrativo" : "Administration Panel"}</h1>
         </NavBar>
         <HomeItens>
           <UserPage />

@@ -19,7 +19,7 @@ import {
 import { useScroll } from "../hooks/useScroll";
 import PortfolioDetail from "../components/portfolioDetail";
 
-const Portfolio = () => {
+const Portfolio = ({language}) => {
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState({});
 
@@ -56,7 +56,7 @@ const Portfolio = () => {
       >
         <PortfolioDetail project={project} />
       </Modal>
-      <Title>Galeria de projetos e estudos</Title>
+      <Title>{language? "Galeria de projetos e estudos" : "Gallery of projects and studies"}</Title>
       <PortfolioList>
         <CardList>
           {projects ? (

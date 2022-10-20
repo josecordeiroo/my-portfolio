@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
- position: sticky;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 10;
@@ -21,23 +21,50 @@ export const StyledNav = styled.nav`
   color: white;
   box-shadow: 5px 1px 20px 1px black;
 
-  .countrys{
+  .countrys {
     display: flex;
     position: absolute;
     right: 50px;
-    img{
+    img {
       width: 15px;
       margin-right: 5px;
       padding-bottom: 3px;
     }
-    .pt{
+    .pt {
       margin-right: 15px;
       font-size: 12px;
       cursor: pointer;
     }
-    .us{
+    .us {
       font-size: 12px;
       cursor: pointer;
+    }
+  }
+
+  .medias {
+    display: flex;
+    position: absolute;
+    left: 50px;
+    a {
+      font-size: 15px;
+      margin-right: 8px;
+      transition: 0.2s;
+    }
+    a:hover{
+      img {
+      transition: 0.2s;
+      transform: scale(1.5);
+    }
+    }
+    img {
+      width: 15px;
+      margin-right: 5px;
+      padding-bottom: 3px;
+    }
+    .wpp {
+      img{
+        width: 20px;
+      }
     }
   }
 

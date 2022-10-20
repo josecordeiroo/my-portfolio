@@ -15,7 +15,7 @@ import { useScroll } from "../hooks/useScroll";
 
 import devs from "../assets/devs.webp";
 
-const ContactMe = () => {
+const ContactMe = ({language}) => {
   const [element, controls] = useScroll();
   return (
     <motion.div
@@ -26,10 +26,10 @@ const ContactMe = () => {
     >
       <ContactStyled>
         <Title>
-          <motion.h2 variants={titleAnimation}>Entre em contato</motion.h2>
+          <motion.h2 variants={titleAnimation}>{language? "Entre em contato" : "Get in touch"}</motion.h2>
         </Title>
         <Areas>
-          <ContactForm />
+          <ContactForm language={language} />
           <SocialNetworkSection />
           <img src={devs} />
         </Areas>

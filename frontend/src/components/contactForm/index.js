@@ -5,7 +5,7 @@ import { Input, Form } from "./styles";
 
 import { save } from "../../services/Sheet";
 
-const ContactForm = () => {
+const ContactForm = ({language}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -43,7 +43,7 @@ const ContactForm = () => {
   return (
     <Form id="contact" onSubmit={contactMeHandler}>
       <Input>
-        <label>Nome:</label>
+        <label>{language? "Nome:" : "Name:"}</label>
         <input
           type="text"
           value={name}
@@ -63,7 +63,7 @@ const ContactForm = () => {
         />
       </Input>
       <Input>
-        <label>Mensagem:</label>{" "}
+        <label>{language? "Mensagem:" : "Message:"}</label>{" "}
         <textarea
           rows="5"
           value={message}
@@ -72,9 +72,9 @@ const ContactForm = () => {
           }}
         />
       </Input>
-      <button type="submit">Enviar</button>
-      {success && <h4>Success: Message send.</h4>}
-      {error && <h4>Error: Please, try again.</h4>}
+      <button type="submit">{language? "Enviar:" : "Send:"}</button>
+      {success && <h4>{language? "Sucesso! Mensagem enviada." : "Success: Message send."}</h4>}
+      {error && <h4>{language? "Houve um erro. Por favor, tente novamente." : "Error: Please, try again."}</h4>}
     </Form>
   );
 };
