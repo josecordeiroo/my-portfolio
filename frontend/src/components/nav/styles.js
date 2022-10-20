@@ -48,12 +48,12 @@ export const StyledNav = styled.nav`
     a {
       font-size: 15px;
       margin-right: 8px;
-      transition: 0.2s;
+      transition: transform 0.2s;
     }
     a:hover{
       img {
-      transition: 0.2s;
-      transform: scale(1.5);
+      transition: transform 0.2s;
+      transform: scale(1.3);
     }
     }
     img {
