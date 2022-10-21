@@ -16,7 +16,7 @@ export const Services = styled(motion.div)`
     width: 70%;
     padding: 2rem 0rem 0rem 0rem;
   }
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;

@@ -32,14 +32,10 @@ export const Input = styled.div`
     background-color: #d2ffd8;
     font-size: 15px;
   }
-
-  @media (max-width: 1200px) {
-    
-  }
 `;
 
 export const Form = styled.form`
-z-index: 1;
+  z-index: 1;
   button {
     margin-top: 1rem;
   }
@@ -49,6 +45,12 @@ z-index: 1;
   }
 
   @media (max-width: 1200px) {
-    display: block;
+    display: none;
+  }
+`;
+
+export const FormMob = styled.div`
+  display: none;
+  @media (max-width: 1200px) {
   }
 `;

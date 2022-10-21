@@ -15,28 +15,54 @@ import { useScroll } from "../hooks/useScroll";
 
 import devs from "../assets/devs.webp";
 
-const ContactMe = ({language}) => {
+const ContactMe = ({ language }) => {
   const [element, controls] = useScroll();
   return (
-    <motion.div
-      variants={scrollReveal}
-      animate={controls}
-      initial="hidden"
-      ref={element}
-    >
-      <ContactStyled>
-        <Title>
-          <motion.h2 variants={titleAnimation}>{language? "Entre em contato" : "Get in touch"}</motion.h2>
-        </Title>
-        <Areas>
-          <ContactForm language={language} />
-          <SocialNetworkSection />
-          <img src={devs} />
-        </Areas>
-      </ContactStyled>
-    </motion.div>
+    <>
+      <Contact>
+        <motion.div
+          variants={scrollReveal}
+          animate={controls}
+          initial="hidden"
+          ref={element}
+        >
+          <ContactStyled>
+            <Title>
+              <motion.h2 variants={titleAnimation}>
+                {language ? "Entre em contato" : "Get in touch"}
+              </motion.h2>
+            </Title>
+            <Areas>
+              <ContactForm language={language} />
+              <SocialNetworkSection />
+              <img src={devs} />
+            </Areas>
+          </ContactStyled>
+        </motion.div>
+      </Contact>
+      <ContactMob>
+        <ContactStyled>
+          <Title>
+            <motion.h2 variants={titleAnimation}>
+              {language ? "Entre em contato" : "Get in touch"}
+            </motion.h2>
+          </Title>
+          <Areas>
+            <ContactForm language={language} />
+            <SocialNetworkSection />
+            <img src={devs} />
+          </Areas>
+        </ContactStyled>
+      </ContactMob>
+    </>
   );
 };
+
+const Contact = styled.div`
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
 
 const ContactStyled = styled.div`
   padding: 1rem 10rem;
@@ -62,8 +88,21 @@ const Areas = styled.div`
     height: 350px;
     margin-left: -150px;
   }
-  @media (max-width: 1200px) {
+  @media only screen and (max-width: 1200px) {
     display: block;
+    text-align: left;
+    width: 100%;
+    img {
+      width: 200px;
+      height: 150px;
+    }
+  }
+`;
+
+const ContactMob = styled.div`
+  display: none;
+  @media only screen and (max-width: 1200px) {
+    display: flex;
   }
 `;
 

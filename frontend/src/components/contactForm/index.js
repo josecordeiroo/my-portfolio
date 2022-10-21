@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import moment from "moment";
 
-import { Input, Form } from "./styles";
+import { Input, Form, FormMob } from "./styles";
 
 import { save } from "../../services/Sheet";
 
-const ContactForm = ({language}) => {
+const ContactForm = ({ language }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -41,41 +41,98 @@ const ContactForm = ({language}) => {
   };
 
   return (
-    <Form id="contact" onSubmit={contactMeHandler}>
-      <Input>
-        <label>{language? "Nome:" : "Name:"}</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-      </Input>
-      <Input>
-        <label>E-mail:</label>{" "}
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-      </Input>
-      <Input>
-        <label>{language? "Mensagem:" : "Message:"}</label>{" "}
-        <textarea
-          rows="5"
-          value={message}
-          onChange={(e) => {
-            setMessage(e.target.value);
-          }}
-        />
-      </Input>
-      <button type="submit">{language? "Enviar:" : "Send:"}</button>
-      {success && <h4>{language? "Sucesso! Mensagem enviada." : "Success: Message send."}</h4>}
-      {error && <h4>{language? "Houve um erro. Por favor, tente novamente." : "Error: Please, try again."}</h4>}
-    </Form>
+    <>
+      <Form id="contact" onSubmit={contactMeHandler}>
+        <Input>
+          <label>{language ? "Nome:" : "Name:"}</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+        </Input>
+        <Input>
+          <label>E-mail:</label>{" "}
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </Input>
+        <Input>
+          <label>{language ? "Mensagem:" : "Message:"}</label>{" "}
+          <textarea
+            rows="5"
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+          />
+        </Input>
+        <button type="submit">{language ? "Enviar:" : "Send:"}</button>
+        {success && (
+          <h4>
+            {language ? "Sucesso! Mensagem enviada." : "Success: Message send."}
+          </h4>
+        )}
+        {error && (
+          <h4>
+            {language
+              ? "Houve um erro. Por favor, tente novamente."
+              : "Error: Please, try again."}
+          </h4>
+        )}
+      </Form>
+      <FormMob>
+        <Input>
+          <label>{language ? "Nome:" : "Name:"}</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+        </Input>
+        <Input>
+          <label>E-mail:</label>{" "}
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </Input>
+        <Input>
+          <label>{language ? "Mensagem:" : "Message:"}</label>{" "}
+          <textarea
+            rows="5"
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+          />
+        </Input>
+        <button type="submit">{language ? "Enviar:" : "Send:"}</button>
+        {success && (
+          <h4>
+            {language ? "Sucesso! Mensagem enviada." : "Success: Message send."}
+          </h4>
+        )}
+        {error && (
+          <h4>
+            {language
+              ? "Houve um erro. Por favor, tente novamente."
+              : "Error: Please, try again."}
+          </h4>
+        )}
+      </FormMob>
+    </>
   );
 };
 

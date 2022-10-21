@@ -3,18 +3,18 @@ import styled from "styled-components";
 import { motion } from "framer-motion/dist/framer-motion";
 
 export const Container = styled.div`
-.buttons{
-  display: flex;
-  justify-content: space-between;
-}
-  #moreInfo{
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  #moreInfo {
     font-size: 25px;
     color: #23d997;
     cursor: pointer;
     z-index: 1;
     margin-top: 40px;
   }
-`
+`;
 
 export const About = styled(motion.div)`
   display: flex;
@@ -22,16 +22,13 @@ export const About = styled(motion.div)`
   justify-content: space-between;
   padding: 5rem 10rem;
   color: white;
-  
   h4 {
     text-align: right;
     margin-right: 30px;
     font-size: 40px;
   }
-  @media (max-width: 1300px) {
-    display: block;
-    padding: 1rem 1rem;
-    text-align: center;
+  @media (max-width: 1200px) {
+    display: none;
   }
 `;
 
@@ -54,13 +51,13 @@ export const Image = styled.div`
 `;
 
 export const ImageMobile = styled.div`
+  text-align: center;
   img {
     width: 75%;
     height: 75;
     object-fit: cover;
     border-radius: 30px;
   }
-
   @media (min-width: 1200px) {
     display: none;
   }
@@ -74,11 +71,7 @@ export const Description = styled.div`
     font-weight: lighter;
     color: #23d997;
   }
-  @media (max-width: 1200px) {
-    padding: 0;
-    button {
-      display: none;
-    }
+  @media only screen and (max-width: 1200px) {
   }
 `;
 
@@ -87,6 +80,33 @@ export const MyDescription = styled(motion.p)`
   border-radius: 10px;
   padding: 10px;
   font-size: 16px;
-  
   border-style: dashed solid;
+  @media only screen and (max-width: 1200px) {
+    font-size: 12px;
+  }
+`;
+
+export const AboutMob = styled.div`
+  display: none;
+  @media only screen and (max-width: 1200px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    h1 {
+      font-size: 50px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    h4 {
+      text-align: right;
+      margin-right: 20px;
+      font-size: 30px;
+    }
+  }
 `;
