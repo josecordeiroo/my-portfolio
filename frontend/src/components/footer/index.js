@@ -1,11 +1,11 @@
 import React from "react";
 import { Container } from "./styles";
 
-const Footer = () => {
+const Footer = ({language}) => {
   return (
     <Container>
       <p>
-        2022 ® Desenvolvido por 
+      2022 ® {language? "Desenvolvido por " : "Developer by "}
         <a target="_blank" href="https://github.com/josecordeiroo">@josecordeiroo</a>{" "}
       </p>
     </Container>

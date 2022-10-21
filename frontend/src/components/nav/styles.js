@@ -50,11 +50,11 @@ export const StyledNav = styled.nav`
       margin-right: 8px;
       transition: transform 0.2s;
     }
-    a:hover{
+    a:hover {
       img {
-      transition: transform 0.2s;
-      transform: scale(1.3);
-    }
+        transition: transform 0.2s;
+        transform: scale(1.3);
+      }
     }
     img {
       width: 15px;
@@ -62,7 +62,7 @@ export const StyledNav = styled.nav`
       padding-bottom: 3px;
     }
     .wpp {
-      img{
+      img {
         width: 20px;
       }
     }
@@ -90,55 +90,104 @@ export const StyledNav = styled.nav`
   .home {
     font-size: 50px;
   }
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
 
 export const NavMobile = styled.div`
   display: none;
-  @media (max-width: 1300px) {
+  @media only screen and (max-width: 1200px) {
+    height: 90px;
+    width: 100%;
     display: flex;
-  }
-`;
+    justify-content: space-between;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    color: white;
+    box-shadow: 5px 1px 20px 1px black;
 
-export const StyledNavMob = styled.nav`
-  min-height: 1vh;
-  border-radius: 10px;
-  display: flex;
-  margin: auto;
-  margin-top: 8px;
-  justify-content: center;
-  align-items: center;
-  background: #282828;
-  position: sticky;
-  top: 0;
-  color: white;
-  z-index: 10;
+    .countrys {
+    display: flex;
+    justify-content: start;
+    img {
+      width: 25px;
+      margin-right: 5px;
+      padding-bottom: 3px;
+    }
+    .pt {
+      margin-right: 15px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .us {
+      font-size: 12px;
+      cursor: pointer;
+    }
+  }
+
+  .medias {
+    margin-top: 10px;
+    display: flex;
+    justify-content: start;
+    a {
+      font-size: 15px;
+      transition: transform 0.2s;
+    }
+    a:hover {
+      img {
+        transition: transform 0.2s;
+        transform: scale(1.3);
+      }
+    }
+    img {
+      width: 15px;
+      margin-right: 5px;
+      padding-bottom: 3px;
+    }
+    .wpp {
+      img {
+        width: 20px;
+      }
+    }
+  }
+
   ul {
     display: flex;
     list-style: none;
   }
   li {
-    padding-right: 2rem;
+    padding-right: 3rem;
     padding-top: 1rem;
+    font-size: 20px;
   }
   a {
-    font-size: 12px;
+    font-size: 20px;
     text-decoration: none;
     color: white;
+    transition: 1s;
+  }
+  a:hover {
+    color: #23d997;
+    transition: 0.3s;
   }
   .home {
     font-size: 50px;
   }
-`;
+  }
 
-export const Dot = styled.div`
-  border-radius: 50%;
-  display: inline-block;
-  height: 6px;
-  width: 6px;
-  border: 1px solid #000000;
-  background-color: white;
-  margin-left: 20px;
+  .leftNav{
+    margin-top: 10px;
+    margin-left: 15px;
+  }
+
+  .rightNav{
+    img{
+      width: 50px;
+      margin-top: 20px;
+      margin-right: 15px;
+    }
+  }
 `;

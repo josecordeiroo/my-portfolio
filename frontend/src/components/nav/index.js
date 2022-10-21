@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Container, StyledNav, NavMobile, StyledNavMob, Dot } from "./styles";
+import { Container, StyledNav, NavMobile } from "./styles";
 
 import br from "../../assets/br.png";
 import eua from "../../assets/eua.png";
 
-//Navigation
-import { Link } from "react-router-dom";
-
 const NavBar = ({ language, setLanguage }) => {
+  const [open, setOpen] = useState(true);
   return (
     <Container>
       <StyledNav>
@@ -25,7 +23,11 @@ const NavBar = ({ language, setLanguage }) => {
           <a target="_blank" href="https://www.linkedin.com/in/josecordeiroo/">
             <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
           </a>
-          <a target="_blank" className="wpp" href="https://api.whatsapp.com/send?phone=5511984550603&text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20tenho%20uma%20d%C3%BAvida!">
+          <a
+            target="_blank"
+            className="wpp"
+            href="https://api.whatsapp.com/send?phone=5511984550603&text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20tenho%20uma%20d%C3%BAvida!"
+          >
             <img src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-png-0.png" />
             11 998455-0603
           </a>
@@ -59,11 +61,19 @@ const NavBar = ({ language, setLanguage }) => {
         </ul>
 
         <div className="countrys">
-          <div onClick={() => setLanguage(true)} className="pt">
+          <div
+            onClick={() => setLanguage(true)}
+            className="pt"
+            style={{ color: language ? "#23d997" : "" }}
+          >
             <img src={br} />
             Português
           </div>
-          <div onClick={() => setLanguage(false)} className="us">
+          <div
+            onClick={() => setLanguage(false)}
+            className="us"
+            style={{ color: !language ? "#23d997" : "" }}
+          >
             <img src={eua} />
             English
           </div>
@@ -71,36 +81,54 @@ const NavBar = ({ language, setLanguage }) => {
       </StyledNav>
 
       <NavMobile>
-        <StyledNavMob>
-          <ul>
-            <li>
-              <Link to="/">{language ? "<SobreMim />" : "<AboutMe />"} </Link>{" "}
-              <Dot />
-            </li>
-            <li>
-              <Link to="/dev">{language ? "<SobreMim />" : "<AboutMe />"}</Link>
-              <Dot />
-            </li>
-            {!localStorage.getItem("user") && (
-              <>
-                <li>
-                  <Link to="/login">
-                    {language ? "<SobreMim />" : "<AboutMe />"}
-                  </Link>
-                </li>
-              </>
-            )}
-            {localStorage.getItem("user") && (
-              <>
-                <li>
-                  <Link to="/admin">
-                    {language ? "<SobreMim />" : "<AboutMe />"}}
-                  </Link>
-                </li>
-              </>
-            )}
-          </ul>
-        </StyledNavMob>
+        <div className="leftNav">
+          <div className="countrys">
+            <div
+              onClick={() => setLanguage(true)}
+              className="pt"
+              style={{ color: language ? "#23d997" : "" }}
+            >
+              <img src={br} />
+              Português
+            </div>
+            <div
+              onClick={() => setLanguage(false)}
+              className="us"
+              style={{ color: !language ? "#23d997" : "" }}
+            >
+              <img src={eua} />
+              English
+            </div>
+          </div>
+          <div className="medias">
+            <a target="_blank" href="https://www.instagram.com/zecaxcr/">
+              <img src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo.png" />
+            </a>
+            <a target="_blank" href="https://twitter.com/zecaxcr">
+              <img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png" />
+            </a>
+            <a target="_blank" href="https://github.com/josecordeiroo">
+              <img src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png" />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/josecordeiroo/"
+            >
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
+            </a>
+            <a
+              target="_blank"
+              className="wpp"
+              href="https://api.whatsapp.com/send?phone=5511984550603&text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20tenho%20uma%20d%C3%BAvida!"
+            >
+              <img src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-png-0.png" />
+              11 998455-0603
+            </a>
+          </div>
+        </div>
+        <div className="rightNav">
+          <img src="https://www.clipartmax.com/png/full/36-365828_navbar-toggle-icon-menu-hamburger-png-white.png"/>
+        </div>
       </NavMobile>
     </Container>
   );

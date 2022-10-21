@@ -15,7 +15,7 @@ const AboutMe = ({language, setLanguage}) => {
       <ServiceSection language={language}/>
       <Portfolio language={language}/>
       <ContactMe language={language}/>
-      <Footer/>
+      <Footer language={language}/>
     </>
   );
 };

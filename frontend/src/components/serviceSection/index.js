@@ -101,7 +101,7 @@ const ServiceSection = ({language}) => {
         </Description>
 
         <MyCarousel>
-          <h2>{language? "Algumas imagens" : "Some pictures"}  </h2>
+          <h2>{language? "Capturas de tela" : "Screenshots"}  </h2>
           <Carousel>
             {data &&
               data.map((project) => {
