@@ -2,28 +2,18 @@ import React, { useState, useEffect } from "react";
 
 import styled from "styled-components";
 
-import Card from "../components/card";
+import Card from "../card";
 
-import ProjectsService from "../services/projects";
+import ProjectsService from "../../services/projects";
 
 import { Modal } from "react-bootstrap";
 
-//Animations
-import { motion } from "framer-motion/dist/framer-motion";
-import {
-  titleAnimation,
-  fade,
-  photoAnimation,
-  scrollReveal,
-} from "../animation";
-import { useScroll } from "../hooks/useScroll";
-import PortfolioDetail from "../components/portfolioDetail";
 
-const Portfolio = ({ language }) => {
+import PortfolioDetail from "../portfolioDetail";
+
+const PortfolioMob = ({ language }) => {
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState({});
-
-  const [element, controls] = useScroll();
 
   const [show, setShow] = useState(false);
 
@@ -88,7 +78,8 @@ const Container = styled.div`
   z-index: 1;
   margin-top: 50px;
   @media (max-width: 1200px) {
-    display: none;
+    margin-top: 0;
+    text-align: center;
   }
 `;
 
@@ -171,4 +162,4 @@ const Loading = styled.div`
   }
 `;
 
-export default Portfolio;
+export default PortfolioMob;

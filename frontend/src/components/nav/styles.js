@@ -98,7 +98,6 @@ export const StyledNav = styled.nav`
 export const NavMobile = styled.div`
   display: none;
   @media only screen and (max-width: 1200px) {
-
     height: 90px;
     width: 100%;
     display: flex;
@@ -106,51 +105,6 @@ export const NavMobile = styled.div`
     padding: 10px;
     color: white;
     box-shadow: 5px 1px 20px 1px black;
-
-    .countrys {
-      display: flex;
-      justify-content: start;
-      img {
-        width: 25px;
-        margin-right: 5px;
-        padding-bottom: 3px;
-      }
-      .pt {
-        margin-right: 15px;
-        font-size: 12px;
-        cursor: pointer;
-      }
-      .us {
-        font-size: 12px;
-        cursor: pointer;
-      }
-    }
-
-    .medias {
-      margin-top: 10px;
-      display: flex;
-      justify-content: start;
-      a {
-        font-size: 15px;
-        transition: transform 0.2s;
-      }
-      a:hover {
-        img {
-          transition: transform 0.2s;
-          transform: scale(1.3);
-        }
-      }
-      img {
-        width: 15px;
-        margin-right: 5px;
-        padding-bottom: 3px;
-      }
-      .wpp {
-        img {
-          width: 20px;
-        }
-      }
-    }
 
     ul {
       display: flex;
@@ -179,27 +133,72 @@ export const NavMobile = styled.div`
   .leftNav {
     img {
       width: 50px;
-      margin-top: 20px;
-      margin-right: 15px;
+      margin-top: 15px;
+      margin-left: 15px;
     }
   }
   .rightNav {
+    width: 70%;
     margin-top: 10px;
     margin-right: 10px;
+    .medias {
+      margin-top: 10px;
+      display: flex;
+      justify-content: start;
+      a {
+        font-size: 15px;
+        transition: transform 0.2s;
+      }
+      a:hover {
+        img {
+          transition: transform 0.2s;
+          transform: scale(1.3);
+        }
+      }
+      img {
+        width: 15px;
+        margin-right: 5px;
+        padding-bottom: 3px;
+      }
+      .wpp {
+        img {
+          width: 20px;
+        }
+      }
+    }
+    .countrys {
+      padding-left: 15px;
+      display: flex;
+      justify-content: start;
+      img {
+        width: 25px;
+        margin-right: 5px;
+        padding-bottom: 3px;
+      }
+      .pt {
+        margin-right: 15px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .us {
+        font-size: 12px;
+        cursor: pointer;
+      }
+    }
   }
 `;
 
 export const Burguer = styled.div`
-    .burguer {
-      display: flex;
-      justify-content: space-evenly;
-      padding: 20px;
-      font-size: 12px;
+  .burguer {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    font-size: 12px;
+    color: white;
+    a {
+      text-decoration: none;
       color: white;
-      a {
-        text-decoration: none;
-        color: white;
-        padding: 5px;
-      }
+      padding: 5px;
     }
+  }
 `;

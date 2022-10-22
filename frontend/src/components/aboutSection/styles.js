@@ -22,10 +22,15 @@ export const About = styled(motion.div)`
   justify-content: space-between;
   padding: 5rem 10rem;
   color: white;
+  margin-bottom: 100px;
   h4 {
     text-align: right;
     margin-right: 30px;
     font-size: 40px;
+  }
+  button {
+    width: auto;
+    font-size: 15px;
   }
   @media (max-width: 1200px) {
     display: none;
@@ -53,10 +58,11 @@ export const Image = styled.div`
 export const ImageMobile = styled.div`
   text-align: center;
   img {
-    width: 75%;
-    height: 75;
-    object-fit: cover;
-    border-radius: 30px;
+    width: 95%;
+    border-radius: 200px;
+    border: solid white 5px;
+    margin-bottom: 20px;
+    
   }
   @media (min-width: 1200px) {
     display: none;
@@ -72,6 +78,7 @@ export const Description = styled.div`
     color: #23d997;
   }
   @media only screen and (max-width: 1200px) {
+    padding-right: 0rem;
   }
 `;
 
@@ -90,10 +97,9 @@ export const AboutMob = styled.div`
   display: none;
   @media only screen and (max-width: 1200px) {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 20px;
     color: white;
+    text-align: center;
     h1 {
       font-size: 50px;
       text-align: center;
@@ -104,9 +110,21 @@ export const AboutMob = styled.div`
       text-align: center;
     }
     h4 {
-      text-align: right;
-      margin-right: 20px;
+      text-align: center;
       font-size: 30px;
+      margin-bottom: 10px;
+    }
+    .buttons{
+      display: block;
+      button{
+        margin-top: 10px;
+        height: 50px;
+        font-size: 20px;
+      }
+      #moreInfo{
+        font-size: 20px;
+        margin-top: 20px;
+      }
     }
   }
 `;

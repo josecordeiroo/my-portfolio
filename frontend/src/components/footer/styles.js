@@ -8,7 +8,6 @@ export const Container = styled.div`
     font-weight: lighter;
     text-align: center;
     font-style: italic;
-    margin-bottom: 20px;
     z-index: 1;
     position: absolute;
     padding-bottom: 50px;

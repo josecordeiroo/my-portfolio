@@ -11,11 +11,20 @@ export const StyledCard = styled.div`
   transition: 0.2s;
   z-index: 1;
   margin: 20px;
+  color: white;
   :hover{
     transition: 0.2s;
     background-color: #23d997;
     width: 420px;
     height: 480px;
+  }
+  @media (max-width: 1200px) {
+    :hover{
+    transition: 0;
+    background: rgba(35, 35, 35, 0.9);
+    width: 390px;
+    height: 450px;
+  }
   }
 `;
 
@@ -28,6 +37,7 @@ export const Content = styled.div`
   z-index: 1;
   .icons {
     font-size: 20px;
+    margin-top: 5px;
   }
   .iconsTech {
     display: flex;

@@ -5,7 +5,6 @@ import Portfolio from "./Portfolio";
 import ServiceSection from "../components/serviceSection";
 import ContactMe from "./ContactMe";
 import NavBar from "../components/nav";
-import Footer from "../components/footer"
 
 const AboutMe = ({language, setLanguage}) => {
   return (
@@ -15,7 +14,6 @@ const AboutMe = ({language, setLanguage}) => {
       <ServiceSection language={language}/>
       <Portfolio language={language}/>
       <ContactMe language={language}/>
-      <Footer language={language}/>
     </>
   );
 };

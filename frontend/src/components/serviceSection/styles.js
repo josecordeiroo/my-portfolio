@@ -23,15 +23,11 @@ export const Services = styled(motion.div)`
 
 export const ServicesMobile = styled.div`
   display: none;
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     display: block;
-    padding: 1rem 1rem;
+    padding: 15px;
     text-align: center;
-    img {
-      margin-top: 10px;
-      width: 100px;
-      height: 100px;
-    }
+    color: white;
   }
 `;
 
@@ -45,8 +41,12 @@ export const Description = styled.div`
   }
   @media (max-width: 1300px) {
     padding: 0;
+    margin-top: 90px;
     button {
       margin: 2rem 0rem 5rem 0rem;
+    }
+    h2 {
+      font-size: 40px;
     }
   }
 `;
@@ -67,8 +67,7 @@ export const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   @media (max-width: 1300px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: block;
   }
 `;
 
@@ -78,6 +77,7 @@ export const Card = styled.div`
   .icon {
     display: flex;
     align-items: center;
+    color: white;
   }
   h3 {
     border-radius: 15px 0px 15px 0px;
@@ -86,15 +86,20 @@ export const Card = styled.div`
     color: black;
     padding: 1rem;
   }
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     margin-top: 30px;
+    padding: 10px;
   }
   p {
     text-align: left;
+    color: white;
+    font-size: 17px;
+    font-weight: 200;
+    margin-top: 20px;
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 20px;
   }
 `;
 

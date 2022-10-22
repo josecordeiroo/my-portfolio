@@ -41,8 +41,8 @@ const ContactForm = ({ language }) => {
   };
 
   return (
-    <>
-      <Form id="contact" onSubmit={contactMeHandler}>
+    <div id="contact">
+      <Form onSubmit={contactMeHandler}>
         <Input>
           <label>{language ? "Nome:" : "Name:"}</label>
           <input
@@ -73,7 +73,7 @@ const ContactForm = ({ language }) => {
             }}
           />
         </Input>
-        <button type="submit">{language ? "Enviar:" : "Send:"}</button>
+        <button type="submit">{language ? "Enviar" : "Send"}</button>
         {success && (
           <h4>
             {language ? "Sucesso! Mensagem enviada." : "Success: Message send."}
@@ -87,9 +87,10 @@ const ContactForm = ({ language }) => {
           </h4>
         )}
       </Form>
+
       <FormMob>
         <Input>
-          <label>{language ? "Nome:" : "Name:"}</label>
+          <p>{language ? "Nome:" : "Name:"}</p>
           <input
             type="text"
             value={name}
@@ -99,7 +100,7 @@ const ContactForm = ({ language }) => {
           />
         </Input>
         <Input>
-          <label>E-mail:</label>{" "}
+          <p>E-mail:</p>{" "}
           <input
             type="email"
             value={email}
@@ -109,16 +110,18 @@ const ContactForm = ({ language }) => {
           />
         </Input>
         <Input>
-          <label>{language ? "Mensagem:" : "Message:"}</label>{" "}
+          <p>{language ? "Mensagem:" : "Message:"}</p>{" "}
           <textarea
-            rows="5"
+            rows="8"
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);
             }}
           />
         </Input>
-        <button type="submit">{language ? "Enviar:" : "Send:"}</button>
+        <div className="mobButton">
+          <button type="submit">{language ? "Enviar" : "Send"}</button>
+        </div>
         {success && (
           <h4>
             {language ? "Sucesso! Mensagem enviada." : "Success: Message send."}
@@ -132,7 +135,7 @@ const ContactForm = ({ language }) => {
           </h4>
         )}
       </FormMob>
-    </>
+    </div>
   );
 };
 

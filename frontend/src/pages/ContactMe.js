@@ -13,6 +13,8 @@ import { titleAnimation } from "../animation";
 import { scrollReveal } from "../animation";
 import { useScroll } from "../hooks/useScroll";
 
+import Footer from "../components/footer";
+
 import devs from "../assets/devs.webp";
 
 const ContactMe = ({ language }) => {
@@ -34,26 +36,16 @@ const ContactMe = ({ language }) => {
             </Title>
             <Areas>
               <ContactForm language={language} />
-              <SocialNetworkSection />
               <img src={devs} />
             </Areas>
           </ContactStyled>
         </motion.div>
       </Contact>
       <ContactMob>
-        <ContactStyled>
-          <Title>
-            <motion.h2 variants={titleAnimation}>
-              {language ? "Entre em contato" : "Get in touch"}
-            </motion.h2>
-          </Title>
-          <Areas>
-            <ContactForm language={language} />
-            <SocialNetworkSection />
-            <img src={devs} />
-          </Areas>
-        </ContactStyled>
+          <h2>{language ? "Entre em contato" : "Get in touch"}</h2>
+        <ContactForm language={language} />
       </ContactMob>
+      <Footer language={language} />
     </>
   );
 };
@@ -86,23 +78,27 @@ const Areas = styled.div`
   img {
     width: 400px;
     height: 350px;
-    margin-left: -150px;
-  }
-  @media only screen and (max-width: 1200px) {
-    display: block;
-    text-align: left;
-    width: 100%;
-    img {
-      width: 200px;
-      height: 150px;
-    }
+    margin-top: 50px;
   }
 `;
 
 const ContactMob = styled.div`
   display: none;
   @media only screen and (max-width: 1200px) {
-    display: flex;
+    display: block;
+    input{
+      width: 100%;
+    }
+    img {
+      width: 250px;
+    }
+    h2 {
+    color: #23d997;
+    z-index: 1;
+    font-size: 35px;
+    text-align: center;
+    font-weight: 500;
+  }
   }
 `;
 

@@ -178,15 +178,7 @@ const AboutSection = ({ language }) => {
                   : "Download my CV in PDF"}{" "}
               </button>
             </a>
-            <a href="#services">
-              {" "}
-              <p id="moreInfo">
-                {" "}
-                {language
-                  ? "Quer me conhecer um pouco mais?😃"
-                  : "Want to get to know me a little more?😃"}
-              </p>
-            </a>
+           
           </div>
         </Description>
       </AboutMob>
