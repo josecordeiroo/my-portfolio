@@ -43,8 +43,9 @@ export const DescriptionArea = styled.div`
 `;
 
 export const Technologies = styled.div`
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   svg {
     color: #23d997;
@@ -104,8 +105,8 @@ export const PicturesDiv = styled.div`
   .secondButton {
     margin-top: 5px;
   }
-`
+`;
 
 export const ModalImg = styled.img`
   width: 100%;
-`
+`;

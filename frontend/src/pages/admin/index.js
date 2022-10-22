@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, HomeItens, NavBarLocal } from "./styles";
+import { Container, HomeItens, NavBarLocal, Container1 } from "./styles";
 
 import PortfolioList from "../../components/portfolioList";
 
@@ -32,8 +32,8 @@ const Admin = ({ location, language }) => {
   }
 
   return (
-    <>
-      <NavBar/>
+    <Container1>
+      <NavAdmin/>
       <Container>
         <NavBarLocal>
           <h1>Painel Administrativo</h1>
@@ -43,7 +43,7 @@ const Admin = ({ location, language }) => {
           <PortfolioList />
         </HomeItens>
       </Container>
-    </>
+    </Container1>
   );
 };
 

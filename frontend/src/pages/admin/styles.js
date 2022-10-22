@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container1 = styled.div`
+  position: sticky;
+  z-index: 1;
+`
+
 export const Container = styled.div`
   margin: 0 50px 0 50px;
   color: white;

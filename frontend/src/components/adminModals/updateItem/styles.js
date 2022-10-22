@@ -44,7 +44,7 @@ export const DescriptionArea = styled.div`
 
 export const Technologies = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   svg {
     color: #23d997;

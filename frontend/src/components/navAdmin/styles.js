@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
- position: sticky;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 10;
@@ -9,28 +9,19 @@ export const Container = styled.div`
 `;
 
 export const StyledNav = styled.nav`
-  height: 50px;
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 10rem;
+  width: 155px;
+  height: 35px;
+  text-align: center;
   position: sticky;
   top: 0;
   left: 0;
   color: white;
-  box-shadow: 5px 1px 20px 1px black;
-
-  ul {
-    display: flex;
-    list-style: none;
-  }
-  li {
-    padding-right: 3rem;
-    padding-top: 1rem;
-    font-size: 20px;
-  }
+  background-color: #282828;
+  border-radius: 10px;
+  margin: 10px;
+  
   a {
+    padding: 15px;
     font-size: 20px;
     text-decoration: none;
     color: white;
@@ -40,9 +31,7 @@ export const StyledNav = styled.nav`
     color: #23d997;
     transition: 0.3s;
   }
-  .home {
-    font-size: 50px;
-  }
+
   @media (max-width: 1300px) {
     display: none;
   }
@@ -56,11 +45,8 @@ export const NavMobile = styled.div`
 `;
 
 export const StyledNavMob = styled.nav`
-  min-height: 1vh;
-  border-radius: 10px;
+  width: 100%;
   display: flex;
-  margin: auto;
-  margin-top: 8px;
   justify-content: center;
   align-items: center;
   background: #282828;
@@ -84,14 +70,4 @@ export const StyledNavMob = styled.nav`
   .home {
     font-size: 50px;
   }
-`;
-
-export const Dot = styled.div`
-  border-radius: 50%;
-  display: inline-block;
-  height: 6px;
-  width: 6px;
-  border: 1px solid #000000;
-  background-color: white;
-  margin-left: 20px;
 `;
