@@ -43,7 +43,7 @@ const ContactMe = ({ language }) => {
       </Contact>
 
 
-      
+
       <ContactMob>
           <h2>{language ? "Entre em contato" : "Get in touch"}</h2>
         <ContactForm language={language} />
@@ -55,6 +55,7 @@ const ContactMe = ({ language }) => {
 
 const Test = styled.div`
   z-index: 1;
+  position: sticky;
 `
 
 const Contact = styled.div`
