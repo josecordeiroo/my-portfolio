@@ -100,6 +100,7 @@ export const AboutMob = styled.div`
     padding: 20px;
     color: white;
     text-align: center;
+    margin-bottom: -40px;
     h1 {
       font-size: 50px;
       text-align: center;

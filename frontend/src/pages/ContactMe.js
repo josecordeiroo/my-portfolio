@@ -20,7 +20,7 @@ import devs from "../assets/devs.webp";
 const ContactMe = ({ language }) => {
   const [element, controls] = useScroll();
   return (
-    <>
+    <Test>
       <Contact>
         <motion.div
           variants={scrollReveal}
@@ -41,14 +41,21 @@ const ContactMe = ({ language }) => {
           </ContactStyled>
         </motion.div>
       </Contact>
+
+
+      
       <ContactMob>
           <h2>{language ? "Entre em contato" : "Get in touch"}</h2>
         <ContactForm language={language} />
       </ContactMob>
       <Footer language={language} />
-    </>
+    </Test>
   );
 };
+
+const Test = styled.div`
+  z-index: 1;
+`
 
 const Contact = styled.div`
   @media (max-width: 1200px) {
@@ -84,9 +91,12 @@ const Areas = styled.div`
 
 const ContactMob = styled.div`
   display: none;
+  z-index: 10;
   @media only screen and (max-width: 1200px) {
+    z-index: 1;
     display: block;
     input{
+      z-index: 1;
       width: 100%;
     }
     img {
