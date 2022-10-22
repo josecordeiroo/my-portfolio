@@ -93,8 +93,8 @@ const ServiceSection = ({ language }) => {
               </div>
               <p>
                 {language
-                  ? "Trabalho com Javascript e TypeScript. Uso React, Bootstrap e outras bibliotecas no front-end e o React-native para mobile. No back-end uso o Node.Js para criar meus servidores e manipular dados no MongoDB e MySQL, que são quem costumo usar para alimentar minhas aplicações."
-                  : "I work with Javascript and TypeScript. I use React, Bootstrap and other libraries on the front-end and React-native for mobile. At the backend I use Node.Js to create my servers and handle data in MongoDB and MySQL, which is what I usually use to feed my applications."}
+                  ? "Trabalho com Javascript e TypeScript. Uso React, Bootstrap e outras bibliotecas no front-end e o React-native para mobile. No back-end uso Python e Node.Js para criar meus servidores e manipular dados no MongoDB e MySQL, que são quem costumo usar para alimentar minhas aplicações."
+                  : "I work with Javascript and TypeScript. I use React, Bootstrap and other libraries on the front-end and React-native for mobile. At the backend I use Python and Node.Js to create my servers and handle data in MongoDB and MySQL, which is what I usually use to feed my applications."}
               </p>
             </Card>
 
@@ -170,8 +170,8 @@ const ServiceSection = ({ language }) => {
               </div>
               <p>
                 {language
-                  ? "Trabalho com Javascript e TypeScript. Uso React, Bootstrap e outras bibliotecas no front-end e o React-native para mobile. No back-end uso o Node.Js para criar meus servidores e manipular dados no MongoDB e MySQL, que são quem costumo usar para alimentar minhas aplicações."
-                  : "I work with Javascript and TypeScript. I use React, Bootstrap and other libraries on the front-end and React-native for mobile. At the backend I use Node.Js to create my servers and handle data in MongoDB and MySQL, which is what I usually use to feed my applications."}
+                  ? "Trabalho com Javascript e TypeScript. Uso React, Bootstrap e outras bibliotecas no front-end e o React-native para mobile. No back-end uso Python e Node.Js para criar meus servidores e manipular dados no MongoDB e MySQL, que são quem costumo usar para alimentar minhas aplicações."
+                  : "I work with Javascript and TypeScript. I use React, Bootstrap and other libraries on the front-end and React-native for mobile. At the backend I use Python and Node.Js to create my servers and handle data in MongoDB and MySQL, which is what I usually use to feed my applications."}
               </p>
             </Card>
             <Card>

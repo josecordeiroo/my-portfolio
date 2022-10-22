@@ -1,8 +1,6 @@
 import React from "react";
 
-import { NavBar } from "./styles";
-
-import { Container, HomeItens } from "./styles";
+import { Container, HomeItens, NavBarLocal } from "./styles";
 
 import PortfolioList from "../../components/portfolioList";
 
@@ -11,6 +9,7 @@ import { Navigate } from "react-router-dom";
 import UserPage from "../../components/userPage";
 
 import NavAdmin from "../../components/navAdmin";
+import NavBar from "../../components/nav";
 
 const Admin = ({ location, language }) => {
   if (!localStorage.getItem("user")) {
@@ -34,11 +33,11 @@ const Admin = ({ location, language }) => {
 
   return (
     <>
-      <NavAdmin />
+      <NavBar/>
       <Container>
-        <NavBar>
-          <h1>{language? "Painel Administrativo" : "Administration Panel"}</h1>
-        </NavBar>
+        <NavBarLocal>
+          <h1>Painel Administrativo</h1>
+        </NavBarLocal>
         <HomeItens>
           <UserPage />
           <PortfolioList />

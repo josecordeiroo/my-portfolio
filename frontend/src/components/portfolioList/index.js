@@ -115,7 +115,12 @@ const PortfolioList = () => {
           </Modal.Footer>
         </Modal>
 
-        <Button variant="success" size="lg" onClick={() => setShowAdd(true)}>
+        <Button
+          className="buttonAdd"
+          variant="success"
+          size="lg"
+          onClick={() => setShowAdd(true)}
+        >
           Criar novo projeto
         </Button>
       </Nav>
@@ -126,16 +131,18 @@ const PortfolioList = () => {
             return (
               <Project key={project.slug}>
                 <div className="divLeft">
-                <img style={{width: "150px"}} src={project.images[0]}/>
-                {project.title}
-                <br />
-                {moment(project.createdAt).format("DD-MM-YYYY")}
-                <br />
-                {project.shortDescription}
-                <br />
+                  <img style={{ width: "150px" }} src={project.images[0]} />
+                  <p>
+                    {project.title}
+                    <br />
+                    {moment(project.createdAt).format("DD-MM-YYYY")}
+                    <br />
+                    <label className="description">{project.shortDescription}</label>
+                    <br />
+                  </p>
                 </div>
                 <Buttons>
-                  <Button
+                  <div className="editButton"
                     variant="info"
                     onClick={() => {
                       setProject(project);
@@ -143,8 +150,8 @@ const PortfolioList = () => {
                     }}
                   >
                     Editar
-                  </Button>{" "}
-                  <Button
+                  </div>{" "}
+                  <div className="delButton"
                     onClick={() => {
                       setSlug(project.slug);
                       setTitle(project.title);
@@ -153,8 +160,8 @@ const PortfolioList = () => {
                     variant="danger"
                   >
                     Excluir
-                  </Button>{" "}
-                </Buttons>                
+                  </div>
+                </Buttons>
               </Project>
             );
           })}

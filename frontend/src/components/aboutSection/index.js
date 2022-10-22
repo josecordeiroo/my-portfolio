@@ -52,7 +52,7 @@ const AboutSection = ({ language }) => {
           {language ? (
             <MyDescription variants={fade}>
               Hello, world! Vivo na capital de São Paulo e sou um desenvolvedor
-              FullStack que trabalha com Javascript e Node.Js no front e no
+              FullStack que trabalha com Javascript, Python e Node.Js no front e no
               back-end, dominando diversas tecnologias atuais do mercado,
               desenvolvendo soluções eficazes de forma rápida e simplificada.
               Atualmente cursando Análise e Desenvolvimento de Sistemas pela
@@ -71,7 +71,7 @@ const AboutSection = ({ language }) => {
           ) : (
             <MyDescription variants={fade}>
               Hello, world! I live in the capital of São Paulo, Brazil, and I'm
-              a FullStack developer working with Javascript and Node.Js on the
+              a FullStack developer working with Javascript, Python and Node.Js on the
               front and back-end, mastering several current technologies of the
               market, developing effective solutions quickly and simplified.
               Currently studying Analysis and Development of Systems by the
@@ -134,7 +134,7 @@ const AboutSection = ({ language }) => {
           {language ? (
             <MyDescription>
               Hello, world! Vivo na capital de São Paulo e sou um desenvolvedor
-              FullStack que trabalha com Javascript e Node.Js no front e no
+              FullStack que trabalha com Javascript, Python e Node.Js no front e no
               back-end, dominando diversas tecnologias atuais do mercado,
               desenvolvendo soluções eficazes de forma rápida e simplificada.
               Atualmente cursando Análise e Desenvolvimento de Sistemas pela
@@ -153,7 +153,7 @@ const AboutSection = ({ language }) => {
           ) : (
             <MyDescription>
               Hello, world! I live in the capital of São Paulo, Brazil, and I'm
-              a FullStack developer working with Javascript and Node.Js on the
+              a FullStack developer working with Javascript, Python and Node.Js on the
               front and back-end, mastering several current technologies of the
               market, developing effective solutions quickly and simplified.
               Currently studying Analysis and Development of Systems by the
