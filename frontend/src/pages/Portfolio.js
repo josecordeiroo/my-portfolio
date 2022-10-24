@@ -35,6 +35,18 @@ const Portfolio = ({ language }) => {
     });
   }
 
+  const stopScroll = () => {
+    document.documentElement.style.overflow='hidden'
+    document.body.scroll = "no"
+  }
+
+  //IMPORTANT: YOU NEED SET OVERFLOW HIDDEN IN GLOBAL STYLES FOR STARTSCROOL DONT CREATE TWO BARS
+
+  const startScroll = () => {
+    document.documentElement.style.overflow='auto'
+    document.body.scroll = "yes"
+  }
+
   useEffect(() => {
     setTimeout(() => {
       fetchProjects();
@@ -43,14 +55,9 @@ const Portfolio = ({ language }) => {
 
   return (
     <Container id="portfolio">
-      <Modal
-        style={{ marginTop: "50px" }}
-        size="lg"
-        show={show}
-        onHide={handleClose}
-      >
-        <PortfolioDetail project={project} />
-      </Modal>
+      {show && stopScroll()}
+      {!show && startScroll()}
+      {show && <PortfolioDetail setShow={setShow} project={project} />}
       <Title>
         {language
           ? "Galeria de projetos e estudos"

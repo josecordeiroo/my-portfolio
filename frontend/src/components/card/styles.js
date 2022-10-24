@@ -15,8 +15,8 @@ export const StyledCard = styled.div`
   :hover{
     transition: 0.2s;
     background-color: #23d997;
-    width: 420px;
-    height: 480px;
+    width: 400px;
+    height: 460px;
   }
   @media (max-width: 1200px) {
     :hover{

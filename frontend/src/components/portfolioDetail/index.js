@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import moment from "moment";
 import "moment/locale/pt-br";
@@ -16,17 +16,16 @@ import {
   PicturesSmall,
   FullDescription,
   Pictures,
+  Content,
 } from "./styles.js";
 
 import CarouselDetails from "../carouselDetails/index.js";
 
-import { useParams, useNavigate } from "react-router-dom";
-import useApi from "../../hooks/useApi.js";
-
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { propTypes } from "react-bootstrap/esm/Image.js";
 
-const PortfolioDetail = ({project}) => {
+const PortfolioDetail = ({ project, setShow }) => {
   const [showImageModal, setShowImageModal] = useState(false);
   const [bigImg, setBigImg] = useState("");
 
@@ -34,10 +33,26 @@ const PortfolioDetail = ({project}) => {
     setShowImageModal(false);
   };
 
+  const closeOnEscapeKeyDown = (e) => {
+    if (e.chardCode || e.keyCode === 27) {
+      setShow(false);
+    }
+  };
+
   moment.locale("pt-br");
 
+  useEffect(() => {
+    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
+    return function cleanup() {
+      document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
+    };
+  }, []);
+
   return (
-      <Container>
+    <Container onClick={() => setShow(false)}>
+      <Content onClick={(e) => e.stopPropagation()}>
+        {" "}
+        //this is important
         <Header>
           <Titles>
             <h1>{project.title} </h1>
@@ -63,21 +78,18 @@ const PortfolioDetail = ({project}) => {
             </Technologies>
           </Info>
         </Header>
-
         <FullDescription>
           <h4>Descrição do projeto:</h4>
           <p>
-            <strong>Data:</strong>{" "}
-            {moment(project.createdAt).format("LL")} <br />
+            <strong>Data:</strong> {moment(project.createdAt).format("LL")}{" "}
+            <br />
           </p>
           <p>{project.longDescription}</p>
 
           <p className="git">
             {" "}
             <a
-              href={`https://github.com/josecordeiroo/${
-                project.slug
-              }`}
+              href={`https://github.com/josecordeiroo/${project.slug}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -91,21 +103,20 @@ const PortfolioDetail = ({project}) => {
             <CarouselDetails project={project} />
             <PicturesSmall>
               {project.images.map((img) => {
-                  return (
-                    <img
-                      alt=""
-                      onClick={() => {
-                        setBigImg(img);
-                        setShowImageModal(true);
-                      }}
-                      src={img}
-                    />
-                  );
-                })}
+                return (
+                  <img
+                    alt=""
+                    onClick={() => {
+                      setBigImg(img);
+                      setShowImageModal(true);
+                    }}
+                    src={img}
+                  />
+                );
+              })}
             </PicturesSmall>
           </PicturesDiv>
         </Pictures>
-
         <Modal
           style={{ marginTop: "-59px" }}
           size="xl"
@@ -115,49 +126,9 @@ const PortfolioDetail = ({project}) => {
         >
           <img style={{ width: "100%" }} src={bigImg} alt="" />
         </Modal>
-      </Container>
+      </Content>
+    </Container>
   );
 };
 
 export default PortfolioDetail;
-
-//antigoooo
-
-// <CardShaddow className="shaddow" onClick={exitDetailHandler}>
-//   <Detail>
-//     <Stats>
-//       <div>
-//         <Title>{data && data.data.title}</Title>
-//         <DescriptionShort>
-//           <p>{data && data.data.description}</p>
-//         </DescriptionShort>
-//       </div>
-
-//       <Info>
-//         <h5>Technologies Used</h5>
-
-//         <Technologies>
-//           {data &&
-//             data.data.technologies.map((tech) => {
-//               return (
-//                 <Technology key={tech.label}>
-//                   <FontAwesomeIcon
-//                     icon={[tech.iconType, tech.icon]}
-//                     size="3x"
-//                   />
-//                   {tech.label}
-//                 </Technology>
-//               );
-//             })}
-//         </Technologies>
-//       </Info>
-//     </Stats>
-
-//     <Description>
-//       <p>{data && data.data.longDescription}</p>
-//       <p>See more in: <a href={`https://github.com/josecordeiroo/${data && data.data.slug}`} target="_blank" rel="noopener noreferrer">{`github.com/josecordeiroo/${data && data.data.slug}`}</a> </p>
-//     </Description>
-
-//     <img src={data && data.data.imgUrl} alt="illustrative"></img>
-//   </Detail>
-// </CardShaddow>
