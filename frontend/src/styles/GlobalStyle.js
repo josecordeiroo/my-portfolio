@@ -5,7 +5,6 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        overflow: hidden;
         ::-webkit-scrollbar {
     width: 10px;
     height: 10px;

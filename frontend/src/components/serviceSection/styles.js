@@ -9,6 +9,7 @@ export const Services = styled(motion.div)`
   padding: 5rem 10rem;
   color: white;
   padding-top: 80px;
+  overflow: hidden;
   h2 {
     padding-bottom: 1rem;
   }

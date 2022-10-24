@@ -79,6 +79,7 @@ const Container = styled.div`
   margin-top: 50px;
   @media (max-width: 1200px) {
     margin-top: 0;
+    margin-bottom: -130px;
     text-align: center;
   }
 `;
@@ -109,11 +110,11 @@ const PortfolioList = styled.div`
 const CardList = styled.div`
   position: absolute;
   z-index: 1;
-  display: flex;
+  display: flexbox;
   overflow-y: hidden;
   overflow-x: scroll;
   width: 85%;
-  height: 520px;
+  height: 380px;
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;

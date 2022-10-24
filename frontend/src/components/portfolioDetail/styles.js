@@ -1,41 +1,47 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  color: white;
 `;
-
-export const Content = styled.div`
-  width: 800px;
-  background-color: white;
-  border-radius: 20px;
-  padding: 50px;
-  `
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 20px 0 20px;
+  @media (max-width: 1200px) {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+  }
 `;
 
 export const Titles = styled.div`
-  width: 300px;
+  width: 200px;
   text-align: left;
   h1 {
-    font-size: 40px;
+    font-size: 20px;
     margin-left: -10px;
     font-weight: 600;
   }
   p {
-    color: black;
+    color: white;
+  }
+  @media (max-width: 1200px) {
+    text-align: center;
+    width: 100%;
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+    p{
+      font-size: 10px;
+      margin-bottom: 40px;
+    }
   }
 `;
 
@@ -44,7 +50,7 @@ export const Technologies = styled.div`
   display: flex;
   justify-content: center;
   svg {
-    color: gray;
+    color: white;
   }
 
   @media (max-width: 1200px) {
@@ -56,7 +62,7 @@ export const Technology = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: gray;
+  color: white;
   padding: 7px;
 `;
 
@@ -64,7 +70,7 @@ export const Info = styled.div`
   text-align: center;
   min-width: 300px;
   h5 {
-    color: gray;
+    color: white;
     font-weight: lighter;
   }
 
@@ -78,32 +84,36 @@ export const Pictures = styled.div`
 `;
 
 export const PicturesDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-left: 30px;
+  text-align: center;
+  .bigImg {
+    cursor: pointer;
+    width: 90%;
+    margin: 20px, 0, 100px, 0;
+  }
 `;
 
 export const PicturesSmall = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  width: 150px;
-  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 15px;
   cursor: pointer;
   img {
     width: 90px;
+    margin-right: 10px;
   }
 `;
 
 export const FullDescription = styled.div`
   margin-top: 30px;
   h4 {
-    color: black;
+    color: white;
     font-weight: 600;
     text-align: center;
     margin-bottom: 15px;
   }
   p {
-    color: black;
+    color: white;
     padding: 0 15px 0 15px;
   }
   .git {

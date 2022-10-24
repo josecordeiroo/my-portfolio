@@ -4,10 +4,9 @@ export const StyledCard = styled.div`
   background: rgba(35, 35, 35, 0.9);
   border-radius: 10px;
   cursor: pointer;
-  overflow: hidden;
   box-shadow: black 5px 5px 10px;
-  width: 390px;
-  height: 450px;
+  width: 500px;
+  height: 500px;
   transition: 0.2s;
   z-index: 1;
   margin: 20px;
@@ -15,15 +14,19 @@ export const StyledCard = styled.div`
   :hover{
     transition: 0.2s;
     background-color: #23d997;
-    width: 400px;
-    height: 460px;
+    width: 510px;
+    height: 510px;
   }
   @media (max-width: 1200px) {
+    transform: scale(0.8);
+    margin: -30px;
+    width: 400px;
+    height: 400px;
     :hover{
     transition: 0;
     background: rgba(35, 35, 35, 0.9);
-    width: 390px;
-    height: 450px;
+    width: 400px;
+    height: 400px;
   }
   }
 `;
@@ -56,7 +59,7 @@ export const Image = styled.img`
 export const Info = styled.div`
   margin: 5px 0 5px 0;
   h3 {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 100;
   }
 `;

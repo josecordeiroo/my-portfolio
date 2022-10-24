@@ -23,8 +23,6 @@ const Portfolio = ({ language }) => {
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState({});
 
-  const [element, controls] = useScroll();
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -35,18 +33,6 @@ const Portfolio = ({ language }) => {
     });
   }
 
-  const stopScroll = () => {
-    document.documentElement.style.overflow='hidden'
-    document.body.scroll = "no"
-  }
-
-  //IMPORTANT: YOU NEED SET OVERFLOW HIDDEN IN GLOBAL STYLES FOR STARTSCROOL DONT CREATE TWO BARS
-
-  const startScroll = () => {
-    document.documentElement.style.overflow='auto'
-    document.body.scroll = "yes"
-  }
-
   useEffect(() => {
     setTimeout(() => {
       fetchProjects();
@@ -55,9 +41,9 @@ const Portfolio = ({ language }) => {
 
   return (
     <Container id="portfolio">
-      {show && stopScroll()}
-      {!show && startScroll()}
-      {show && <PortfolioDetail setShow={setShow} project={project} />}
+      <Modal size="lg" show={show} onHide={handleClose}>
+        <PortfolioDetail setShow={setShow} project={project} />
+      </Modal>
       <Title>
         {language
           ? "Galeria de projetos e estudos"
@@ -125,11 +111,11 @@ const PortfolioList = styled.div`
 const CardList = styled.div`
   position: absolute;
   z-index: 1;
-  display: flex;
+  display: flexbox;
   overflow-y: hidden;
   overflow-x: scroll;
-  width: 85%;
-  height: 520px;
+  width: 80%;
+  height: 580px;
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
