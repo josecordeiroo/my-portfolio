@@ -3,8 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: auto;
-  padding: 20px;
-  color: white;
+  padding: 10px;
+  color: #373737;
+  @media (max-width: 1200px) {
+    padding: 10px;
+  }
 `;
 
 export const Header = styled.div`
@@ -12,35 +15,44 @@ export const Header = styled.div`
   justify-content: space-between;
   margin: 0 20px 0 20px;
   @media (max-width: 1200px) {
-    display: block;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
+    margin: 0 10px 0 10px;
   }
 `;
 
 export const Titles = styled.div`
-  width: 200px;
   text-align: left;
+  width: 50%;
   h1 {
-    font-size: 20px;
-    margin-left: -10px;
+    font-size: 30px;
     font-weight: 600;
+    text-align: left;
   }
   p {
-    color: white;
+    color: #373737;
+    text-align: left;
   }
   @media (max-width: 1200px) {
-    text-align: center;
-    width: 100%;
     h1 {
-      font-size: 20px;
-      font-weight: 600;
-      margin: 0;
+      font-size: 25px;
     }
-    p{
-      font-size: 10px;
+    p {
+      font-size: 15px;
       margin-bottom: 40px;
+    }
+  }
+`;
+
+export const Info = styled.div`
+  text-align: center;
+  h5 {
+    color: #373737;
+    font-weight: lighter;
+  }
+
+  @media (max-width: 1200px) {
+    justify-content: center;
+    h5 {
+      font-size: 20px;
     }
   }
 `;
@@ -50,11 +62,11 @@ export const Technologies = styled.div`
   display: flex;
   justify-content: center;
   svg {
-    color: white;
+    color: gray;
   }
 
   @media (max-width: 1200px) {
-    padding-top: 1rem;
+    
   }
 `;
 
@@ -62,25 +74,50 @@ export const Technology = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: gray;
   padding: 7px;
 `;
 
-export const Info = styled.div`
-  text-align: center;
-  min-width: 300px;
-  h5 {
-    color: white;
-    font-weight: lighter;
+
+export const FullDescription = styled.div`
+  margin-top: 30px;
+  h4 {
+    color: #373737;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  p {
+    color: #373737;
+    padding: 0 15px 0 15px;
+  }
+  .git {
+    text-align: right;
+    margin-bottom: 25px;
   }
 
   @media (max-width: 1200px) {
-    justify-content: center;
+    margin-top: -10px;
+    h4{
+      font-size: 20px;
+    }
+    p{
+      font-size: 13px;
+    }
+    .git {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
   }
 `;
 
 export const Pictures = styled.div`
   text-align: center;
+  @media (max-width: 1200px) {
+    h5{
+      font-size: 16px;
+    }
+  }
 `;
 
 export const PicturesDiv = styled.div`
@@ -101,24 +138,6 @@ export const PicturesSmall = styled.div`
   img {
     width: 90px;
     margin-right: 10px;
-  }
-`;
-
-export const FullDescription = styled.div`
-  margin-top: 30px;
-  h4 {
-    color: white;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  p {
-    color: white;
-    padding: 0 15px 0 15px;
-  }
-  .git {
-    text-align: right;
-    margin-bottom: 25px;
   }
 `;
 

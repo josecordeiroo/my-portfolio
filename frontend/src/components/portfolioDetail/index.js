@@ -75,7 +75,7 @@ const PortfolioDetail = ({ project, setShow }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Clique aqui e veja este código completo no GitHub.
+            Veja este código completo no GitHub.
           </a>{" "}
         </p>
       </FullDescription>
