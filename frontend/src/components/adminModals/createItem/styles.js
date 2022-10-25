@@ -20,13 +20,16 @@ export const Form = styled.form`
     width: 100%;
     height: 110px;
   }
+  @media (max-width: 1200px) {
+    margin: 0 10px 0 10px;
+  }
 `;
 export const DescriptionArea = styled.div`
   .header {
     display: flex;
     justify-content: space-between;
     input {
-      width: 255px;
+      width: 100%;
     }
   }
   .body {
@@ -39,6 +42,14 @@ export const DescriptionArea = styled.div`
     input {
       width: 100%;
     }
+  }
+  @media (max-width: 1200px) {
+    .header {
+
+    input {
+      width: 90%;
+    }
+  }
   }
 `;
 
@@ -80,8 +91,16 @@ export const TechsDiv = styled.div`
 `;
 
 export const PicturesDiv = styled.div`
-  input {
-    width: 88%;
+  .addInputAndButton{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    input{
+      width: 100%;
+    }
+    label{
+      width: 10%;
+    }
   }
   img {
     width: 60px;

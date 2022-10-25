@@ -24,13 +24,11 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState("")
+  const [date, setDate] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [longDescription, setLongDescription] = useState("");
   const [imgUrl, setImgUrl] = useState("");
-  const [images, setImages] = useState([
-    "https://i.ibb.co/6Zsrcrv/def.png",
-  ]);
+  const [images, setImages] = useState(["https://i.ibb.co/6Zsrcrv/def.png"]);
 
   const handleAdd = () => {
     if (user.admin) {
@@ -40,7 +38,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
         longDescription: longDescription,
         images: images,
         technologies: techsChoice,
-        date: date
+        date: date,
       });
       // window.location.reload(false);
     } else {
@@ -90,7 +88,9 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
 
   const deleteImgUrl = (img) => {
     if (images.length === 1) {
-      setImgMsg("Não foi possível excluir a imagem, o projeto precisa ter pelo menos uma foto.");
+      setImgMsg(
+        "Não foi possível excluir a imagem, o projeto precisa ter pelo menos uma foto."
+      );
     } else {
       setImages(images.filter((item, index) => index !== images.indexOf(img)));
       setImgMsg("");
@@ -110,23 +110,31 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
       size="lg"
     >
       <Container>
-      <Form onSubmit={handleAdd}>
-        <Modal.Header closeButton>
-          <Modal.Title>Criar novo projeto</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          
+        <Form onSubmit={handleAdd}>
+          <Modal.Header closeButton>
+            <Modal.Title>Criar novo projeto</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
             <DescriptionArea>
               <div className="header">
                 <p className="bigger">
                   <label>Título:</label>
                   <br />
-                  <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" placeholder="Digite o título do projeto" />
+                  <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    type="text"
+                    placeholder="Digite o título do projeto"
+                  />
                 </p>
                 <p>
                   <label>Data de criação:</label>
                   <br />
-                  <input type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
+                  <input
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                  />
                 </p>
               </div>
               <div className="body">
@@ -135,7 +143,8 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                   <textarea
                     className="short"
                     placeholder="Descrição resumida de, no máximo, 60 caracteres"
-                    value={shortDescription} onChange={(e) => setShortDescription(e.target.value)}
+                    value={shortDescription}
+                    onChange={(e) => setShortDescription(e.target.value)}
                   />
                 </p>
 
@@ -169,7 +178,8 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                   <textarea
                     className="complete"
                     placeholder="Descrição completa do projeto"
-                    value={longDescription} onChange={(e) => setLongDescription(e.target.value)}
+                    value={longDescription}
+                    onChange={(e) => setLongDescription(e.target.value)}
                   />
                 </p>
               </div>
@@ -181,19 +191,21 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
               ) : null}
               <label>Insira até 6 imagens:</label>
               <br />
-              <input
-                type="text"
-                value={imgUrl}
-                placeholder="Ex: https://images.pexels.com/photos/4709289"
-                onChange={(e) => setImgUrl(e.target.value)}
-              />
-              <label onClick={() => addImgUrl()}>Adicionar</label>
+              <div className="addInputAndButton">
+                <input
+                  type="text"
+                  value={imgUrl}
+                  placeholder="Ex: https://images.pexels.com/photos/4709289"
+                  onChange={(e) => setImgUrl(e.target.value)}
+                />
+                <label onClick={() => addImgUrl()}>Adicionar</label>
+              </div>
               <div className="smallImgsDiv">
                 {images.map((img) => {
                   return (
                     <div key={img} className="smallImgs">
                       <Modal show={bigImg} size="xl">
-                        <ModalImg src={imgUrlBig}/>
+                        <ModalImg src={imgUrlBig} />
                         <Modal.Footer>
                           <Button
                             variant="secondary"
@@ -203,7 +215,10 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                           </Button>
                           <Button
                             variant="danger"
-                            onClick={() => {setBigImg(false); deleteImgUrl(imgUrlBig)}}
+                            onClick={() => {
+                              setBigImg(false);
+                              deleteImgUrl(imgUrlBig);
+                            }}
                           >
                             Excluir
                           </Button>
@@ -230,14 +245,15 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                 })}
               </div>
             </PicturesDiv>
-          
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="danger" onClick={() => setShow(false)}>
-            Cancelar
-          </Button>
-          <Button variant="success" type="submit">Criar projeto</Button>
-        </Modal.Footer>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="danger" onClick={() => setShow(false)}>
+              Cancelar
+            </Button>
+            <Button variant="success" type="submit">
+              Criar projeto
+            </Button>
+          </Modal.Footer>
         </Form>
       </Container>
     </Modal>

@@ -101,12 +101,12 @@ const UpdateItem = ({
       <Container>
         <Form onSubmit={handleEdit}>
           <Modal.Header closeButton>
-            <Modal.Title>Editar projeto {title}</Modal.Title>
+            <Modal.Title>Editar projeto</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <DescriptionArea>
               <div className="header">
-                <p className="bigger">
+                <div className="bigger">
                   <label>Título:</label>
                   <br />
                   <input
@@ -115,8 +115,8 @@ const UpdateItem = ({
                     type="text"
                     placeholder="Digite o título do projeto"
                   />
-                </p>
-                <h5>Data de criação: {moment(date).format("DD/MM/YYYY")}</h5>
+                </div>
+                <p className="dateAdd">Data de criação: {moment(date).format("DD/MM/YYYY")}</p>
               </div>
               <div className="body">
                 <p>
@@ -172,6 +172,7 @@ const UpdateItem = ({
               ) : null}
               <label>Insira até 6 imagens:</label>
               <br />
+              <div className="addInputAndButton">
               <input
                 type="text"
                 value={imgUrl}
@@ -179,6 +180,7 @@ const UpdateItem = ({
                 onChange={(e) => setImgUrl(e.target.value)}
               />
               <label onClick={() => addImgUrl()}>Adicionar</label>
+              </div>
               <div className="smallImgsDiv">
                 {images.map((img) => {
                   return (

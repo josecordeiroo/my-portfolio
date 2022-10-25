@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  input {
+    color: gray;
+  }
+  textarea {
+    color: gray;
+  }
+`;
 
 export const Form = styled.form`
   margin: 0 40px 0 40px;
@@ -20,24 +27,38 @@ export const Form = styled.form`
     width: 100%;
     height: 110px;
   }
+  @media (max-width: 1200px) {
+    margin: 0 10px 0 10px;
+  }
 `;
 export const DescriptionArea = styled.div`
   .header {
-    display: flex;
-    justify-content: space-between;
-    input {
-      width: 255px;
-    }
-  }
-  .body {
-    p {
-      color: black;
-    }
-  }
-  .bigger {
-    width: 420px;
     input {
       width: 100%;
+    }
+  }
+  .dateAdd {
+    color: black;
+    padding-top: 10px;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .bigger {
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .bigger {
+      input {
+        width: 100%;
+      }
+    }
+    .dateAdd {
+      font-size: 10px;
     }
   }
 `;
@@ -79,12 +100,23 @@ export const TechsDiv = styled.div`
 `;
 
 export const PicturesDiv = styled.div`
+  .addInputAndButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    input {
+      width: 100%;
+    }
+    label {
+      width: 10%;
+    }
+  }
   input {
     width: 88%;
   }
   img {
-    width: 60px;
-    height: 40px;
+    width: 100px;
+    height: 80px;
     margin-top: 20px;
     cursor: pointer;
   }
@@ -104,8 +136,8 @@ export const PicturesDiv = styled.div`
   .secondButton {
     margin-top: 5px;
   }
-`
+`;
 
 export const ModalImg = styled.img`
   width: 100%;
-`
+`;
