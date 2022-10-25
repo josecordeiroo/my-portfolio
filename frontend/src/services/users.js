@@ -2,7 +2,7 @@ import Api from "./api";
 
 const UsersService = {
   index: (params) =>
-    Api.get("/users", params, {
+    Api.get(`/users/${params}`, {
       headers: { "x-access-token": localStorage.getItem("token") },
     }),
   register: (params) => Api.post("/users/register", params),

@@ -6,12 +6,13 @@ import { Modal, Button } from "react-bootstrap";
 import { Container, Nav, ProjectsDiv, Project, Buttons } from "./styles";
 
 import ProjectsService from "../../services/projects";
+import UsersService from "../../services/users";
 
 import CreateItem from "../adminModals/createItem";
 import UpdateItem from "../adminModals/updateItem";
 
 const PortfolioList = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState({})
   const [projects, setProjects] = useState([]); //catch projects in db
   const [noAdmin, setNoAdmin] = useState(false); //to set "admin required" modal
 
@@ -24,11 +25,11 @@ const PortfolioList = () => {
   const [longDescription, setLongDescription] = useState("");
   const [images, setImages] = useState([]);
   const [techsChoice, setTechsChoice] = useState([]);
-  const [slug, setSlug] = useState("");
+  const [id, setId] = useState("");
 
   const handleEdit = () => {
     if (user.admin) {
-      ProjectsService.editItem(slug, {
+      ProjectsService.editItem(id, {
         title: title,
         shortDescription: shortDescription,
         longDescription: longDescription,
@@ -49,18 +50,12 @@ const PortfolioList = () => {
     setLongDescription(project.longDescription);
     setImages(project.images);
     setTechsChoice(project.technologies);
-    setSlug(project.slug);
+    setId(project._id);
   };
 
-  async function fetchProjects() {
-    await ProjectsService.index().then((data) => {
-      setProjects(data.data.reverse());
-    });
-  }
-
-  const handleDel = (slug) => {
+  const handleDel = (id) => {
     if (user.admin) {
-      ProjectsService.deleteItem(slug);
+      ProjectsService.deleteItem(id);
       window.location.reload(false);
     } else {
       setNoAdmin(true);
@@ -69,7 +64,19 @@ const PortfolioList = () => {
 
   const [delShow, setDelShow] = useState(false);
 
+  async function fetchProjects() {
+    await ProjectsService.index().then((data) => {
+      setProjects(data.data.reverse());
+    });
+  }
+
+  const findUser = async () => {
+    const response = await UsersService.index(localStorage.getItem("user"));
+    setUser(response.data);
+  };
+
   useEffect(() => {
+    findUser();
     fetchProjects();
   }, []);
 
@@ -109,7 +116,7 @@ const PortfolioList = () => {
           <Modal.Body>Esta ação nao poderá ser desfeita.</Modal.Body>
           <Modal.Footer>
             <Button onClick={() => setDelShow(false)}>Cancelar</Button>
-            <Button onClick={() => handleDel(slug)} variant="danger">
+            <Button onClick={() => handleDel(id)} variant="danger">
               Excluir
             </Button>
           </Modal.Footer>
@@ -153,7 +160,7 @@ const PortfolioList = () => {
                   </div>{" "}
                   <div className="delButton"
                     onClick={() => {
-                      setSlug(project.slug);
+                      setId(project._id);
                       setTitle(project.title);
                       setDelShow(true);
                     }}

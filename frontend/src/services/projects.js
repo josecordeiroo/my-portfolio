@@ -2,7 +2,7 @@ import Api from "./api";
 
 const ProjectsService = {
   index: () => Api.get("/portfolio"),
-  findOne: (slug) => Api.get(`/portfolio/${slug}`),
+  findOne: (id) => Api.get(`/portfolio/${id}`),
   addItem: (project) => {
     Api.post(`/portfolio`, project, {
       headers: { "x-access-token": localStorage.getItem("token") },
@@ -14,8 +14,8 @@ const ProjectsService = {
         console.log(err);
       });
   },
-  editItem: (slug, project) => {
-    Api.patch(`/portfolio/${slug}`, project, {
+  editItem: (id, project) => {
+    Api.patch(`/portfolio/${id}`, project, {
       headers: { "x-access-token": localStorage.getItem("token") },
     })
       .then((res) => {
@@ -25,8 +25,8 @@ const ProjectsService = {
         console.log(err);
       });
   },
-  deleteItem: (slug) => {
-    Api.delete(`/portfolio/${slug}`, {
+  deleteItem: (id) => {
+    Api.delete(`/portfolio/${id}`, {
       headers: { "x-access-token": localStorage.getItem("token") },
     })
       .then((res) => {

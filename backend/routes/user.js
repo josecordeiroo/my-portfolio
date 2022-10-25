@@ -34,7 +34,7 @@ router.post("/login", async (req, res) => {
           res.status(401).json({ error: "Incorrect email or password" });
         } else {
           const token = jwt.sign({ email }, secret, { expiresIn: "1d" });
-          res.json({ user: JSON.stringify(user), token: token });
+          res.json({ user: user._id, token: token });
         }
       });
     }
@@ -95,7 +95,7 @@ router.delete("/delete/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get("/", withAuth, async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     let user = await User.findById({ _id: req.params.id });
     res.json(user);

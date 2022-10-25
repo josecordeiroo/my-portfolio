@@ -29,10 +29,10 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 // Read One
-router.get("/:slug", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const portfolio = await Portfolio.findOne({
-      slug: req.params.slug,
+      _id: req.params.id,
     });
 
     res.json({
@@ -61,11 +61,11 @@ router.get("/", async (req, res) => {
 });
 
 // Update
-router.patch("/:slug", withAuth, async (req, res) => {
+router.patch("/:id", withAuth, async (req, res) => {
   try {
     const updatedPortfolio = await Portfolio.updateOne(
       {
-        slug: req.params.slug,
+        _id: req.params.id,
       },
       {
         title: req.body.title,
@@ -89,10 +89,10 @@ router.patch("/:slug", withAuth, async (req, res) => {
 });
 
 // Delete
-router.delete("/:slug", withAuth, async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const name = await Portfolio.findOne({ slug: req.params.slug });
-    await Portfolio.deleteOne({ slug: req.params.slug });
+    const name = await Portfolio.findOne({ _id: req.params.id });
+    await Portfolio.deleteOne({ _id: req.params.id});
 
     res.json({
       success: true,

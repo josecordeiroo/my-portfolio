@@ -22,14 +22,6 @@ const Admin = ({ location, language }) => {
     );
   }
 
-  const user = JSON.parse(localStorage.getItem("user"));
-  const userName = user.name;
-  const nameCap = userName.split(" ");
-
-  for (let i = 0; i < nameCap.length; i++) {
-    nameCap[i] = nameCap[i][0].toUpperCase() + nameCap[i].substr(1);
-  }
-
   return (
     <Container1>
       <NavAdmin/>

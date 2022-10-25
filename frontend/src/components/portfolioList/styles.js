@@ -36,9 +36,6 @@ export const ProjectsDiv = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
   height: 550px;
-  ::-webkit-scrollbar {
-    display: none;
-  }
   @media only screen and (max-width: 1200px) {
     width: 98%;
     margin: 10px;

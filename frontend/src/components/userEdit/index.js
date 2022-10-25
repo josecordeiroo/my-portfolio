@@ -7,13 +7,10 @@ import UsersService from "../../services/users";
 
 import ChangePassword from "../changePassword";
 
-const UserEdit = ({ show, setShow, user }) => {
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
+const UserEdit = ({ name, setName, email, setEmail, show, setShow, user }) => {
   const [modalPassword, setModalPassword] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false)
   const id = user._id;
-  const userLocal = JSON.parse(localStorage.getItem("user"));
 
   const handlerUpdate = (e) => {
     e.preventDefault();
@@ -23,11 +20,9 @@ const UserEdit = ({ show, setShow, user }) => {
       name: name,
       email: email,
     };
+
     try {
       UsersService.updateUser(updateUser);
-      userLocal.name = name;
-      userLocal.email = email;
-      localStorage.setItem("user", JSON.stringify(userLocal));
       setShow(false);
       window.location.reload(false);
     } catch (error) {

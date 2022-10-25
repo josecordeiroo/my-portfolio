@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Button, Modal } from "react-bootstrap";
 
 import ProjectsService from "../../../services/projects";
+import UsersService from "../../../services/users";
 
 import { handleBrands } from "../../../hooks/myIcons";
 
@@ -21,7 +22,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState({})
 
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
@@ -100,6 +101,15 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
 
   const [bigImg, setBigImg] = useState(false);
   const [imgUrlBig, setImgUrlBig] = useState("");
+
+  const findUser = async () => {
+    const response = await UsersService.index(localStorage.getItem("user"));
+    setUser(response.data);
+  };
+
+  useEffect(() => {
+    findUser();
+  }, []);
 
   return (
     <Modal
