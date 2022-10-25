@@ -4,18 +4,14 @@ import React, {useState} from "react";
 import GlobalStyle from "./styles/GlobalStyle";
 
 //Routes
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 //Components
 import AboutMe from "./pages/AboutMe";
-import Portfolio from "./pages/Portfolio";
-import ContactMe from "./pages/ContactMe";
-import NavOptions from "./components/nav";
 import Admin from "./pages/admin";
 import Login from "./pages/Auth/login";
 import Register from "./pages/Auth/register";
-import ServiceSection from "./components/serviceSection";
-import Footer from "./components/footer";
+
 
 import ParticlesBackground from "./components/particles";
 
@@ -60,8 +56,6 @@ library.add(
 );
 
 function App() {
-  const location = useLocation();
-
   const [language, setLanguage] = useState(true)
 
   return (
@@ -70,10 +64,6 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<AboutMe language={language} setLanguage={setLanguage} />} />
-        {/* <Route path="/dev" element={<ServiceSection />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/portfolio/:slug" element={<Portfolio />} />
-        <Route path="/contact" element={<ContactMe />} /> */}
         <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

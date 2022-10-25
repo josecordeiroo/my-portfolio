@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 import {
   About,
@@ -28,7 +27,6 @@ import myPicture from "../../assets/me2.png";
 
 const AboutSection = ({ language }) => {
   const [element, controls] = useScroll();
-  const history = useNavigate();
 
   return (
     <Container>

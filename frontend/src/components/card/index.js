@@ -19,9 +19,9 @@ const Card = ({ project, setShow, setProject}) => {
             <div className="icons">
               <p>Tecnologias</p>
               <div className="iconsTech">
-                {handleBrands(project.technologies).map((tech) => {
+                {handleBrands(project.technologies).map((tech, index) => {
                   return (
-                    <p>
+                    <p key={index}>
                       <FontAwesomeIcon icon={[tech.iconType, tech.icon]} size="2x" />
                     </p>
                   );

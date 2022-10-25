@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import moment from "moment";
 import "moment/locale/pt-br";
@@ -17,8 +17,6 @@ import {
   FullDescription,
   Pictures,
 } from "./styles.js";
-
-import CarouselDetails from "../carouselDetails/index.js";
 
 //Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -47,9 +45,9 @@ const PortfolioDetail = ({ project, setShow }) => {
           <h5>Tecnologias usadas</h5>
 
           <Technologies>
-            {handleBrands(project.technologies).map((tech) => {
+            {handleBrands(project.technologies).map((tech, index) => {
               return (
-                <Technology key={tech.label}>
+                <Technology key={index}>
                   <FontAwesomeIcon
                     icon={[tech.iconType, tech.icon]}
                     size="2x"
@@ -82,7 +80,7 @@ const PortfolioDetail = ({ project, setShow }) => {
       <Pictures>
         <h5>Capturas de Tela</h5>
         <PicturesDiv>
-          <img
+          <img alt=""
             onClick={() => {
               setBigImg(currentImg);
               setShowImageModal(true);

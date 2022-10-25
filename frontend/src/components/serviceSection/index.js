@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import { useNavigate } from "react-router-dom";
 
 import PortfolioMob from "../portfolioMob";
 
@@ -11,7 +10,6 @@ import {
   Card,
   Description,
   MyCarousel,
-  DescriptionCarousel,
 } from "./styles";
 
 //Icons
@@ -26,11 +24,6 @@ import ProjectsService from "../../services/projects";
 
 const ServiceSection = ({ language }) => {
   const [element, controls] = useScroll();
-  const history = useNavigate();
-
-  const redirectHandler = () => {
-    history("/portfolio");
-  };
 
   const [projects, setProjects] = useState({});
 

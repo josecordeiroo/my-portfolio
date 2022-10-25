@@ -2,8 +2,6 @@ import React from "react";
 
 import styled from "styled-components";
 
-//Components
-import SocialNetworkSection from "../components/socialNetworkSection";
 import ContactForm from "../components/contactForm";
 
 //Animations
@@ -20,7 +18,7 @@ import devs from "../assets/devs.webp";
 const ContactMe = ({ language }) => {
   const [element, controls] = useScroll();
   return (
-    <Test>
+    <Container id="contact">
       <Contact>
         <motion.div
           variants={scrollReveal}
@@ -36,7 +34,7 @@ const ContactMe = ({ language }) => {
             </Title>
             <Areas>
               <ContactForm language={language} />
-              <img src={devs} />
+              <img alt="" src={devs} />
             </Areas>
           </ContactStyled>
         </motion.div>
@@ -49,11 +47,11 @@ const ContactMe = ({ language }) => {
         <ContactForm language={language} />
       </ContactMob>
       <Footer language={language} />
-    </Test>
+    </Container>
   );
 };
 
-const Test = styled.div`
+const Container = styled.div`
   z-index: 1;
   position: sticky;
 `

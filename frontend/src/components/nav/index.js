@@ -11,24 +11,24 @@ const NavBar = ({ language, setLanguage }) => {
     <Container>
       <StyledNav>
         <div className="medias">
-          <a target="_blank" href="https://www.instagram.com/zecaxcr/">
-            <img src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo.png" />
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/zecaxcr/">
+            <img alt="" src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo.png" />
           </a>
-          <a target="_blank" href="https://twitter.com/zecaxcr">
-            <img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png" />
+          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zecaxcr">
+            <img alt="" src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png" />
           </a>
-          <a target="_blank" href="https://github.com/josecordeiroo">
-            <img src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png" />
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/josecordeiroo">
+            <img alt="" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png" />
           </a>
-          <a target="_blank" href="https://www.linkedin.com/in/josecordeiroo/">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
+          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/josecordeiroo/">
+            <img alt="" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
           </a>
           <a
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             className="wpp"
             href="https://api.whatsapp.com/send?phone=5511984550603&text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20tenho%20uma%20d%C3%BAvida!"
           >
-            <img src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-png-0.png" />
+            <img alt="" src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-png-0.png" />
             11 91233-9964
           </a>
         </div>
@@ -66,7 +66,7 @@ const NavBar = ({ language, setLanguage }) => {
             className="pt"
             style={{ color: language ? "#23d997" : "" }}
           >
-            <img src={br} />
+            <img alt="" src={br} />
             Português
           </div>
           <div
@@ -74,7 +74,7 @@ const NavBar = ({ language, setLanguage }) => {
             className="us"
             style={{ color: !language ? "#23d997" : "" }}
           >
-            <img src={eua} />
+            <img alt="" src={eua} />
             English
           </div>
         </div>
@@ -83,7 +83,7 @@ const NavBar = ({ language, setLanguage }) => {
       <div>
         <NavMobile>
           <div className="leftNav">
-            <img
+            <img alt=""
               onClick={() => setOpen(!open)}
               src="https://www.clipartmax.com/png/full/36-365828_navbar-toggle-icon-menu-hamburger-png-white.png"
             />
@@ -95,7 +95,7 @@ const NavBar = ({ language, setLanguage }) => {
                 className="pt"
                 style={{ color: language ? "#23d997" : "" }}
               >
-                <img src={br} />
+                <img alt="" src={br} />
                 Português
               </div>
               <div
@@ -103,32 +103,32 @@ const NavBar = ({ language, setLanguage }) => {
                 className="us"
                 style={{ color: !language ? "#23d997" : "" }}
               >
-                <img src={eua} />
+                <img alt="" src={eua} />
                 English
               </div>
             </div>
             <div className="medias">
-              <a target="_blank" href="https://www.instagram.com/zecaxcr/">
-                <img src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo.png" />
+              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/zecaxcr/">
+                <img alt="" src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo.png" />
               </a>
-              <a target="_blank" href="https://twitter.com/zecaxcr">
-                <img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png" />
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zecaxcr">
+                <img alt="" src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png" />
               </a>
-              <a target="_blank" href="https://github.com/josecordeiroo">
-                <img src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png" />
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/josecordeiroo">
+                <img alt="" src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png" />
               </a>
               <a
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/josecordeiroo/"
               >
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
+                <img alt="" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
               </a>
               <a
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 className="wpp"
                 href="https://api.whatsapp.com/send?phone=5511984550603&text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20tenho%20uma%20d%C3%BAvida!"
               >
-                <img src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-png-0.png" />
+                <img alt="" src="https://logodownload.org/wp-content/uploads/2015/04/whatsapp-logo-png-0.png" />
                 11 91233-9964
               </a>
             </div>

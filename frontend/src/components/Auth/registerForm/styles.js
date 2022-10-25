@@ -8,7 +8,6 @@ export const Container = styled(motion.div)`
   }
 `;
 
-
 export const LoginText = styled.div`
   color: green;
   font-weight: lighter;
@@ -62,20 +61,22 @@ export const ShowPasswordText = styled.p`
 export const Terms = styled.span`
   cursor: pointer;
   font-weight: bold;
-`
+  color: #0000ee;
+`;
 
 export const DivTerms = styled.div`
-text-align: center;
-display: flex;
-margin-top: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  p {
+    font-size: 13px;
+    margin-left: 7px;
+  }
   span {
-    
   }
   input {
+    margin-bottom: 17px;
   }
-  .test {
-    margin-bottom: 11px;
-    margin-right: 5px;
-    margin-left: 15px;
-  }
-`
+  
+`;

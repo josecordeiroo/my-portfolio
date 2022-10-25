@@ -7,6 +7,9 @@ export const Container = styled(motion.div)`
     color: black;
     font-weight: bold;
   }
+  @media (max-width: 1200px) {
+    
+  }
 `;
 
 export const RegisterText = styled.div`

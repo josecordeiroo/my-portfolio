@@ -6,15 +6,15 @@ export const handleBrands = (techs) => {
         newTech.push({
           label: "React",
           icon: "fa-react",
-          iconType: "brands"
+          iconType: "brands",
         });
         break;
 
-        case "Python":
+      case "Python":
         newTech.push({
           label: "Python",
           icon: "fa-python",
-          iconType: "brands"
+          iconType: "brands",
         });
         break;
 
@@ -22,7 +22,7 @@ export const handleBrands = (techs) => {
         newTech.push({
           label: "React Native",
           icon: "fa-react",
-          iconType: "brands"
+          iconType: "brands",
         });
         break;
 
@@ -30,7 +30,7 @@ export const handleBrands = (techs) => {
         newTech.push({
           label: "Node.JS",
           icon: "fa-node",
-          iconType: "brands"
+          iconType: "brands",
         });
         break;
 
@@ -38,7 +38,7 @@ export const handleBrands = (techs) => {
         newTech.push({
           label: "Javascript",
           icon: "fa-js",
-          iconType: "brands"
+          iconType: "brands",
         });
         break;
 
@@ -46,50 +46,52 @@ export const handleBrands = (techs) => {
         newTech.push({
           label: "GitHub",
           icon: "fa-github",
-          iconType: "brands"
+          iconType: "brands",
         });
         break;
 
-        case "Bootstrap":
+      case "Bootstrap":
         newTech.push({
           label: "Bootstrap",
           icon: "fa-bootstrap",
-          iconType: "brands"
+          iconType: "brands",
         });
         break;
 
-        case "FontAwesome":
+      case "FontAwesome":
         newTech.push({
           label: "FontAwesome",
           icon: "fa-font-awesome",
-          iconType: "brands"
+          iconType: "brands",
         });
         break;
 
-        case "MongoDB":
+      case "MongoDB":
         newTech.push({
           label: "MongoDB",
           icon: "fa-database",
-          iconType: "solid"
+          iconType: "solid",
         });
         break;
 
-        case "MySql":
+      case "MySql":
         newTech.push({
           label: "MySql",
           icon: "fa-database",
-          iconType: "solid"
+          iconType: "solid",
         });
         break;
 
-        case "Firebase":
+      case "Firebase":
         newTech.push({
           label: "Firebase",
           icon: "fa-database",
-          iconType: "solid"
+          iconType: "solid",
         });
         break;
+      default:
     }
+    return "";
   });
   return newTech;
 };

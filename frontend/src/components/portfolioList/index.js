@@ -53,7 +53,7 @@ const PortfolioList = () => {
   };
 
   async function fetchProjects() {
-    const response = await ProjectsService.index().then((data) => {
+    await ProjectsService.index().then((data) => {
       setProjects(data.data.reverse());
     });
   }
@@ -131,7 +131,7 @@ const PortfolioList = () => {
             return (
               <Project key={project.slug}>
                 <div className="divLeft">
-                  <img style={{ width: "150px" }} src={project.images[0]} />
+                  <img alt="" style={{ width: "150px" }} src={project.images[0]} />
                   <p>
                     {project.title}
                     <br />

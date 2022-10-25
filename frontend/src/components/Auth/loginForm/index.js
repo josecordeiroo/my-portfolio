@@ -10,8 +10,6 @@ import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { scrollReveal } from "../../../animation";
 import { useScroll } from "../../../hooks/useScroll";
 
-import NavAdmin from "../../navAdmin";
-
 import {
   Title,
   Field,

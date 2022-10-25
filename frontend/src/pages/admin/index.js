@@ -9,7 +9,6 @@ import { Navigate } from "react-router-dom";
 import UserPage from "../../components/userPage";
 
 import NavAdmin from "../../components/navAdmin";
-import NavBar from "../../components/nav";
 
 const Admin = ({ location, language }) => {
   if (!localStorage.getItem("user")) {

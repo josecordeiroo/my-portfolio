@@ -8,15 +8,6 @@ import ProjectsService from "../services/projects";
 
 import { Modal } from "react-bootstrap";
 
-//Animations
-import { motion } from "framer-motion/dist/framer-motion";
-import {
-  titleAnimation,
-  fade,
-  photoAnimation,
-  scrollReveal,
-} from "../animation";
-import { useScroll } from "../hooks/useScroll";
 import PortfolioDetail from "../components/portfolioDetail";
 
 const Portfolio = ({ language }) => {
@@ -52,10 +43,10 @@ const Portfolio = ({ language }) => {
       <PortfolioList>
         <CardList>
           {projects ? (
-            projects.map((project) => {
+            projects.map((project, index) => {
               return (
                 <Card
-                  key={project.slug}
+                  key={index}
                   setShow={setShow}
                   setProject={setProject}
                   project={project}
