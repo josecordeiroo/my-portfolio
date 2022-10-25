@@ -1,7 +1,7 @@
 const router = require('express').Router()
 require('../db/mongoConnection')
 
-const portfolio = require('./portfolio')
+const project = require('./project')
 const user = require('./user')
 
 router.get('/', (req, res) => {
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.use('/portfolio', portfolio)
+router.use('/project', project)
 router.use('/users', user)
 
 module.exports = router

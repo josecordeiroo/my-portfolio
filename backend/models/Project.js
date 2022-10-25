@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const portfolioSchema = new Schema({
+const projectSchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
   },
   shortDescription: {
     type: String,
@@ -21,6 +20,10 @@ const portfolioSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+  gitHubLink: {
+    type: String,
+    required: true,
+  }
 });
 
-module.exports = mongoose.model("portfolio", portfolioSchema);
+module.exports = mongoose.model("project", projectSchema);

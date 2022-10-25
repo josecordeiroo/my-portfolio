@@ -1,10 +1,10 @@
 import Api from "./api";
 
 const ProjectsService = {
-  index: () => Api.get("/portfolio"),
-  findOne: (id) => Api.get(`/portfolio/${id}`),
+  index: () => Api.get("/project"),
+  findOne: (id) => Api.get(`/project/${id}`),
   addItem: (project) => {
-    Api.post(`/portfolio`, project, {
+    Api.post(`/project`, project, {
       headers: { "x-access-token": localStorage.getItem("token") },
     })
       .then((res) => {
@@ -15,7 +15,7 @@ const ProjectsService = {
       });
   },
   editItem: (id, project) => {
-    Api.patch(`/portfolio/${id}`, project, {
+    Api.patch(`/project/${id}`, project, {
       headers: { "x-access-token": localStorage.getItem("token") },
     })
       .then((res) => {
@@ -26,7 +26,7 @@ const ProjectsService = {
       });
   },
   deleteItem: (id) => {
-    Api.delete(`/portfolio/${id}`, {
+    Api.delete(`/project/${id}`, {
       headers: { "x-access-token": localStorage.getItem("token") },
     })
       .then((res) => {

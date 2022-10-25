@@ -22,12 +22,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
 
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [longDescription, setLongDescription] = useState("");
+  const [gitHubLink, setGitHubLink] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [images, setImages] = useState(["https://i.ibb.co/6Zsrcrv/def.png"]);
 
@@ -40,6 +41,7 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
         images: images,
         technologies: techsChoice,
         date: date,
+        gitHubLink: gitHubLink,
       });
       // window.location.reload(false);
     } else {
@@ -182,7 +184,16 @@ const CreateItem = ({ show, setShow, noAdmin, setNoAdmin }) => {
                     })}
                   </Technologies>
                 </TechsDiv>
-
+                <label>Link do repositório no GitHub:</label>
+                <br />
+                <p>
+                  <input
+                    value={gitHubLink}
+                    onChange={(e) => setGitHubLink(e.target.value)}
+                    type="text"
+                    placeholder="Ex: https://github.com/josecordeiroo/my-portfolio"
+                  />
+                </p>
                 <p>
                   <label>Descrição completa:</label>
                   <textarea

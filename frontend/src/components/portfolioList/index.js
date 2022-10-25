@@ -23,6 +23,7 @@ const PortfolioList = () => {
   const [date, setDate] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [longDescription, setLongDescription] = useState("");
+  const [gitHubLink, setGitHubLink] = useState("");
   const [images, setImages] = useState([]);
   const [techsChoice, setTechsChoice] = useState([]);
   const [id, setId] = useState("");
@@ -35,6 +36,7 @@ const PortfolioList = () => {
         longDescription: longDescription,
         images: images,
         technologies: techsChoice,
+        gitHubLink: gitHubLink
       });
       //window.location.reload(false);
     } else {
@@ -50,6 +52,7 @@ const PortfolioList = () => {
     setLongDescription(project.longDescription);
     setImages(project.images);
     setTechsChoice(project.technologies);
+    setGitHubLink(project.gitHubLink)
     setId(project._id);
   };
 
@@ -100,6 +103,8 @@ const PortfolioList = () => {
           setShortDescription={setShortDescription}
           longDescription={longDescription}
           setLongDescription={setLongDescription}
+          gitHubLink={gitHubLink}
+          setGitHubLink={setGitHubLink}
           images={images}
           setImages={setImages}
           techsChoice={techsChoice}
@@ -134,9 +139,9 @@ const PortfolioList = () => {
 
       <ProjectsDiv>
         {projects &&
-          projects.map((project) => {
+          projects.map((project, index) => {
             return (
-              <Project key={project.slug}>
+              <Project key={index}>
                 <div className="divLeft">
                   <img alt="" style={{ width: "150px" }} src={project.images[0]} />
                   <p>

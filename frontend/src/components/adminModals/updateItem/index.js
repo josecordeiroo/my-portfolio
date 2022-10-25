@@ -25,6 +25,8 @@ const UpdateItem = ({
   setTitle,
   date,
   setDate,
+  gitHubLink,
+  setGitHubLink,
   shortDescription,
   setShortDescription,
   longDescription,
@@ -153,7 +155,16 @@ const UpdateItem = ({
                     })}
                   </Technologies>
                 </TechsDiv>
-
+                <label>Link do repositório no GitHub:</label>
+                <br />
+                <p>
+                  <input
+                    value={gitHubLink}
+                    onChange={(e) => setGitHubLink(e.target.value)}
+                    type="text"
+                    placeholder="Ex: https://github.com/josecordeiroo/my-portfolio"
+                  />
+                </p>
                 <p>
                   <label>Descrição completa:</label>
                   <textarea

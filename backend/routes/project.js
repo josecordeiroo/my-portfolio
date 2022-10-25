@@ -1,24 +1,25 @@
 const router = require("express").Router();
-const Portfolio = require("../models/Portfolio");
+const Project = require("../models/Project");
 
 const withAuth = require("../middlewares/auth");
 
 // Create
 router.post("/", withAuth, async (req, res) => {
-  const portfolio = new Portfolio({
+  const project = new Project({
     title: req.body.title,
     shortDescription: req.body.shortDescription,
     longDescription: req.body.longDescription,
     images: req.body.images,
     technologies: req.body.technologies,
     createdAt: req.body.date,
+    gitHubLink: req.body.gitHubLink
   });
 
   try {
-    const savedPortfolio = await portfolio.save();
+    const savedProject = await project.save();
     res.json({
       success: true,
-      data: savedPortfolio,
+      data: savedProject,
     });
   } catch (err) {
     res.json({
@@ -31,13 +32,13 @@ router.post("/", withAuth, async (req, res) => {
 // Read One
 router.get("/:id", async (req, res) => {
   try {
-    const portfolio = await Portfolio.findOne({
+    const project = await Project.findOne({
       _id: req.params.id,
     });
 
     res.json({
       success: true,
-      data: portfolio,
+      data: project,
     });
   } catch (err) {
     res.json({
@@ -50,8 +51,8 @@ router.get("/:id", async (req, res) => {
 // Read all
 router.get("/", async (req, res) => {
   try {
-    const portfolio = await Portfolio.find();
-    res.json(portfolio);
+    const project = await Project.find();
+    res.json(project);
   } catch (err) {
     res.json({
       success: false,
@@ -63,7 +64,7 @@ router.get("/", async (req, res) => {
 // Update
 router.patch("/:id", withAuth, async (req, res) => {
   try {
-    const updatedPortfolio = await Portfolio.updateOne(
+    const updatedProject = await Project.updateOne(
       {
         _id: req.params.id,
       },
@@ -72,13 +73,14 @@ router.patch("/:id", withAuth, async (req, res) => {
         shortDescription: req.body.shortDescription,
         longDescription: req.body.longDescription,
         images: req.body.images,
-        technologies: req.body.technologies
+        technologies: req.body.technologies,
+        gitHubLink: req.body.gitHubLink
       }
     );
 
     res.json({
       success: true,
-      updated: updatedPortfolio.modifiedCount,
+      updated: updatedProject.modifiedCount,
     });
   } catch (err) {
     res.json({
@@ -91,8 +93,8 @@ router.patch("/:id", withAuth, async (req, res) => {
 // Delete
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const name = await Portfolio.findOne({ _id: req.params.id });
-    await Portfolio.deleteOne({ _id: req.params.id});
+    const name = await Project.findOne({ _id: req.params.id });
+    await Project.deleteOne({ _id: req.params.id});
 
     res.json({
       success: true,

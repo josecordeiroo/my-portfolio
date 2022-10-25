@@ -49,10 +49,10 @@ const PortfolioMob = ({ language }) => {
       <PortfolioList>
         <CardList>
           {projects ? (
-            projects.map((project) => {
+            projects.map((project, index) => {
               return (
                 <Card
-                  key={project.slug}
+                  key={index}
                   setShow={setShow}
                   setProject={setProject}
                   project={project}

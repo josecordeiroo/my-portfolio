@@ -69,7 +69,7 @@ const PortfolioDetail = ({ project, setShow }) => {
         <p className="git">
           {" "}
           <a
-            href={`https://github.com/josecordeiroo/${project.slug}`}
+            href={`${project.gitLink}`}
             target="_blank"
             rel="noopener noreferrer"
           >

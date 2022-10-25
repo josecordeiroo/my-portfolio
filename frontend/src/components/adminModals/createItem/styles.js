@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  input{
+    width: 100%;
+  }
+`;
 
 export const Form = styled.form`
   margin: 0 40px 0 40px;
