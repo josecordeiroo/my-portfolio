@@ -96,7 +96,8 @@ export const StyledNav = styled.nav`
 `;
 
 export const NavMobile = styled.div`
-  @media only screen and (max-width: 500px) {
+  display: none;
+  @media only screen and (max-width: 1200px) {
     height: 90px;
     width: 100%;
     display: flex;
@@ -184,99 +185,6 @@ export const NavMobile = styled.div`
         cursor: pointer;
       }
     }
-  }
-  @media only screen and (min-width: 500px) {
-    height: 90px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    color: white;
-    box-shadow: 5px 1px 20px 1px black;
-
-    ul {
-      display: flex;
-      list-style: none;
-    }
-    li {
-      padding-right: 3rem;
-      padding-top: 1rem;
-      font-size: 20px;
-    }
-    a {
-      font-size: 20px;
-      text-decoration: none;
-      color: white;
-      transition: 1s;
-    }
-    a:hover {
-      color: #23d997;
-      transition: 0.3s;
-    }
-    .home {
-      font-size: 50px;
-    }
-  }
-
-  .leftNav {
-    img {
-      width: 50px;
-      margin-top: 15px;
-      margin-left: 15px;
-    }
-  }
-  .rightNav {
-    width: 70%;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-left: 500px;
-    .medias {
-      margin-top: 10px;
-      display: flex;
-      justify-content: start;
-      a {
-        font-size: 15px;
-        transition: transform 0.2s;
-      }
-      a:hover {
-        img {
-          transition: transform 0.2s;
-          transform: scale(1.3);
-        }
-      }
-      img {
-        width: 15px;
-        margin-right: 5px;
-        padding-bottom: 3px;
-      }
-      .wpp {
-        img {
-          width: 20px;
-        }
-      }
-    }
-    .countrys {
-      padding-left: 15px;
-      display: flex;
-      justify-content: start;
-      img {
-        width: 25px;
-        margin-right: 5px;
-        padding-bottom: 3px;
-      }
-      .pt {
-        margin-right: 15px;
-        font-size: 12px;
-        cursor: pointer;
-      }
-      .us {
-        font-size: 12px;
-        cursor: pointer;
-      }
-    }
-  }
-  @media only screen and (min-width: 1200px) {
-    display: none;
   }
 `;
 

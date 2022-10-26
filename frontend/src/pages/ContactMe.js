@@ -97,6 +97,64 @@ const ContactMe = ({ language }) => {
       </Contact>
 
       <ContactMob>
+        <h2>{language ? "Mídias Sociais" : "Social Medias"}</h2>
+        <div className="rightSide">
+          <div className="medias">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              className="wpp"
+              href="https://api.whatsapp.com/send?phone=5511984550603&text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20tenho%20uma%20d%C3%BAvida!"
+            >
+              <img
+                alt=""
+                src="https://cdn-icons-png.flaticon.com/512/134/134937.png"
+              />
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/josecordeiroo/"
+            >
+              <img
+                alt=""
+                src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+              />
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/josecordeiroo"
+            >
+              <img
+                alt=""
+                src="https://icones.pro/wp-content/uploads/2021/06/symbole-github-violet.png"
+              />
+            </a>
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://twitter.com/zecaxcr"
+            >
+              <img
+                alt=""
+                src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png"
+              />
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.instagram.com/zecaxcr/"
+            >
+              <img
+                alt=""
+                src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo.png"
+              />
+            </a>
+          </div>
+          <img className="pictureDev" alt="" src={devs} />
+        </div>
         <h2>{language ? "Entre em contato" : "Get in touch"}</h2>
         <ContactForm language={language} />
       </ContactMob>
@@ -142,7 +200,6 @@ const Areas = styled.div`
     margin-left: 30px;
   }
   .rightSide {
-    padding-bottom: 200px;
     .medias {
       display: flex;
       justify-content: center;
@@ -187,6 +244,30 @@ const ContactMob = styled.div`
       font-size: 35px;
       text-align: center;
       font-weight: 500;
+    }
+    .pictureDev {
+      width: 300px;
+      height: 250px;
+      margin-bottom: 40px;
+    }
+    .rightSide {
+      margin-top: 40px;
+      text-align: center;
+      .medias {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        a {
+          font-size: 15px;
+          margin-right: 4px;
+          padding: 5px;
+        }
+        img {
+          width: 40px;
+          margin-right: 2px;
+          padding-bottom: 3px;
+        }
+      }
     }
   }
 `;

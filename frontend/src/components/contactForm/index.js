@@ -88,7 +88,7 @@ const ContactForm = ({ language }) => {
         )}
       </Form>
 
-      <FormMob>
+      <FormMob onSubmit={contactMeHandler}>
         <Input>
           <p>{language ? "Nome:" : "Name:"}</p>
           <input

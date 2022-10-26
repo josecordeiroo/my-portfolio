@@ -18,7 +18,6 @@ export const Input = styled.div`
 
   input:focus {
     background-color: #d2ffd8;
-    font-size: 20px;
   }
 
   textarea {
@@ -30,7 +29,6 @@ export const Input = styled.div`
   textarea:focus {
     color: #252525;
     background-color: #d2ffd8;
-    font-size: 15px;
   }
   @media (max-width: 1200px) {
     margin: 25px;
@@ -44,18 +42,17 @@ export const Input = styled.div`
     }
     input:focus {
       background-color: #d2ffd8;
-      font-size: 15px;
     }
     textarea {
       border-radius: 5px;
       margin-bottom: 20px;
       resize: none;
       width: 100%;
+      font-size: 20px;
     }
     textarea:focus {
       color: #252525;
       background-color: #d2ffd8;
-      font-size: 15px;
     }
   }
 `;
@@ -66,8 +63,9 @@ export const Form = styled.form`
     margin-top: 1rem;
   }
   h4 {
+    text-align: right;
     margin-top: 1rem;
-    margin-left: 25rem;
+    color: gray;
   }
 
   @media (max-width: 1200px) {
@@ -75,12 +73,20 @@ export const Form = styled.form`
   }
 `;
 
-export const FormMob = styled.div`
+export const FormMob = styled.form`
   display: none;
-  z-index: 10;
   @media (max-width: 1200px) {
     z-index: 1;
     display: block;
+    input{
+      font-size: 20px;
+    }
+    h4{
+      font-size: 20px;
+      text-align: center;
+      color: gray;
+      margin-bottom: 20px;
+    }
     p {
       color: white;
       font-size: 20px;
