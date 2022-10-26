@@ -6,7 +6,7 @@ export const Services = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5rem 10rem;
+  padding: 0 80px 0 80px;
   color: white;
   padding-top: 80px;
   overflow: hidden;
@@ -34,7 +34,6 @@ export const ServicesMobile = styled.div`
 
 export const Description = styled.div`
   flex: 2;
-  padding-right: 5rem;
   z-index: 2;
   h2 {
     font-weight: lighter;
