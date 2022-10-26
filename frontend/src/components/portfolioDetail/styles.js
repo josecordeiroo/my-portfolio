@@ -44,9 +44,13 @@ export const Titles = styled.div`
 
 export const Info = styled.div`
   text-align: center;
+  border: solid 0.01em gray;
+  border-radius: 15px;
+  padding: 7px;
+  transform: scale(0.9);
   h5 {
-    color: #373737;
-    font-weight: lighter;
+    color: gray;
+    font-size: 15px;
   }
 
   @media (max-width: 1200px) {
@@ -76,6 +80,7 @@ export const Technology = styled.div`
   align-items: center;
   color: gray;
   padding: 7px;
+  font-size: 15px;
 `;
 
 

@@ -114,11 +114,6 @@ const ServiceSection = ({ language }) => {
                 return (
                   <Carousel.Item key={project.images} interval={1200}>
                     <img src={project.images[0]} alt="" />
-                    {/* <Carousel.Caption>
-                      <DescriptionCarousel>
-                        {project.shortDescription}
-                      </DescriptionCarousel>
-                    </Carousel.Caption> */}
                   </Carousel.Item>
                 );
               })}
