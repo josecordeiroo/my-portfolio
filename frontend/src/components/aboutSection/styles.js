@@ -14,6 +14,12 @@ export const Container = styled.div`
     z-index: 1;
     margin-top: 40px;
   }
+  @media (max-width: 1600px) {
+    #moreInfo {
+    margin-left: 40px;
+    margin-top: 0;
+  }
+  }
 `;
 
 export const About = styled(motion.div)`
@@ -46,7 +52,7 @@ export const Image = styled.div`
 
   img {
     width: 90%;
-    border-radius: 200px;
+    border-radius: 50%;
     border: solid white 5px;
   }
 
@@ -59,7 +65,7 @@ export const ImageMobile = styled.div`
   text-align: center;
   img {
     width: 95%;
-    border-radius: 200px;
+    border-radius: 50%;
     border: solid white 5px;
     margin-bottom: 20px;
     
