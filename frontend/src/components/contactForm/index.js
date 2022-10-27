@@ -11,6 +11,7 @@ const ContactForm = ({ language }) => {
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [platform, setPlatform] = useState("Desktop")
 
   const resetForm = () => {
     setName("");
@@ -27,6 +28,7 @@ const ContactForm = ({ language }) => {
       Mensagem: message,
       Data: moment().format("DD-MM-YYYY"),
       Hora: moment().format("HH:mm:ss"),
+      Plataforma: platform
     };
 
     try {
@@ -120,7 +122,7 @@ const ContactForm = ({ language }) => {
           />
         </Input>
         <div className="mobButton">
-          <button type="submit">{language ? "Enviar" : "Send"}</button>
+          <button onClick={() => setPlatform("Mobile")} type="submit">{language ? "Enviar" : "Send"}</button>
         </div>
         {success && (
           <h4>

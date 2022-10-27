@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding: 10px;
   color: #373737;
   @media (max-width: 1200px) {
-    padding: 10px;
+    padding: 3px;
   }
 `;
 
@@ -15,6 +15,7 @@ export const Header = styled.div`
   justify-content: space-between;
   margin: 0 20px 0 20px;
   @media (max-width: 1200px) {
+    display: block;
     margin: 0 10px 0 10px;
   }
 `;
@@ -32,12 +33,16 @@ export const Titles = styled.div`
     text-align: left;
   }
   @media (max-width: 1200px) {
+    text-align: center;
+    width: 100%;
     h1 {
       font-size: 25px;
+      text-align: center;
     }
     p {
       font-size: 15px;
-      margin-bottom: 40px;
+      margin-bottom: 0;
+      text-align: center;
     }
   }
 `;
@@ -54,7 +59,9 @@ export const Info = styled.div`
   }
 
   @media (max-width: 1200px) {
+    transform: scale(0.7);
     justify-content: center;
+    margin-bottom: 20px;
     h5 {
       font-size: 20px;
     }
@@ -70,7 +77,6 @@ export const Technologies = styled.div`
   }
 
   @media (max-width: 1200px) {
-    
   }
 `;
 
@@ -82,7 +88,6 @@ export const Technology = styled.div`
   padding: 7px;
   font-size: 15px;
 `;
-
 
 export const FullDescription = styled.div`
   margin-top: 30px;
@@ -103,23 +108,23 @@ export const FullDescription = styled.div`
 
   @media (max-width: 1200px) {
     margin-top: -10px;
-    h4{
+    h4 {
       font-size: 20px;
     }
-    p{
+    p {
       font-size: 13px;
     }
     .git {
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
+      margin-top: 15px;
+      margin-bottom: 30px;
+    }
   }
 `;
 
 export const Pictures = styled.div`
   text-align: center;
   @media (max-width: 1200px) {
-    h5{
+    h5 {
       font-size: 16px;
     }
   }
@@ -143,6 +148,12 @@ export const PicturesSmall = styled.div`
   img {
     width: 90px;
     margin-right: 10px;
+  }
+  @media (max-width: 1200px) {
+    img {
+      width: 45px;
+      margin-right: 5px;
+    }
   }
 `;
 
