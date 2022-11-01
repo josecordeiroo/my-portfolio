@@ -14,7 +14,7 @@ const NavBar = ({ language, setLanguage }) => {
           <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/zecaxcr/">
             <img alt="" src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo.png" />
           </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zecaxcr">
+          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/josecordeiroooo">
             <img alt="" src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png" />
           </a>
           <a target="_blank" rel="noopener noreferrer" href="https://github.com/josecordeiroo">
@@ -111,7 +111,7 @@ const NavBar = ({ language, setLanguage }) => {
               <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/zecaxcr/">
                 <img alt="" src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo.png" />
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/zecaxcr">
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/josecordeiroooo">
                 <img alt="" src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png" />
               </a>
               <a target="_blank" rel="noopener noreferrer" href="https://github.com/josecordeiroo">

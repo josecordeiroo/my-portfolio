@@ -33,7 +33,6 @@ const Portfolio = ({ language }) => {
   return (
     <Container id="portfolio">
       <Modal size="lg" show={show} onHide={handleClose}>
-        <Modal.Header closeButton>Projeto</Modal.Header>
         <PortfolioDetail setShow={setShow} project={project} />
       </Modal>
       <Title>

@@ -10,7 +10,7 @@ import {
   AboutMob,
 } from "./styles";
 
-// import curriculo from "../../assets/JoseCordeiroCurriculo.pdf";
+import curriculo from "../../assets/JoseCordeiroCV.png";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
@@ -89,11 +89,11 @@ const AboutSection = ({ language }) => {
             <img src={myPicture} alt="Jose Cordeiro" />
           </ImageMobile>
           <div className="buttons">
-            <a href={myPicture} download="JoseCordeiroFullStack">
+            <a href={curriculo} download="JoseCordeiroFullStackCV">
               <button>
                 {language
-                  ? "Baixar meu currículo em PDF"
-                  : "Download my CV in PDF"}{" "}
+                  ? "Baixar CV"
+                  : "Download CV"}{" "}
               </button>
             </a>
             <a href="#services">
@@ -169,11 +169,11 @@ const AboutSection = ({ language }) => {
           )}
 
           <div className="buttons">
-            <a href={myPicture} download="JoseCordeiroFullStack">
+            <a href={curriculo} download="JoseCordeiroFullStack">
               <button>
                 {language
-                  ? "Baixar meu currículo em PDF"
-                  : "Download my CV in PDF"}{" "}
+                  ? "Baixar CV"
+                  : "Download CV"}{" "}
               </button>
             </a>
            
