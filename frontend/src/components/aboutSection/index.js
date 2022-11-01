@@ -10,7 +10,7 @@ import {
   AboutMob,
 } from "./styles";
 
-import curriculo from "../../assets/JoseCordeiroCurriculo.pdf";
+// import curriculo from "../../assets/JoseCordeiroCurriculo.pdf";
 
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
@@ -89,7 +89,7 @@ const AboutSection = ({ language }) => {
             <img src={myPicture} alt="Jose Cordeiro" />
           </ImageMobile>
           <div className="buttons">
-            <a href={curriculo} download="JoseCordeiroFullStack">
+            <a href={myPicture} download="JoseCordeiroFullStack">
               <button>
                 {language
                   ? "Baixar meu currículo em PDF"
