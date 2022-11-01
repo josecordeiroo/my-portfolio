@@ -169,7 +169,7 @@ const AboutSection = ({ language }) => {
           )}
 
           <div className="buttons">
-            <a href={curriculo} download="JoseCordeiroFullStack">
+            <a href={myPicture} download="JoseCordeiroFullStack">
               <button>
                 {language
                   ? "Baixar meu currículo em PDF"
