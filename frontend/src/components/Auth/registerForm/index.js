@@ -4,7 +4,6 @@ import UsersService from "../../../services/users";
 
 import { Modal } from "react-bootstrap";
 
-import { Button } from "rbx";
 
 import { scrollReveal } from "../../../animation";
 import { useScroll } from "../../../hooks/useScroll";
@@ -19,6 +18,7 @@ import {
   Terms,
   Container,
   DivTerms,
+  Button
 } from "./styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

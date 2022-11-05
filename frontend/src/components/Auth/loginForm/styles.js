@@ -60,3 +60,7 @@ export const ShowPasswordText = styled.p`
   padding-top: 5px;
   font-weight: lighter;
 `;
+
+export const Button = styled.button`
+  
+`

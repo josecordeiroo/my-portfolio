@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import UsersService from "../../../services/users";
 
-import { Button } from "rbx";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,6 +16,7 @@ import {
   ShowPasswordText,
   RegisterText,
   Container,
+  Button
 } from "./styles";
 
 const LoginForm = () => {

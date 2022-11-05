@@ -80,3 +80,8 @@ export const DivTerms = styled.div`
   }
   
 `;
+
+
+export const Button = styled.button`
+  
+`
