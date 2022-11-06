@@ -58,7 +58,7 @@ const AboutSection = ({ language }) => {
               inteira, sendo técnico em informática e de celulares por anos até
               chegar na área de desenvolvimento, acumulando uma bagagem que me
               ajudou a entender conceitos de forma bastante abrangente. Minhas
-              principais características são, sem dúvida, a dedicação altíssima
+              principais características são, sem dúvida, a dedicação
               e disciplina. Amante de esportes, pratico e cuido da minha saúde
               todos os dias, rigorosamente. Procuro desafios, não sou acostumado
               a desistir nem nos mais difíceis. Gosto de trabalhar e fazer parte
@@ -77,7 +77,7 @@ const AboutSection = ({ language }) => {
               being a computer technician and cell phones for years to reach the
               development area, accumulating a baggage that helped me to
               understand concepts in a quite comprehensive. My main
-              characteristics are, without doubt, the highest dedication and
+              characteristics are, without doubt, the dedication and
               discipline. Sports lover, I practice and take care of my health
               every day, rigorously. I look for challenges, I'm not used to
               giving up even in the most difficult. I enjoy working and being
@@ -140,7 +140,7 @@ const AboutSection = ({ language }) => {
               inteira, sendo técnico em informática e de celulares por anos até
               chegar na área de desenvolvimento, acumulando uma bagagem que me
               ajudou a entender conceitos de forma bastante abrangente. Minhas
-              principais características são, sem dúvida, a dedicação altíssima
+              principais características são, sem dúvida, a dedicação
               e disciplina. Amante de esportes, pratico e cuido da minha saúde
               todos os dias, rigorosamente. Procuro desafios, não sou acostumado
               a desistir nem nos mais difíceis. Gosto de trabalhar e fazer parte
@@ -159,7 +159,7 @@ const AboutSection = ({ language }) => {
               being a computer technician and cell phones for years to reach the
               development area, accumulating a baggage that helped me to
               understand concepts in a quite comprehensive. My main
-              characteristics are, without doubt, the highest dedication and
+              characteristics are, without doubt, the dedication and
               discipline. Sports lover, I practice and take care of my health
               every day, rigorously. I look for challenges, I'm not used to
               giving up even in the most difficult. I enjoy working and being
